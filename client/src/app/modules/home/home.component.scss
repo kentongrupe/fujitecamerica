@@ -1,0 +1,70 @@
+home {
+    width: 100%;
+
+    .header {
+        text-align: center;
+    }
+
+    .home-slides-div {
+        background-color: lightgrey;
+        box-shadow      : $home-slides-box-shadow;
+        height          : 300px;
+        width           : 100%;
+    }
+
+    .home-div {
+        margin   : 0 auto;
+        max-width: $max-width;
+
+        .home-menu-div {
+            display: inline-flex;
+            width  : 100%;
+
+            .home-menu-items {
+                display   : $home-menu-display;
+                list-style: none;
+                margin    : 0 auto;
+
+                .home-menu-item {
+                    border      : $home-menu-border;
+                    float       : left;
+                    height      : $home-menu-item-height;
+                    margin-right: 20px;
+                    width       : $home-menu-item-width;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    .home-menu-item-icon {
+                        background-color: red;
+                        height          : $home-menu-item-icon-height;
+                        width           : $home-menu-item-icon-width;
+                    }
+
+                    .home-menu-item-label {
+                        display    : inline-flex;
+                        height     : $home-menu-item-label-height;
+                        line-height: $home-menu-item-label-height;
+                        width      : $home-menu-item-label-width;
+
+                        .material-icons {
+                            color   : $home-menu-item-arrow-color;
+                            left    : 5px;
+                            position: relative;
+                            top     : 7px;
+                        }
+
+                        label {
+                            display      : inline-block;
+                            font-size    : $home-menu-item-label-font-size;
+                            padding-right: 10px;
+                            text-align   : center;
+                            width        : 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

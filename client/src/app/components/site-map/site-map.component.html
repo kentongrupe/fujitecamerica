@@ -1,0 +1,16 @@
+<div class="site-map-div">
+    <h1>{{ this | getString: 'sitemap': 'Sitemap' }}</h1>
+    <div class="site-map-links" *ngFor="let l0 of siteMap">
+        <div class="site-map-link">{{ l0.label }}</div>
+        <div class="links site-map-1" *ngIf="l0.children.length>0">
+            <div class="link" *ngFor="let l1 of l0.children">
+                <span>{{ l1.label }}</span>
+                <div class="links site-map-2" *ngIf="l1.children.length>0">
+                    <div class="link" *ngFor="let l2 of l1.children">
+                        <span>{{ l2.label }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

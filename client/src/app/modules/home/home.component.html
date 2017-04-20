@@ -1,0 +1,33 @@
+<div class="home-slides-div">
+</div>
+<div class="home-div">
+    <h3 class="header">{{ this | getString: 'systems': 'Systems' }}</h3>
+    <div class="home-menu-div">
+        <ul class="home-menu-items">
+            <li class="link home-menu-item" *ngFor="let m of _sysMenu">
+                <div class="home-menu-item-icon" (click)="onMenuClick(m, $event)"></div>
+                <div class="home-menu-item-label" (click)="onMenuClick(m, $event)">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    <label>{{ m.label }}</label>
+                </div>
+                <div #menu class="sublinks`-div" [class.expanded]="m.expanded">
+                    <ul class="sublinks links">
+                        <li class="sublink link" *ngFor="let mm of m.items" (click)="onMenuClick(mm, $event)">{{ mm.label }}</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h3 class="header">{{ this | getString: 'industry-professional-resources': 'Industry Professional Resources' }}</h3>
+    <div class="home-menu-div">
+        <ul class="home-menu-items">
+            <li class="link home-menu-item" *ngFor="let m of _proMenu" (click)="onMenuClick(m, $event)">
+                <div class="home-menu-item-icon"></div>
+                <div class="home-menu-item-label">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    <label>{{ m.label }}</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

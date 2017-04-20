@@ -1,0 +1,15 @@
+<div class="mobile-menu-div">
+    <ul class="links">
+        <li *ngFor="let m of menu; let i=index" [class.active]="isActive(m)" (click)="onMenuClick(m.routerLink[0])">{{ m.label }}</li>
+    </ul>
+</div>
+<div class="footer-div">
+    <div class="links-div">
+        <ul class="links">
+            <li *ngFor="let m of menu; let i=index" [class.active]="isActive(m)" (click)="onMenuClick(m.routerLink[0])">
+                <span>{{ m.label }}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="copyright-div">© {{ copyright }} FUJITEC CO., LTD.</div>
+</div>

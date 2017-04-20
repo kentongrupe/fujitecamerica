@@ -1,0 +1,43 @@
+@mixin drop-shadow($dx, $dy, $blur, $spread, $rgba) {
+    -webkit-box-shadow: $dx $dy $blur $spread $rgba !important;
+    -moz-box-shadow   : $dx $dy $blur $spread $rgba !important;
+    box-shadow        : $dx $dy $blur $spread $rgba !important;
+}
+
+// app
+$max-width: 1024px;
+
+body,
+html {
+    margin : 0;
+    padding: 0;
+    width  : 100%;
+}
+
+input[type="password"],
+input[type="text"],
+select,
+textarea {
+    box-sizing   : border-box;
+    font-size    : 14px;
+    height       : 45px;
+    padding-left : 10px;
+    padding-right: 10px;
+}
+
+ul.links {
+    display   : inline-block;
+    list-style: none;
+    margin    : 0;
+    padding   : 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.link {
+    cursor: pointer;
+}
+
+// header

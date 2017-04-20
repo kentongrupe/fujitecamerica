@@ -1,0 +1,56 @@
+<div class="header-div">
+    <div class="header-logo-div" (click)="_onLogoClick()"></div>
+    <div class="separator"></div>
+    <div class="header-main-menu-div">
+        <ul class="links">
+            <li class="link" *ngFor="let m of _mainMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m, $event)" (mouseover)="_toggleMenu(i, true)" (mouseout)="_toggleMenu(i, false)">
+                <div class="link-label">{{ m.label }}</div>
+                <div #menu class="sublinks-div" [class.expanded]="m.expanded">
+                    <ul class="sublinks links">
+                        <li class="sublink link" *ngFor="let mm of m.items" (click)="_onMenuClick(mm, $event)">{{ mm.label }}</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="separator"></div>
+    <div class="header-side-menu-div">
+        <ul class="links">
+            <li class="link" *ngFor="let m of _sideMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">
+                <span *ngIf="!m.icon">{{ m.label }}</span>
+                <div *ngIf="m.icon" class="search-icon-div">
+                    <div class="search-icon"><i class="material-icons">{{ m.icon }}</i></div>
+                    <div class="search-text">{{ m.label }}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="header-mobile-menu-trigger-div" [class.menu-open]="_showMenu" (click)="_showMenu=!_showMenu">
+        <div class="header-mobile-menu-lines-div">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="header-mobile-menu-text" *ngIf="!_showMenu">{{ this | getString: 'menu': 'MENU' }}</div>
+        <div class="header-mobile-menu-text" *ngIf="_showMenu">{{ this | getString: 'close': 'CLOSE' }}</div>
+    </div>
+</div>
+<div class="search-div" [class.active]="_showSearch">
+    <div class="search-input-div">
+        <div class="link search-icon" (click)="_search()"><i class="material-icons">search</i></div>
+        <input class="search-input" type="text" placeholder="{{ this | getString: 'search': 'Search' }}" [(ngModel)]="_searchText" (change)="_search()">
+    </div>
+</div>
+
+<div class="mobile-menu-div" [class.active]="_showMenu">
+    <ul class="links">
+        <li *ngFor="let m of _mobileMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">{{ m.label }}</li>
+    </ul>
+    <div class="search-div">
+        <div class="search-input-div">
+            <div class="link search-icon" (click)="_search()"><i class="material-icons">search</i></div>
+            <input class="search-input" type="text" placeholder="{{ this | getString: 'search': 'Search' }}" [(ngModel)]="_searchText" (change)="_search()">
+        </div>
+    </div>
+    <div class="mobile-menu-close-div" (click)="_showMenu=false">{{ this | getString: 'close': 'CLOSE'}}</div>
+</div>
