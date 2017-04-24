@@ -1,0 +1,70 @@
+menu {
+    box-sizing: border-box;
+    display   : none;
+    padding   : 0;
+    margin    : 0;
+    position  : absolute;
+
+    .menu-label-div {
+        width: 100%;
+    }
+
+    &.expanded {
+        display: block;
+    }
+
+    .menu {
+        background-color : $menu-background-color;
+        border           : $menu-border;
+        box-sizing       : border-box;
+        display          : inline-grid;
+        list-style       : none;
+        margin           : 0;
+        padding          : 0;
+
+        $menu-item-height: 45px;
+
+        .menu-item {
+            background   : $menu-item-background;
+            border-bottom: $menu-border;
+            box-sizing   : border-box;
+            height       : $menu-item-height;
+            line-height  : $menu-item-height;
+            margin       : 0;
+            text-align   : left;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            .menu-item-label {
+                float      : left;
+                line-height: $menu-item-height;
+                padding    : 0 20px 0 30px;
+                width      : 100%;
+
+                &:hover {
+                    color     : $menu-hover-color;
+                    transition: color .2s;
+                }
+
+                &.active {
+                    color: $menu-hover-color;
+                }
+
+                label {
+                    display   : inline-block;
+                    text-align: left;
+                    width     : 100%;
+                }
+            }
+        }
+    }
+
+    &.submenu {
+        float      : right;
+        left       : 100%;
+        margin-left: -1px !important;
+        margin-top : -1px !important;
+    }
+}

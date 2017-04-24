@@ -44,7 +44,3 @@ export class GetStringPipe extends BasePipe implements PipeTransform {
         return this.stringService.get(id, defaultValue);
     }
 }
-
-/*===========================================================================*/
-/*          Copyright © 2016-2017. APCON, Inc. All Rights Reserved.          */
-/*===========================================================================*/

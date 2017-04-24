@@ -1,0 +1,23 @@
+<!--<div class="menu-label-div" [mdMenuTriggerFor]="menu" (click)="_onClick(m, $event)" (mouseover)="_showMenu()">
+    <ng-content select="menu-label"></ng-content>
+</div>
+<md-menu #menu="mdMenu">
+    <div *ngIf="_items.length>0">
+        <button md-menu-item *ngFor="let m of _items" (click)="_onClick(m, $event)">
+            <div>
+                <label>{{ m.label }}</label>
+            </div>
+        </button>
+    </div>
+</md-menu>-->
+
+<div class="menu-div">
+    <ul class="menu">
+        <li class="menu-item" *ngFor="let m of _model; let i=index">
+            <div class="menu-item-label" (click)="_onClick(m, $event)" (mouseover)="_toggleMenu($event, m, true)" (mouseout)="_toggleMenu($event, m, false)">
+                <label>{{ m.label }}</label>
+            </div>
+            <!--<menu *ngIf="m.items && (m.items.length>0)" class="submenu" [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick($event)"></menu>-->
+        </li>
+    </ul>
+</div>

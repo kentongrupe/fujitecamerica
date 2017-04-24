@@ -1,16 +1,34 @@
 // app
-$app-margin       : auto;
-$app-margin-bottom: 30px;
+$app-margin                        : auto;
+$app-margin-bottom                 : 30px;
+$app-margin-top                    : 70px;
+$app-content-margin                : $app-margin-top auto $app-margin-bottom;
+$app-content-padding               : 0;
 
 // footer
-$footer-font-size : 12px;
-$footer-height    : 65px;
+$footer-font-size                  : 12px;
+$footer-height                     : 65px;
+$footer-links-display              : inline-flex;
+$footer-copyright-float            : right;
+
+$footer-mobile-links-display       : none;
 
 // header
-$header-height    : 70px;
-$header-padding   : 0;
+$header-height                     : $app-margin-top;
+$header-padding                    : 0;
+$header-logo-margin                : 20px 0;
+$header-menu-display               : inline-block;
+$header-search-input-div-width     : $max-width;
+$header-search-input-width         : 440px;
+$header-search-icon-top            : -5px;
+$header-mobile-menu-trigger-display: none;
 
 // home
-$home-menu-display: inline-block;
+$home-menu-display                 : inline-block;
+
+// site map
+$site-map-margin                   : 0;
+
+$site-map-link-height              : 50px;
 
 //

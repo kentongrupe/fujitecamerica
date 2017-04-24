@@ -1,16 +1,35 @@
 // app
-$app-margin       : 10px;
-$app-margin-bottom: 30px;
+$app-margin                        : 10px;
+$app-margin-bottom                 : 30px;
+$app-margin-top                    : 45px;
+$app-content-margin                : $app-margin-top 0 $app-margin-bottom;
+$app-content-padding               : 0 10px;
 
 // footer
-$footer-font-size : 10px;
-$footer-height    : 45px;
+$footer-border-top                 : none;
+$footer-font-size                  : 10px;
+$footer-height                     : 45px;
+$footer-links-display              : none;
+$footer-copyright-float            : none;
+
+$footer-mobile-links-display       : block;
 
 // header
-$header-height    : 45px;
-$header-padding   : 10px 5px 10px 10px;
+$header-height                     : $app-margin-top;
+$header-padding                    : 10px 5px 10px 10px;
+$header-logo-margin                : 10px 0 0 10px;
+$header-menu-display               : none;
+$header-search-input-div-width     : auto;
+$header-search-input-width         : 260px;
+$header-search-icon-top            : 5px;
+$header-mobile-menu-trigger-display: inline-block;
 
 // home
-$home-menu-display: inline-grid;
+$home-menu-display                 : inline-grid;
+
+// site map
+$site-map-margin                   : 0 10px;
+
+$site-map-link-height              : 38px;
 
 //

@@ -16,6 +16,17 @@ import {
 
 export class BaseProductRouteComponent extends BaseRouteComponent {
 
+    protected _product: string = '';
+    get product(): string {
+        return this._product;
+    }
+    set product(value: string) {
+        this._product = value;
+        if (!this.isNullOrEmpty(value)) {
+            this._onProduct();
+        }
+    }
+
     constructor(
         className: string = 'BaseProductRouteComponent',
         protected domService: DOMService,
@@ -28,10 +39,11 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
     protected _onNavigationEnd(event: NavigationEnd): void {
         super._onNavigationEnd(event);
 
-        let product = this._getParam('product');
-
-        if (!this.isNullOrEmpty(product)) {
-            let r = this[product] as ElementRef;
+        this.product = this._getParam('product');
+    }
+    protected _onProduct(): void {
+        if (!this.isNullOrEmpty(this._product)) {
+            let r = this[this._product] as ElementRef;
             if (r !== undefined) {
                 let y = r.nativeElement.offsetTop;
                 this.domService.scrollTo(0, y);

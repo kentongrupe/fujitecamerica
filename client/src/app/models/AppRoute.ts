@@ -6,6 +6,14 @@ export class AppRoute {
     public static CONSULTANTS: string = '/consultants';
     public static DESTINATION_CONTROL: string = '/destination-control';
     public static ELEVATORS: string = '/elevators';
+    public static ELEVATORS_CONTROLLERS: string = '/elevators/controllers';
+    public static ELEVATORS_IONFUL: string = '/elevators/ionful';
+    public static ELEVATORS_MONITORING: string = '/elevators/monitoring';
+    public static ELEVATORS_SYSTEMS: string = '/elevators/systems';
+    public static ELEVATORS_SYSTEMS_GEARED: string = '/elevators/systems/geared';
+    public static ELEVATORS_SYSTEMS_GEARLESS: string = '/elevators/systems/gearless';
+    public static ELEVATORS_SYSTEMS_HYDRAULIC: string = '/elevators/systems/hydraulic';
+    public static ELEVATORS_SYSTEMS_MRL: string = '/elevators/systems/mrl';
     public static ESCALATORS: string = '/escalators';
     public static HOME: string = '';
     public static INSTALLATION: string = '/installation';

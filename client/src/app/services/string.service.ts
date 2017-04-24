@@ -8,6 +8,8 @@ import {
 @Injectable()
 export class StringService extends BaseService {
 
+    public static locale: string = 'en';
+
     private _cache: Map<string, string>;
 
     constructor() {

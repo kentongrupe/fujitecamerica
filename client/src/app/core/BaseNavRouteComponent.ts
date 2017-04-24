@@ -51,7 +51,7 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
     public isActive(m: any): boolean {
         return (this.activeItem !== null) && (m.label === this.activeItem.label);
     }
-    public onMenuClick(item: MenuItem, event: MouseEvent): void {
+    public onMenuClick(item: MenuItem, event?: MouseEvent): void {
         this._preventDefault(event);
         if (!this.isNullOrEmpty(item.routerLink)) {
             this._navTo(item.routerLink);

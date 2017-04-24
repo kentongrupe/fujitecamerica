@@ -4,6 +4,6 @@
     <input type="password" [(ngModel)]="password" />
 </div>
 <div md-dialog-actions>
-    <button md-dialog-close>{{ this | getString: 'cancel': 'Cancel' }}</button>
-    <button md-button (click)="loginModal.close()">{{ this | getString: 'login': 'Login' }}</button>
+    <button md-dialog-close (click)="_cancel()">{{ this | getString: 'cancel': 'Cancel' }}</button>
+    <button md-button (click)="_login()">{{ this | getString: 'login': 'Login' }}</button>
 </div>

@@ -38,6 +38,63 @@ ul.links {
 
 .link {
     cursor: pointer;
+
+    * {
+        cursor: pointer;
+    }
 }
 
+.content-div {
+    margin   : $app-margin;
+    max-width: $max-width;
+}
+
+// footer
+$footer-max-width: $max-width;
+$footer-mobile-menu-item-height: 30px;
+
 // header
+$header-font-size: 14px;
+$header-max-width: $max-width;
+
+$header-separator-margin: 20px 0;
+$header-logo-padding: 0 40px 0 0;
+
+$header-main-menu-link-margin: 0 30px;
+
+$header-side-menu-font-size: 10px;
+$header-side-menu-margin: 10px 0 20px;
+$header-side-menu-padding: 0 0 0 40px;
+$header-side-menu-link-margin: 0 10px;
+
+$header-search-icon-font-size: 30px;
+
+$header-search-height: 80px;
+$header-search-opacity: 0;
+$header-search-padding: 20px 0;
+
+$header-search-input-height: 40px;
+$header-search-icon-size: 40px;
+$header-mobile-menu-trigger-font-size: 10px;
+$header-mobile-menu-trigger-width: 40px;
+
+$header-mobile-menu-trigger-line-height: 3px;
+$header-mobile-menu-trigger-line-width: 22px;
+
+$header-mobile-menu-item-height: 45px;
+$header-mobile-menu-item-close-height: 45px;
+
+// home
+$home-menu-item-height: 160px;
+$home-menu-item-width: 220px;
+$home-menu-item-icon-height: 120px;
+$home-menu-item-icon-width: $home-menu-item-width;
+$home-menu-item-label-height: 40px;
+$home-menu-item-label-width: $home-menu-item-width;
+$home-menu-item-label-font-size: 13px;
+$home-slides-transition-duration: 1s;
+
+// site-map
+$site-map-links-margin: 0 0 20px 0;
+
+//

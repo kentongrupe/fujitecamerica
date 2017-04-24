@@ -3,15 +3,19 @@ import {
     NO_ERRORS_SCHEMA
 } from '@angular/core';
 import {
-    DestinationControlComponent
-} from './destination-control.component';
-import {
     FujitecSharedModule
 } from 'app/modules';
+import {
+    DestinationControlComponent,        // home > destination control
+    DestinationEZShuttleComponent,      // home > destination control > ezshuttle
+    DestinationFlexNXComponent          // home > destination control > flex-nx
+} from './';
 
 @NgModule({
     declarations: [
-        DestinationControlComponent
+        DestinationControlComponent,        // home > destination control
+        DestinationEZShuttleComponent,      // home > destination control > ezshuttle
+        DestinationFlexNXComponent          // home > destination control > flex-nx
     ],
     imports: [
         FujitecSharedModule

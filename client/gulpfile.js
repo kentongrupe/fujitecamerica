@@ -1,3 +1,5 @@
+/*===========================================================================*/
+
 'use strict';
 
 String.prototype.format = function () {
@@ -27,10 +29,10 @@ gulp.task('clean', function () {
 /*===========================================================================*/
 function _scss(style, mq) {
     gulp.src([
-        './src/styles/_core.scss',
-        './src/styles/_core_{0}.scss'.format(mq),
         './src/styles/{0}.scss'.format(style),
         './src/styles/{0}_{1}.scss'.format(style, mq),
+        './src/styles/_core.scss',
+        './src/styles/_core_{0}.scss'.format(mq),
         './src/app/**/*.scss'
     ], {
             base: './src'
@@ -63,6 +65,4 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['build-client-scss', 'watch']);
 
-/*===========================================================================*/
-/*             Copyright © 2016. APCON, Inc. All Rights Reserved.            */
 /*===========================================================================*/

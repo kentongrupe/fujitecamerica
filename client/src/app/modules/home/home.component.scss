@@ -7,15 +7,28 @@ home {
 
     .home-slides-div {
         background-color: lightgrey;
-        box-shadow      : $home-slides-box-shadow;
-        height          : 300px;
+        overflow        : hidden;
+        position        : relative;
         width           : 100%;
+
+        .slides-bg-div {
+            box-shadow: $home-slides-box-shadow;
+            position  : absolute;
+        }
+
+        .slides-div {
+            display   : inline-flex;
+            left      : 0;
+            position  : absolute;
+            transition: all 0;
+
+            &.sliding {
+                transition: left $home-slides-transition-duration;
+            }
+        }
     }
 
     .home-div {
-        margin   : 0 auto;
-        max-width: $max-width;
-
         .home-menu-div {
             display: inline-flex;
             width  : 100%;
@@ -43,24 +56,28 @@ home {
                     }
 
                     .home-menu-item-label {
-                        display    : inline-flex;
-                        height     : $home-menu-item-label-height;
-                        line-height: $home-menu-item-label-height;
-                        width      : $home-menu-item-label-width;
+                        background  : $menu-item-background;
+                        display     : inline-flex;
+                        height      : $home-menu-item-label-height;
+                        line-height : $home-menu-item-label-height;
+                        padding-left: 5px;
+                        width       : $home-menu-item-label-width;
 
-                        .material-icons {
-                            color   : $home-menu-item-arrow-color;
-                            left    : 5px;
-                            position: relative;
-                            top     : 7px;
+                        & > label {
+                            display   : inline-block;
+                            font-size : $home-menu-item-label-font-size;
+                            text-align: center;
+                            width     : 100%;
                         }
 
-                        label {
-                            display      : inline-block;
-                            font-size    : $home-menu-item-label-font-size;
-                            padding-right: 10px;
-                            text-align   : center;
-                            width        : 100%;
+                        menu {
+                            margin-top: $home-menu-item-label-height;
+
+                            .menu-item-label {
+                                label {
+                                    font-size: $home-menu-item-label-font-size;
+                                }
+                            }
                         }
                     }
                 }

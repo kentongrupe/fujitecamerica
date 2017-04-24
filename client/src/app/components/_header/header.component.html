@@ -5,11 +5,7 @@
         <ul class="links">
             <li class="link" *ngFor="let m of _mainMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m, $event)" (mouseover)="_toggleMenu(i, true)" (mouseout)="_toggleMenu(i, false)">
                 <div class="link-label">{{ m.label }}</div>
-                <div #menu class="sublinks-div" [class.expanded]="m.expanded">
-                    <ul class="sublinks links">
-                        <li class="sublink link" *ngFor="let mm of m.items" (click)="_onMenuClick(mm, $event)">{{ mm.label }}</li>
-                    </ul>
-                </div>
+                <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick($event)"></menu>
             </li>
         </ul>
     </div>

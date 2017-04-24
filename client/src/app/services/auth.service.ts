@@ -8,6 +8,9 @@ import {
     User,
     UserRole
 } from 'app/models';
+import {
+    DataService
+} from './data.service';
 
 @Injectable()
 export class AuthenticationService extends BaseService {
@@ -18,17 +21,17 @@ export class AuthenticationService extends BaseService {
         return ((this.currentUser !== undefined) && (this.currentUser !== null));
     }
     constructor(
-        // private dataService: DataService,
+        private dataService: DataService
     ) {
         super('AuthenticationService');
     }
 
     public login(username: string, password: string, onSuccess: Function = null, onError: Function = null): void {
-        this.currentUser = new User({
-            userRole: UserRole.CONSULTANT
+        this.dataService.login(username, password, (d) => {
+            this.currentUser = new User(d);
+            if (onSuccess) {
+                onSuccess(this.currentUser);
+            }
         });
-        if (onSuccess) {
-            onSuccess(this.currentUser);
-        }
     }
 }

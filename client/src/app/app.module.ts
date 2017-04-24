@@ -32,6 +32,8 @@ import {
     AppHeaderComponent,
     SiteMapComponent,
     // modules
+    FujitecSharedModule,
+
     AboutModule,
     ArchitectsModule,
     AutowalksModule,
@@ -47,10 +49,9 @@ import {
     PropertyManagersModule,
     ServiceMaintenanceModule,
 
-    FujitecSharedModule,
-
     // servivces
     AuthenticationService,
+    DataService,
     DOMService,
     RouterService,
     StorageService,
@@ -63,6 +64,7 @@ const APP_PROVIDERS = [
     AppState,
 
     AuthenticationService,
+    DataService,
     DOMService,
     RouterService,
     StorageService,

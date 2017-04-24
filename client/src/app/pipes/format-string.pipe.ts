@@ -22,7 +22,3 @@ export class FormatStringPipe extends BasePipe implements PipeTransform {
         return template.format.apply(template, args);
     }
 }
-
-/*===========================================================================*/
-/*          Copyright © 2016-2017. APCON, Inc. All Rights Reserved.          */
-/*===========================================================================*/

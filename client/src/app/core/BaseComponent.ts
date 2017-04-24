@@ -4,10 +4,14 @@ import {
 import {
     BaseClass
 } from './BaseClass';
+import {
+    StringService
+} from 'app/services';
 
 export class BaseComponent extends BaseClass implements OnInit {
 
     public enabled: boolean = true;
+    public locale: string = 'en';
 
     public get disabled(): boolean {
         return !this.enabled;
@@ -15,6 +19,7 @@ export class BaseComponent extends BaseClass implements OnInit {
 
     constructor(className: string = 'BaseComponent') {
         super(className);
+        // this.locale = StringService.locale;
     }
 
     public ngOnInit() {
@@ -22,7 +27,7 @@ export class BaseComponent extends BaseClass implements OnInit {
     }
 
     protected _preventDefault(event: MouseEvent): void {
-        if (event !== undefined) {
+        if ((event !== undefined) && (event !== null)) {
             event.preventDefault();
             event.stopPropagation();
         }

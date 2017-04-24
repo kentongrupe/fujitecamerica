@@ -18,6 +18,13 @@ import {
 } from '@angular/material';
 import 'hammerjs';
 import {
+    IFrameComponent,
+    MenuComponent
+} from 'app/components';
+import {
+    HtmlRendererDirective
+} from 'app/directives';
+import {
     LoginModal
 } from 'app/modals';
 import {
@@ -27,6 +34,11 @@ import {
 
 @NgModule({
     declarations: [
+        // components
+        IFrameComponent,
+        MenuComponent,
+        // directives
+        HtmlRendererDirective,
         // modals
         LoginModal,
         // pipes
@@ -53,6 +65,11 @@ import {
         // material2
         MaterialModule,
 
+        // components
+        IFrameComponent,
+        MenuComponent,
+        // directives
+        HtmlRendererDirective,
         // modals
         LoginModal,
         // pipes

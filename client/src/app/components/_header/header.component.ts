@@ -144,8 +144,8 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
     private _onLogoClick(): void {
         this._navTo(AppRoute.HOME);
     }
-    private _onMenuClick(item: MenuItem, event: MouseEvent): void {
-        super.onMenuClick(item, event);
+    private _onMenuClick(item: MenuItem): void {
+        super.onMenuClick(item);
         this._mainMenu.forEach((m) => {
             m.expanded = false;
         });
