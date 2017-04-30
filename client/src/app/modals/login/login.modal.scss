@@ -1,1 +1,38 @@
-login {}
+login {
+    display : inline-block;
+    height  : $login-modal-height;
+    overflow: hidden;
+    width   : $login-modal-width;
+
+    .mat-dialog-content {
+        display   : inline-flex;
+        height    : $login-modal-height;
+        overflow  : hidden;
+        padding   : 0;
+        position  : relative;
+        transition: all .5s;
+        width     : 200%;
+
+        &.show-reg {
+            transform: translateX(-50%);
+        }
+
+        .mat-card {
+            box-sizing: border-box;
+            float     : left;
+            width     : $login-modal-width;
+
+            &:not([class*=mat-elevation-z]) {
+                box-shadow: none;
+
+                .mat-card-actions {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    .mat-input-container {
+        width: 100%;
+    }
+}

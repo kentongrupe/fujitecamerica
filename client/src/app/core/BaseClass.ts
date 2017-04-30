@@ -46,8 +46,14 @@ if (!Array.prototype.getItemIndex) {
         return (i === this.length) ? -1 : i;
     };
 }
-if (!Array.prototype.includes && Array.prototype.contains) {
-    Array.prototype.includes = Array.prototype.contains;
+if (!Array.prototype.includes) {
+    Array.prototype.includes = (searchElement, fromIndex?: number) => {
+        let s = this;
+        if ((fromIndex !== undefined) && (fromIndex !== null) && !isNaN(fromIndex)) {
+            s = this.substr(fromIndex);
+        }
+        return s.indexOf(searchElement);
+    };
 }
 if (!Array.prototype.merge) {
     Array.prototype.merge = function (a) {
@@ -195,6 +201,16 @@ if (!String.prototype.replaceCharAt) {
 if (!String.prototype.toBoolean) {
     String.prototype.toBoolean = function () {
         return ((this.toLowerCase() === 'true') || (this.toLowerCase() === 'yes') || (this === '1'));
+    };
+}
+if (!String.prototype.toClassName) {
+    String.prototype.toClassName = function () {
+        if (String.isNullOrEmpty(this)) {
+            return '';
+        }
+        return this.toLowerCase().split(' ').filter((s) => {
+            return (s.length > 0);
+        }).join('-').replace(/_/g, '\-');
     };
 }
 String.isNullOrEmpty = function (s) {

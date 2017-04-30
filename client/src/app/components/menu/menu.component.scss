@@ -28,7 +28,6 @@ menu {
             background   : $menu-item-background;
             border-bottom: $menu-border;
             box-sizing   : border-box;
-            height       : $menu-item-height;
             line-height  : $menu-item-height;
             margin       : 0;
             text-align   : left;
@@ -38,6 +37,7 @@ menu {
             }
 
             .menu-item-label {
+                box-sizing : border-box;
                 float      : left;
                 line-height: $menu-item-height;
                 padding    : 0 20px 0 30px;
@@ -58,13 +58,14 @@ menu {
                     width     : 100%;
                 }
             }
+
+            .submenu-div {
+                float: right;
+            }
         }
     }
 
     &.submenu {
-        float      : right;
-        left       : 100%;
-        margin-left: -1px !important;
-        margin-top : -1px !important;
+        width: 100%;
     }
 }

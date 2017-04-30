@@ -11,12 +11,13 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    DOMService
+    DOMService,
+    StringService
 } from 'app/services';
 
 @Component({
     selector: 'installation',
-    templateUrl: 'installation.component.html'
+    templateUrl: '/assets/locales/{0}/installation-{0}.html'.format(StringService.locale)
 })
 export class InstallationComponent extends BaseProductRouteComponent {
 

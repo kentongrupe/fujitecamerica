@@ -45,7 +45,7 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
         if (!this.isNullOrEmpty(this._product)) {
             let r = this[this._product] as ElementRef;
             if (r !== undefined) {
-                let y = r.nativeElement.offsetTop;
+                let y = r.nativeElement.offsetTop - 90;
                 this.domService.scrollTo(0, y);
             }
         }

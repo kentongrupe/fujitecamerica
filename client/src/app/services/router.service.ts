@@ -17,6 +17,7 @@ import {
     BaseService
 } from 'app/core';
 import {
+    AlertModal,
     LoginModal
 } from 'app/modals';
 import {
@@ -27,6 +28,9 @@ import {
 import {
     AuthenticationService
 } from './auth.service';
+import {
+    StringService
+} from './string.service';
 
 @Injectable()
 export class RouterService extends BaseService implements CanActivate, CanActivateChild {
@@ -34,9 +38,11 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
     constructor(
         private authService: AuthenticationService,
         private dialog: MdDialog,
-        private router: Router
+        private router: Router,
+        private stringService: StringService
     ) {
         super('RouterService');
+        this._stringService = stringService;
     }
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -62,42 +68,55 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
         }
     }
     private _canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if (this.authService.isLoggedIn) {
-            return true;
+        if (!this.stringService.hasStrings) {
+            this.to(AppRoute.INIT);
+            return false;
         }
-        let dialogRef = this.dialog.open(LoginModal);
-        dialogRef.afterClosed().subscribe((result) => {
-            let m = dialogRef.componentInstance as LoginModal;
-            let u = m.username;
-            let p = m.password;
-            // TODO: verify user
-            // console.log(m.username, m.password);
-            // console.log(route.url[0].path);
-            this.authService.login(u, p, (user: User) => {
-                let path = '/{0}'.format(route.url[0].path);
+        let path = route.url[0].path;
+        let routePaath = '/{0}'.format(path);
+        if (['architects', 'consultants', 'property-managers'].includes(path)) {
+
+            let _checkUserRole = (userRole) => {
                 let isValidUser = false;
-                switch (user.userRole) {
+                switch (userRole) {
                     case UserRole.ARCHITECT:
-                        isValidUser = (path === AppRoute.ARCHITECTS);
+                        isValidUser = (routePaath === AppRoute.ARCHITECTS);
                         break;
                     case UserRole.CONSULTANT:
-                        isValidUser = (path === AppRoute.CONSULTANTS);
+                        isValidUser = (routePaath === AppRoute.CONSULTANTS);
                         break;
                     case UserRole.PROPERTY_MANAGER:
-                        isValidUser = (path === AppRoute.PROPERTY_MANAGERS);
+                        isValidUser = (routePaath === AppRoute.PROPERTY_MANAGERS);
                         break;
                     default:
                         break;
                 }
-                if (isValidUser) {
-                    this.to(path);
+                return isValidUser;
+            };
+            let _showAlert = () => {
+                let a = this.dialog.open(AlertModal);
+                a.componentInstance.message = this._getString('invalid-user-role-for-n', 'invalid user role for {0}').format(path);
+            };
+
+            if (this.authService.isLoggedIn) {
+                if (_checkUserRole(this.authService.currentUser.userRole)) {
+                    return true;
                 } else {
-                    // TODO: show error message
-                    console.error('invalid user');
-                    this.to(AppRoute.HOME);
+                    _showAlert();
+                    return false;
+                }
+            }
+            let l = this.dialog.open(LoginModal);
+            l.afterClosed().subscribe((user) => {
+                if (_checkUserRole(user.userRole)) {
+                    this.to(routePaath);
+                } else {
+                    _showAlert();
+                    return false;
                 }
             });
-        });
-        return false;
+            return false;
+        }
+        return true;
     }
 }

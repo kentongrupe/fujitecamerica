@@ -20,7 +20,18 @@ let PROVIDERS: any[] = [
 // https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
 let _decorateModuleRef = <T>(value: T): T => { return value; };
 
-StringService.locale = navigator.language;
+let loginInfo = null;
+let s = window.location.search;
+if ((s !== undefined) && (s !== null) && (s.replace(' ', '').length > 0) && (s.startsWith('?'))) {
+    s.substr(1).split('&').forEach((x) => {
+        let a = x.split('=');
+        if (a[0].toLowerCase() === 'locale') {
+            StringService.locale = a[1];
+        }
+    });
+} else {
+    StringService.locale = 'en'; // navigator.language;
+}
 
 if ('production' === ENV) {
     enableProdMode();
@@ -43,10 +54,10 @@ if ('production' === ENV) {
         const appRef = modRef.injector.get(ApplicationRef);
         const cmpRef = appRef.components[0];
 
-        let _ng = (<any> window).ng;
+        let _ng = (window as any).ng;
         enableDebugTools(cmpRef);
-        (<any> window).ng.probe = _ng.probe;
-        (<any> window).ng.coreTokens = _ng.coreTokens;
+        (window as any).ng.probe = _ng.probe;
+        (window as any).ng.coreTokens = _ng.coreTokens;
         return modRef;
     };
 

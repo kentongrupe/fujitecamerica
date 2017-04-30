@@ -22,9 +22,7 @@ import {
     MenuComponent
 } from 'app/components';
 import {
-    HtmlRendererDirective
-} from 'app/directives';
-import {
+    AlertModal,
     LoginModal
 } from 'app/modals';
 import {
@@ -37,9 +35,8 @@ import {
         // components
         IFrameComponent,
         MenuComponent,
-        // directives
-        HtmlRendererDirective,
         // modals
+        AlertModal,
         LoginModal,
         // pipes
         FormatStringPipe,
@@ -68,9 +65,8 @@ import {
         // components
         IFrameComponent,
         MenuComponent,
-        // directives
-        HtmlRendererDirective,
         // modals
+        AlertModal,
         LoginModal,
         // pipes
         FormatStringPipe,
@@ -78,6 +74,7 @@ import {
     ],
     providers: [],
     entryComponents: [
+        AlertModal,
         LoginModal
     ]
 })

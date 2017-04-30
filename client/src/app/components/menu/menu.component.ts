@@ -19,7 +19,6 @@ import {
 export class MenuComponent extends BaseComponent {
 
     @Output() public menuClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
-    @Output() public showSubMenu: EventEmitter<MenuItem[]> = new EventEmitter<MenuItem[]>();
 
     private _model: MenuItem[] = [];
     public get model(): MenuItem[] {
@@ -40,17 +39,6 @@ export class MenuComponent extends BaseComponent {
         this.menuClick.emit(menuItem);
     }
     private _toggleMenu(event: MouseEvent, item: MenuItem, value: boolean): void {
-        // this._preventDefault(event);
         item.expanded = value;
-
-        if (value === true) {
-            if (item.items && (item.items.length > 0)) {
-                this.showSubMenu.emit(item.items);
-            } else {
-                this.showSubMenu.emit(null);
-            }
-        } else {
-            this.showSubMenu.emit(null);
-        }
     }
 }

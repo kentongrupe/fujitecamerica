@@ -14,10 +14,12 @@
 <div class="menu-div">
     <ul class="menu">
         <li class="menu-item" *ngFor="let m of _model; let i=index">
-            <div class="menu-item-label" (click)="_onClick(m, $event)" (mouseover)="_toggleMenu($event, m, true)" (mouseout)="_toggleMenu($event, m, false)">
-                <label>{{ m.label }}</label>
+            <div (click)="_onClick(m, $event)" (mouseover)="_toggleMenu($event, m, true)" (mouseout)="_toggleMenu($event, m, false)">
+                <label class="menu-item-label" [class.expanded]="m.expanded">{{ m.label }}</label>
+                <div class="submenu-div" *ngIf="m.items && (m.items.length>0)">
+                    <menu class="submenu" [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onClick($event)"></menu>
+                </div>
             </div>
-            <!--<menu *ngIf="m.items && (m.items.length>0)" class="submenu" [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick($event)"></menu>-->
         </li>
     </ul>
 </div>

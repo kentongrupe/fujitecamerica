@@ -45,14 +45,22 @@ $header-mobile-menu-item-close-background: url('../../assets/img/icon_spmenuclos
 $header-mobile-menu-item-close-color: #ffffff;
 
 // home
-$home-slides-box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.2);
+$home-slides-box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.3);
 $home-menu-border: $border;
 $home-menu-item-arrow-color: #d01126;
+
+$home-menu-autowalks-background: url('../../assets/img/Autowalk.png') no-repeat;
+$home-menu-elevators-background: url('../../assets/img/Elevator.png') no-repeat;
+$home-menu-escalators-background: url('../../assets/img/Escalator.png') no-repeat;
+$home-menu-ezdispatch-background: url('../../assets/img/EZDispatch.png') no-repeat;
 
 // menu
 $menu-background-color: #ffffff;
 $menu-border: $border;
 $menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 10px center;
+
+$menu-submenu-background-color: #F1F1F1;
+$menu-submenu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 30px center;
 
 // site-map
 $site-map-links-border: $border;

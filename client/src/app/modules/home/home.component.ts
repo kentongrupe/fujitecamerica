@@ -61,19 +61,23 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     public ngOnInit() {
         this._slides = [
             {
-                url: '/assets/img/a.jpg'
+                url: '/assets/img/ElevatorLobbyBW.jpg'
             },
             {
-                url: '/assets/img/b.jpg'
+                url: '/assets/img/ElevatorLobbyBW.jpg'
             },
             {
-                url: '/assets/img/c.jpg'
+                url: '/assets/img/ElevatorLobbyBW.jpg'
+            },
+            {
+                url: '/assets/img/ElevatorLobbyBW.jpg'
             }
         ];
 
         this._sysMenu = [
             {
                 label: this._getString('elevators', 'Elevators'),
+                icon: 'elevators',
                 routerLink: AppRoute.ELEVATORS,
                 items: [
                     {
@@ -82,19 +86,19 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
                         items: [
                             {
                                 label: this._getString('mrl', 'MRL'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_SYSTEMS_MRL
                             },
                             {
                                 label: this._getString('pm-gearless', 'PM Gearless'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_SYSTEMS_GEARLESS
                             },
                             {
                                 label: this._getString('geared', 'GEARED'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_SYSTEMS_GEARED
                             },
                             {
                                 label: this._getString('hydraulic', 'HYDRAULIC'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_SYSTEMS_HYDRAULIC
                             }
                         ]
                     },
@@ -104,15 +108,15 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
                         items: [
                             {
                                 label: this._getString('viridian', 'Viridian'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_CONTROLLERS_VIRIDIAN
                             },
                             {
                                 label: this._getString('flex-nx', 'Flex - NX'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_CONTROLLERS_FLEXNX
                             },
                             {
                                 label: this._getString('ez-shuttle', 'EXShuttle'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS
+                                routerLink: AppRoute.ELEVATORS_CONTROLLERS_EZSHUTTLE
                             }
                         ]
                     },
@@ -128,6 +132,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
             },
             {
                 label: this._getString('escalators', 'Escalators'),
+                icon: 'escalators',
                 routerLink: AppRoute.ESCALATORS,
                 items: [
                     {
@@ -137,10 +142,23 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
                 ]
             },
             {
-                label: this._getString('ezshuttle-dispatch', 'EZShuttle Dispatch')
+                label: this._getString('ezshuttle-dispatch', 'EZShuttle Dispatch'),
+                icon: 'ezdispatch',
+                routerLink: AppRoute.EZSHUTTLE_DISPATCH,
+                items: [
+                    {
+                        label: this._getString('flex-nx', 'Flex - NX'),
+                        routerLink: AppRoute.EZSHUTTLE_DISPATCH_FLEXNX
+                    },
+                    {
+                        label: this._getString('ez-shuttle', 'EXShuttle'),
+                        routerLink: AppRoute.EZSHUTTLE_DISPATCH_EZSHUTTLE
+                    },
+                ]
             },
             {
                 label: this._getString('autowalks', 'Autowalks'),
+                icon: 'autowalks',
                 routerLink: AppRoute.AUTOWALKS,
                 items: [
                     {
@@ -167,14 +185,16 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
 
         this._updateSlidesSize();
 
-        this._intervalId = setInterval(() => {
-            this._sliding = true;
-            setTimeout(() => {
-                let s = this._slides.shift();
-                this._slides.push(s);
-                this._sliding = false;
-            }, 1000);
-        }, 5000);
+        if (this._slides.length > 1) {
+            this._intervalId = setInterval(() => {
+                this._sliding = true;
+                setTimeout(() => {
+                    let s = this._slides.shift();
+                    this._slides.push(s);
+                    this._sliding = false;
+                }, 1000);
+            }, 5000);
+        }
     }
     private _onResize(event: UIEvent): void {
         this._updateSlidesSize();

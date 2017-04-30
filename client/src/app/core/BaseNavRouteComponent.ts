@@ -33,12 +33,12 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
 
     constructor(
         className: string = 'BaseNavRouteComponent',
-        protected router: Router,
-        protected routerService: RouterService,
+        protected _router: Router,
+        protected _routerService: RouterService,
     ) {
         super(className);
 
-        this.router.events.subscribe((event) => {
+        this._router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
                 this._onNavigationEnd(event as NavigationEnd);
             }
@@ -60,7 +60,7 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
         }
     }
     protected _navTo(url: string): void {
-        this.routerService.to(url);
+        this._routerService.to(url);
     }
     protected _onNavigationEnd(event: NavigationEnd): void {
         let self = this;

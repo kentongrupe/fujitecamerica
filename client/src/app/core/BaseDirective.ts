@@ -20,6 +20,5 @@ export class BaseDirective extends BaseClass {
         super(className);
         this.elementRef = el;
         this.renderer = renderer;
-        // this.locale = StringService.locale;
     }
 }

@@ -30,7 +30,6 @@ import {
     // components
     AppFooterComponent,
     AppHeaderComponent,
-    SiteMapComponent,
     // modules
     FujitecSharedModule,
 
@@ -39,20 +38,25 @@ import {
     AutowalksModule,
     ConsultantsModule,
     ContactModule,
-    DestinationControlModule,
+    DispatchModule,
     ElevatorsModule,
     EscalatorsModule,
     HomeModule,
+    InitModule,
     InstallationModule,
     LocationsModule,
     ModernizationModule,
+    PrivacyPolicyModule,
     PropertyManagersModule,
     ServiceMaintenanceModule,
+    SiteMapModule,
+    SitePolicyModule,
 
     // servivces
     AuthenticationService,
     DataService,
     DOMService,
+    EventService,
     RouterService,
     StorageService,
     StringService
@@ -66,6 +70,7 @@ const APP_PROVIDERS = [
     AuthenticationService,
     DataService,
     DOMService,
+    EventService,
     RouterService,
     StorageService,
     StringService
@@ -100,15 +105,19 @@ type StoreType = {
         AutowalksModule,
         ConsultantsModule,
         ContactModule,
-        DestinationControlModule,
+        DispatchModule,
         ElevatorsModule,
         EscalatorsModule,
         HomeModule,
+        InitModule,
         InstallationModule,
         LocationsModule,
         ModernizationModule,
+        PrivacyPolicyModule,
         PropertyManagersModule,
         ServiceMaintenanceModule,
+        SiteMapModule,
+        SitePolicyModule,
 
         FujitecSharedModule
     ],

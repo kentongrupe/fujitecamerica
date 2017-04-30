@@ -8,7 +8,11 @@ import {
     BaseModal
 } from 'app/core';
 import {
-    AuthenticationService
+    User
+} from 'app/models';
+import {
+    AuthenticationService,
+    StringService
 } from 'app/services';
 
 @Component({
@@ -20,23 +24,39 @@ export class LoginModal extends BaseModal {
     public password: string = '';
     public username: string = '';
 
+    private _errorMessage: string = '';
+    private _showRegForm: boolean = false;
+
+    private get _canLogin(): boolean {
+        return (!this.isNullOrEmpty(this.username) && !this.isNullOrEmpty(this.password));
+    }
+
     constructor(
-        public loginModal: MdDialogRef<LoginModal>,
+        private loginModal: MdDialogRef<LoginModal>,
         private authService: AuthenticationService
     ) {
         super('LoginModal');
     }
 
-    private _cancel(): void {
+    private _cancel(user: User): void {
         this.username = '';
         this.password = '';
-        this.loginModal.close();
+        this.loginModal.close(user);
     }
     private _login(): void {
-        if (!this.isNullOrEmpty(this.username) && !this.isNullOrEmpty(this.password)) {
+        if (this._canLogin) {
             this.authService.login(this.username, this.password, (user) => {
-                this._cancel();
+                this._cancel(user);
+            }, (e) => {
+                this._errorMessage = e;
             });
         }
+    }
+    private _register(): void {
+        // TODO: add registration code
+        return;
+    }
+    private _cancelRegistration(): void {
+        this._showRegForm = false;
     }
 }

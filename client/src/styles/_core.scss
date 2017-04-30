@@ -32,6 +32,11 @@ ul.links {
     padding   : 0;
 }
 
+.disabled {
+    opacity       : .3;
+    pointer-events: none;
+}
+
 .hidden {
     display: none !important;
 }
@@ -47,6 +52,11 @@ ul.links {
 .content-div {
     margin   : $app-margin;
     max-width: $max-width;
+}
+
+// dialog
+.mat-dialog-actions {
+    float: right;
 }
 
 // footer
@@ -85,14 +95,18 @@ $header-mobile-menu-item-height: 45px;
 $header-mobile-menu-item-close-height: 45px;
 
 // home
-$home-menu-item-height: 160px;
+$home-menu-item-height: 140px;
 $home-menu-item-width: 220px;
-$home-menu-item-icon-height: 120px;
+$home-menu-item-icon-height: 100px;
 $home-menu-item-icon-width: $home-menu-item-width;
 $home-menu-item-label-height: 40px;
 $home-menu-item-label-width: $home-menu-item-width;
 $home-menu-item-label-font-size: 13px;
 $home-slides-transition-duration: 1s;
+
+// login
+$login-modal-height: 270px;
+$login-modal-width: 400px;
 
 // site-map
 $site-map-links-margin: 0 0 20px 0;

@@ -32,6 +32,6 @@ export class AuthenticationService extends BaseService {
             if (onSuccess) {
                 onSuccess(this.currentUser);
             }
-        });
+        }, onError);
     }
 }

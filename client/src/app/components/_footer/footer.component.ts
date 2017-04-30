@@ -22,7 +22,7 @@ import {
 })
 export class AppFooterComponent extends BaseNavRouteComponent implements OnInit {
 
-    public copyright: number = (new Date()).getFullYear();
+    private _copyright: number = (new Date()).getFullYear();
 
     constructor(
         protected router: Router,
@@ -38,16 +38,16 @@ export class AppFooterComponent extends BaseNavRouteComponent implements OnInit 
 
         this.menu = [
             {
-                label: this._getString('t', 'SiteMap'),
-                routerLink: [AppRoute.SITE_MAP]
+                label: this._getString('site-map', 'SiteMap'),
+                routerLink: AppRoute.SITE_MAP
             },
             {
-                label: this._getString('y', 'Privacy Policy'),
-                routerLink: ['/f']
+                label: this._getString('privacy-policy', 'Privacy Policy'),
+                routerLink: AppRoute.PRIVACY_POLICY
             },
             {
-                label: this._getString('u', 'Site Policy'),
-                routerLink: ['/g']
+                label: this._getString('site-policy', 'Site Policy'),
+                routerLink: AppRoute.SITE_POLICY
             }
         ];
     }

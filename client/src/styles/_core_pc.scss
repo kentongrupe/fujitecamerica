@@ -3,7 +3,7 @@ $app-margin                        : auto;
 $app-margin-bottom                 : 30px;
 $app-margin-top                    : 70px;
 $app-content-margin                : $app-margin-top auto $app-margin-bottom;
-$app-content-padding               : 0;
+$app-content-padding               : 20px 0 0 0;
 
 // footer
 $footer-font-size                  : 12px;
@@ -25,6 +25,7 @@ $header-mobile-menu-trigger-display: none;
 
 // home
 $home-menu-display                 : inline-block;
+$home-menu-item-margin             : 0 20px 0 0;
 
 // site map
 $site-map-margin                   : 0;
