@@ -23,7 +23,7 @@
     <div class="home-menu-div">
         <ul class="home-menu-items">
             <li class="link home-menu-item" *ngFor="let m of _proMenu" (click)="onMenuClick(m, $event)">
-                <div class="home-menu-item-icon"></div>
+                <div [attr.class]="'home-menu-item-icon ' + m.icon"></div>
                 <div class="home-menu-item-label">
                     <label>{{ m.label }}</label>
                 </div>

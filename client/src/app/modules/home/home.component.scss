@@ -64,8 +64,16 @@ home {
                         height: $home-menu-item-icon-height;
                         width : $home-menu-item-icon-width;
 
+                        &.architects {
+                            background: $home-menu-architects-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
+                        }
+
                         &.autowalks {
                             background: $home-menu-autowalks-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
+                        }
+
+                        &.consultants {
+                            background: $home-menu-consultants-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
                         }
 
                         &.elevators {
@@ -78,6 +86,11 @@ home {
 
                         &.ezdispatch {
                             background: $home-menu-ezdispatch-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
+                        }
+
+                        &.property-managers {
+                            background: $home-menu-property-managers-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
+
                         }
                     }
 

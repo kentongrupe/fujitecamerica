@@ -171,14 +171,17 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         this._proMenu = [
             {
                 label: this._getString('consultants', 'Consultants'),
+                icon: 'consultants',
                 routerLink: AppRoute.CONSULTANTS
             },
             {
                 label: this._getString('property-management-cos', 'Property Management Cos'),
+                icon: 'property-managers',
                 routerLink: AppRoute.PROPERTY_MANAGERS
             },
             {
                 label: this._getString('architects-gcs', 'Architects & GCs'),
+                icon: 'architects',
                 routerLink: AppRoute.ARCHITECTS
             }
         ];
