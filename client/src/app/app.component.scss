@@ -6,11 +6,26 @@ app {
         margin    : $app-content-margin;
         width     : 100%;
 
-        router-outlet + * {
-            display  : block;
-            margin   : 0 auto;
-            max-width: $max-width;
-            padding  : $app-content-padding;
+        & > router-outlet + * {
+            display   : block;
+            margin    : 0 auto;
+            max-width : $max-width;
+            min-height: $app-min-height;
+            padding   : $app-content-padding;
+        }
+    }
+
+    .nav-menu {
+        position: fixed;
+        top     : 30%;
+        z-index : 1000;
+
+        &.pro-menu {
+            right: 0;
+        }
+
+        &.sys-menu {
+            left: 0;
         }
     }
 }

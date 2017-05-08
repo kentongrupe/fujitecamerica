@@ -49,13 +49,13 @@ export class AutowalksComponent extends BaseProductRouteComponent {
         }
 
         if (!this.isNullOrEmpty(node)) {
-            this.dataService.getHtml(node, (d) => {
-                let parser = new DOMParser();
-                let xmlDoc = parser.parseFromString(d, 'text/html');
-                let n = xmlDoc.getElementById('node-{0}'.format(node)).innerHTML;
+            // this.dataService.getHtml(node, (d) => {
+            //     let parser = new DOMParser();
+            //     let xmlDoc = parser.parseFromString(d, 'text/html');
+            //     let n = xmlDoc.getElementById('node-{0}'.format(node)).innerHTML;
 
-                this._html = this.domSanitizer.bypassSecurityTrustHtml(n) as string;
-            });
+            //     this._html = this.domSanitizer.bypassSecurityTrustHtml(n) as string;
+            // });
         }
     }
 }

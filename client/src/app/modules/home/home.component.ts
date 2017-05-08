@@ -28,13 +28,10 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     @ViewChild('slides') private _slidesDiv: ElementRef;
 
     private _intervalId: any = null;
-    private _proMenu: MenuItem[] = [];
     private _slides: any[] = [];
     private _slideHeight: number = 300;
     private _slideWidth: number = 1200;
     private _sliding: boolean = false;
-    private _subMenu: MenuItem[] = [];
-    private _sysMenu: MenuItem[] = [];
 
     private get _slidesRect(): ClientRect {
         if (this._slidesDiv && this._slidesDiv.nativeElement) {
@@ -74,118 +71,6 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
             }
         ];
 
-        this._sysMenu = [
-            {
-                label: this._getString('elevators', 'Elevators'),
-                icon: 'elevators',
-                routerLink: AppRoute.ELEVATORS,
-                items: [
-                    {
-                        label: this._getString('systems', 'Systems'),
-                        routerLink: AppRoute.ELEVATORS_SYSTEMS,
-                        items: [
-                            {
-                                label: this._getString('mrl', 'MRL'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS_MRL
-                            },
-                            {
-                                label: this._getString('pm-gearless', 'PM Gearless'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS_GEARLESS
-                            },
-                            {
-                                label: this._getString('geared', 'GEARED'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS_GEARED
-                            },
-                            {
-                                label: this._getString('hydraulic', 'HYDRAULIC'),
-                                routerLink: AppRoute.ELEVATORS_SYSTEMS_HYDRAULIC
-                            }
-                        ]
-                    },
-                    {
-                        label: this._getString('controllers', 'Controllers'),
-                        routerLink: AppRoute.ELEVATORS_CONTROLLERS,
-                        items: [
-                            {
-                                label: this._getString('viridian', 'Viridian'),
-                                routerLink: AppRoute.ELEVATORS_CONTROLLERS_VIRIDIAN
-                            },
-                            {
-                                label: this._getString('flex-nx', 'Flex - NX'),
-                                routerLink: AppRoute.ELEVATORS_CONTROLLERS_FLEXNX
-                            },
-                            {
-                                label: this._getString('ez-shuttle', 'EXShuttle'),
-                                routerLink: AppRoute.ELEVATORS_CONTROLLERS_EZSHUTTLE
-                            }
-                        ]
-                    },
-                    {
-                        label: this._getString('webemis-monitoring', 'webEMIS Monitoring'),
-                        routerLink: AppRoute.ELEVATORS_MONITORING
-                    },
-                    {
-                        label: this._getString('ionful', 'IONFUL'),
-                        routerLink: AppRoute.ELEVATORS_IONFUL
-                    }
-                ]
-            },
-            {
-                label: this._getString('escalators', 'Escalators'),
-                icon: 'escalators',
-                routerLink: AppRoute.ESCALATORS,
-                items: [
-                    {
-                        label: 'GS8000',
-                        routerLink: '{0}/{1}'.format(AppRoute.ESCALATORS, 'gs8000')
-                    }
-                ]
-            },
-            {
-                label: this._getString('ezshuttle-dispatch', 'EZShuttle Dispatch'),
-                icon: 'ezdispatch',
-                routerLink: AppRoute.EZSHUTTLE_DISPATCH,
-                items: [
-                    {
-                        label: this._getString('flex-nx', 'Flex - NX'),
-                        routerLink: AppRoute.EZSHUTTLE_DISPATCH_FLEXNX
-                    },
-                    {
-                        label: this._getString('ez-shuttle', 'EXShuttle'),
-                        routerLink: AppRoute.EZSHUTTLE_DISPATCH_EZSHUTTLE
-                    },
-                ]
-            },
-            {
-                label: this._getString('autowalks', 'Autowalks'),
-                icon: 'autowalks',
-                routerLink: AppRoute.AUTOWALKS,
-                items: [
-                    {
-                        label: 'GS8100',
-                        routerLink: '{0}/{1}'.format(AppRoute.AUTOWALKS, 'gs8100')
-                    }
-                ]
-            }
-        ];
-        this._proMenu = [
-            {
-                label: this._getString('consultants', 'Consultants'),
-                icon: 'consultants',
-                routerLink: AppRoute.CONSULTANTS
-            },
-            {
-                label: this._getString('property-management-cos', 'Property Management Cos'),
-                icon: 'property-managers',
-                routerLink: AppRoute.PROPERTY_MANAGERS
-            },
-            {
-                label: this._getString('architects-gcs', 'Architects & GCs'),
-                icon: 'architects',
-                routerLink: AppRoute.ARCHITECTS
-            }
-        ];
-
         this._updateSlidesSize();
 
         if (this._slides.length > 1) {
@@ -201,19 +86,6 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     }
     private _onResize(event: UIEvent): void {
         this._updateSlidesSize();
-    }
-    private _onSysMenuClick(item: MenuItem, event?: MouseEvent): void {
-        super.onMenuClick(item, event);
-        this._sysMenu.forEach((m) => {
-            m.expanded = false;
-        });
-    }
-    private _showSubMenu(items: MenuItem[]): void {
-        if (items === null) {
-            this._subMenu = [];
-        } else {
-            this._subMenu = items;
-        }
     }
     private _updateSlidesSize(): void {
         const R = 1200 / 300;

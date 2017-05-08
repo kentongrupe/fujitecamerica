@@ -9,25 +9,10 @@
 <div class="home-div content-div">
     <h3 class="header">{{ this | getString: 'systems': 'Systems' }}</h3>
     <div class="home-menu-div">
-        <ul class="home-menu-items">
-            <li class="link home-menu-item" *ngFor="let m of _sysMenu">
-                <div [attr.class]="'home-menu-item-icon ' + m.icon" (click)="_onSysMenuClick(m, $event)"></div>
-                <div class="home-menu-item-label" (click)="_onSysMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true">
-                    <label>{{ m.label }}</label>
-                    <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onSysMenuClick($event)" (showSubMenu)="_showSubMenu($event)"></menu>
-                </div>
-            </li>
-        </ul>
+        <sys-menu></sys-menu>
     </div>
     <h3 class="header">{{ this | getString: 'industry-professional-resources': 'Industry Professional Resources' }}</h3>
     <div class="home-menu-div">
-        <ul class="home-menu-items">
-            <li class="link home-menu-item" *ngFor="let m of _proMenu" (click)="onMenuClick(m, $event)">
-                <div [attr.class]="'home-menu-item-icon ' + m.icon"></div>
-                <div class="home-menu-item-label">
-                    <label>{{ m.label }}</label>
-                </div>
-            </li>
-        </ul>
+        <pro-menu></pro-menu>
     </div>
 </div>

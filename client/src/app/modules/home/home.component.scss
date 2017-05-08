@@ -43,95 +43,9 @@ home {
             display: inline-flex;
             width  : 100%;
 
-            .home-menu-items {
-                display   : $home-menu-display;
-                list-style: none;
-                margin    : 0 auto;
-                padding   : 0;
-
-                .home-menu-item {
-                    border: $home-menu-border;
-                    float : left;
-                    height: $home-menu-item-height;
-                    margin: $home-menu-item-margin;
-                    width : $home-menu-item-width;
-
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
-
-                    .home-menu-item-icon {
-                        height: $home-menu-item-icon-height;
-                        width : $home-menu-item-icon-width;
-
-                        &.architects {
-                            background: $home-menu-architects-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-                        }
-
-                        &.autowalks {
-                            background: $home-menu-autowalks-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-                        }
-
-                        &.consultants {
-                            background: $home-menu-consultants-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-                        }
-
-                        &.elevators {
-                            background: $home-menu-elevators-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-                        }
-
-                        &.escalators {
-                            background: $home-menu-escalators-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-                        }
-
-                        &.ezdispatch {
-                            background: $home-menu-ezdispatch-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-                        }
-
-                        &.property-managers {
-                            background: $home-menu-property-managers-background 0 0/#{$home-menu-item-icon-width} #{$home-menu-item-icon-height};
-
-                        }
-                    }
-
-                    .home-menu-item-label {
-                        background  : $menu-item-background;
-                        display     : inline-flex;
-                        height      : $home-menu-item-label-height;
-                        line-height : $home-menu-item-label-height;
-                        padding-left: 5px;
-                        width       : $home-menu-item-label-width;
-
-                        & > label {
-                            display   : inline-block;
-                            font-size : $home-menu-item-label-font-size;
-                            text-align: center;
-                            width     : 100%;
-                        }
-
-                        menu {
-                            margin-top: $home-menu-item-label-height;
-
-                            .menu-item {
-                                .menu-item-label {
-                                    font-size: $home-menu-item-label-font-size;
-                                }
-
-                                .submenu-div {
-                                    menu {
-                                        margin-top: 0;
-
-                                        .menu-item {
-                                            .menu-item-label {
-                                                font-size: $home-menu-item-label-font-size;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+            pro-menu,
+            sys-menu {
+                margin: 0 auto;
             }
         }
     }

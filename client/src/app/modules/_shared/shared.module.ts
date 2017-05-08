@@ -19,7 +19,9 @@ import {
 import 'hammerjs';
 import {
     IFrameComponent,
-    MenuComponent
+    MenuComponent,
+    ProMenuComponent,
+    SysMenuComponent
 } from 'app/components';
 import {
     AlertModal,
@@ -35,6 +37,8 @@ import {
         // components
         IFrameComponent,
         MenuComponent,
+        ProMenuComponent,
+        SysMenuComponent,
         // modals
         AlertModal,
         LoginModal,
@@ -65,6 +69,8 @@ import {
         // components
         IFrameComponent,
         MenuComponent,
+        ProMenuComponent,
+        SysMenuComponent,
         // modals
         AlertModal,
         LoginModal,

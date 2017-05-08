@@ -1,0 +1,9 @@
+<ul [class]="'nav-menu-items ' + _menuDirection">
+    <li class="link nav-menu-item" *ngFor="let m of menu">
+        <div [attr.class]="'nav-menu-item-icon ' + m.icon" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true"></div>
+        <div class="nav-menu-item-label" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true">
+            <label>{{ m.label }}</label>
+            <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick(null, $event)"></menu>
+        </div>
+    </li>
+</ul>

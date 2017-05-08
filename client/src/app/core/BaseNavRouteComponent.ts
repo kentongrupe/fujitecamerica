@@ -1,4 +1,5 @@
 import {
+    Input,
     OnInit
 } from '@angular/core';
 import {
@@ -21,14 +22,11 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
     public hasChildren: boolean = false;
 
     protected _menu: MenuItem[] = [];
-    public set menu(value: MenuItem[]) {
-        this._menu = value;
-        if (value.length > 0) {
-            this.activeItem = value[0];
-        }
-    }
     public get menu(): MenuItem[] {
         return this._menu;
+    }
+    @Input() public set menu(value: MenuItem[]) {
+        this._menu = value;
     }
 
     constructor(
@@ -49,7 +47,7 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
         super.ngOnInit();
     }
     public isActive(m: any): boolean {
-        return (this.activeItem !== null) && (m.label === this.activeItem.label);
+        return (this.activeItem !== undefined) && (this.activeItem !== null) && (m.label === this.activeItem.label);
     }
     public onMenuClick(item: MenuItem, event?: MouseEvent): void {
         this._preventDefault(event);
@@ -63,16 +61,13 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
         this._routerService.to(url);
     }
     protected _onNavigationEnd(event: NavigationEnd): void {
-        let self = this;
-        if (event.url === '/') {
-            self.activeItem = null;
+        let item = this.menu.find((m) => {
+            return (!this.isNullOrEmpty(m.routerLink) && event.url.startsWith(m.routerLink));
+        });
+        if ((item !== undefined) && (item !== this.activeItem)) {
+            this.activeItem = item;
         } else {
-            let item = self.menu.find((m) => {
-                return (!this.isNullOrEmpty(m.routerLink) && event.url.startsWith(m.routerLink));
-            });
-            if ((item !== undefined) && (item !== self.activeItem)) {
-                self.activeItem = item;
-            }
+            this.activeItem = null;
         }
     }
 }

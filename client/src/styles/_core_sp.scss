@@ -2,8 +2,9 @@
 $app-margin                        : 10px;
 $app-margin-bottom                 : 30px;
 $app-margin-top                    : 45px;
+$app-min-height                    : auto;
 $app-content-margin                : $app-margin-top 0 $app-margin-bottom;
-$app-content-padding               : 0 10px;
+$app-content-padding               : 0 20px;
 
 // footer
 $footer-border-top                 : none;
@@ -25,8 +26,11 @@ $header-search-icon-top            : 5px;
 $header-mobile-menu-trigger-display: inline-block;
 
 // home
-$home-menu-display                 : inline-grid;
-$home-menu-item-margin             : 0 0 20px;
+
+//nav menu
+$nav-menu-display                  : inline-grid;
+$nav-menu-item-margin              : 0 0 20px;
+$nav-menu-side-display             : none;
 
 // site map
 $site-map-margin                   : 0 10px;

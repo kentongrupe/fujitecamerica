@@ -4,3 +4,5 @@ admin/node_modules
 client/dist
 client/dll
 client/node_modules
+client/src/assets/css/default_pc.min.css
+client/src/assets/css/default_sp.min.css

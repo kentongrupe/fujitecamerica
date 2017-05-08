@@ -2,8 +2,9 @@
 $app-margin                        : auto;
 $app-margin-bottom                 : 30px;
 $app-margin-top                    : 70px;
+$app-min-height                    : $nav-menu-side-item-icon-height * 4;
 $app-content-margin                : $app-margin-top auto $app-margin-bottom;
-$app-content-padding               : 20px 0 0 0;
+$app-content-padding               : 20px #{$nav-menu-side-item-icon-width + 20px} 0;
 
 // footer
 $footer-font-size                  : 12px;
@@ -16,7 +17,7 @@ $footer-mobile-links-display       : none;
 // header
 $header-height                     : $app-margin-top;
 $header-padding                    : 0;
-$header-logo-margin                : 20px 0;
+$header-logo-margin                : 20px 0 20px 10px;
 $header-menu-display               : inline-block;
 $header-search-input-div-width     : $max-width;
 $header-search-input-width         : 440px;
@@ -24,8 +25,11 @@ $header-search-icon-top            : -5px;
 $header-mobile-menu-trigger-display: none;
 
 // home
-$home-menu-display                 : inline-block;
-$home-menu-item-margin             : 0 20px 0 0;
+
+// nav menu
+$nav-menu-display                  : inline-block;
+$nav-menu-item-margin              : 0 20px 0 0;
+$nav-menu-side-display             : inline-grid;
 
 // site map
 $site-map-margin                   : 0;

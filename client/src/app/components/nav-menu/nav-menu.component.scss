@@ -1,0 +1,169 @@
+nav-menu,
+pro-menu,
+sys-menu {
+    .nav-menu-items {
+        display   : $nav-menu-display;
+        list-style: none;
+        margin    : 0 auto;
+        padding   : 0;
+
+        .nav-menu-item {
+            border  : $nav-menu-border;
+            float   : left;
+            height  : $nav-menu-item-height;
+            margin  : $nav-menu-item-margin;
+            position: relative;
+            width   : $nav-menu-item-width;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            .nav-menu-item-icon {
+                height   : $nav-menu-item-icon-height;
+                width    : $nav-menu-item-icon-width;
+
+                $_sizePos: 0 0/#{$nav-menu-item-icon-width} #{$nav-menu-item-icon-height};
+
+                &.architects {
+                    background: $nav-menu-architects-background $_sizePos;
+                }
+
+                &.autowalks {
+                    background: $nav-menu-autowalks-background $_sizePos;
+                }
+
+                &.consultants {
+                    background: $nav-menu-consultants-background $_sizePos;
+                }
+
+                &.elevators {
+                    background: $nav-menu-elevators-background $_sizePos;
+                }
+
+                &.escalators {
+                    background: $nav-menu-escalators-background $_sizePos;
+                }
+
+                &.ezdispatch {
+                    background: $nav-menu-ezdispatch-background $_sizePos;
+                }
+
+                &.property-managers {
+                    background: $nav-menu-property-managers-background $_sizePos;
+                }
+            }
+
+            .nav-menu-item-label {
+                background  : $menu-item-background;
+                display     : inline-flex;
+                height      : $nav-menu-item-label-height;
+                line-height : $nav-menu-item-label-height;
+                padding-left: 5px;
+                width       : $nav-menu-item-label-width;
+
+                & > label {
+                    display   : inline-block;
+                    font-size : $nav-menu-item-label-font-size;
+                    text-align: center;
+                    width     : 100%;
+                }
+
+                menu {
+                    margin-top: $nav-menu-item-label-height;
+                    z-index   : 1000;
+
+                    .menu-item {
+                        .menu-item-label {
+                            font-size: $nav-menu-item-label-font-size;
+                        }
+
+                        .submenu-div {
+                            menu {
+                                margin-top: -1px;
+
+                                .menu-item {
+                                    .menu-item-label {
+                                        font-size: $nav-menu-item-label-font-size;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.side {
+            display: $nav-menu-side-display;
+
+            .nav-menu-item {
+                height: $nav-menu-side-item-icon-height;
+                margin: 0;
+                width : $nav-menu-side-item-icon-width;
+
+                .nav-menu-item-icon {
+                    height   : $nav-menu-side-item-icon-height;
+                    width    : $nav-menu-side-item-icon-width;
+
+                    $_sizePos: $nav-menu-side-item-icon-position-x 0/#{$nav-menu-side-item-icon-background-width} #{$nav-menu-side-item-icon-background-height};
+
+                    &.architects {
+                        background: $nav-menu-architects-background $_sizePos;
+                    }
+
+                    &.autowalks {
+                        background: $nav-menu-autowalks-background $_sizePos;
+                    }
+
+                    &.consultants {
+                        background: $nav-menu-consultants-background $_sizePos;
+                    }
+
+                    &.elevators {
+                        background: $nav-menu-elevators-background $_sizePos;
+                    }
+
+                    &.escalators {
+                        background: $nav-menu-escalators-background $_sizePos;
+                    }
+
+                    &.ezdispatch {
+                        background: $nav-menu-ezdispatch-background $_sizePos;
+                    }
+
+                    &.property-managers {
+                        background: $nav-menu-property-managers-background $_sizePos;
+                    }
+                }
+
+                .nav-menu-item-label {
+                    background: none;
+                    height    : 0;
+                    padding   : 0;
+                    position  : absolute;
+                    top       : 0;
+
+                    & > label {
+                        display: none;
+                    }
+
+                    menu {
+                        left       : 0;
+                        margin-left: $nav-menu-side-item-icon-width;
+                        margin-top : 0;
+
+                        .menu-item {
+                            .submenu-div {
+                                menu {
+                                    left       : auto;
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

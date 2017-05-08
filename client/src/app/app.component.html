@@ -4,4 +4,7 @@
 </div>
 <app-footer *ngIf="_initComplete"></app-footer>
 
+<sys-menu class="nav-menu sys-menu" *ngIf="_initComplete" [class.hidden]="_isHome" [direction]="_menuDirection"></sys-menu>
+<pro-menu class="nav-menu pro-menu" *ngIf="_initComplete" [class.hidden]="_isHome" [direction]="_menuDirection"></pro-menu>
+
 <button style="display:none;position:absolute;top:0;left:0;z-index:2000" (click)="_exportStrings()">export</button>

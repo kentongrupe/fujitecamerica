@@ -95,18 +95,21 @@ $header-mobile-menu-item-height: 45px;
 $header-mobile-menu-item-close-height: 45px;
 
 // home
-$home-menu-item-height: 140px;
-$home-menu-item-width: 220px;
-$home-menu-item-icon-height: 100px;
-$home-menu-item-icon-width: $home-menu-item-width;
-$home-menu-item-label-height: 40px;
-$home-menu-item-label-width: $home-menu-item-width;
-$home-menu-item-label-font-size: 13px;
 $home-slides-transition-duration: 1s;
 
 // login
 $login-modal-height: 270px;
 $login-modal-width: 400px;
+
+// nav menu
+$nav-menu-item-height: 140px;
+$nav-menu-item-width: 220px;
+$nav-menu-item-icon-height: 100px;
+$nav-menu-item-icon-width: $nav-menu-item-width;
+$nav-menu-item-label-height: 40px;
+$nav-menu-item-label-width: $nav-menu-item-width;
+$nav-menu-item-label-font-size: 13px;
+//      side
 
 // site-map
 $site-map-links-margin: 0 0 20px 0;

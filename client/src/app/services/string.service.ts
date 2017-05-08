@@ -8,7 +8,26 @@ import {
 @Injectable()
 export class StringService extends BaseService {
 
-    public static locale: string = 'en';
+    private static _locale: string = 'en';
+    public static get locale(): string {
+        return this._locale;
+    }
+    public static set locale(value: string) {
+        if (String.isNullOrEmpty(value)) {
+            value = 'en';
+        }
+        value = value.substr(0, 2).toLowerCase();
+        switch (value) {
+            case 'en':
+            case 'ja':
+                break;
+            default:
+                value = 'en';
+                break;
+        }
+        console.debug('lcale = "{0}"'.format(value));
+        this._locale = value;
+    }
 
     private _cache: Map<string, string> = null;
 
@@ -43,6 +62,7 @@ export class StringService extends BaseService {
         console.log(strings.join(','));
     }
     public get(id: string, defaultValue?: string): string {
+        // console.debug('get string with id "{0}"'.format(id));
         if (this.isNullOrEmpty(id)) {
             return '';
         }
