@@ -16,6 +16,19 @@ textarea {
 
 $border: 1px solid #cccccc;
 
+// app
+$reference-color: #d01126;
+$reference-font-size: 12px;
+
+$app-mobile-menu-height: 320px;
+$app-mobile-menu-height-700: 260px;
+$app-mobile-menu-height-600: 220px;
+$app-mobile-menu-height-500: 180px;
+$app-mobile-menu-height-400: 120px;
+
+$app-pro-menu-height: 200px;
+$app-pro-menu-padding: 20px 0;
+
 // footer
 $footer-background-color: #d01126;
 $footer-color: #ffffff;
@@ -50,7 +63,7 @@ $home-slides-box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.3);
 // menu
 $menu-background-color: #ffffff;
 $menu-border: $border;
-$menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 10px center;
+$menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/5px 8px;
 
 $menu-submenu-background-color: #F1F1F1;
 $menu-submenu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 30px center;
@@ -72,6 +85,37 @@ $nav-menu-side-item-icon-height: $nav-menu-side-item-icon-background-height;
 $nav-menu-side-item-icon-width: 80px;
 $nav-menu-side-item-icon-position-x: -#{($nav-menu-side-item-icon-background-width - $nav-menu-side-item-icon-width) / 2};
 
+$nav-menu-mobile-item-margin: 0 10px;
+$nav-menu-mobile-item-icon-border-radius: 50%;
+$nav-menu-mobile-item-icon-height: 150px;
+$nav-menu-mobile-item-icon-width: 150px;
+$nav-menu-mobile-item-label-color: #ffffff;
+$nav-menu-mobile-item-label-font-size: 22px;
+
+$nav-menu-mobile-architects-background: #6A6869;
+$nav-menu-mobile-autowalks-background: #2397E4;
+$nav-menu-mobile-consultants-background: #6A6869;
+$nav-menu-mobile-elevators-background: #0DBD96;
+$nav-menu-mobile-escalators-background: #ECB615;
+$nav-menu-mobile-ezdispatch-background: #AFE00B;
+$nav-menu-mobile-property-managers-background: #6A6869;
+
+$nav-menu-mobile-item-icon-height-700: 120px;
+$nav-menu-mobile-item-icon-width-700: 120px;
+$nav-menu-mobile-item-label-font-size-700: 16px;
+
+$nav-menu-mobile-item-icon-height-600: 100px;
+$nav-menu-mobile-item-icon-width-600: 100px;
+$nav-menu-mobile-item-label-font-size-600: 14px;
+
+$nav-menu-mobile-item-icon-height-500: 80px;
+$nav-menu-mobile-item-icon-width-500: 80px;
+$nav-menu-mobile-item-label-font-size-500: 12px;
+
+$nav-menu-mobile-item-icon-height-400: 60px;
+$nav-menu-mobile-item-icon-width-400: 60px;
+$nav-menu-mobile-item-label-font-size-400: 10px;
+
 // site-map
 $site-map-links-border: $border;
 $site-map-link-background: url('../../assets/img/icon_arrow_common.png') no-repeat right 10px center #ffffff;
@@ -79,3 +123,10 @@ $site-map-link-hover-background-color: #f1f1f1;
 $site-map-link-hover-color: #d01126;
 
 //
+.col-left {
+    border: none;
+}
+
+.col-right {
+    border: none;
+}

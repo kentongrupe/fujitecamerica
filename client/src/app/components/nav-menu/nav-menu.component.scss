@@ -7,6 +7,26 @@ sys-menu {
         margin    : 0 auto;
         padding   : 0;
 
+        &.mode-default {
+            .desktop-menu {
+                display: inline-block;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+        }
+
+        &.mode-mobile {
+            .desktop-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: inline-block;
+            }
+        }
+
         .nav-menu-item {
             border  : $nav-menu-border;
             float   : left;
@@ -66,11 +86,13 @@ sys-menu {
                     display   : inline-block;
                     font-size : $nav-menu-item-label-font-size;
                     text-align: center;
+                    transform : scale(0.8,1.0);
                     width     : 100%;
                 }
 
                 menu {
-                    margin-top: $nav-menu-item-label-height;
+                    margin-top: -3px;
+                    right     : $nav-menu-item-label-width;
                     z-index   : 1000;
 
                     .menu-item {
@@ -80,11 +102,14 @@ sys-menu {
 
                         .submenu-div {
                             menu {
-                                margin-top: -1px;
+                                margin-right: -6px;
+                                margin-top  : -1px;
 
-                                .menu-item {
-                                    .menu-item-label {
-                                        font-size: $nav-menu-item-label-font-size;
+                                .menu-div {
+                                    .menu-item {
+                                        .menu-item-label {
+                                            font-size: $nav-menu-item-label-font-size;
+                                        }
                                     }
                                 }
                             }
@@ -94,7 +119,7 @@ sys-menu {
             }
         }
 
-        &.side {
+        &.direction-side {
             display: $nav-menu-side-display;
 
             .nav-menu-item {
@@ -159,6 +184,123 @@ sys-menu {
                                     left       : auto;
                                     margin-left: 0;
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.mode-mobile {
+            .nav-menu-item {
+                border: none;
+                height: $nav-menu-mobile-item-icon-height;
+                margin: $nav-menu-mobile-item-margin;
+                width : $nav-menu-mobile-item-icon-width;
+
+                .mobile-menu {
+                    .nav-menu-item-icon {
+                        border-radius: $nav-menu-mobile-item-icon-border-radius;
+                        height       : $nav-menu-mobile-item-icon-height;
+                        width        : $nav-menu-mobile-item-icon-width;
+
+                        label {
+                            color      : $nav-menu-mobile-item-label-color;
+                            display    : inline-block;
+                            font-size  : $nav-menu-mobile-item-label-font-size;
+                            line-height: normal;
+                            position   : absolute;
+                            text-align : center;
+                            top        : 50%;
+                            transform  : translateY(-50%);
+                            width      : 100%;
+                        }
+
+                        &.architects {
+                            background: $nav-menu-mobile-architects-background;
+                        }
+
+                        &.autowalks {
+                            background: $nav-menu-mobile-autowalks-background;
+                        }
+
+                        &.consultants {
+                            background: $nav-menu-mobile-consultants-background;
+                        }
+
+                        &.elevators {
+                            background: $nav-menu-mobile-elevators-background;
+                        }
+
+                        &.escalators {
+                            background: $nav-menu-mobile-escalators-background;
+                        }
+
+                        &.ezdispatch {
+                            background: $nav-menu-mobile-ezdispatch-background;
+                        }
+
+                        &.property-managers {
+                            background: $nav-menu-mobile-property-managers-background;
+                        }
+                    }
+                }
+                @media only screen and (max-width: 700px) {
+                    height: $nav-menu-mobile-item-icon-height-700;
+                    width : $nav-menu-mobile-item-icon-width-700;
+
+                    .mobile-menu {
+                        .nav-menu-item-icon {
+                            height: $nav-menu-mobile-item-icon-height-700;
+                            width : $nav-menu-mobile-item-icon-width-700;
+
+                            label {
+                                font-size: $nav-menu-mobile-item-label-font-size-700;
+                            }
+                        }
+                    }
+                }
+                @media only screen and (max-width: 600px) {
+                    height: $nav-menu-mobile-item-icon-height-600;
+                    width : $nav-menu-mobile-item-icon-width-600;
+
+                    .mobile-menu {
+                        .nav-menu-item-icon {
+                            height: $nav-menu-mobile-item-icon-height-600;
+                            width : $nav-menu-mobile-item-icon-width-600;
+
+                            label {
+                                font-size: $nav-menu-mobile-item-label-font-size-600;
+                            }
+                        }
+                    }
+                }
+                @media only screen and (max-width: 500px) {
+                    height: $nav-menu-mobile-item-icon-height-500;
+                    width : $nav-menu-mobile-item-icon-width-500;
+
+                    .mobile-menu {
+                        .nav-menu-item-icon {
+                            height: $nav-menu-mobile-item-icon-height-500;
+                            width : $nav-menu-mobile-item-icon-width-500;
+
+                            label {
+                                font-size: $nav-menu-mobile-item-label-font-size-500;
+                            }
+                        }
+                    }
+                }
+                @media only screen and (max-width: 400px) {
+                    height: $nav-menu-mobile-item-icon-height-400;
+                    width : $nav-menu-mobile-item-icon-width-400;
+
+                    .mobile-menu {
+                        .nav-menu-item-icon {
+                            height: $nav-menu-mobile-item-icon-height-400;
+                            width : $nav-menu-mobile-item-icon-width-400;
+
+                            label {
+                                font-size: $nav-menu-mobile-item-label-font-size-400;
                             }
                         }
                     }

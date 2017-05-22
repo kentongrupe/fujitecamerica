@@ -6,10 +6,19 @@ $app-min-height                    : auto;
 $app-content-margin                : $app-margin-top 0 $app-margin-bottom;
 $app-content-padding               : 0 20px;
 
+$app-col-left-display              : none;
+$app-col-right-display             : none;
+
+$app-pro-menu-display              : none;
+
+$app-mobile-menu-display           : inline-block;
+
+$app-footer-height                 : auto;
+
 // footer
 $footer-border-top                 : none;
 $footer-font-size                  : 10px;
-$footer-height                     : 45px;
+$footer-height                     : 40px;
 $footer-links-display              : none;
 $footer-copyright-float            : none;
 
@@ -17,7 +26,7 @@ $footer-mobile-links-display       : block;
 
 // header
 $header-height                     : $app-margin-top;
-$header-padding                    : 10px 5px 10px 10px;
+$header-padding                    : 5px;
 $header-logo-margin                : 10px 0 0 10px;
 $header-menu-display               : none;
 $header-search-input-div-width     : auto;

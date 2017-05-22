@@ -1,4 +1,4 @@
-<div class="mobile-menu-div">
+<div class="footer-mobile-menu-div">
     <ul class="links">
         <li *ngFor="let m of menu; let i=index" [class.active]="isActive(m)" (click)="onMenuClick(m, $event)">{{ m.label }}</li>
     </ul>

@@ -25,7 +25,7 @@ export class StringService extends BaseService {
                 value = 'en';
                 break;
         }
-        console.debug('lcale = "{0}"'.format(value));
+        console.debug('locale = "{0}"'.format(value));
         this._locale = value;
     }
 

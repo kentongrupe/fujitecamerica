@@ -1,6 +1,7 @@
 import {
     Component,
-    ElementRef
+    ElementRef,
+    ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -16,15 +17,15 @@ import {
 
 export class BaseProductRouteComponent extends BaseRouteComponent {
 
+    @ViewChild('top') public top: ElementRef;
+
     protected _product: string = '';
     get product(): string {
         return this._product;
     }
     set product(value: string) {
         this._product = value;
-        if (!this.isNullOrEmpty(value)) {
-            this._onProduct();
-        }
+        this._onProduct();
     }
 
     constructor(
@@ -42,12 +43,10 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
         this.product = this._getParam('product');
     }
     protected _onProduct(): void {
-        if (!this.isNullOrEmpty(this._product)) {
-            let r = this[this._product] as ElementRef;
-            if (r !== undefined) {
-                let y = r.nativeElement.offsetTop - 90;
-                this.domService.scrollTo(0, y);
-            }
+        let p = this.isNullOrEmpty(this._product) ? 'top' : this._product;
+        let r = this[p] as ElementRef;
+        if (r !== undefined) {
+            this.domService.scrollIntoView(r.nativeElement);
         }
     }
 }

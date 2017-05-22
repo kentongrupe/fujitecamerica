@@ -10,7 +10,7 @@ menu {
     }
 
     &.expanded {
-        display: block;
+        display: inline-table;
     }
 
     .menu {
@@ -21,8 +21,9 @@ menu {
         list-style       : none;
         margin           : 0;
         padding          : 0;
+        width            : 100%;
 
-        $menu-item-height: 45px;
+        $menu-item-height: 25px;
 
         .menu-item {
             background   : $menu-item-background;
@@ -40,7 +41,7 @@ menu {
                 box-sizing : border-box;
                 float      : left;
                 line-height: $menu-item-height;
-                padding    : 0 20px 0 30px;
+                padding    : 0 10px 0 20px;
                 width      : 100%;
 
                 &:hover {
@@ -57,10 +58,6 @@ menu {
                     text-align: left;
                     width     : 100%;
                 }
-            }
-
-            .submenu-div {
-                float: right;
             }
         }
     }

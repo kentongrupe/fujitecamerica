@@ -165,6 +165,7 @@ interface String {
     padStart(targetLength: number, padString?: string): string;
     replaceCharAt(index: number, char: string): string;
     toBoolean(): boolean;
+    toClassName(): string;
 }
 interface StringConstructor {
     isNullOrEmpty(str: any): boolean;

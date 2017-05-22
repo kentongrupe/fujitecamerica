@@ -18,26 +18,24 @@ app-header {
         height        : $header-height;
         line-height   : $header-height;
         margin        : 0 auto;
-        max-width     : $header-max-width;
+        padding       : $header-padding 0;
+        position      : relative;
 
-        .separator {
-            border: $border;
-            margin: $header-separator-margin;
+        $_height      : $header-height - $header-padding*2;
+
+        & > * {
+            height     : $_height;
+            line-height: $_height;
         }
 
         .header-logo-div {
             background: $header-logo-background;
             cursor    : pointer;
-            height    : $header-logo-height;
-            margin    : $header-logo-margin;
-            padding   : $header-logo-padding;
-            width     : $header-logo-width;
         }
 
         .header-main-menu-div,
         .header-side-menu-div {
-            display  : $header-menu-display;
-            max-width: $header-max-width;
+            display: $header-menu-display;
 
             .link {
                 color : $header-menu-color;
@@ -64,14 +62,17 @@ app-header {
                             color: $header-menu-hover-color;
                         }
                     }
+
+                    menu .menu .menu-item .menu-item-label {
+                        line-height: $header-main-menu-item-height;
+                    }
                 }
             }
         }
 
         .header-side-menu-div {
             font-size: $header-side-menu-font-size;
-            margin   : $header-side-menu-margin;
-            padding  : $header-side-menu-padding;
+            max-width: $header-max-width;
 
             .links {
                 .link {
@@ -81,23 +82,18 @@ app-header {
                         color: $header-menu-hover-color;
                     }
 
-                    .search-icon-div {
-                        display: inline-block;
+                    .menu-icon {
+                        height  : $header-search-icon-font-size;
+                        position: relative;
+                        width   : $header-search-icon-font-size;
 
-                        .search-icon {
-                            height  : $header-search-icon-font-size;
-                            position: relative;
-                            top     : -5px;
-                            width   : $header-search-icon-font-size;
-
-                            .material-icons {
-                                font-size: $header-search-icon-font-size;
-                            }
+                        .material-icons {
+                            font-size: $header-search-icon-font-size;
                         }
+                    }
 
-                        .search-text {
-                            line-height: 10px;
-                        }
+                    .menu-text {
+                        line-height: 10px;
                     }
 
                     &.active {
@@ -110,10 +106,11 @@ app-header {
         .header-mobile-menu-trigger-div {
             color       : $header-mobile-menu-trigger-color;
             display     : $header-mobile-menu-trigger-display;
-            float       : right;
             font-size   : $header-mobile-menu-trigger-font-size;
             margin-right: 5px;
             margin-top  : -13px;
+            position    : absolute;
+            right       : 5px;
             text-align  : center;
             width       : $header-mobile-menu-trigger-width;
 
@@ -158,6 +155,7 @@ app-header {
 
             .header-mobile-menu-text {
                 line-height: 5px;
+                margin-top : 5px;
             }
         }
     }
@@ -207,7 +205,7 @@ app-header {
         }
     }
 
-    .mobile-menu-div {
+    .header-mobile-menu-div {
         background-color: $header-mobile-menu-background-color;
         display         : $header-mobile-menu-trigger-display;
         height          : 100%;

@@ -1,21 +1,28 @@
 // app
-$app-margin             : 0 auto;
+$app-margin: 0 auto;
 
 // footer
-$footer-border-top      : 3px solid #666666;
+$footer-border-top: 3px solid #666666;
 
 // header
-$header-logo-height     : 36px;
-$header-logo-width      : 149px;
-$header-logo-background : $header-logo-background-url no-repeat 0 0/#{$header-logo-width} #{$header-logo-height};
+$header-logo-height: 36px;
+$header-logo-width: 149px;
+$header-logo-background: $header-logo-background-url no-repeat right 25px center;
 
-$header-menu-border     : $header-border;
-$header-menu-color      : #333333;
+$header-menu-border: $header-border;
+$header-menu-color: #333333;
 $header-menu-hover-color: #d01126;
 
 // mennu
-$menu-hover-color       : #d01126;
+$menu-hover-color: #d01126;
 
 // site map
 
 //
+.col-left {
+    border-right: $border;
+}
+
+.col-right {
+    border-left: $border;
+}

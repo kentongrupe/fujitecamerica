@@ -12,7 +12,8 @@ import {
 import {
     AppRoute,
     MenuItem,
-    NavMenuDirection
+    NavMenuDirection,
+    NavMenuMode
 } from 'app/models';
 import {
     RouterService,
@@ -26,9 +27,13 @@ import {
 export class NavMenuComponent extends BaseNavRouteComponent implements OnInit {
 
     @Input() public direction: NavMenuDirection = NavMenuDirection.DEFAULT;
+    @Input() public mode: NavMenuMode = NavMenuMode.DEFAULT;
 
     private get _menuDirection(): string {
         return NavMenuDirection[this.direction].toLowerCase();
+    }
+    private get _menuMode(): string {
+        return NavMenuMode[this.mode].toLowerCase();
     }
 
     constructor(

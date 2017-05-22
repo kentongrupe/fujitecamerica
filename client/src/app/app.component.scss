@@ -1,18 +1,147 @@
 app {
-    width: 100%;
+    display       : flex;
+    flex-direction: column;
+    height        : 100%;
+    position      : absolute;
+    top           : 0;
+    width         : 100%;
+
+    app-header {
+        height: $header-height;
+    }
 
     .app-content {
-        box-sizing: border-box;
-        margin    : $app-content-margin;
-        width     : 100%;
+        box-sizing   : border-box;
+        border-bottom: $border;
+        display      : inline-flex;
+        flex         : 1;
+        margin       : $app-content-margin;
+        padding      : 20px 0;
+        width        : 100%;
 
-        & > router-outlet + * {
-            display   : block;
-            margin    : 0 auto;
-            max-width : $max-width;
-            min-height: $app-min-height;
-            padding   : $app-content-padding;
+        .col-left {
+            display : $app-col-left-display;
+            overflow: hidden;
+            padding : 0;
+
+            .references-div {
+                height  : 100%;
+                position: relative;
+                width   : 100%;
+
+                .reference-div {
+                    font-size : $reference-font-size;
+                    font-style: italic;
+                    height    : 100%;
+                    opacity   : 0;
+                    padding   : 0 35px;
+                    position  : absolute;
+                    top       : 100%;
+                    transition: all 1s;
+                    width     : $reference-width;
+
+                    &.current {
+                        opacity: 1;
+                        top    : 0;
+                    }
+
+                    &.previous {
+                        top: -100%;
+                    }
+
+                    .reference-content-div {
+                        position : absolute;
+                        top      : 50%;
+                        transform: translateY(-50%);
+                        width    : $reference-width;
+
+                        .reference-source {
+                            text-align: right;
+                        }
+
+                        .reference-text {
+                            color        : $reference-color;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
         }
+
+        .col-center {
+            overflow: auto;
+
+            & > router-outlet + * {
+                display   : inline-block;
+                margin    : 0 auto;
+                max-width : $max-width;
+                min-height: $app-min-height;
+                padding   : $app-content-padding;
+            }
+        }
+
+        .col-right {
+            display      : $app-col-right-display;
+            padding-right: 25px;
+
+            .systems-menu-div {
+                margin    : 0 auto;
+                text-align: center;
+
+                .nav-menu-items {
+                    display: inline-grid;
+
+                    .nav-menu-item {
+                        margin: 0 0 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .pro-menu-div {
+        box-sizing: border-box;
+        display   : $app-pro-menu-display;
+        height    : $app-pro-menu-height;
+        padding   : $app-pro-menu-padding;
+        text-align: center;
+    }
+
+    .mobile-menu-div {
+        display: $app-mobile-menu-display;
+        height : $app-mobile-menu-height;
+
+        pro-menu,
+        sys-menu {
+            display: flex;
+
+            .nav-menu-items.mode-mobile {
+                display: inline-flex;
+                margin : 0 auto;
+            }
+        }
+
+        pro-menu {
+            .nav-menu-items.mode-mobile {
+                margin: -10px auto;
+            }
+        }
+        @media only screen and (max-width: 700px) {
+            height: $app-mobile-menu-height-700;
+        }
+        @media only screen and (max-width: 600px) {
+            height: $app-mobile-menu-height-600;
+        }
+        @media only screen and (max-width: 500px) {
+            height: $app-mobile-menu-height-500;
+        }
+        @media only screen and (max-width: 400px) {
+            height: $app-mobile-menu-height-400;
+        }
+    }
+
+    app-footer {
+        height: $app-footer-height;
     }
 
     .nav-menu {

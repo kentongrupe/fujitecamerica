@@ -1,3 +1,4 @@
+<h2>{{ this | getString: 'system-solutions': 'System Solutions' }}</h2>
 <div #slides class="home-slides-div" [style.height.px]="_slideHeight" (window:resize)="_onResize($event)">
     <div class="slides-div" [class.sliding]="_sliding" [style.left.%]="_sliding? -100 : 0" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth * _slides.length">
         <div class="slide-div" *ngFor="let s of _slides" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth">
@@ -5,14 +6,4 @@
         </div>
     </div>
     <div class="slides-bg-div" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth"></div>
-</div>
-<div class="home-div content-div">
-    <h3 class="header">{{ this | getString: 'systems': 'Systems' }}</h3>
-    <div class="home-menu-div">
-        <sys-menu></sys-menu>
-    </div>
-    <h3 class="header">{{ this | getString: 'industry-professional-resources': 'Industry Professional Resources' }}</h3>
-    <div class="home-menu-div">
-        <pro-menu></pro-menu>
-    </div>
 </div>

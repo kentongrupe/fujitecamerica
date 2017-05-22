@@ -1,17 +1,17 @@
 app-footer {
     background-color: $footer-background-color;
     border-top      : $footer-border-top;
-    box-sizing      : border-box;
     color           : $footer-color;
     display         : inline-block;
     font-size       : $footer-font-size;
     width           : 100%;
 
     .footer-div {
-        height     : $footer-height;
-        line-height: $footer-height;
-        margin     : 0 auto;
-        max-width  : $footer-max-width;
+        background-color: $footer-background-color;
+        height          : $footer-height;
+        line-height     : $footer-height;
+        margin          : 0 auto;
+        max-width       : $footer-max-width;
 
         .links-div {
             display: $footer-links-display;
@@ -49,8 +49,9 @@ app-footer {
         }
     }
 
-    .mobile-menu-div {
+    .footer-mobile-menu-div {
         display: $footer-mobile-links-display;
+        width  : 100%;
 
         ul {
             width: 100%;
@@ -58,6 +59,7 @@ app-footer {
             li {
                 background-color: $footer-mobile-menu-item-background-color;
                 border-top      : $footer-mobile-menu-item-border-top;
+                box-sizing      : border-box;
                 height          : $footer-mobile-menu-item-height;
                 line-height     : $footer-mobile-menu-item-height;
                 padding-left    : 10px;

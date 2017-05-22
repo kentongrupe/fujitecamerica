@@ -37,7 +37,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
 
         this.menu = [
             {
-                label: this._getString('elevators', 'Elevators'),
+                label: this._getString('elevators', 'elevators'),
                 icon: 'elevators',
                 routerLink: AppRoute.ELEVATORS,
                 items: [
@@ -64,7 +64,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
                         ]
                     },
                     {
-                        label: this._getString('controllers', 'Controllers'),
+                        label: this._getString('controllers', 'controllers'),
                         routerLink: AppRoute.ELEVATORS_CONTROLLERS,
                         items: [
                             {
@@ -92,7 +92,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
                 ]
             },
             {
-                label: this._getString('escalators', 'Escalators'),
+                label: this._getString('escalators', 'escalators'),
                 icon: 'escalators',
                 routerLink: AppRoute.ESCALATORS,
                 items: [
@@ -103,7 +103,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
                 ]
             },
             {
-                label: this._getString('ezshuttle-dispatch', 'EZShuttle Dispatch'),
+                label: this._getString('ezshuttle-dispatch', 'EZShuttle dispatch'),
                 icon: 'ezdispatch',
                 routerLink: AppRoute.EZSHUTTLE_DISPATCH,
                 items: [
@@ -118,7 +118,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
                 ]
             },
             {
-                label: this._getString('autowalks', 'Autowalks'),
+                label: this._getString('autowalks', 'autowalks'),
                 icon: 'autowalks',
                 routerLink: AppRoute.AUTOWALKS,
                 items: [

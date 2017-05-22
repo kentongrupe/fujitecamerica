@@ -37,17 +37,17 @@ export class ProMenuComponent extends NavMenuComponent implements OnInit {
 
         this.menu = [
             {
-                label: this._getString('consultants', 'Consultants'),
+                label: this._getString('consultants', 'consultants'),
                 icon: 'consultants',
                 routerLink: AppRoute.CONSULTANTS
             },
             {
-                label: this._getString('property-management-cos', 'Property Management Cos'),
+                label: this._getString('property-management-cos', 'property management cos'),
                 icon: 'property-managers',
                 routerLink: AppRoute.PROPERTY_MANAGERS
             },
             {
-                label: this._getString('architects-gcs', 'Architects & GCs'),
+                label: this._getString('architects-gcs', 'architects & GCs'),
                 icon: 'architects',
                 routerLink: AppRoute.ARCHITECTS
             }
