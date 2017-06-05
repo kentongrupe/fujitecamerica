@@ -1,6 +1,8 @@
 import {
     Component,
-    Input
+    ElementRef,
+    Input,
+    ViewChild
 } from '@angular/core';
 import {
     DomSanitizer
@@ -21,6 +23,7 @@ export interface IFrameEventData {
 })
 export class IFrameComponent extends BaseComponent {
 
+    @Input() public allowFullscreen: boolean = false;
     private _src: string = null;
     @Input()
     public get src(): string {
@@ -28,6 +31,14 @@ export class IFrameComponent extends BaseComponent {
     }
     public set src(value: string) {
         this._src = this.domSanitizer.bypassSecurityTrustResourceUrl(value) as string;
+    }
+    @ViewChild('iframe') private _iframe: ElementRef;
+
+    public get iframe(): HTMLIFrameElement {
+        if (this._iframe) {
+            return this._iframe.nativeElement;
+        }
+        return null;
     }
 
     constructor(

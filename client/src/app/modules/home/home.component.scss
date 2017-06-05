@@ -13,8 +13,9 @@ home {
         width           : 100%;
 
         .slides-bg-div {
-            box-shadow: $home-slides-box-shadow;
-            position  : absolute;
+            box-shadow    : $home-slides-box-shadow;
+            pointer-events: none;
+            position      : absolute;
         }
 
         .slides-div {
@@ -25,6 +26,15 @@ home {
 
             &.sliding {
                 transition: left $home-slides-transition-duration;
+            }
+
+            .slide {
+                height: 100%;
+                width : 100%;
+
+                video {
+                    background-color: $video-background-color;
+                }
             }
         }
     }

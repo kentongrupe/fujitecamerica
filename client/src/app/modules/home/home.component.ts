@@ -2,7 +2,9 @@ import {
     Component,
     ElementRef,
     OnInit,
-    ViewChild
+    QueryList,
+    ViewChild,
+    ViewChildren
 } from '@angular/core';
 import {
     Router
@@ -11,7 +13,11 @@ import {
     BaseNavRouteComponent
 } from 'app/core';
 import {
+    IFrameComponent
+} from 'app/components';
+import {
     AppRoute,
+    MediaType,
     MenuItem
 } from 'app/models';
 import {
@@ -26,9 +32,11 @@ import {
 export class HomeComponent extends BaseNavRouteComponent implements OnInit {
 
     @ViewChild('slides') private _slidesDiv: ElementRef;
+    @ViewChildren('slide') private _slides: QueryList<any>;
 
     private _intervalId: any = null;
-    private _slides: any[] = [];
+    private _mediaType = MediaType;
+    private _slideItems: any[] = [];
     private _slideHeight: number = 300;
     private _slideWidth: number = 1200;
     private _sliding: boolean = false;
@@ -56,36 +64,49 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this._slides = [
+        this._slideItems = [
             {
+                type: MediaType.IMAGE,
                 url: '/assets/img/ElevatorLobbyBW.jpg'
             },
             {
+                type: MediaType.VIDEO,
+                url: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+            },
+            {
+                type: MediaType.IMAGE,
                 url: '/assets/img/ElevatorLobbyBW.jpg'
             },
             {
-                url: '/assets/img/ElevatorLobbyBW.jpg'
-            },
-            {
+                type: MediaType.IMAGE,
                 url: '/assets/img/ElevatorLobbyBW.jpg'
             }
         ];
 
+        setTimeout(() => {
+            this._updateSlidesSize();
+            this._startTimer();
+        });
+    }
+    private _onResize(event: UIEvent): void {
         this._updateSlidesSize();
-
-        if (this._slides.length > 1) {
+    }
+    private _startTimer(): void {
+        if (this._slideItems.length > 1) {
             this._intervalId = setInterval(() => {
                 this._sliding = true;
                 setTimeout(() => {
-                    let s = this._slides.shift();
-                    this._slides.push(s);
+                    let s = this._slideItems.shift();
+                    this._slideItems.push(s);
                     this._sliding = false;
                 }, 1000);
             }, 5000);
         }
     }
-    private _onResize(event: UIEvent): void {
-        this._updateSlidesSize();
+    private _stopTimer(): void {
+        if (this._intervalId !== null) {
+            clearInterval(this._intervalId);
+        }
     }
     private _updateSlidesSize(): void {
         const R = 1200 / 300;

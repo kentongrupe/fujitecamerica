@@ -1,8 +1,18 @@
 <h2>{{ this | getString: 'system-solutions': 'System Solutions' }}</h2>
 <div #slides class="home-slides-div" [style.height.px]="_slideHeight" (window:resize)="_onResize($event)">
-    <div class="slides-div" [class.sliding]="_sliding" [style.left.%]="_sliding? -100 : 0" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth * _slides.length">
-        <div class="slide-div" *ngFor="let s of _slides" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth">
-            <img [src]="s.url" [height]="_slideHeight" [width]="_slideWidth" />
+    <div class="slides-div" [class.sliding]="_sliding" [style.left.%]="_sliding? -100 : 0" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth * _slideItems.length">
+        <div class="slide-div" *ngFor="let s of _slideItems" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth">
+            <div class="slide" [ngSwitch]="s.type">
+                <ng-template [ngSwitchCase]="_mediaType.IMAGE">
+                    <img #slide [src]="s.url" [width]="_slideWidth" [height]="_slideHeight" />
+                </ng-template>
+                <ng-template [ngSwitchCase]="_mediaType.VIDEO">
+                    <video [width]="_slideWidth" [height]="_slideHeight" controls (play)="_stopTimer()">
+                        <source [src]="s.url"> Your browser does not support the video tag.
+                    </video>
+                </ng-template>
+                <ng-template ngSwitchDefault></ng-template>
+            </div>
         </div>
     </div>
     <div class="slides-bg-div" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth"></div>

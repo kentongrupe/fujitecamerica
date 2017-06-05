@@ -78,6 +78,12 @@ app {
                 min-height: $app-min-height;
                 padding   : $app-content-padding;
             }
+
+            &.home {
+                & > router-outlet + * {
+                    max-width: none;
+                }
+            }
         }
 
         .col-right {
@@ -97,6 +103,14 @@ app {
                 }
             }
         }
+    }
+
+    .sys-menu-div {
+        box-sizing: border-box;
+        display   : $app-sys-menu-display;
+        height    : $app-sys-menu-height;
+        padding   : $app-sys-menu-padding;
+        text-align: center;
     }
 
     .pro-menu-div {

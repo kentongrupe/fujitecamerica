@@ -1,5 +1,6 @@
 export * from './AppEvent';
 export * from './AppRoute';
+export * from './MediaType';
 export * from './MenuItem';
 export * from './NavMenuDirection';
 export * from './NavMenuMode';
