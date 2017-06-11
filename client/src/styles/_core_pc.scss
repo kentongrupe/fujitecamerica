@@ -14,11 +14,11 @@ $app-sys-menu-display              : block;
 
 $app-mobile-menu-display           : none;
 
-$app-footer-height                 : 65px;
+$app-footer-height                 : 40px;
 
 // footer
 $footer-font-size                  : 12px;
-$footer-height                     : 65px;
+$footer-height                     : $app-footer-height;
 $footer-links-display              : inline-flex;
 $footer-copyright-float            : right;
 

@@ -73,10 +73,13 @@ ul.links {
 // app
 $reference-width: 180px;
 
-$app-sys-menu-height: 200px;
+$app-menu-header-color: #3A3B3B;
+$app-menu-header-font-size: 24pt;
+
+$app-sys-menu-height: 280px;
 $app-sys-menu-padding: 20px 0;
 
-$app-pro-menu-height: 200px;
+$app-pro-menu-height: 280px;
 $app-pro-menu-padding: 20px 0 0 0;
 
 // footer
@@ -84,15 +87,14 @@ $footer-max-width: $max-width;
 $footer-mobile-menu-item-height: 30px;
 
 // header
-$header-font-size: 14px;
+$header-font-size: 20pt;
 $header-max-width: $max-width;
 
 $header-logo-padding: 0 40px 0 0;
 
-$header-main-menu-link-margin: 0 30px;
-$header-main-menu-item-height: 35px;
+$header-main-menu-link-margin: 0 40px;
 
-$header-side-menu-font-size: 6px;
+$header-side-menu-font-size: 16pt;
 $header-side-menu-margin: 10px 0 20px;
 $header-side-menu-padding: 0 0 0 40px;
 $header-side-menu-link-margin: 0 8px;
@@ -121,14 +123,13 @@ $home-slides-transition-duration: 1s;
 $login-modal-height: 270px;
 $login-modal-width: 400px;
 
+// menu
+$menu-item-font-size: 16pt;
+
 // nav menu
-$nav-menu-item-height: 100px;
-$nav-menu-item-width: 140px;
-$nav-menu-item-icon-height: 75px;
-$nav-menu-item-icon-width: $nav-menu-item-width;
-$nav-menu-item-label-height: 25px;
-$nav-menu-item-label-width: $nav-menu-item-width;
-$nav-menu-item-label-font-size: 10px;
+$nav-menu-item-label-height: 40px;
+$nav-menu-item-label-width: 100%;
+$nav-menu-item-label-font-size: $menu-item-font-size;
 //      side
 
 // site-map
@@ -138,9 +139,8 @@ $site-map-links-margin: 0 0 20px 0;
 .col-left,
 .col-right {
     box-sizing: border-box;
-    min-width : 250px;
     padding   : 0;
-    width     : 250px;
+    width     : 600px;
 }
 
 .col-left {

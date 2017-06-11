@@ -6,7 +6,8 @@ menu {
     position  : absolute;
 
     .menu-label-div {
-        width: 100%;
+        font-size: $menu-item-font-size;
+        width    : 100%;
     }
 
     &.expanded {
@@ -14,21 +15,20 @@ menu {
     }
 
     .menu {
-        background-color : $menu-background-color;
-        border           : $menu-border;
-        box-sizing       : border-box;
-        display          : inline-grid;
-        list-style       : none;
-        margin           : 0;
-        padding          : 0;
-        width            : 100%;
-
-        $menu-item-height: 25px;
+        background-color: $menu-background-color;
+        border          : $menu-border;
+        box-sizing      : border-box;
+        display         : inline-grid;
+        list-style      : none;
+        margin          : 0;
+        padding         : 0;
+        width           : 100%;
 
         .menu-item {
             background   : $menu-item-background;
             border-bottom: $menu-border;
             box-sizing   : border-box;
+            height       : $menu-item-height;
             line-height  : $menu-item-height;
             margin       : 0;
             text-align   : left;
@@ -40,8 +40,9 @@ menu {
             .menu-item-label {
                 box-sizing : border-box;
                 float      : left;
+                height     : $menu-item-height;
                 line-height: $menu-item-height;
-                padding    : 0 10px 0 20px;
+                padding    : $menu-item-padding;
                 width      : 100%;
 
                 &:hover {

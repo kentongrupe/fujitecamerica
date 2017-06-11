@@ -34,11 +34,14 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     @ViewChild('slides') private _slidesDiv: ElementRef;
     @ViewChildren('slide') private _slides: QueryList<any>;
 
+    private _SLIDE_HEIGHT: number = 400;
+    private _SLIDE_WIDTH: number = 1200;
+
     private _intervalId: any = null;
     private _mediaType = MediaType;
     private _slideItems: any[] = [];
-    private _slideHeight: number = 300;
-    private _slideWidth: number = 1200;
+    private _slideHeight: number = this._SLIDE_HEIGHT;
+    private _slideWidth: number = this._SLIDE_WIDTH;
     private _sliding: boolean = false;
 
     private get _slidesRect(): ClientRect {
@@ -48,8 +51,8 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         let r = {
             left: 0,
             top: 0,
-            right: 1200,
-            bottom: 300
+            right: this._SLIDE_WIDTH,
+            bottom: this._SLIDE_HEIGHT
         } as ClientRect;
         return r;
     }
@@ -75,7 +78,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
             },
             {
                 type: MediaType.IMAGE,
-                url: '/assets/img/ElevatorLobbyBW.jpg'
+                url: '/assets/img/escalators.jpg'
             },
             {
                 type: MediaType.IMAGE,
@@ -109,10 +112,10 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         }
     }
     private _updateSlidesSize(): void {
-        const R = 1200 / 300;
+        const R = this._SLIDE_WIDTH / this._SLIDE_HEIGHT;
         let r = this._slidesRect;
 
         this._slideWidth = r.width;
-        this._slideHeight = Math.ceil(r.width / R);
+        this._slideHeight = Math.min(Math.ceil(r.width / R), this._SLIDE_HEIGHT);
     }
 }

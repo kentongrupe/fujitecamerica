@@ -38,7 +38,7 @@ export class AppFooterComponent extends BaseNavRouteComponent implements OnInit 
 
         this.menu = [
             {
-                label: this._getString('site-map', 'SiteMap'),
+                label: this._getString('site-map', 'Site Map'),
                 routerLink: AppRoute.SITE_MAP
             },
             {

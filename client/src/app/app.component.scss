@@ -12,7 +12,7 @@ app {
 
     .app-content {
         box-sizing   : border-box;
-        border-bottom: $border;
+        border-bottom: none;
         display      : inline-flex;
         flex         : 1;
         margin       : $app-content-margin;
@@ -74,21 +74,17 @@ app {
             & > router-outlet + * {
                 display   : inline-block;
                 margin    : 0 auto;
-                max-width : $max-width;
                 min-height: $app-min-height;
                 padding   : $app-content-padding;
-            }
-
-            &.home {
-                & > router-outlet + * {
-                    max-width: none;
-                }
             }
         }
 
         .col-right {
-            display      : $app-col-right-display;
-            padding-right: 25px;
+            display       : $app-col-right-display;
+            overflow-x    : visible;
+            overflow-y    : auto;
+            padding-bottom: 50px;
+            padding-right : 25px;
 
             .systems-menu-div {
                 margin    : 0 auto;
@@ -103,6 +99,11 @@ app {
                 }
             }
         }
+    }
+
+    .menu-header {
+        color    : $app-menu-header-color;
+        font-size: $app-menu-header-font-size;
     }
 
     .sys-menu-div {

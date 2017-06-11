@@ -3,7 +3,7 @@
 
 body,
 html {
-    $font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 input[type="password"],
@@ -36,7 +36,7 @@ $footer-mobile-menu-item-active-color: #cccccc;
 
 // header
 $header-background-color: #ffffff;
-$header-border: $border;
+$header-border: none;
 
 $header-logo-background-url: url('../../assets/img/logo.png');
 
@@ -60,21 +60,30 @@ $home-slides-box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.3);
 // menu
 $menu-background-color: #ffffff;
 $menu-border: $border;
-$menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/5px 8px;
+$menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/10px 16px;
+$menu-item-font-size: 16pt;
+$menu-item-height: 40px;
+$menu-item-padding: 0 10px 0 30px;
 
 $menu-submenu-background-color: #F1F1F1;
 $menu-submenu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 30px center;
 
 // nav menu
-$nav-menu-border: $border;
+$nav-menu-border: 1px solid #3A3B3B;
 $nav-menu-item-arrow-color: #d01126;
-$nav-menu-architects-background: url('../../assets/img/architects_gcs.png') no-repeat;
-$nav-menu-autowalks-background: url('../../assets/img/autowalk.png') no-repeat;
+
+$nav-menu-sys-bakground-height: 200px;
+$nav-menu-sys-bakground-width: 340px;
+$nav-menu-autowalks-background: url('../../assets/img/Autowalk.png') no-repeat;
+$nav-menu-elevators-background: url('../../assets/img/Elevator.png') no-repeat;
+$nav-menu-escalators-background: url('../../assets/img/Escalator.png') no-repeat;
+$nav-menu-ezdispatch-background: url('../../assets/img/EZDispatch.png') no-repeat;
+
+$nav-menu-pro-bakground-height: 175px;
+$nav-menu-pro-bakground-width: 285px;
+$nav-menu-architects-background: url('../../assets/img/Architects_GCs.png') no-repeat;
 $nav-menu-consultants-background: url('../../assets/img/consultants.png') no-repeat;
-$nav-menu-elevators-background: url('../../assets/img/elevator.png') no-repeat;
-$nav-menu-escalators-background: url('../../assets/img/escalator.png') no-repeat;
-$nav-menu-ezdispatch-background: url('../../assets/img/ezdispatch.png') no-repeat;
-$nav-menu-property-managers-background: url('../../assets/img/property-managers.png') no-repeat;
+$nav-menu-property-managers-background: url('../../assets/img/ProjMGMTCos.png') no-repeat;
 
 $nav-menu-side-item-icon-background-height: 50px;
 $nav-menu-side-item-icon-background-width: 100px;

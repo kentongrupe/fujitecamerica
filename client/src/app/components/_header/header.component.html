@@ -1,6 +1,6 @@
 <div class="header-div">
     <div class="header-logo-div col-left" (click)="_onLogoClick()"></div>
-    <div class="header-main-menu-div">
+    <div class="header-main-menu-div col-center">
         <ul class="links">
             <li class="link" *ngFor="let m of _mainMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m, $event)" (mouseover)="_toggleMenu(i, true)" (mouseout)="_toggleMenu(i, false)">
                 <div class="link-label">{{ m.label }}</div>
