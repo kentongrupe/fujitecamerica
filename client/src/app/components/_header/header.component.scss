@@ -1,7 +1,6 @@
 app-header {
     background-color: $header-background-color;
     border-bottom   : $header-border;
-    box-sizing      : border-box;
     display         : inline-block;
     font-size       : $header-font-size;
     height          : $header-height;
@@ -12,92 +11,104 @@ app-header {
     z-index         : 1000;
 
     .header-div {
-        box-sizing    : border-box;
         display       : flex;
         flex-direction: row;
         height        : $header-height;
         line-height   : $header-height;
         margin        : 0 auto;
-        padding       : $header-padding 0;
+        min-width     : $col-side-width + $col-center-width + $col-side-width;
+        padding       : $header-padding;
         position      : relative;
+        width         : 100%;
 
-        $_height      : $header-height - $header-padding*2;
+        .header-content-div {
+            display : inline-flex;
+            width   : 100%;
 
-        & > * {
-            height     : $_height;
-            line-height: $_height;
-        }
+            $_height: $header-height - $header-padding-top;
 
-        .header-logo-div {
-            background: $header-logo-background;
-            cursor    : pointer;
-        }
-
-        .header-main-menu-div,
-        .header-side-menu-div {
-            display: $header-menu-display;
-
-            .link {
-                color : $header-menu-color;
-                cursor: pointer;
-                float : left;
+            & > * {
+                height     : $_height;
+                line-height: $_height;
             }
-        }
 
-        .header-main-menu-div {
-            margin: 0 auto;
+            .header-logo-div {
+                background: $header-logo-background;
+                cursor    : pointer;
+            }
 
-            .links {
+            .header-main-menu-div,
+            .header-side-menu-div {
+                display: $header-menu-display;
+
                 .link {
-                    margin: $header-main-menu-link-margin;
+                    color : $header-menu-color;
+                    cursor: pointer;
+                    float : left;
+                }
+            }
 
-                    .link-label {
-                        &:hover {
-                            color: $header-menu-hover-color;
+            .header-main-menu-div {
+                display: $header-main-menu-display;
+
+                .links-div {
+                    margin: 0 auto;
+
+                    .links {
+                        .link {
+                            font-size: $header-main-menu-link-font-size;
+                            margin   : $header-main-menu-link-margin;
+
+                            .link-label {
+                                &:hover {
+                                    color: $header-menu-hover-color;
+                                }
+                            }
+
+                            &.active {
+                                .link-label {
+                                    color: $header-menu-hover-color;
+                                }
+                            }
+
+                            menu .menu .menu-item .menu-item-label {
+                                font-size: $header-main-menu-submenu-link-font-size;
+                            }
                         }
-                    }
-
-                    &.active {
-                        .link-label {
-                            color: $header-menu-hover-color;
-                        }
-                    }
-
-                    menu .menu .menu-item .menu-item-label {
-                        font-size: 16pt;
                     }
                 }
             }
-        }
 
-        .header-side-menu-div {
-            font-size: $header-side-menu-font-size;
-            max-width: $header-max-width;
+            .header-side-menu-div {
+                font-size: $header-side-menu-font-size;
 
-            .links {
-                .link {
-                    margin: $header-side-menu-link-margin;
+                .links {
+                    .link {
+                        font-size: $header-side-menu-link-font-size;
+                        margin   : $header-side-menu-link-margin;
 
-                    &:hover {
-                        color: $header-menu-hover-color;
-                    }
-
-                    .menu-icon {
-                        height  : $header-search-icon-font-size;
-                        position: relative;
-                        width   : $header-search-icon-font-size;
-
-                        .material-icons {
-                            font-size: $header-search-icon-font-size;
+                        &:hover {
+                            color: $header-menu-hover-color;
                         }
-                    }
 
-                    .menu-text {
-                        line-height: 10px;
-                    }
+                        .menu-icon {
+                            display: none;
+                            // height  : $header-search-icon-font-size;
+                            // position: relative;
+                            // width   : $header-search-icon-font-size;
 
-                    &.active {
-                        color: $header-menu-hover-color;
+                            .material-icons {
+                                font-size: $header-search-icon-font-size;
+                            }
+                        }
+
+                        .menu-text {
+                            line-height: 10px;
+                        }
+
+                        &.active {
+                            color: $header-menu-hover-color;
+                        }
                     }
                 }
             }
@@ -162,7 +173,6 @@ app-header {
 
     .search-div {
         background-color: $header-search-background-color;
-        box-sizing      : border-box;
         display         : inline-flex;
         height          : $header-search-height;
         opacity         : $header-search-opacity;
@@ -230,7 +240,6 @@ app-header {
             li {
                 background   : $header-mobile-menu-item-background;
                 border-bottom: $header-mobile-menu-item-border-bottom;
-                box-sizing   : border-box;
                 color        : $header-mobile-menu-item-color;
                 height       : $header-mobile-menu-item-height;
                 line-height  : $header-mobile-menu-item-height;

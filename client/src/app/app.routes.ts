@@ -51,6 +51,7 @@ export const ROUTES: Routes = [
     { path: '', component: InitComponent },
     { path: 'home', component: HomeComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'about', component: AboutComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    { path: 'about/:product', component: AboutComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'autowalks', component: AutowalksComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'autowalks/:product', component: AutowalksComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'contact', component: ContactComponent, canActivate: [RouterService], canActivateChild: [RouterService] },

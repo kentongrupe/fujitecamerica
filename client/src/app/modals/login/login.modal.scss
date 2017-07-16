@@ -18,9 +18,8 @@ login {
         }
 
         .mat-card {
-            box-sizing: border-box;
-            float     : left;
-            width     : $login-modal-width;
+            float: left;
+            width: $login-modal-width;
 
             &:not([class*=mat-elevation-z]) {
                 box-shadow: none;

@@ -82,7 +82,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
             },
             {
                 type: MediaType.IMAGE,
-                url: '/assets/img/ElevatorLobbyBW.jpg'
+                url: '/assets/img/ezshuttledestination.jpg'
             }
         ];
 
@@ -116,6 +116,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         let r = this._slidesRect;
 
         this._slideWidth = r.width;
-        this._slideHeight = Math.min(Math.ceil(r.width / R), this._SLIDE_HEIGHT);
+        // this._slideHeight = Math.min(Math.ceil(r.width / R), this._SLIDE_HEIGHT);
+        this._slideHeight = this._SLIDE_HEIGHT;
     }
 }

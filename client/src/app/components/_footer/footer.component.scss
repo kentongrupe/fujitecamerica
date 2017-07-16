@@ -28,6 +28,10 @@ app-footer {
                         }
                     }
 
+                    .link {
+                        color: $footer-color;
+                    }
+
                     &:after {
                         content: '|';
                         padding: 0 10px;
@@ -58,7 +62,6 @@ app-footer {
             li {
                 background-color: $footer-mobile-menu-item-background-color;
                 border-top      : $footer-mobile-menu-item-border-top;
-                box-sizing      : border-box;
                 height          : $footer-mobile-menu-item-height;
                 line-height     : $footer-mobile-menu-item-height;
                 padding-left    : 10px;

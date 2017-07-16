@@ -1,24 +1,9 @@
-<!--<div class="menu-label-div" [mdMenuTriggerFor]="menu" (click)="_onClick(m, $event)" (mouseover)="_showMenu()">
-    <ng-content select="menu-label"></ng-content>
-</div>
-<md-menu #menu="mdMenu">
-    <div *ngIf="_items.length>0">
-        <button md-menu-item *ngFor="let m of _items" (click)="_onClick(m, $event)">
-            <div>
-                <label>{{ m.label }}</label>
-            </div>
-        </button>
-    </div>
-</md-menu>-->
-
 <div class="menu-div">
     <ul class="menu">
-        <li class="menu-item" *ngFor="let m of _model; let i=index">
-            <div (click)="_onClick(m, $event)" (mouseover)="_toggleMenu($event, m, true)" (mouseout)="_toggleMenu($event, m, false)">
-                <label class="menu-item-label" [class.expanded]="m.expanded">{{ m.label }}</label>
-                <div class="submenu-div" *ngIf="m.items && (m.items.length>0)">
-                    <menu class="submenu" [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onClick($event)"></menu>
-                </div>
+        <li class="menu-item" *ngFor="let m of _model; let i=index" (click)="_onClick(m, $event)" (mouseover)="_toggleMenu($event, m, true)" (mouseout)="_toggleMenu($event, m, false)">
+            <label class="menu-item-label" [class.expanded]="m.expanded">{{ m.label }}</label>
+            <div class="submenu-div" *ngIf="m.items && (expandChildren || (m.items.length>0))">
+                <menu class="submenu" [class.expanded]="expandChildren || m.expanded" [model]="m.items" (menuClick)="_onClick($event)"></menu>
             </div>
         </li>
     </ul>

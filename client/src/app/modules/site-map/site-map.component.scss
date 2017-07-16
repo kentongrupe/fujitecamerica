@@ -3,11 +3,10 @@ site-map {
         margin: $site-map-margin;
 
         .site-map-links {
-            border    : $site-map-links-border;
-            box-sizing: border-box;
-            display   : inline-grid;
-            margin    : $site-map-links-margin;
-            width     : 100%;
+            border : $site-map-links-border;
+            display: inline-grid;
+            margin : $site-map-links-margin;
+            width  : 100%;
 
             &:last-of-type {
                 margin: 0;
@@ -46,7 +45,6 @@ site-map {
             .site-map-1 {
                 background-color: #f1f1f1;
                 border-top      : $site-map-links-border;
-                box-sizing      : border-box;
                 padding         : 10px 15px;
                 width           : 100%;
 

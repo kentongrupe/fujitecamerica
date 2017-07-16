@@ -1,16 +1,44 @@
-<ul [class]="'nav-menu-items direction-' + _menuDirection + ' mode-' + _menuMode">
-    <li class="link nav-menu-item" *ngFor="let m of menu">
-        <div class="desktop-menu">
-            <div [attr.class]="'nav-menu-item-icon ' + m.icon" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true"></div>
-            <div class="nav-menu-item-label" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true">
-                <label>{{ m.label }}</label>
-                <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick(null, $event)"></menu>
+<div *ngIf="mode<2">
+    <ul [class]="'nav-menu-items direction-' + _menuDirection + ' mode-' + _menuMode">
+        <li class="link nav-menu-item" *ngFor="let m of menu">
+            <div class="desktop-menu">
+                <div [attr.class]="'nav-menu-item-icon ' + m.icon" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true"></div>
+                <div class="nav-menu-item-label" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true">
+                    <label>{{ m.label }}</label>
+                    <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick(null, $event)"></menu>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <div [attr.class]="'nav-menu-item-icon ' + m.icon" (click)="_onMenuClick(m, $event)">
+                    <label>{{ m.label }}</label>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div *ngIf="mode===2">
+    <ul [class]="'nav-menu-items direction-' + _menuDirection + ' mode-' + _menuMode">
+        <li class="link nav-menu-item" *ngFor="let m of menu">
+            <div class="desktop-menu">
+                <div [attr.class]="'nav-menu-item-icon ' + m.icon" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true"></div>
+                <div class="nav-menu-item-label" (click)="_onMenuClick(m, $event)" (mouseout)="m.expanded=false" (mouseover)="m.expanded=true">
+                    <label>{{ m.label }}</label>
+                    <menu [class.expanded]="m.expanded" [expandChildren]="expandChildren" [model]="m.items" (menuClick)="_onMenuClick(null, $event)"></menu>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!-- <div class="site-map-links" *ngFor="let l0 of menu">
+        <div class="site-map-link" (click)="_onMenuClick(l0, $event)">{{ l0.label }}</div>
+        <div class="links site-map-1" *ngIf="l0.items && l0.items.length>0">
+            <div class="link" *ngFor="let l1 of l0.items">
+                <span (click)="_onMenuClick(l1, $event)">{{ l1.label }}</span>
+                <div class="links site-map-2" *ngIf="l1.items && l1.items.length>0">
+                    <div class="link" *ngFor="let l2 of l1.items">
+                        <span (click)="_onMenuClick(l2, $event)">{{ l2.label }}</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mobile-menu">
-            <div [attr.class]="'nav-menu-item-icon ' + m.icon" (click)="_onMenuClick(m, $event)">
-                <label>{{ m.label }}</label>
-            </div>
-        </div>
-    </li>
-</ul>
+    </div> -->
+</div>

@@ -12,19 +12,20 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    DOMService
+    DOMService,
+    StringService
 } from 'app/services';
 
 @Component({
     selector: 'service-maintenance',
-    templateUrl: 'service-maintenance.component.html'
+    templateUrl: '/assets/locales/{0}/service-maintenance-{0}.html'.format(StringService.locale)
 })
 export class ServiceMaintenanceComponent extends BaseProductRouteComponent {
 
-    @ViewChild('autowalks') public autowalks: ElementRef;
-    @ViewChild('elevators') public elevators: ElementRef;
-    @ViewChild('escalators') public escalators: ElementRef;
-    @ViewChild('foreign') public foreign: ElementRef;
+    // @ViewChild('autowalks') public autowalks: ElementRef;
+    // @ViewChild('elevators') public elevators: ElementRef;
+    // @ViewChild('escalators') public escalators: ElementRef;
+    // @ViewChild('foreign') public foreign: ElementRef;
 
     constructor(
         protected domService: DOMService,

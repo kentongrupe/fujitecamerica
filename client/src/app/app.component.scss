@@ -11,12 +11,12 @@ app {
     }
 
     .app-content {
-        box-sizing   : border-box;
         border-bottom: none;
-        display      : inline-flex;
+        display      : $app-content-display;
         flex         : 1;
         margin       : $app-content-margin;
-        padding      : 20px 0;
+        min-width    : $col-side-width + $col-center-width + $col-side-width;
+        padding      : 0;
         width        : 100%;
 
         .col-left {
@@ -26,6 +26,7 @@ app {
 
             .references-div {
                 height  : 100%;
+                overflow: hidden;
                 position: relative;
                 width   : 100%;
 
@@ -34,8 +35,8 @@ app {
                     font-style: italic;
                     height    : 100%;
                     opacity   : 0;
-                    padding   : 0 35px;
                     position  : absolute;
+                    right     : 20px;
                     top       : 100%;
                     transition: all 1s;
                     width     : $reference-width;
@@ -69,24 +70,45 @@ app {
         }
 
         .col-center {
-            overflow: auto;
+            overflow: hidden;
+            padding : 0;
+            position: relative;
+
+            .submenu-div {
+                display : inline-flex;
+                padding : $app-content-menu-padding;
+                position: absolute;
+                width   : 100%;
+
+                .link {
+                    font-size: $app-content-menu-font-size;
+                    height   : $app-content-menu-height;
+                    padding  : 5px;
+                    margin   : $app-content-menu-item-margin;
+
+                    &.active {
+                        border-bottom: 2px solid $red;
+                        color        : $red;
+                    }
+                }
+            }
 
             & > router-outlet + * {
+                @include abs-position($app-content-menu-height, 0, 0, 0);
                 display   : inline-block;
                 margin    : 0 auto;
                 min-height: $app-min-height;
-                padding   : $app-content-padding;
+                overflow  : auto;
+                padding   : $vgap_ $hgap_;
             }
         }
 
         .col-right {
-            display       : $app-col-right-display;
-            overflow-x    : visible;
-            overflow-y    : auto;
-            padding-bottom: 50px;
-            padding-right : 25px;
+            display: $app-col-right-display;
+            padding: 0;
 
             .systems-menu-div {
+                height    : 100%;
                 margin    : 0 auto;
                 text-align: center;
 
@@ -99,26 +121,58 @@ app {
                 }
             }
         }
+
+        &.home {
+            margin-left : 0;
+            margin-right: 0;
+            max-width   : none;
+
+            .col-center {
+                max-width: none;
+                width    : 100%;
+
+                & > router-outlet + * {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .app-content-footer,
+    .app-content-header {
+        background-color: #f1f1f1;
+        height          : $app-content-menu-height;
+        width           : 100%;
     }
 
     .menu-header {
         color    : $app-menu-header-color;
+        display  : inline-block;
         font-size: $app-menu-header-font-size;
+        margin   : $vgap_ 0;
     }
 
-    .sys-menu-div {
-        box-sizing: border-box;
-        display   : $app-sys-menu-display;
-        height    : $app-sys-menu-height;
-        padding   : $app-sys-menu-padding;
+    .app-menu {
+        display   : $app-menu-display;
+        position  : absolute;
         text-align: center;
+        width     : 100%;
+
+        & > div {
+            margin: 0 auto;
+        }
+
+        &.sys-menu-div {
+            top: 440px;
+        }
+
+        &.pro-menu-div {
+            top: 660px;
+        }
     }
 
     .pro-menu-div {
-        box-sizing: border-box;
-        display   : $app-pro-menu-display;
-        height    : $app-pro-menu-height;
-        padding   : $app-pro-menu-padding;
+        margin    : 0 auto $vgap_;
         text-align: center;
     }
 

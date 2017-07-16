@@ -72,44 +72,44 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             {
                 label: this._getString('service-and-maintenance', 'Service & Maintenance'),
                 routerLink: AppRoute.SERVICE_MAINTENANCE,
-                expanded: false,
-                items: [
-                    {
-                        label: this._getString('elevators', 'Elevators'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_ELEVATORS
-                    },
-                    {
-                        label: this._getString('escalators', 'Escalators'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_ESCALATORS
-                    },
-                    {
-                        label: this._getString('autowalks', 'Autowalks'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_AUTOWALKS
-                    },
-                    {
-                        label: this._getString('foreigh-maintenance', 'Foreign Maintenance'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_FOREIGN
-                    }
-                ]
+                // expanded: false,
+                // items: [
+                //     {
+                //         label: this._getString('elevators', 'Elevators'),
+                //         routerLink: AppRoute.SERVICE_MAINTENANCE_ELEVATORS
+                //     },
+                //     {
+                //         label: this._getString('escalators', 'Escalators'),
+                //         routerLink: AppRoute.SERVICE_MAINTENANCE_ESCALATORS
+                //     },
+                //     {
+                //         label: this._getString('autowalks', 'Autowalks'),
+                //         routerLink: AppRoute.SERVICE_MAINTENANCE_AUTOWALKS
+                //     },
+                //     {
+                //         label: this._getString('foreigh-maintenance', 'Foreign Maintenance'),
+                //         routerLink: AppRoute.SERVICE_MAINTENANCE_FOREIGN
+                //     }
+                // ]
             },
             {
                 label: this._getString('modernization', 'Modernization'),
                 routerLink: AppRoute.MODERNIZATION,
-                expanded: false,
-                items: [
-                    {
-                        label: this._getString('elevators', 'Elevators'),
-                        routerLink: AppRoute.MODERNIZATION_ELEVATORS
-                    },
-                    {
-                        label: this._getString('escalators', 'Escalators'),
-                        routerLink: AppRoute.MODERNIZATION_ESCALATORS
-                    },
-                    {
-                        label: this._getString('autowalks', 'Autowalks'),
-                        routerLink: AppRoute.MODERNIZATION_AUTOWALKS
-                    }
-                ]
+                // expanded: false,
+                // items: [
+                //     {
+                //         label: this._getString('elevators', 'Elevators'),
+                //         routerLink: AppRoute.MODERNIZATION_ELEVATORS
+                //     },
+                //     {
+                //         label: this._getString('escalators', 'Escalators'),
+                //         routerLink: AppRoute.MODERNIZATION_ESCALATORS
+                //     },
+                //     {
+                //         label: this._getString('autowalks', 'Autowalks'),
+                //         routerLink: AppRoute.MODERNIZATION_AUTOWALKS
+                //     }
+                // ]
             }
         ];
         this._sideMenu = [
@@ -124,13 +124,13 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             {
                 label: this._getString('contact', 'Contact'),
                 routerLink: AppRoute.CONTACT
-            },
-            {
-                label: this._getString('search', 'Search'),
-                icon: 'search',
-                command: () => {
-                    this._showSearch = !this._showSearch;
-                }
+                // },
+                // {
+                //     label: this._getString('search', 'Search'),
+                //     icon: 'search',
+                //     command: () => {
+                //         this._showSearch = !this._showSearch;
+                //     }
             }
         ];
         this._mobileMenu = this._mainMenu.concat(this._sideMenu);

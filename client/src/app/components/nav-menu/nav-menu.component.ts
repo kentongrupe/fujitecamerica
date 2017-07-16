@@ -27,6 +27,7 @@ import {
 export class NavMenuComponent extends BaseNavRouteComponent implements OnInit {
 
     @Input() public direction: NavMenuDirection = NavMenuDirection.DEFAULT;
+    @Input() public expandChildren: boolean = false;
     @Input() public mode: NavMenuMode = NavMenuMode.DEFAULT;
 
     private get _menuDirection(): string {

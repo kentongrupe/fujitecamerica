@@ -1,27 +1,80 @@
 // app
-$app-margin: 0 auto;
+$app-margin: auto;
+$app-margin-bottom: 0;
+$app-margin-top: 70px;
+$app-min-height: $nav-menu-side-item-icon-height * 4;
+$app-content-display: inline-flex;
+$app-content-margin: $app-margin-top auto $app-margin-bottom;
+
+$app-col-left-display: block;
+$app-col-right-display: block;
+
+$app-menu-display: inline-block;
+
+$app-mobile-menu-display: none;
+
+$app-footer-height: 40px;
 
 // footer
+$footer-font-size: 12px;
+$footer-height: $app-footer-height;
+$footer-links-display: inline-flex;
+$footer-copyright-float: right;
+
+$footer-mobile-links-display: none;
 
 // header
-$header-logo-height: 36px;
-$header-logo-width: 149px;
-$header-logo-background: $header-logo-background-url no-repeat right 25px center;
+$header-height: $app-margin-top;
+$header-padding-top: 15px;
+$header-padding: $header-padding-top 0 0 0;
+
+$header-logo-background: $header-logo-background-url no-repeat right 20px center/149px 36px;
+$header-logo-margin: 20px 0 20px 10px;
 
 $header-menu-border: $header-border;
-$header-menu-color: #3A3B3B;
-$header-menu-hover-color: #d01126;
+$header-menu-color: $grey7;
+$header-menu-display: inline-block;
+$header-menu-hover-color: $red;
+
+$header-main-menu-display: inline-flex;
+
+$header-search-input-div-width: $max-width;
+$header-search-input-width: 440px;
+$header-search-icon-top: -5px;
+
+$header-mobile-menu-trigger-display: none;
 
 // mennu
-$menu-hover-color: #d01126;
+$menu-hover-color: $red;
+
+// nav menu
+$nav-menu-display: inline-block;
+$nav-menu-item-margin: 0 20px 0 0;
+$nav-menu-side-display: inline-grid;
 
 // site map
+$site-map-margin: 0;
+
+$site-map-link-height: 50px;
 
 //
-.col-left {
+.border-left {
+    border-left: $border;
+}
+
+.border-right {
     border-right: $border;
 }
 
+.col-left {
+    // border-right: $border;
+}
+
 .col-right {
-    border-left: $border;
+    // border-left: $border;
+}
+
+.content-div {
+    margin   : $app-margin;
+    max-width: $max-width;
 }

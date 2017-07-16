@@ -15,6 +15,7 @@ import {
 import {
     AppEvent,
     AppRoute,
+    MenuItem,
     NavMenuDirection
 } from 'app/models';
 import {
@@ -33,11 +34,13 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     @ViewChildren('refs') private _refDivs: QueryList<ElementRef>;
 
     private _activeIndex: number = 0;
+    private _activeSubIndex: number = 0;
     private _initComplete: boolean = false;
     private _intervalId: any = null;
     private _isHome: boolean = true;
     private _menuDirection: NavMenuDirection = NavMenuDirection.SIDE;
     private _references: any[] = [];
+    private _submenu: MenuItem[] = [];
 
     constructor(
         private domService: DOMService,
@@ -94,6 +97,48 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     protected _onNavigationEnd(event: NavigationEnd): void {
         super._onNavigationEnd(event);
         this._isHome = (event.url === AppRoute.HOME);
+
+        let url = '/' + event.url.split('/')[1];
+
+        switch (url) {
+            case AppRoute.ABOUT:
+                this._submenu = [
+                    {
+                        label: this._getString('ceo-message', 'CEO Message'),
+                        routerLink: AppRoute.ABOUT,
+                        url: 'message'
+                    },
+                    {
+                        label: this._getString('leadership', 'Leadership'),
+                        routerLink: AppRoute.ABOUT,
+                        url: 'leadership'
+                    },
+                    {
+                        label: this._getString('history', 'History'),
+                        routerLink: AppRoute.ABOUT,
+                        url: 'history'
+                    },
+                    {
+                        label: this._getString('mission', 'Mission'),
+                        routerLink: AppRoute.ABOUT,
+                        url: 'mission'
+                    }
+                ];
+                break;
+            default:
+                this._submenu = [];
+                break;
+        }
+
+        if (this._submenu.length > 0) {
+            this._activeSubIndex = this._submenu.findIndex((m) => {
+                return (event.url.endsWith(m.url));
+            });
+
+            if (this._activeSubIndex < 0) {
+                this._activeSubIndex = 0;
+            }
+        }
     }
     private _exportStrings(): void {
         this.stringService.export();
@@ -103,6 +148,9 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
             this._showRef();
         }, 10000);
         this._showRef(true);
+    }
+    private _onSubmenuClick(item: MenuItem): void {
+        this._navTo('{0}/{1}'.format(item.routerLink, item.url));
     }
     private _showRef(isInit: boolean = false): void {
         if (isInit) {

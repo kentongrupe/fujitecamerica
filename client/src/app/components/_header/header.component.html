@@ -1,20 +1,24 @@
 <div class="header-div">
-    <div class="header-logo-div col-left" (click)="_onLogoClick()"></div>
-    <div class="header-main-menu-div col-center">
-        <ul class="links">
-            <li class="link" *ngFor="let m of _mainMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m, $event)" (mouseover)="_toggleMenu(i, true)" (mouseout)="_toggleMenu(i, false)">
-                <div class="link-label">{{ m.label }}</div>
-                <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick($event)"></menu>
-            </li>
-        </ul>
-    </div>
-    <div class="header-side-menu-div col-right">
-        <ul class="links">
-            <li class="link" *ngFor="let m of _sideMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">
-                <div class="menu-icon"><i class="material-icons">{{ m.icon }}</i></div>
-                <div class="menu-text">{{ m.label }}</div>
-            </li>
-        </ul>
+    <div class="header-content-div">
+        <div class="header-logo-div col-left border-right" (click)="_onLogoClick()"></div>
+        <div class="header-main-menu-div col-center">
+            <div class="links-div">
+                <ul class="links">
+                    <li class="link" *ngFor="let m of _mainMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m, $event)" (mouseover)="_toggleMenu(i, true)" (mouseout)="_toggleMenu(i, false)">
+                        <div class="link-label">{{ m.label }}</div>
+                        <menu [class.expanded]="m.expanded" [model]="m.items" (menuClick)="_onMenuClick($event)"></menu>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-side-menu-div col-right border-left">
+            <ul class="links">
+                <li class="link" *ngFor="let m of _sideMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">
+                    <div class="menu-icon"><i class="material-icons">{{ m.icon }}</i></div>
+                    <div class="menu-text">{{ m.label }}</div>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="header-mobile-menu-trigger-div" [class.menu-open]="_showMenu" (click)="_showMenu=!_showMenu">
         <div class="header-mobile-menu-lines-div">
@@ -26,12 +30,12 @@
         <div class="header-mobile-menu-text" *ngIf="_showMenu">{{ this | getString: 'close': 'CLOSE' }}</div>
     </div>
 </div>
-<div class="search-div" [class.active]="_showSearch">
+<!--<div class="search-div" [class.active]="_showSearch">
     <div class="search-input-div">
         <div class="link search-icon" (click)="_search()"><i class="material-icons">search</i></div>
         <input class="search-input" type="text" placeholder="{{ this | getString: 'search': 'Search' }}" [(ngModel)]="_searchText" (change)="_search()">
     </div>
-</div>
+</div>-->
 
 <div class="header-mobile-menu-div" [class.active]="_showMenu">
     <ul class="links">

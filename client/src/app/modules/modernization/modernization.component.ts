@@ -11,18 +11,19 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    DOMService
+    DOMService,
+    StringService
 } from 'app/services';
 
 @Component({
     selector: 'modernization',
-    templateUrl: 'modernization.component.html'
+    templateUrl: '/assets/locales/{0}/modernization-{0}.html'.format(StringService.locale)
 })
 export class ModernizationComponent extends BaseProductRouteComponent {
 
-    @ViewChild('autowalks') public autowalks: ElementRef;
-    @ViewChild('elevators') public elevators: ElementRef;
-    @ViewChild('escalators') public escalators: ElementRef;
+    // @ViewChild('autowalks') public autowalks: ElementRef;
+    // @ViewChild('elevators') public elevators: ElementRef;
+    // @ViewChild('escalators') public escalators: ElementRef;
 
     constructor(
         protected domService: DOMService,

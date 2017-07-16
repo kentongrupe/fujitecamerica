@@ -1,4 +1,5 @@
 export enum NavMenuMode {
     DEFAULT,
-    MOBILE
+    MOBILE,
+    SIDE
 }

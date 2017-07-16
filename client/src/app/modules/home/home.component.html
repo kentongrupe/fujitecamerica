@@ -3,7 +3,7 @@
         <div class="slide-div" *ngFor="let s of _slideItems" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth">
             <div class="slide" [ngSwitch]="s.type">
                 <ng-template [ngSwitchCase]="_mediaType.IMAGE">
-                    <div #slide class="slide-image" [style.background-image]="'url('+s.url+')'" [width]="_slideWidth" [height]="_slideHeight">{{s.url}}</div>
+                    <div #slide class="slide-image" [style.background-image]="'url('+s.url+')'" [width]="_slideWidth" [height]="_slideHeight"></div>
                 </ng-template>
                 <ng-template [ngSwitchCase]="_mediaType.VIDEO">
                     <video [width]="_slideWidth" [height]="_slideHeight" controls (play)="_stopTimer()">

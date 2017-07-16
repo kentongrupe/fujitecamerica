@@ -1,9 +1,8 @@
 menu {
-    box-sizing: border-box;
-    display   : none;
-    padding   : 0;
-    margin    : 0;
-    position  : absolute;
+    display : none;
+    padding : 0;
+    margin  : 0;
+    position: absolute;
 
     .menu-label-div {
         font-size: $menu-item-font-size;
@@ -17,7 +16,6 @@ menu {
     .menu {
         background-color: $menu-background-color;
         border          : $menu-border;
-        box-sizing      : border-box;
         display         : inline-grid;
         list-style      : none;
         margin          : 0;
@@ -27,7 +25,6 @@ menu {
         .menu-item {
             background   : $menu-item-background;
             border-bottom: $menu-border;
-            box-sizing   : border-box;
             height       : $menu-item-height;
             line-height  : $menu-item-height;
             margin       : 0;
@@ -38,7 +35,7 @@ menu {
             }
 
             .menu-item-label {
-                box-sizing : border-box;
+                color      : $menu-color;
                 float      : left;
                 height     : $menu-item-height;
                 line-height: $menu-item-height;

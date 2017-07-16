@@ -1,6 +1,12 @@
 nav-menu,
 pro-menu,
 sys-menu {
+    @mixin _menuitem($bg, $bgw, $bgh, $w, $h) {
+        background: $bg 0 0/#{$bgw} #{$bgh};
+        height    : $h;
+        width     : $w;
+    }
+
     .nav-menu-items {
         display   : $nav-menu-display;
         list-style: none;
@@ -28,58 +34,51 @@ sys-menu {
         }
 
         .nav-menu-item {
-            border    : $nav-menu-border;
-            box-sizing: border-box;
-            float     : left;
-            margin    : $nav-menu-item-margin;
-            position  : relative;
+            border  : $nav-menu-border;
+            display : inline-flex;
+            float   : left;
+            margin  : $nav-menu-item-margin;
+            position: relative;
 
             &:last-of-type {
                 margin-right: 0;
             }
 
             .nav-menu-item-icon {
-                @mixin _menuitem($bg, $w, $h) {
-                    background: $bg;
-                    height    : $h;
-                    width     : $w;
-                }
-
                 // sys
                 &.autowalks {
-                    @include _menuitem($nav-menu-autowalks-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height);
+                    @include _menuitem($nav-menu-autowalks-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                 }
 
                 &.elevators {
-                    @include _menuitem($nav-menu-elevators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height);
+                    @include _menuitem($nav-menu-elevators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                 }
 
                 &.escalators {
-                    @include _menuitem($nav-menu-escalators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height);
+                    @include _menuitem($nav-menu-escalators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                 }
 
                 &.ezdispatch {
-                    @include _menuitem($nav-menu-ezdispatch-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height);
+                    @include _menuitem($nav-menu-ezdispatch-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                 }
 
                 // pro
                 &.architects {
-                    @include _menuitem($nav-menu-architects-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height);
+                    @include _menuitem($nav-menu-architects-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
                 }
 
                 &.consultants {
-                    @include _menuitem($nav-menu-consultants-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height);
+                    @include _menuitem($nav-menu-consultants-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
                 }
 
                 &.property-managers {
-                    @include _menuitem($nav-menu-property-managers-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height);
+                    @include _menuitem($nav-menu-property-managers-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
                 }
             }
 
             .nav-menu-item-label {
                 background  : $menu-item-background;
                 bottom      : 0;
-                box-sizing  : border-box;
                 display     : inline-flex;
                 height      : $nav-menu-item-label-height;
                 left        : 0;
@@ -92,7 +91,6 @@ sys-menu {
                     display   : inline-block;
                     font-size : $nav-menu-item-label-font-size;
                     text-align: center;
-                    // transform : scale(0.8,1.0);
                     width     : 100%;
                 }
 
@@ -108,14 +106,107 @@ sys-menu {
 
                         .submenu-div {
                             menu {
-                                left    : calc(100% - 1px);
-                                position: relative;
-                                top     : -#{$nav-menu-item-label-height + 1px};
+                                position: absolute;
+                                top     : -1px;
 
                                 .menu-div {
                                     .menu-item {
                                         .menu-item-label {
                                             font-size: $nav-menu-item-label-font-size;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.mode-side {
+            .nav-menu-item {
+                &:first-child {
+                    .nav-menu-item-label {
+                        menu {
+                            .menu-item {
+                                &:nth-child(1) {
+                                    height: 87px;
+                                }
+
+                                &:nth-child(2) {
+                                    height: 70px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .nav-menu-item-icon {
+                    // sys
+                    &.autowalks {
+                        @include _menuitem($nav-side-menu-autowalks-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                    }
+
+                    &.elevators {
+                        @include _menuitem($nav-side-menu-elevators-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                    }
+
+                    &.escalators {
+                        @include _menuitem($nav-side-menu-escalators-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                    }
+
+                    &.ezdispatch {
+                        @include _menuitem($nav-side-menu-ezdispatch-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                    }
+                }
+
+                .nav-menu-item-label {
+                    background : $side-menu-item-background;
+                    height     : $nav-side-menu-item-label-height;
+                    line-height: $nav-side-menu-item-label-height;
+
+                    & > label {
+                        font-size: $nav-side-menu-item-label-font-size;
+                    }
+
+                    menu {
+                        top: $nav-side-menu-item-label-height;
+
+                        .menu-item {
+                            background: none;
+                            height    : $nav-side-menu-item-label-height;
+                            position  : relative;
+
+                            .menu-item-label {
+                                background : $side-menu-item-background;
+                                font-size  : $nav-side-menu-item-label-font-size;
+                                height     : $nav-side-menu-item-label-height;
+                                line-height: $nav-side-menu-item-label-height;
+                            }
+
+                            .submenu-div {
+                                @include abs-position($nav-side-menu-item-label-height, 0, 0, 0);
+                                display     : inline-block;
+                                border-top  : $menu-border;
+                                overflow    : hidden;
+                                padding-left: 20px;
+
+                                menu.submenu {
+                                    position: relative;
+                                    width   : calc(100% + 2px);
+
+                                    .menu-div {
+                                        .menu {
+                                            display: inline-block;
+
+                                            .menu-item {
+                                                height: $nav-side-menu-item-label-height;
+
+                                                .menu-item-label {
+                                                    background: $side-menu-item-background;
+                                                    font-size : $nav-side-menu-item-label-font-size;
+                                                }
+                                            }
                                         }
                                     }
                                 }

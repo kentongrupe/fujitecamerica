@@ -18,6 +18,7 @@ import {
 })
 export class MenuComponent extends BaseComponent {
 
+    @Input() public expandChildren: boolean = false;
     @Output() public menuClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
 
     private _model: MenuItem[] = [];

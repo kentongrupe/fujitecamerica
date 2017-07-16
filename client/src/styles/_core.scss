@@ -1,68 +1,33 @@
+@mixin abs-position($top:'', $right:'', $bottom:'', $left:'') {
+     @if (($top=='') and ($right=='') and ($bottom=='') and ($left=='')){
+        $top   : 0;
+        $right : 0;
+        $bottom: 0;
+        $left  : 0;
+    }
+    @else if (($top!='') and ($right=='') and ($bottom=='') and ($left=='')) {
+        $right : $top;
+        $bottom: $top;
+        $left  : $top;
+    }
+    @else if (($top!='') and ($right!='') and ($bottom=='') and ($left=='')) {
+        $bottom: $top;
+        $left  : $right;
+    }
+    @else if (($top!='') and ($right!='') and ($bottom!='') and ($left=='')) {
+        $left: $right;
+    }
+
+    bottom  : $bottom;
+    left    : $left;
+    position: absolute;
+    right   : $right;
+    top     : $top;
+}
 @mixin drop-shadow($dx, $dy, $blur, $spread, $rgba) {
     -webkit-box-shadow: $dx $dy $blur $spread $rgba !important;
     -moz-box-shadow   : $dx $dy $blur $spread $rgba !important;
     box-shadow        : $dx $dy $blur $spread $rgba !important;
-}
-
-// app
-$max-width: 1000px;
-
-body,
-html {
-    height  : 100%;
-    margin  : 0;
-    overflow: hidden;
-    padding : 0;
-    width   : 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-top: 0;
-}
-
-input[type="password"],
-input[type="text"],
-select,
-textarea {
-    box-sizing   : border-box;
-    font-size    : 14px;
-    height       : 45px;
-    padding-left : 10px;
-    padding-right: 10px;
-}
-
-ul.links {
-    display   : inline-block;
-    list-style: none;
-    margin    : 0;
-    padding   : 0;
-}
-
-.disabled {
-    opacity       : .3;
-    pointer-events: none;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.link {
-    cursor: pointer;
-
-    * {
-        cursor: pointer;
-    }
-}
-
-.content-div {
-    margin   : $app-margin;
-    max-width: $max-width;
 }
 
 // dialog
@@ -70,87 +35,28 @@ ul.links {
     float: right;
 }
 
-// app
-$reference-width: 180px;
-
-$app-menu-header-color: #3A3B3B;
-$app-menu-header-font-size: 24pt;
-
-$app-sys-menu-height: 280px;
-$app-sys-menu-padding: 20px 0;
-
-$app-pro-menu-height: 280px;
-$app-pro-menu-padding: 20px 0 0 0;
-
-// footer
-$footer-max-width: $max-width;
-$footer-mobile-menu-item-height: 30px;
-
-// header
-$header-font-size: 20pt;
-$header-max-width: $max-width;
-
-$header-logo-padding: 0 40px 0 0;
-
-$header-main-menu-link-margin: 0 40px;
-
-$header-side-menu-font-size: 16pt;
-$header-side-menu-margin: 10px 0 20px;
-$header-side-menu-padding: 0 0 0 40px;
-$header-side-menu-link-margin: 0 8px;
-
-$header-search-icon-font-size: 30px;
-
-$header-search-height: 80px;
-$header-search-opacity: 0;
-$header-search-padding: 20px 0;
-
-$header-search-input-height: 40px;
-$header-search-icon-size: 40px;
-$header-mobile-menu-trigger-font-size: 10px;
-$header-mobile-menu-trigger-width: 40px;
-
-$header-mobile-menu-trigger-line-height: 3px;
-$header-mobile-menu-trigger-line-width: 22px;
-
-$header-mobile-menu-item-height: 45px;
-$header-mobile-menu-item-close-height: 45px;
-
-// home
-$home-slides-transition-duration: 1s;
-
-// login
-$login-modal-height: 270px;
-$login-modal-width: 400px;
-
-// menu
-$menu-item-font-size: 16pt;
-
-// nav menu
-$nav-menu-item-label-height: 40px;
-$nav-menu-item-label-width: 100%;
-$nav-menu-item-label-font-size: $menu-item-font-size;
-//      side
-
-// site-map
-$site-map-links-margin: 0 0 20px 0;
+$col-center-width: 544px;
+$col-side-width: 240px;
 
 //
 .col-left,
 .col-right {
-    box-sizing: border-box;
-    padding   : 0;
-    width     : 600px;
+    padding  : 0;
+    min-width: $col-side-width;
+    width    : $col-side-width;
 }
 
 .col-left {
-    padding-right: 25px;
-}
-
-.col-center {
-    width: 100%;
+    padding-right: 20px;
+    text-align   : right;
 }
 
 .col-right {
-    padding-left: 25px;
+    padding-left: 20px;
+    text-align  : left;
+}
+
+.col-center {
+    min-width: $col-center-width;
+    width    : 100%;
 }

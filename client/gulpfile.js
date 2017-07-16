@@ -29,10 +29,9 @@ gulp.task('clean', function () {
 /*===========================================================================*/
 function _scss(style, mq) {
     gulp.src([
+        './src/styles/_core.scss',
         './src/styles/{0}.scss'.format(style),
         './src/styles/{0}_{1}.scss'.format(style, mq),
-        './src/styles/_core.scss',
-        './src/styles/_core_{0}.scss'.format(mq),
         './src/app/**/*.scss'
     ], {
             base: './src'
