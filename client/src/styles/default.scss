@@ -369,6 +369,30 @@ $nav-menu-mobile-item-icon-height-400: 60px;
 $nav-menu-mobile-item-icon-width-400: 60px;
 $nav-menu-mobile-item-label-font-size-400: 10px;
 
+// projects
+$project-color: $white;
+$project-font-size: 14px;
+$project-height: 320px;
+$project-margin: 0 0 0 1px;
+$project-width: 254px;
+
+$project-name-background: rgba(0,0,0,0.7);
+$project-name-padding: 15px 0;
+
+$project-info-padding: 20px;
+
+$project-info-title-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 0;
+$project-info-title-border: 1px solid $white;
+$project-info-title-margin: 0 0 15px 0;
+$project-info-title-padding: 0 0 15px 15px;
+
+$project-info-description-line-height: 24.5px;
+$project-info-description-margin: 0 0 15px 0;
+
+$project-info-category-background: $grey6;
+$project-info-category-margin: 0 0 1px 1px;
+$project-info-category-padding: 5px 10px;
+
 // site-map
 $site-map-links-border: $border;
 $site-map-links-margin: 0 0 20px 0;

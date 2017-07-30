@@ -13,6 +13,8 @@ export * from './installation';
 export * from './locations';
 export * from './modernization';
 export * from './privacy-policy';
+export * from './project';
+export * from './projects';
 export * from './property-managers';
 export * from './service-maintenance';
 export * from './site-map';

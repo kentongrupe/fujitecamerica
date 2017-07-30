@@ -1,11 +1,15 @@
 import {
     Input,
+    OnDestroy,
     OnInit
 } from '@angular/core';
 import {
     NavigationEnd,
     Router
 } from '@angular/router';
+import {
+    Subscription
+} from 'rxjs';
 import {
     MenuItem
 } from 'app/models';
@@ -16,7 +20,7 @@ import {
     BaseComponent
 } from './BaseComponent';
 
-export class BaseNavRouteComponent extends BaseComponent implements OnInit {
+export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, OnInit {
 
     public activeItem: any;
     public hasChildren: boolean = false;
@@ -29,6 +33,8 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
         this._menu = value;
     }
 
+    private _subscription: Subscription;
+
     constructor(
         className: string = 'BaseNavRouteComponent',
         protected _router: Router,
@@ -36,13 +42,16 @@ export class BaseNavRouteComponent extends BaseComponent implements OnInit {
     ) {
         super(className);
 
-        this._router.events.subscribe((event) => {
+        this._subscription = this._router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
                 this._onNavigationEnd(event as NavigationEnd);
             }
         });
     }
 
+    public ngOnDestroy() {
+        this._subscription.unsubscribe();
+    }
     public ngOnInit() {
         super.ngOnInit();
     }

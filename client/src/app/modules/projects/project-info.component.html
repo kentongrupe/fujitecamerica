@@ -1,0 +1,11 @@
+<div class="project-info-div" *ngIf="project" (click)="_showProject()">
+    <img class="project-image" [src]="project.imageUrl" />
+    <label class="project-name">{{ project.name }}</label>
+    <div class="project-info">
+        <div class="info-title">{{ project.name }}</div>
+        <div class="info-desc">{{ project.description }}</div>
+        <div class="info-categories">
+            <div class="info-category" *ngFor="let c of project.categories">{{ c }}</div>
+        </div>
+    </div>
+</div>

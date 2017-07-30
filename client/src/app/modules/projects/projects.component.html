@@ -1,0 +1,12 @@
+<div class="projects-div" *ngFor="let p of _projects">
+    <h1>{{ p.name }}</h1>
+    <div class="projects-div" *ngFor="let p_ of p.projects">
+        <div *ngIf="p_.projects.length===0">
+            <project-info [project]="p_" (show)="_showProject($event)"></project-info>
+        </div>
+        <div *ngIf="p_.projects.length>0">
+            <h2>{{ p_.name }}</h2>
+            <project-info *ngFor="let p__ of p_.projects" [project]="p__" (show)="_showProject($event)"></project-info>
+        </div>
+    </div>
+</div>

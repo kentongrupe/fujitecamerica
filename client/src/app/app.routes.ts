@@ -30,6 +30,8 @@ import {
     InstallationComponent,              // installation
     ServiceMaintenanceComponent,        // service & maintenance
     ModernizationComponent,             // modernization
+    ProjectComponent,                   // project
+    ProjectsComponent,                  // projects
     AboutComponent,                     // about
     LocationsComponent,                 // locations
     ContactComponent,                   // contact
@@ -102,6 +104,8 @@ export const ROUTES: Routes = [
     { path: 'modernization', component: ModernizationComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'modernization/:product', component: ModernizationComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'privacy-policy', component: PrivacyPolicyComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    { path: 'project/:projectId', component: ProjectComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    { path: 'projects', component: ProjectsComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'service-maintenance', component: ServiceMaintenanceComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'service-maintenance/:product', component: ServiceMaintenanceComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'site-map', component: SiteMapComponent, canActivate: [RouterService], canActivateChild: [RouterService] },

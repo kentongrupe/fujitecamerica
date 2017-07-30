@@ -1,4 +1,5 @@
 import {
+    OnDestroy,
     OnInit
 } from '@angular/core';
 import {
@@ -7,14 +8,18 @@ import {
     Router
 } from '@angular/router';
 import {
+    Subscription
+} from 'rxjs';
+import {
     BaseComponent
 } from 'app/core';
 
-export class BaseRouteComponent extends BaseComponent implements OnInit {
+export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnInit {
 
     private _activeItem: any;
     private _params: Map<string, string>;
     private _route: ActivatedRoute;
+    private _subscription: Subscription;
 
     constructor(
         className: string = 'BaseRouteComponent',
@@ -26,13 +31,16 @@ export class BaseRouteComponent extends BaseComponent implements OnInit {
         this._params = new Map<string, string>();
         this._route = route;
 
-        this.router.events.subscribe((event) => {
+        this._subscription = this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
                 this._onNavigationEnd(event as NavigationEnd);
             }
         });
     }
 
+    public ngOnDestroy() {
+        this._subscription.unsubscribe();
+    }
     public ngOnInit() {
         this._onNavigationEnd(null);
     }
@@ -44,10 +52,11 @@ export class BaseRouteComponent extends BaseComponent implements OnInit {
     }
     protected _onNavigationEnd(event: NavigationEnd): void {
         let params = this.route.params['value'];
-        for (let p in params) {
-            if (params[p] !== undefined) {
-                this._params.set(p, params[p]);
-            }
+        if (params !== null) {
+            Object.keys(params).forEach((key) => {
+                let value = params[key];
+                this._params.set(key, value);
+            });
         }
     }
 }

@@ -1,0 +1,74 @@
+.project-info-div {
+    color    : $project-color;
+    cursor   : pointer;
+    float    : left;
+    font-size: $project-font-size;
+    height   : $project-height;
+    margin   : $project-margin;
+    overflow : hidden;
+    position : relative;
+    width    : $project-width;
+
+    .project-image {
+        transition: transform .2s linear;
+        width     : 100%;
+    }
+
+    .project-name {
+        background: $project-name-background;
+        bottom    : 0;
+        left      : 0;
+        padding   : $project-name-padding;
+        position  : absolute;
+        right     : 0;
+        text-align: center;
+    }
+
+    .project-info {
+        @include abs-position();
+        background: $project-name-background;
+        opacity   : 0;
+        padding   : $project-info-padding;
+
+        .info-title {
+            background   : $project-info-title-background;
+            border-bottom: $project-info-title-border;
+            font-weight  : bold;
+            margin       : $project-info-title-margin;
+            padding      : $project-info-title-padding;
+            text-align   : center;
+        }
+
+        .info-desc {
+            line-height: $project-info-description-line-height;
+            margin     : $project-info-description-margin;
+        }
+
+        .info-categories {
+            .info-category {
+                background : $project-info-category-background;
+                display    : inline-block;
+                float      : left;
+                font-weight: bold;
+                margin     : $project-info-category-margin;
+                padding    : $project-info-category-padding;
+            }
+        }
+    }
+
+    &:hover {
+        .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-name {
+            opacity   : 0;
+            transition: all .25s;
+        }
+
+        .project-info {
+            opacity   : 1;
+            transition: all .25s;
+        }
+    }
+}

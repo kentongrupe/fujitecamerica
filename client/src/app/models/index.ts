@@ -4,5 +4,6 @@ export * from './MediaType';
 export * from './MenuItem';
 export * from './NavMenuDirection';
 export * from './NavMenuMode';
+export * from './Project';
 export * from './User';
 export * from './UserRole';

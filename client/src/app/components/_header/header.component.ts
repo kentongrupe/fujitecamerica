@@ -110,6 +110,10 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
                 //         routerLink: AppRoute.MODERNIZATION_AUTOWALKS
                 //     }
                 // ]
+            },
+            {
+                label: this._getString('projects', 'Projects'),
+                routerLink: AppRoute.PROJECTS
             }
         ];
         this._sideMenu = [

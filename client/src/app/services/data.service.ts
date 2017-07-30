@@ -12,6 +12,7 @@ import {
     BaseService
 } from 'app/core';
 import {
+    Project,
     User,
     UserRole
 } from 'app/models';
@@ -23,6 +24,7 @@ import {
 export class DataService extends BaseService {
 
     private _baseUrl: string = ''; // 'http://fujitecamerica.com';
+    private _projects: Map<number, Project> = new Map<number, Project>();
 
     constructor(
         private http: Http,
@@ -53,6 +55,68 @@ export class DataService extends BaseService {
     public getNodeHtml(node: string, onSuccess: Function = null, onError: Function = null): void {
         let n = 'node/{0}'.format(node);
         this._get(n, onSuccess, onError);
+    }
+    public getProject(params: any, onSuccess: Function = null, onError: Function = null): void {
+        let id = params.projectId;
+        if (this._projects.has(id)) {
+            onSuccess(this._projects.get(id));
+            return;
+        }
+        let p = new Project({
+            name: params.projectId
+        });
+        this._projects.set(id, p);
+        onSuccess(p);
+    }
+    public getProjects(params: any, onSuccess: Function = null, onError: Function = null): void {
+        if (onSuccess) {
+            let _z = () => {
+                let c = ['Elevator', 'Residence', 'Commercial Facilitiy', 'Hotel', 'Residence', 'Office', 'Transportation', 'Moving Walk'];
+                let n = Math.max(3, Math.round(Math.random() * 4));
+                let z = [];
+                for (let i = 0; i < 10; i++) {
+                    z.push(new Project({
+                        name: 'project ' + i,
+                        description: 'Twelve Fujitec elevators are installed in VIA 57 West, an approximately 140m high residential building on the waterfront of the Hudson River ･･･ ',
+                        imageUrl: 'http://www.fujitec.com/common/fjhp/doc/top_global/document/project/1704/via57west_view.jpg',
+                        categories: ((nn) => {
+                            let a = [];
+                            for (let j = 0; j < nn; j++) {
+                                a.push(c[Math.round(Math.random() * c.length)]);
+                            }
+                            return a;
+                        })(n),
+                        projectId: Math.round(Math.random() * 1000)
+                    }));
+                }
+                return z;
+            };
+            onSuccess({
+                projects: [
+                    new Project({
+                        name: 'North America',
+                        projects: [
+                            new Project({
+                                name: 'Service & Maintenance',
+                                projects: _z()
+                            }),
+                            new Project({
+                                name: 'Modernization',
+                                projects: _z()
+                            }),
+                            new Project({
+                                name: 'Installation',
+                                projects: _z()
+                            })
+                        ]
+                    }),
+                    new Project({
+                        name: 'Global',
+                        projects: _z()
+                    }),
+                ]
+            });
+        }
     }
     private _get(name: string, onSuccess: Function = null, onError: Function = null): void {
         let url = '{0}/{1}'.format(this._baseUrl, name);
