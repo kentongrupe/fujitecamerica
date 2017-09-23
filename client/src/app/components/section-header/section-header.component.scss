@@ -1,0 +1,90 @@
+
+$seciton-header-bg-max-height: 430px;
+$seciton-header-bg-max-width: 1130px;
+$section-header-menu-background-color: rgba(red($red), green($red), blue($red), 0.7);
+$section-header-menu-color: $white;
+$section-header-menu-height: 100px;
+$section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
+
+$section-header-bg-installation: url('/assets/img/modroom.jpg') no-repeat;
+$section-header-bg-modernization: url('/assets/img/modroom.jpg') no-repeat;
+$section-header-bg-projects: url('/assets/img/westforty.jpg') no-repeat;
+$section-header-bg-service-maintenance: url('/assets/img/servicemaintenance.jpg') no-repeat;
+
+section-header {
+    .section-header-div {
+        height  : $seciton-header-bg-max-height;
+        margin  : 0 0 $vgap;
+        position: relative;
+
+        .bg {
+            @include abs-position();
+            height    : $seciton-header-bg-max-height;
+            max-height: $seciton-header-bg-max-height;
+            max-width : $seciton-header-bg-max-width;
+            width     : 100%;
+
+            &.installation {
+                background: $section-header-bg-installation center;
+            }
+
+            &.modernization {
+                background: $section-header-bg-modernization center;
+            }
+
+            &.projects {
+                background: $section-header-bg-projects center;
+
+            }
+
+            &.service-maintenance {
+                background: $section-header-bg-service-maintenance center;
+            }
+        }
+
+        .menu-div {
+            @include abs-position();
+            background-color: $section-header-menu-background-color;
+            color           : $section-header-menu-color;
+            display         : inline-flex;
+            height          : $section-header-menu-height;
+            padding         : $vgap_ $hgap;
+            top             : $seciton-header-bg-max-height - $section-header-menu-height;
+
+            h1,
+            h3 {
+                color      : $section-header-menu-color;
+                line-height: 29px;
+                margin     : $vgap_ 0;
+            }
+
+            h3 {
+                cursor: pointer;
+            }
+
+            .menu-toggle {
+                background: $section-header-menu-toggle-background $section-header-menu-color center;
+                height    : 29px;
+                margin    : $vgap_ $hgap_;
+                width     : 24px;
+            }
+        }
+
+        .menu-items-div {
+            @include abs-position();
+            height    : 0;
+            overflow  : hidden;
+            top       : $seciton-header-bg-max-height;
+            transition: all .5s;
+
+            &.expanded {
+                background: #000;
+            }
+
+            .menu-item {
+                color : $white;
+                height: 40px;
+            }
+        }
+    }
+}

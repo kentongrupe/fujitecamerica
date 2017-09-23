@@ -44,22 +44,23 @@ export class InitComponent extends BaseComponent implements OnInit {
             })
         });
 
-        (this.http
-            .get(url, options)
-            .map((res) => {
-                return res.text();
-            }))
-            .subscribe((result: string) => {
-                let o = JSON.parse(result);
-                for (let id in o) {
-                    if (o[id] !== undefined) {
-                        this.stringService.set(id, o[id]);
-                    }
-                }
-                this.eventService.dispatch(AppEvent.INIT_COMPLETE);
-            }, (error) => {
-                console.error(error);
-                this.eventService.dispatch(AppEvent.INIT_COMPLETE);
-            });
+        // (this.http
+        //     .get(url, options)
+        //     .map((res) => {
+        //         return res.text();
+        //     }))
+        //     .subscribe((result: string) => {
+        //         let o = JSON.parse(result);
+        //         for (let id in o) {
+        //             if (o[id] !== undefined) {
+        //                 this.stringService.set(id, o[id]);
+        //             }
+        //         }
+        //         this.eventService.dispatch(AppEvent.INIT_COMPLETE);
+        //     }, (error) => {
+        //         console.error(error);
+        //         this.eventService.dispatch(AppEvent.INIT_COMPLETE);
+        //     });
+        this.eventService.dispatch(AppEvent.INIT_COMPLETE);
     }
 }

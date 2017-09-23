@@ -3,15 +3,37 @@ $app-margin: 10px;
 $app-margin-bottom: 30px;
 $app-margin-top: 45px;
 $app-min-height: auto;
+
 $app-content-display: inline-block;
-$app-content-margin: $app-margin-top 0 $app-margin-bottom;
+@mixin app-content-scss() {
+    //
+    @include abs-position($app-margin-top, 0, $app-mobile-content-bottom, 0);
+    padding-top: $vgap_;
+    //
+    @media only screen and (max-width: 700px) {
+        bottom: $app-mobile-content-bottom-700;
+    }
+    @media only screen and (max-width: 600px) {
+        bottom: $app-mobile-content-bottom-600;
+    }
+    @media only screen and (max-width: 500px) {
+        bottom: $app-mobile-content-bottom-500;
+    }
+    @media only screen and (max-width: 400px) {
+        bottom: $app-mobile-content-bottom-400;
+    }
+}
 
 $app-col-left-display: none;
 $app-col-right-display: none;
 
 $app-menu-display: none;
 
-$app-mobile-menu-display: inline-block;
+$app-home-height: 100%;
+
+$app-pro-menu-div-display: none;
+
+$app-mobile-menu-display: inline-grid;
 
 $app-footer-height: auto;
 
@@ -26,6 +48,7 @@ $footer-mobile-links-display: block;
 
 // header
 $header-height: $app-margin-top;
+$header-min-width: unset;
 $header-padding-top: 5px;
 $header-padding: $header-padding-top 0 0 0;
 
@@ -70,4 +93,10 @@ $site-map-link-height: 38px;
 .content-div {
     margin   : $app-margin;
     max-width: $max-width;
+}
+
+.col-center {
+    height   : 100%;
+    min-width: unset;
+    width    : auto;
 }

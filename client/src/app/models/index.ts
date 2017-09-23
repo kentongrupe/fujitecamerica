@@ -5,5 +5,8 @@ export * from './MenuItem';
 export * from './NavMenuDirection';
 export * from './NavMenuMode';
 export * from './Project';
+export * from './SectionType';
+export * from './Testimonial';
+export * from './TestimonialMode';
 export * from './User';
 export * from './UserRole';

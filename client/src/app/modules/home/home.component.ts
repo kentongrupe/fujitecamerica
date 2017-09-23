@@ -35,7 +35,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     @ViewChildren('slide') private _slides: QueryList<any>;
 
     private _SLIDE_HEIGHT: number = 400;
-    private _SLIDE_WIDTH: number = 1200;
+    private _SLIDE_WIDTH: number = 1920;
 
     private _intervalId: any = null;
     private _mediaType = MediaType;
@@ -70,7 +70,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         this._slideItems = [
             {
                 type: MediaType.IMAGE,
-                url: '/assets/img/ElevatorLobbyBW.jpg'
+                url: '/assets/img/elevatorlobby.jpg'
             },
             {
                 type: MediaType.VIDEO,
@@ -78,11 +78,11 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
             },
             {
                 type: MediaType.IMAGE,
-                url: '/assets/img/escalators.jpg'
+                url: '/assets/img/escalatorholloywood.jpg'
             },
             {
                 type: MediaType.IMAGE,
-                url: '/assets/img/ezshuttledestination.jpg'
+                url: '/assets/img/ezshuttle.jpg'
             }
         ];
 

@@ -226,37 +226,37 @@ sys-menu {
                 width : $nav-menu-side-item-icon-width;
 
                 .nav-menu-item-icon {
-                    height   : $nav-menu-side-item-icon-height;
-                    width    : $nav-menu-side-item-icon-width;
+                    height    : $nav-menu-side-item-icon-height;
+                    width     : $nav-menu-side-item-icon-width;
 
-                    $_sizePos: $nav-menu-side-item-icon-position-x 0/#{$nav-menu-side-item-icon-background-width} #{$nav-menu-side-item-icon-background-height};
+                    $_size_pos: $nav-menu-side-item-icon-position-x 0/#{$nav-menu-side-item-icon-background-width} #{$nav-menu-side-item-icon-background-height};
 
                     &.architects {
-                        background: $nav-menu-architects-background $_sizePos;
+                        background: $nav-menu-architects-background $_size_pos;
                     }
 
                     &.autowalks {
-                        background: $nav-menu-autowalks-background $_sizePos;
+                        background: $nav-menu-autowalks-background $_size_pos;
                     }
 
                     &.consultants {
-                        background: $nav-menu-consultants-background $_sizePos;
+                        background: $nav-menu-consultants-background $_size_pos;
                     }
 
                     &.elevators {
-                        background: $nav-menu-elevators-background $_sizePos;
+                        background: $nav-menu-elevators-background $_size_pos;
                     }
 
                     &.escalators {
-                        background: $nav-menu-escalators-background $_sizePos;
+                        background: $nav-menu-escalators-background $_size_pos;
                     }
 
                     &.ezdispatch {
-                        background: $nav-menu-ezdispatch-background $_sizePos;
+                        background: $nav-menu-ezdispatch-background $_size_pos;
                     }
 
                     &.property-managers {
-                        background: $nav-menu-property-managers-background $_sizePos;
+                        background: $nav-menu-property-managers-background $_size_pos;
                     }
                 }
 
@@ -343,65 +343,40 @@ sys-menu {
                         }
                     }
                 }
-                @media only screen and (max-width: 700px) {
-                    height: $nav-menu-mobile-item-icon-height-700;
-                    width : $nav-menu-mobile-item-icon-width-700;
+
+                $_map : ( 700: ($nav-menu-mobile-item-icon-height-700, $nav-menu-mobile-item-icon-width-700, $nav-menu-mobile-item-label-font-size-700), 600: ($nav-menu-mobile-item-icon-height-600, $nav-menu-mobile-item-icon-width-600, $nav-menu-mobile-item-label-font-size-600), 500: ($nav-menu-mobile-item-icon-height-500, $nav-menu-mobile-item-icon-width-500, $nav-menu-mobile-item-label-font-size-500), 400: ($nav-menu-mobile-item-icon-height-400, $nav-menu-mobile-item-icon-width-400, $nav-menu-mobile-item-label-font-size-400) );
+                @mixin _menuicon($n) {
+                    $d    : map-get($_map, $n);
+                    $h    : nth($d, 1);
+                    $w    : nth($d, 2);
+                    $f    : nth($d, 3);
+
+                    height: $h;
+                    width : $w;
 
                     .mobile-menu {
                         .nav-menu-item-icon {
-                            height: $nav-menu-mobile-item-icon-height-700;
-                            width : $nav-menu-mobile-item-icon-width-700;
+                            background-size: floor( $h * $nav-menu-mobile-background-ratio ) auto !important;
+                            height         : $h;
+                            width          : $w;
 
                             label {
-                                font-size: $nav-menu-mobile-item-label-font-size-700;
+                                font-size: $f;
                             }
                         }
                     }
+                }
+                @media only screen and (max-width: 700px) {
+                     @include _menuicon(700);
                 }
                 @media only screen and (max-width: 600px) {
-                    height: $nav-menu-mobile-item-icon-height-600;
-                    width : $nav-menu-mobile-item-icon-width-600;
-
-                    .mobile-menu {
-                        .nav-menu-item-icon {
-                            height: $nav-menu-mobile-item-icon-height-600;
-                            width : $nav-menu-mobile-item-icon-width-600;
-
-                            label {
-                                font-size: $nav-menu-mobile-item-label-font-size-600;
-                            }
-                        }
-                    }
+                     @include _menuicon(600);
                 }
                 @media only screen and (max-width: 500px) {
-                    height: $nav-menu-mobile-item-icon-height-500;
-                    width : $nav-menu-mobile-item-icon-width-500;
-
-                    .mobile-menu {
-                        .nav-menu-item-icon {
-                            height: $nav-menu-mobile-item-icon-height-500;
-                            width : $nav-menu-mobile-item-icon-width-500;
-
-                            label {
-                                font-size: $nav-menu-mobile-item-label-font-size-500;
-                            }
-                        }
-                    }
+                     @include _menuicon(500);
                 }
                 @media only screen and (max-width: 400px) {
-                    height: $nav-menu-mobile-item-icon-height-400;
-                    width : $nav-menu-mobile-item-icon-width-400;
-
-                    .mobile-menu {
-                        .nav-menu-item-icon {
-                            height: $nav-menu-mobile-item-icon-height-400;
-                            width : $nav-menu-mobile-item-icon-width-400;
-
-                            label {
-                                font-size: $nav-menu-mobile-item-label-font-size-400;
-                            }
-                        }
-                    }
+                     @include _menuicon(400);
                 }
             }
         }

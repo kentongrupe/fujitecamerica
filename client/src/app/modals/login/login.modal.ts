@@ -2,9 +2,6 @@ import {
     Component
 } from '@angular/core';
 import {
-    MdDialogRef
-} from '@angular/material';
-import {
     BaseModal
 } from 'app/core';
 import {
@@ -32,7 +29,6 @@ export class LoginModal extends BaseModal {
     }
 
     constructor(
-        private loginModal: MdDialogRef<LoginModal>,
         private authService: AuthenticationService
     ) {
         super('LoginModal');
@@ -41,7 +37,7 @@ export class LoginModal extends BaseModal {
     private _cancel(user: User): void {
         this.username = '';
         this.password = '';
-        this.loginModal.close(user);
+        // this.loginModal.close(user);
     }
     private _login(): void {
         if (this._canLogin) {

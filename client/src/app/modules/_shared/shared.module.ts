@@ -14,18 +14,22 @@ import {
     RouterModule
 } from '@angular/router';
 import {
-    MaterialModule
-} from '@angular/material';
+    ClarityModule
+} from 'clarity-angular';
 import 'hammerjs';
 import {
     IFrameComponent,
     MenuComponent,
     ProMenuComponent,
-    SysMenuComponent
+    SysMenuComponent,
 } from 'app/components';
 import {
+    SectionHeaderComponent
+} from 'app/components/section-header';
+import {
     AlertModal,
-    LoginModal
+    LoginModal,
+    ProjectInfoModal
 } from 'app/modals';
 import {
     FormatStringPipe,
@@ -38,10 +42,12 @@ import {
         IFrameComponent,
         MenuComponent,
         ProMenuComponent,
+        SectionHeaderComponent,
         SysMenuComponent,
         // modals
         AlertModal,
         LoginModal,
+        ProjectInfoModal,
         // pipes
         FormatStringPipe,
         GetStringPipe
@@ -53,8 +59,8 @@ import {
         FormsModule,
         RouterModule,
 
-        // material2
-        MaterialModule.forRoot(),
+        // clarity
+        ClarityModule
     ],
     exports: [
         // ng2
@@ -63,17 +69,19 @@ import {
         FormsModule,
         RouterModule,
 
-        // material2
-        MaterialModule,
+        // clarity
+        ClarityModule,
 
         // components
         IFrameComponent,
         MenuComponent,
         ProMenuComponent,
+        SectionHeaderComponent,
         SysMenuComponent,
         // modals
         AlertModal,
         LoginModal,
+        ProjectInfoModal,
         // pipes
         FormatStringPipe,
         GetStringPipe

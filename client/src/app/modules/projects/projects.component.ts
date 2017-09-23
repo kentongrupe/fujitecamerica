@@ -7,11 +7,11 @@ import {
 } from 'app/core';
 import {
     AppRoute,
-    Project
+    Project,
+    SectionType
 } from 'app/models';
 import {
     DataService,
-    RouterService,
     StringService
 } from 'app/services';
 
@@ -21,11 +21,12 @@ import {
 })
 export class ProjectsComponent extends BaseComponent implements OnInit {
 
+    private _project: Project = null;
     private _projects: Project[] = [];
+    private _sectionType = SectionType;
 
     constructor(
         private dataService: DataService,
-        private routerService: RouterService,
         private stringService: StringService
     ) {
         super('ProjectsComponent');
@@ -37,11 +38,19 @@ export class ProjectsComponent extends BaseComponent implements OnInit {
         this.dataService.getProjects({
             locale: StringService.locale
         }, (d) => {
-            this._projects = d.projects;
+            this._projects = d.projects.map((p) => {
+                return new Project(p);
+            });
         });
     }
 
+    private _onClose(): void {
+        this._project = null;
+    }
     private _showProject(projectId: number): void {
-        this.routerService.to(AppRoute.PROJECT, projectId);
+        this.dataService.getProject({ projectId }, (p) => {
+            this._project = p;
+        });
+        // this.routerService.to(AppRoute.PROJECT, projectId);
     }
 }

@@ -6,6 +6,9 @@ import {
     ProjectInfoComponent
 } from './project-info.component';
 import {
+    ProjectsAdditionalComponent
+} from './projects-additional.component';
+import {
     ProjectsComponent
 } from './projects.component';
 import {
@@ -15,6 +18,7 @@ import {
 @NgModule({
     declarations: [
         ProjectInfoComponent,
+        ProjectsAdditionalComponent,
         ProjectsComponent
     ],
     imports: [
@@ -23,6 +27,7 @@ import {
     providers: [],
     bootstrap: [
         ProjectInfoComponent,
+        ProjectsAdditionalComponent,
         ProjectsComponent
     ],
     entryComponents: [],

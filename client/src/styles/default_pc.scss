@@ -3,13 +3,22 @@ $app-margin: auto;
 $app-margin-bottom: 0;
 $app-margin-top: 70px;
 $app-min-height: $nav-menu-side-item-icon-height * 4;
+
 $app-content-display: inline-flex;
-$app-content-margin: $app-margin-top auto $app-margin-bottom;
+@mixin app-content-scss() {
+    margin   : $app-margin-top auto $app-margin-bottom;
+    min-width: $col-side-width + $col-center-width + $col-side-width;
+    width    : 100%;
+}
 
 $app-col-left-display: block;
 $app-col-right-display: block;
 
 $app-menu-display: inline-block;
+
+$app-home-height: unset;
+
+$app-pro-menu-div-display: block;
 
 $app-mobile-menu-display: none;
 
@@ -25,6 +34,7 @@ $footer-mobile-links-display: none;
 
 // header
 $header-height: $app-margin-top;
+$header-min-width: $col-side-width + $col-center-width + $col-side-width;
 $header-padding-top: 15px;
 $header-padding: $header-padding-top 0 0 0;
 

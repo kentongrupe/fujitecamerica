@@ -30,6 +30,7 @@
     "no-forward-ref": true,
     "no-input-rename": true,
     "no-output-rename": true,
+    "only-arrow-functions": false,
     "pipe-naming": [
       false,
       "camelCase",
@@ -68,7 +69,6 @@
       "ban-keywords",
       "check-format"
     ],
-    "only-arrow-functions": false,
     "radix": false
   }
 }

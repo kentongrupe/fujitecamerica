@@ -1,25 +1,38 @@
-@mixin abs-position($top:'', $right:'', $bottom:'', $left:'') {
-     @if (($top=='') and ($right=='') and ($bottom=='') and ($left=='')){
-        $top   : 0;
-        $right : 0;
-        $bottom: 0;
-        $left  : 0;
+@mixin abs-position($top:null, $right:null, $bottom:null, $left:null) {
+     @if ($top==null){
+        $top: 0;
     }
-    @else if (($top!='') and ($right=='') and ($bottom=='') and ($left=='')) {
-        $right : $top;
-        $bottom: $top;
-        $left  : $top;
+    @if ($right==null) {
+        $right: $top;
     }
-    @else if (($top!='') and ($right!='') and ($bottom=='') and ($left=='')) {
-        $bottom: $top;
-        $left  : $right;
+    @if ($bottom==null) {
+        $bottom: $right;
     }
-    @else if (($top!='') and ($right!='') and ($bottom!='') and ($left=='')) {
-        $left: $right;
+    @if ($left==null) {
+        $left: $bottom;
     }
-
     bottom  : $bottom;
     left    : $left;
+    position: absolute;
+    right   : $right;
+    top     : $top;
+}
+@mixin abs-position-bl($bottom:0, $left:0) {
+    bottom  : $bottom;
+    left    : $left;
+    position: absolute;
+}
+@mixin abs-position-br($bottom:0, $right:0) {
+    bottom  : $bottom;
+    position: absolute;
+    right   : $right;
+}
+@mixin abs-position-tl($top:0, $left:0) {
+    left    : $left;
+    position: absolute;
+    top     : $top;
+}
+@mixin abs-position-tr($top:0, $right:0) {
     position: absolute;
     right   : $right;
     top     : $top;
@@ -39,6 +52,10 @@ $col-center-width: 544px;
 $col-side-width: 240px;
 
 //
+.bold {
+    font-weight: bold;
+}
+
 .col-left,
 .col-right {
     padding  : 0;

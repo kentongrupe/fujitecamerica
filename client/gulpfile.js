@@ -29,6 +29,7 @@ gulp.task('clean', function () {
 /*===========================================================================*/
 function _scss(style, mq) {
     gulp.src([
+        './node_modules/clarity-ui/clarity-ui.min.css',
         './src/styles/_core.scss',
         './src/styles/{0}.scss'.format(style),
         './src/styles/{0}_{1}.scss'.format(style, mq),

@@ -2,11 +2,12 @@ app {
     display       : flex;
     flex-direction: column;
     height        : 100%;
-    position      : absolute;
+    position      : relative;
     top           : 0;
     width         : 100%;
 
     app-header {
+        @include abs-position();
         height: $header-height;
     }
 
@@ -14,10 +15,8 @@ app {
         border-bottom: none;
         display      : $app-content-display;
         flex         : 1;
-        margin       : $app-content-margin;
-        min-width    : $col-side-width + $col-center-width + $col-side-width;
         padding      : 0;
-        width        : 100%;
+        @include app-content-scss();
 
         .col-left {
             display : $app-col-left-display;
@@ -58,6 +57,10 @@ app {
 
                         .reference-source {
                             text-align: right;
+
+                            .reference-name {
+                                font-weight: bold;
+                            }
                         }
 
                         .reference-text {
@@ -94,7 +97,7 @@ app {
             }
 
             & > router-outlet + * {
-                @include abs-position($app-content-menu-height, 0, 0, 0);
+                @include abs-position();
                 display   : inline-block;
                 margin    : 0 auto;
                 min-height: $app-min-height;
@@ -128,6 +131,7 @@ app {
             max-width   : none;
 
             .col-center {
+                height   : $app-home-height;
                 max-width: none;
                 width    : 100%;
 
@@ -138,11 +142,8 @@ app {
         }
     }
 
-    .app-content-footer,
     .app-content-header {
-        background-color: #f1f1f1;
-        height          : $app-content-menu-height;
-        width           : 100%;
+        width: 100%;
     }
 
     .menu-header {
@@ -172,17 +173,23 @@ app {
     }
 
     .pro-menu-div {
-        margin    : 0 auto $vgap_;
+        display   : $app-pro-menu-div-display;
+        margin    : 0 auto $vgap;
         text-align: center;
     }
 
     .mobile-menu-div {
+        @include abs-position(unset, 0, 130px, 0);
         display: $app-mobile-menu-display;
         height : $app-mobile-menu-height;
 
         pro-menu,
         sys-menu {
             display: flex;
+
+            & > div {
+                margin: 0 auto;
+            }
 
             .nav-menu-items.mode-mobile {
                 display: inline-flex;
@@ -210,6 +217,7 @@ app {
     }
 
     app-footer {
+        @include abs-position(unset, 0, 0, 0);
         height: $app-footer-height;
     }
 

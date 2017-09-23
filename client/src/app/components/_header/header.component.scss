@@ -3,23 +3,18 @@ app-header {
     border-bottom   : $header-border;
     display         : inline-block;
     font-size       : $header-font-size;
-    height          : $header-height;
     line-height     : $header-height;
-    position        : fixed;
-    top             : 0;
-    width           : 100%;
     z-index         : 1000;
 
     .header-div {
+        @include abs-position();
         display       : flex;
         flex-direction: row;
         height        : $header-height;
         line-height   : $header-height;
         margin        : 0 auto;
-        min-width     : $col-side-width + $col-center-width + $col-side-width;
+        min-width     : $header-min-width;
         padding       : $header-padding;
-        position      : relative;
-        width         : 100%;
 
         .header-content-div {
             display : inline-flex;
@@ -115,13 +110,12 @@ app-header {
         }
 
         .header-mobile-menu-trigger-div {
+            @include abs-position-tr();
             color       : $header-mobile-menu-trigger-color;
             display     : $header-mobile-menu-trigger-display;
             font-size   : $header-mobile-menu-trigger-font-size;
             margin-right: 5px;
             margin-top  : -13px;
-            position    : absolute;
-            right       : 5px;
             text-align  : center;
             width       : $header-mobile-menu-trigger-width;
 
@@ -216,14 +210,11 @@ app-header {
     }
 
     .header-mobile-menu-div {
+        @include abs-position($header-height, 0, unset, 0);
         background-color: $header-mobile-menu-background-color;
         display         : $header-mobile-menu-trigger-display;
-        height          : 100%;
-        position        : fixed;
-        top             : $header-height;
-        transform       : translateY(-110%);
+        transform       : translateY(-120%);
         transition      : all .2s;
-        width           : 100%;
 
         &.active {
             transform: translateY(0%);

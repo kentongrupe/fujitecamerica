@@ -3,28 +3,28 @@
     <div class="col-left" *ngIf="!_isHome">
         <div class="app-content-header"></div>
         <div class="references-div border-right">
-            <div #refs class="reference-div" *ngFor="let r of _references" [class.current]="r.mode===1" [class.previous]="r.mode===2">
+            <div #refs class="reference-div" *ngFor="let r of _references" [class.current]="r.mode===TestimonialMode.CURRENT" [class.previous]="r.mode===TestimonialMode.PREVIOUS">
                 <div class="reference-content-div">
                     <div class="reference-text">"{{ r.text }}"</div>
-                    <div class="reference-source">{{ r.source }}</div>
+                    <div class="reference-source">
+                        <div class="reference-name">{{ r.name }}</div>
+                        <div class="reference-city-state">{{ r.city }}, {{ r.state }}</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-center">
-        <div class="app-content-header submenu-div" *ngIf="!_isHome">
-            <div class="link" [class.active]="_activeSubIndex===idx" *ngFor="let m of _submenu; let idx=index" (click)="_onSubmenuClick(m)">{{ m.label }}</div>
-        </div>
         <router-outlet></router-outlet>
         <div class="app-menu sys-menu-div" *ngIf="_isHome">
-            <label class="menu-header">{{ this | getString: 'systems': 'Systems' }}</label>
+            <label class="menu-header">{{ this | getString : 'system-solutions' : 'System Solutions' }}</label>
             <div class="home-menu-div">
                 <sys-menu></sys-menu>
             </div>
         </div>
         <div class="app-menu pro-menu-div" *ngIf="_isHome">
             <div>
-                <label class="menu-header">{{ this | getString: 'industry-professional-resources': 'Industry Professional Resources' }}</label>
+                <label class="menu-header">{{ this | getString : 'industry-professional-resources' : 'Industry Professional Resources' }}</label>
                 <div class="home-menu-div">
                     <pro-menu></pro-menu>
                 </div>
@@ -35,7 +35,7 @@
         <div class="app-content-header"></div>
         <div class="systems-menu-div border-left">
             <div>
-                <label class="menu-header">{{ this | getString: 'systems': 'Systems' }}</label>
+                <label class="menu-header">{{ this | getString : 'system-solutions' : 'System Solutions' }}</label>
                 <div class="home-menu-div">
                     <sys-menu [mode]="2" [expandChildren]="true"></sys-menu>
                 </div>
@@ -45,7 +45,7 @@
 </div>
 <div class="app-content-footer" [class.home]="_isHome"></div>
 <div class="pro-menu-div" *ngIf="!_isHome">
-    <label class="menu-header">{{ this | getString: 'industry-professional-resources': 'Industry Professional Resources' }}</label>
+    <label class="menu-header">{{ this | getString : 'industry-professional-resources' : 'Industry Professional Resources' }}</label>
     <div class="home-menu-div">
         <pro-menu></pro-menu>
     </div>

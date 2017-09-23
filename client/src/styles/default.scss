@@ -62,7 +62,8 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: 0;
+    font-family: $font-family;
+    margin-top : 0;
 }
 
 h1 {
@@ -184,7 +185,7 @@ $max-width: 1000px;
 
 // app
 $reference-color: $red;
-$reference-font-size: 12px;
+$reference-font-size: 16px;
 $reference-width: 200px;
 
 $app-menu-header-color: $grey7;
@@ -201,11 +202,17 @@ $app-content-menu-padding: 0 $hgap;
 
 $app-content-menu-item-margin: 0 $hgap_ 0 0;
 
+$app-mobile-content-bottom: 470px;
+$app-mobile-content-bottom-700: 400px;
+$app-mobile-content-bottom-600: 360px;
+$app-mobile-content-bottom-500: 320px;
+$app-mobile-content-bottom-400: 270px;
+
 $app-mobile-menu-height: 320px;
 $app-mobile-menu-height-700: 260px;
 $app-mobile-menu-height-600: 220px;
 $app-mobile-menu-height-500: 180px;
-$app-mobile-menu-height-400: 120px;
+$app-mobile-menu-height-400: 130px;
 
 // footer
 $footer-background-color: $red;
@@ -282,7 +289,7 @@ $menu-background-color: $white;
 $menu-border: $border;
 $menu-color: $grey7;
 $menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/10px 16px;
-$menu-item-font-size: 16px;
+$menu-item-font-size: 14px;
 $menu-item-font-size_: 12px;
 $menu-item-height: 40px;
 $menu-item-padding: 0 10px 0 30px;
@@ -300,30 +307,32 @@ $nav-menu-item-label-height: 40px;
 $nav-menu-item-label-width: 100%;
 $nav-menu-item-label-font-size: $menu-item-font-size;
 
-// $nav-menu-sys-bakground-height: 128px;
-// $nav-menu-sys-bakground-width: 272px;
-$nav-menu-sys-bakground-height: 108px;
+$_W: 708;
+$_H: 333;
+$_R: ($_W / $_H);
 $nav-menu-sys-bakground-width: 230px;
+$nav-menu-sys-bakground-height: floor( $nav-menu-sys-bakground-width / $_R);
 $nav-menu-sys-height: $nav-menu-sys-bakground-height + $nav-menu-item-label-height;
 $nav-menu-sys-width: $nav-menu-sys-bakground-width;
-$nav-menu-autowalks-background: url('../../assets/img/Autowalk.png') no-repeat;
-$nav-menu-elevators-background: url('../../assets/img/Elevator.png') no-repeat;
-$nav-menu-escalators-background: url('../../assets/img/Escalator.png') no-repeat;
-$nav-menu-ezdispatch-background: url('../../assets/img/EZDispatch.png') no-repeat;
+$nav-menu-autowalks-background: url('../../assets/img/autowalkopt2.png') no-repeat;
+$nav-menu-elevators-background: url('../../assets/img/elevatoropt2.png') no-repeat;
+$nav-menu-escalators-background: url('../../assets/img/escalatoropt2.png') no-repeat;
+$nav-menu-ezdispatch-background: url('../../assets/img/ezshuttleopt2.png') no-repeat;
 
+$_w: 417;
+$_h: 200;
+$_r: ($_w / $_h);
 $nav-side-menu-item-label-font-size: $menu-item-font-size_;
 $nav-side-menu-item-label-height: 17px;
-$nav-side-menu-sys-bakground-height: 70px;
 $nav-side-menu-sys-bakground-width: 148px;
+$nav-side-menu-sys-bakground-height: floor( $nav-side-menu-sys-bakground-width / $_r);
 $nav-side-menu-sys-height: $nav-side-menu-sys-bakground-height + $nav-side-menu-item-label-height;
 $nav-side-menu-sys-width: $nav-side-menu-sys-bakground-width;
-$nav-side-menu-autowalks-background: url('../../assets/img/Autowalkside.png') no-repeat;
-$nav-side-menu-elevators-background: url('../../assets/img/Elevatorside.png') no-repeat;
-$nav-side-menu-escalators-background: url('../../assets/img/Escalatorside.png') no-repeat;
-$nav-side-menu-ezdispatch-background: url('../../assets/img/EZDispatchside.png') no-repeat;
+$nav-side-menu-autowalks-background: url('../../assets/img/autowalk_side.png') no-repeat;
+$nav-side-menu-elevators-background: url('../../assets/img/elevator_side.png') no-repeat;
+$nav-side-menu-escalators-background: url('../../assets/img/escalator_side.png') no-repeat;
+$nav-side-menu-ezdispatch-background: url('../../assets/img/ez_shuttle_side.png') no-repeat;
 
-// $nav-menu-pro-bakground-height: 108px;
-// $nav-menu-pro-bakground-width: 228px;
 $nav-menu-pro-bakground-height: 91px;
 $nav-menu-pro-bakground-width: 193px;
 $nav-menu-pro-height: $nav-menu-pro-bakground-height + $nav-menu-item-label-height;
@@ -339,19 +348,20 @@ $nav-menu-side-item-icon-width: 80px;
 $nav-menu-side-item-icon-position-x: -#{($nav-menu-side-item-icon-background-width - $nav-menu-side-item-icon-width) / 2};
 
 $nav-menu-mobile-item-margin: 0 10px;
-$nav-menu-mobile-item-icon-border-radius: 50%;
+$nav-menu-mobile-item-icon-border-radius: 0;
 $nav-menu-mobile-item-icon-height: 150px;
 $nav-menu-mobile-item-icon-width: 150px;
 $nav-menu-mobile-item-label-color: $white;
 $nav-menu-mobile-item-label-font-size: 22px;
 
-$nav-menu-mobile-architects-background: #6A6869;
-$nav-menu-mobile-autowalks-background: #2397E4;
-$nav-menu-mobile-consultants-background: #6A6869;
-$nav-menu-mobile-elevators-background: #0DBD96;
-$nav-menu-mobile-escalators-background: #ECB615;
-$nav-menu-mobile-ezdispatch-background: #AFE00B;
-$nav-menu-mobile-property-managers-background: #6A6869;
+$nav-menu-mobile-background-ratio: $_r;
+$nav-menu-mobile-architects-background: $nav-menu-architects-background center;
+$nav-menu-mobile-autowalks-background: $nav-menu-autowalks-background center;
+$nav-menu-mobile-consultants-background: $nav-menu-consultants-background center;
+$nav-menu-mobile-elevators-background: $nav-menu-elevators-background center;
+$nav-menu-mobile-escalators-background: $nav-menu-escalators-background center;
+$nav-menu-mobile-ezdispatch-background: $nav-menu-ezdispatch-background center;
+$nav-menu-mobile-property-managers-background: $nav-menu-property-managers-background center;
 
 $nav-menu-mobile-item-icon-height-700: 120px;
 $nav-menu-mobile-item-icon-width-700: 120px;
@@ -393,6 +403,45 @@ $project-info-category-background: $grey6;
 $project-info-category-margin: 0 0 1px 1px;
 $project-info-category-padding: 5px 10px;
 
+// project info modal
+// $project-info-image-height: 570;
+// $project-info-image-width: 830;
+// $project-info-image-r: $project-info-image-width / $project-info-image-height;
+
+// %project-info-scss {
+//     .modal-dialog {
+//         .modal-body {
+//             .images-div {}
+//         }
+//     }
+// }
+
+// %project-info-scss-1000 {
+//     @media only screen and (max-width: 1023px) {
+//         .modal-dialog {
+//             .modal-body {
+//                 .images-div {
+//                     height: #{$project-info-image-height}px;
+//                     width : #{$project-info-image-width}px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// %project-info-scss-700 {
+//     @media only screen and (max-width: 700px) {
+//         .modal-dialog {
+//             .modal-body {
+//                 .images-div {
+//                     height: #{$project-info-image-height}px;
+//                     width : #{$project-info-image-width}px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
 // site-map
 $site-map-links-border: $border;
 $site-map-links-margin: 0 0 20px 0;
@@ -415,4 +464,40 @@ $video-background-color: $black;
         height     : $app-content-menu-height;
         line-height: $app-content-menu-height;
     }
+}
+
+//
+.modal {
+    & > * {
+        color: $white;
+    }
+
+    .modal-dialog {
+        .modal-outer-wrapper {
+            .modal-content-wrapper {
+                .modal-content {
+                    background-color: rgba(0,0,0,0.8);
+
+                    // .modal-header {}
+
+                    // .modal-body {}
+
+                    .modal-footer {
+                        .btn {
+                            background-color: $white;
+                            border          : none;
+                            border-radius   : 0;
+                            color           : $black;
+                            margin          : 0 auto;
+                            text-transform  : none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal-backdrop {
+    background-color: rgba(255,255,255,0.001);
 }

@@ -11,9 +11,6 @@ import {
     Router
 } from '@angular/router';
 import {
-    MdDialog
-} from '@angular/material';
-import {
     BaseService
 } from 'app/core';
 import {
@@ -37,7 +34,6 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
 
     constructor(
         private authService: AuthenticationService,
-        private dialog: MdDialog,
         private router: Router,
         private stringService: StringService
     ) {
@@ -94,8 +90,8 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
                 return isValidUser;
             };
             let _showAlert = () => {
-                let a = this.dialog.open(AlertModal);
-                a.componentInstance.message = this._getString('invalid-user-role-for-n', 'invalid user role for {0}').format(path);
+                // let a = this.dialog.open(AlertModal);
+                // a.componentInstance.message = this._getString('invalid-user-role-for-n', 'invalid user role for {0}').format(path);
             };
 
             if (this.authService.isLoggedIn) {
@@ -106,15 +102,15 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
                     return false;
                 }
             }
-            let l = this.dialog.open(LoginModal);
-            l.afterClosed().subscribe((user) => {
-                if (_checkUserRole(user.userRole)) {
-                    this.to(routePaath);
-                } else {
-                    _showAlert();
-                    return false;
-                }
-            });
+            // let l = this.dialog.open(LoginModal);
+            // l.afterClosed().subscribe((user) => {
+            //     if (_checkUserRole(user.userRole)) {
+            //         this.to(routePaath);
+            //     } else {
+            //         _showAlert();
+            //         return false;
+            //     }
+            // });
             return false;
         }
         return true;

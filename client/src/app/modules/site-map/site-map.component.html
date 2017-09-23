@@ -1,5 +1,5 @@
 <div class="site-map-div">
-    <h1>{{ this | getString: 'sitemap': 'Sitemap' }}</h1>
+    <h1>{{ this | getString : 'sitemap' : 'Sitemap' }}</h1>
     <div class="site-map-links" *ngFor="let l0 of _siteMap">
         <div class="site-map-link" (click)="_onClick(l0)">{{ l0.label }}</div>
         <div class="links site-map-1" *ngIf="l0.children.length>0">

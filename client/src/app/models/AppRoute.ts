@@ -32,8 +32,8 @@ export class AppRoute {
     public static MODERNIZATION_ELEVATORS: string = '/modernization/elevators';
     public static MODERNIZATION_ESCALATORS: string = '/modernization/escalators';
     public static PRIVACY_POLICY: string = '/privacy-policy';
-    public static PROJECT: string = '/project';
     public static PROJECTS: string = '/projects';
+    public static PROJECTS_ADDITIONAL: string = '/projects/additional';
     public static PROPERTY_MANAGERS: string = '/property-managers';
     public static SEARCH: string = '/search';
     public static SERVICE_MAINTENANCE: string = '/service-maintenance';
@@ -70,10 +70,10 @@ export class AppRoute {
             ]
         },
         {
-            path: AppRoute.PROJECT
-        },
-        {
-            path: AppRoute.PROJECTS
+            path: AppRoute.PROJECTS,
+            children: [
+                { path: AppRoute.PROJECTS_ADDITIONAL }
+            ]
         },
         {
             path: AppRoute.ELEVATORS,

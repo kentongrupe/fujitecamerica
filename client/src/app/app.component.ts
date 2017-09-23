@@ -16,9 +16,12 @@ import {
     AppEvent,
     AppRoute,
     MenuItem,
-    NavMenuDirection
+    NavMenuDirection,
+    Testimonial,
+    TestimonialMode
 } from 'app/models';
 import {
+    DataService,
     DOMService,
     EventService,
     RouterService,
@@ -39,15 +42,17 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     private _intervalId: any = null;
     private _isHome: boolean = true;
     private _menuDirection: NavMenuDirection = NavMenuDirection.SIDE;
-    private _references: any[] = [];
+    private _references: Testimonial[] = [];
     private _submenu: MenuItem[] = [];
+    private TestimonialMode = TestimonialMode;
 
     constructor(
-        private domService: DOMService,
-        private eventService: EventService,
-        private stringService: StringService,
         protected router: Router,
         protected routerService: RouterService,
+        private dataService: DataService,
+        private domService: DOMService,
+        private eventService: EventService,
+        private stringService: StringService
     ) {
         super('AppComponent', router, routerService);
         this._stringService = stringService;
@@ -59,33 +64,11 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this._references = [
-            {
-                source: 'T.C. - Dallas',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet consequat odio. Ut accumsan maximus turpis, ut vestibulum massa dictum vitae. Nunc vel dui et eros ornare lacinia. Pellentesque at purus ac purus elementum dapibus eget at est. Aliquam feugiat, turpis id tempor interdum, orci tortor posuere neque, et luctus metus lacus id orci. Sed imperdiet dui sit amet fermentum ornare.',
-                mode: 0
-            },
-            {
-                source: 'T.C. - Dallas',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet consequat odio. Ut accumsan maximus turpis, ut vestibulum massa dictum vitae. Nunc vel dui et eros ornare lacinia. Pellentesque at purus ac purus elementum dapibus eget at est. Aliquam feugiat, turpis id tempor interdum, orci tortor posuere neque, et luctus metus lacus id orci. Sed imperdiet dui sit amet fermentum ornare.',
-                mode: 0
-            },
-            {
-                source: 'T.C. - Dallas',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet consequat odio. Ut accumsan maximus turpis, ut vestibulum massa dictum vitae. Nunc vel dui et eros ornare lacinia. Pellentesque at purus ac purus elementum dapibus eget at est. Aliquam feugiat, turpis id tempor interdum, orci tortor posuere neque, et luctus metus lacus id orci. Sed imperdiet dui sit amet fermentum ornare.',
-                mode: 0
-            },
-            {
-                source: 'T.C. - Dallas',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet consequat odio. Ut accumsan maximus turpis, ut vestibulum massa dictum vitae. Nunc vel dui et eros ornare lacinia. Pellentesque at purus ac purus elementum dapibus eget at est. Aliquam feugiat, turpis id tempor interdum, orci tortor posuere neque, et luctus metus lacus id orci. Sed imperdiet dui sit amet fermentum ornare.',
-                mode: 0
-            },
-            {
-                source: 'T.C. - Dallas',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet consequat odio. Ut accumsan maximus turpis, ut vestibulum massa dictum vitae. Nunc vel dui et eros ornare lacinia. Pellentesque at purus ac purus elementum dapibus eget at est. Aliquam feugiat, turpis id tempor interdum, orci tortor posuere neque, et luctus metus lacus id orci. Sed imperdiet dui sit amet fermentum ornare.',
-                mode: 0
-            }
-        ];
+        this.dataService.getTestimonials((d) => {
+            this._references = d.testimonials.map((t) => {
+                return new Testimonial(t);
+            });
+        });
 
         setTimeout(() => {
             if (this._refDivs !== undefined) {

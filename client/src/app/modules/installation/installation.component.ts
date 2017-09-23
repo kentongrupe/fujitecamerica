@@ -1,7 +1,7 @@
 import {
-    Component,
-    ElementRef,
-    ViewChild
+    Component
+    // ElementRef,
+    // ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -10,6 +10,9 @@ import {
 import {
     BaseProductRouteComponent
 } from 'app/core';
+import {
+    SectionType
+} from 'app/models';
 import {
     DOMService,
     StringService
@@ -21,9 +24,11 @@ import {
 })
 export class InstallationComponent extends BaseProductRouteComponent {
 
-    @ViewChild('autowalks') public autowalks: ElementRef;
-    @ViewChild('elevators') public elevators: ElementRef;
-    @ViewChild('escalators') public escalators: ElementRef;
+    // @ViewChild('autowalks') public autowalks: ElementRef;
+    // @ViewChild('elevators') public elevators: ElementRef;
+    // @ViewChild('escalators') public escalators: ElementRef;
+
+    private _sectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

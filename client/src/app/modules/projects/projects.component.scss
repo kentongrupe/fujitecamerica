@@ -2,5 +2,10 @@ projects {
     .projects-div {
         display      : inline-block;
         margin-bottom: $vgap;
+        padding      : 0 $hgap;
+
+        .project-info-list {
+            display: inline-block;
+        }
     }
 }

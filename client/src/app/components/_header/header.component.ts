@@ -1,15 +1,10 @@
 import {
     Component,
-    OnInit,
-    QueryList,
-    ViewChildren
+    OnInit
 } from '@angular/core';
 import {
     Router
 } from '@angular/router';
-import {
-    MdMenu
-} from '@angular/material';
 import {
     BaseNavRouteComponent
 } from 'app/core';
@@ -27,8 +22,6 @@ import {
     templateUrl: 'header.component.html'
 })
 export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit {
-
-    @ViewChildren('menu') public mainMenus: QueryList<MdMenu>;
 
     private _mainMenu: MenuItem[] = [];
     private _mobileMenu: MenuItem[] = [];
@@ -53,21 +46,21 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             {
                 label: this._getString('installation', 'Installation'),
                 routerLink: AppRoute.INSTALLATION,
-                expanded: false,
-                items: [
-                    {
-                        label: this._getString('elevators', 'Elevators'),
-                        routerLink: AppRoute.INSTALLATION_ELEVATORS
-                    },
-                    {
-                        label: this._getString('escalators', 'Escalators'),
-                        routerLink: AppRoute.INSTALLATION_ESCALATORS
-                    },
-                    {
-                        label: this._getString('autowalks', 'Autowalks'),
-                        routerLink: AppRoute.INSTALLATION_AUTOWALKS
-                    }
-                ]
+                // expanded: false,
+                // items: [
+                //     {
+                //         label: this._getString('elevators', 'Elevators'),
+                //         routerLink: AppRoute.INSTALLATION_ELEVATORS
+                //     },
+                //     {
+                //         label: this._getString('escalators', 'Escalators'),
+                //         routerLink: AppRoute.INSTALLATION_ESCALATORS
+                //     },
+                //     {
+                //         label: this._getString('autowalks', 'Autowalks'),
+                //         routerLink: AppRoute.INSTALLATION_AUTOWALKS
+                //     }
+                // ]
             },
             {
                 label: this._getString('service-and-maintenance', 'Service & Maintenance'),
@@ -159,9 +152,5 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             console.log(this._searchText);
             this._showSearch = false;
         }
-    }
-    private _toggleMenu(index: number, value: boolean): void {
-        let m = this._mainMenu[index];
-        m.expanded = value;
     }
 }

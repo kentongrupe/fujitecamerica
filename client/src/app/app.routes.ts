@@ -30,8 +30,8 @@ import {
     InstallationComponent,              // installation
     ServiceMaintenanceComponent,        // service & maintenance
     ModernizationComponent,             // modernization
-    ProjectComponent,                   // project
     ProjectsComponent,                  // projects
+    ProjectsAdditionalComponent,        // projects > additional
     AboutComponent,                     // about
     LocationsComponent,                 // locations
     ContactComponent,                   // contact
@@ -58,7 +58,8 @@ export const ROUTES: Routes = [
     { path: 'autowalks/:product', component: AutowalksComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'contact', component: ContactComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     {
-        path: 'dispatch', component: DispatchComponent,
+        path: 'dispatch',
+        component: DispatchComponent,
         canActivate: [RouterService],
         canActivateChild: [RouterService],
         children: [
@@ -67,12 +68,15 @@ export const ROUTES: Routes = [
         ]
     },
     {
-        path: 'elevators', component: ElevatorsComponent,
+        path: 'elevators',
+
+        component: ElevatorsComponent,
         canActivate: [RouterService],
         canActivateChild: [RouterService],
         children: [
             {
-                path: 'controllers', component: ControllersComponent,
+                path: 'controllers',
+                component: ControllersComponent,
                 canActivate: [RouterService],
                 canActivateChild: [RouterService],
                 children: [
@@ -84,7 +88,8 @@ export const ROUTES: Routes = [
             { path: 'ionful', component: IONFULComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
             { path: 'monitoring', component: MonitoringComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
             {
-                path: 'systems', component: SystemsComponent,
+                path: 'systems',
+                component: SystemsComponent,
                 canActivate: [RouterService],
                 canActivateChild: [RouterService],
                 children: [
@@ -104,8 +109,8 @@ export const ROUTES: Routes = [
     { path: 'modernization', component: ModernizationComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'modernization/:product', component: ModernizationComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'privacy-policy', component: PrivacyPolicyComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
-    { path: 'project/:projectId', component: ProjectComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'projects', component: ProjectsComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    { path: 'projects/additional', component: ProjectsAdditionalComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'service-maintenance', component: ServiceMaintenanceComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'service-maintenance/:product', component: ServiceMaintenanceComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'site-map', component: SiteMapComponent, canActivate: [RouterService], canActivateChild: [RouterService] },

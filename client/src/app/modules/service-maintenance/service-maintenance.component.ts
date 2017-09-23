@@ -1,8 +1,8 @@
 
 import {
-    Component,
-    ElementRef,
-    ViewChild
+    Component
+    // ElementRef,
+    // ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -11,6 +11,9 @@ import {
 import {
     BaseProductRouteComponent
 } from 'app/core';
+import {
+    SectionType
+} from 'app/models';
 import {
     DOMService,
     StringService
@@ -26,6 +29,8 @@ export class ServiceMaintenanceComponent extends BaseProductRouteComponent {
     // @ViewChild('elevators') public elevators: ElementRef;
     // @ViewChild('escalators') public escalators: ElementRef;
     // @ViewChild('foreign') public foreign: ElementRef;
+
+    private _sectionType = SectionType;
 
     constructor(
         protected domService: DOMService,
