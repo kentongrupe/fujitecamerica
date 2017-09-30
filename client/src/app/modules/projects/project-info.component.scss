@@ -40,11 +40,14 @@
         }
 
         .info-desc {
+            @include abs-position(70px, $project-info-padding, 100px, $project-info-padding);
             line-height: $project-info-description-line-height;
-            margin     : $project-info-description-margin;
+            overflow   : hidden;
         }
 
         .info-categories {
+            @include abs-position_bl($vgap_, $project-info-padding);
+
             .info-category {
                 background : $project-info-category-background;
                 display    : inline-block;

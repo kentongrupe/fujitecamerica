@@ -47,10 +47,11 @@ export class ProjectsComponent extends BaseComponent implements OnInit {
     private _onClose(): void {
         this._project = null;
     }
-    private _showProject(projectId: number): void {
-        this.dataService.getProject({ projectId }, (p) => {
-            this._project = p;
-        });
+    private _showProject(project: Project): void {
+        this._project = project;
+        // this.dataService.getProject({ projectId }, (p) => {
+        //     this._project = p;
+        // });
         // this.routerService.to(AppRoute.PROJECT, projectId);
     }
 }

@@ -18,13 +18,13 @@ import {
 export class ProjectInfoComponent extends BaseComponent {
 
     @Input() public project: Project = null;
-    @Output() public show: EventEmitter<number> = new EventEmitter<number>();
+    @Output() public show: EventEmitter<Project> = new EventEmitter<Project>();
 
     constructor() {
         super('ProjectInfoComponent');
     }
 
     private _showProject(): void {
-        this.show.emit(this.project.projectId);
+        this.show.emit(this.project);
     }
 }

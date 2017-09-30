@@ -7,3 +7,4 @@ client/node_modules
 client/src/assets/css/default_pc.min.css
 client/src/assets/css/default_sp.min.css
 client/.awcache
+admin/.awcache

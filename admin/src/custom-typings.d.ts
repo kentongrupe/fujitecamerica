@@ -1,47 +1,47 @@
 /*
- * Custom Type Definitions
- * When including 3rd party modules you also need to include the type definition for the module
- * if they don't provide one within the module. You can try to install it with @types
+* Custom Type Definitions
+* When including 3rd party modules you also need to include the type definition for the module
+* if they don't provide one within the module. You can try to install it with @types
 
 npm install @types/node
 npm install @types/lodash
 
- * If you can't find the type definition in the registry we can make an ambient/global definition in
- * this file for now. For example
+* If you can't find the type definition in the registry we can make an ambient/global definition in
+* this file for now. For example
 
 declare module 'my-module' {
- export function doesSomething(value: string): string;
+export function doesSomething(value: string): string;
 }
 
- * If you are using a CommonJS module that is using module.exports then you will have to write your
- * types using export = yourObjectOrFunction with a namespace above it
- * notice how we have to create a namespace that is equal to the function we're
- * assigning the export to
+* If you are using a CommonJS module that is using module.exports then you will have to write your
+* types using export = yourObjectOrFunction with a namespace above it
+* notice how we have to create a namespace that is equal to the function we're
+* assigning the export to
 
 declare module 'jwt-decode' {
-  function jwtDecode(token: string): any;
-  namespace jwtDecode {}
-  export = jwtDecode;
+function jwtDecode(token: string): any;
+namespace jwtDecode {}
+export = jwtDecode;
 }
 
- *
- * If you're prototying and you will fix the types later you can also declare it as type any
- *
+*
+* If you're prototying and you will fix the types later you can also declare it as type any
+*
 
 declare var assert: any;
 declare var _: any;
 declare var $: any;
 
- *
- * If you're importing a module that uses Node.js modules which are CommonJS you need to import as
- * in the files such as main.browser.ts or any file within app/
- *
+*
+* If you're importing a module that uses Node.js modules which are CommonJS you need to import as
+* in the files such as main.browser.ts or any file within app/
+*
 
 import * as _ from 'lodash'
 
- * You can include your type definitions in this file until you create one for the @types
- *
- */
+* You can include your type definitions in this file until you create one for the @types
+*
+*/
 
 // support NodeJS modules without type definitions
 declare module '*';
@@ -51,8 +51,8 @@ declare module '*';
 // then comment out `declare module '*';`. For each new module copy/paste
 // this method of creating an `any` module type definition
 declare module 'modern-lru' {
-  let x: any;
-  export = x;
+let x: any;
+export = x;
 }
 */
 
@@ -62,49 +62,49 @@ declare var HMR: boolean;
 declare var System: SystemJS;
 
 interface SystemJS {
-  import: (path?: string) => Promise<any>;
+    import: (path?: string) => Promise<any>;
 }
 
 interface GlobalEnvironment {
-  ENV: string;
-  HMR: boolean;
-  SystemJS: SystemJS;
-  System: SystemJS;
+    ENV: string;
+    HMR: boolean;
+    SystemJS: SystemJS;
+    System: SystemJS;
 }
 
 interface Es6PromiseLoader {
-  (id: string): (exportName?: string) => Promise<any>;
+    (id: string): (exportName?: string) => Promise<any>;
 }
 
 type FactoryEs6PromiseLoader = () => Es6PromiseLoader;
 type FactoryPromise = () => Promise<any>;
 
 type AsyncRoutes = {
-  [component: string]: Es6PromiseLoader |
-                               Function |
-                FactoryEs6PromiseLoader |
-                         FactoryPromise
+    [component: string]: Es6PromiseLoader |
+    Function |
+    FactoryEs6PromiseLoader |
+    FactoryPromise
 };
 
 type IdleCallbacks = Es6PromiseLoader |
-                             Function |
-              FactoryEs6PromiseLoader |
-                       FactoryPromise ;
+    Function |
+    FactoryEs6PromiseLoader |
+    FactoryPromise;
 
 interface WebpackModule {
-  hot: {
-    data?: any,
-    idle: any,
-    accept(dependencies?: string | string[], callback?: (updatedDependencies?: any) => void): void;
-    decline(deps?: any | string | string[]): void;
-    dispose(callback?: (data?: any) => void): void;
-    addDisposeHandler(callback?: (data?: any) => void): void;
-    removeDisposeHandler(callback?: (data?: any) => void): void;
-    check(autoApply?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
-    apply(options?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
-    status(callback?: (status?: string) => void): void | string;
-    removeStatusHandler(callback?: (status?: string) => void): void;
-  };
+    hot: {
+        data?: any,
+        idle: any,
+        accept(dependencies?: string | string[], callback?: (updatedDependencies?: any) => void): void;
+        decline(deps?: any | string | string[]): void;
+        dispose(callback?: (data?: any) => void): void;
+        addDisposeHandler(callback?: (data?: any) => void): void;
+        removeDisposeHandler(callback?: (data?: any) => void): void;
+        check(autoApply?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
+        apply(options?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
+        status(callback?: (status?: string) => void): void | string;
+        removeStatusHandler(callback?: (status?: string) => void): void;
+    };
 }
 
 interface WebpackRequire {
@@ -119,12 +119,57 @@ interface WebpackContext extends WebpackRequire {
 }
 
 interface ErrorStackTraceLimit {
-  stackTraceLimit: number;
+    stackTraceLimit: number;
 }
 
 // Extend typings
-interface NodeRequire extends WebpackRequire {}
-interface ErrorConstructor extends ErrorStackTraceLimit {}
-interface NodeRequireFunction extends Es6PromiseLoader  {}
-interface NodeModule extends WebpackModule {}
-interface Global extends GlobalEnvironment  {}
+interface NodeRequire extends WebpackRequire { }
+interface ErrorConstructor extends ErrorStackTraceLimit { }
+interface NodeRequireFunction extends Es6PromiseLoader { }
+interface NodeModule extends WebpackModule { }
+interface Global extends GlobalEnvironment { }
+
+interface Array<T> {
+    all(callback): boolean;
+    any(callback): boolean;
+    clone(): Array<T>;
+    contains(obj: T): boolean;
+    getItemIndex(obj: T): number;
+    includes(searchElement, fromIndex?): boolean;
+    merge(otherArray: Array<T>): Array<T>;
+    none(callback): boolean;
+    remove(callback): Array<T>;
+    removeItemAt(index: number): any;
+    sortBy(attr: string): Array<T>;
+}
+interface Boolean {
+    toInt(): number;
+}
+interface BooleanConstructor {
+    parse(value: any): boolean;
+}
+interface EventTarget {
+    checked: boolean;
+    className: string;
+    files: Array<any>;
+    result: any;
+    selectionEnd: number;
+    selectionStart: number;
+    value: any;
+}
+interface String {
+    format(...replacements: any[]): string;
+    hasLowerCase(): boolean;
+    hasUpperCase(): boolean;
+    padEnd(targetLength: number, padString?: string): string;
+    padStart(targetLength: number, padString?: string): string;
+    replaceCharAt(index: number, char: string): string;
+    toBoolean(): boolean;
+    toClassName(): string;
+}
+interface StringConstructor {
+    isNullOrEmpty(str: any): boolean;
+}
+interface Window {
+    posMessage(message: any, targetOrigin: string): void;
+}

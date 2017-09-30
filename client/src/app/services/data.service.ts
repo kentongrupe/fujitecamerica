@@ -69,62 +69,64 @@ export class DataService extends BaseService {
         onSuccess(this._projects.get(id));
     }
     public getProjects(params: any, onSuccess: Function = null, onError: Function = null): void {
-        if (onSuccess) {
-            let _z = () => {
-                let c = ['Elevator', 'Residence', 'Commercial Facilitiy', 'Hotel', 'Residence', 'Office', 'Transportation', 'Moving Walk'];
-                let n = Math.max(3, Math.round(Math.random() * 4));
-                let z = [];
-                let N = params.additional ? 24 : 8;
-                for (let i = 0; i < N; i++) {
-                    z.push({
-                        name: 'project ' + i,
-                        description: 'Twelve Fujitec elevators are installed in VIA 57 West, an approximately 140m high residential building on the waterfront of the Hudson River ･･･ ',
-                        imageUrl: 'http://www.fujitec.com/common/fjhp/doc/top_global/document/project/1704/via57west_view.jpg',
-                        categories: ((nn) => {
-                            let a = [];
-                            for (let j = 0; j < nn; j++) {
-                                a.push(c[Math.round(Math.random() * c.length)]);
-                            }
-                            return a;
-                        })(n),
-                        projectId: Math.round(Math.random() * 1000)
-                    });
-                }
-                return z;
-            };
-            let projects = params.additional
-                ? [
-                    {
-                        name: '',
-                        projects: _z()
-                    }]
-                : [
-                    {
-                        name: 'North America',
-                        projects: [
-                            {
-                                name: 'Service & Maintenance',
-                                projects: _z()
-                            },
-                            {
-                                name: 'Modernization',
-                                projects: _z()
-                            },
-                            {
-                                name: 'Installation',
-                                projects: _z()
-                            }
-                        ]
-                    },
-                    {
-                        name: 'Global',
-                        projects: _z()
-                    }
-                ];
-            onSuccess({
-                projects
-            });
-        }
+        this._get('data/projects/projects.json', onSuccess, onError);
+        // if (onSuccess) {
+        //     let _z = () => {
+        //         let c = ['Elevator', 'Residence', 'Commercial Facilitiy', 'Hotel', 'Residence', 'Office', 'Transportation', 'Moving Walk'];
+        //         let n = Math.max(3, Math.round(Math.random() * 4));
+        //         let z = [];
+        //         let N = params.additional ? 24 : 8;
+        //         for (let i = 0; i < N; i++) {
+        //             z.push({
+        //                 name: 'project ' + i,
+        //                 description: 'Twelve Fujitec elevators are installed in VIA 57 West, an approximately 140m high residential building on the waterfront of the Hudson River ･･･ ',
+        //                 imageUrl: 'http://www.fujitec.com/common/fjhp/doc/top_global/document/project/1704/via57west_view.jpg',
+        //                 categories: ((nn) => {
+        //                     let a = [];
+        //                     for (let j = 0; j < nn; j++) {
+        //                         a.push(c[Math.round(Math.random() * c.length)]);
+        //                     }
+        //                     return a;
+        //                 })(n),
+        //                 projectId: Math.round(Math.random() * 1000)
+        //             });
+        //         }
+        //         return z;
+        //     };
+        //     let projects = params.additional
+        //         ? [
+        //             {
+        //                 name: '',
+        //                 projects: _z()
+        //             }]
+        //         : [
+        //             {
+        //                 name: 'North America',
+        //                 projects: [
+        //                     {
+        //                         name: 'Service & Maintenance',
+        //                         projects: _z()
+        //                     },
+        //                     {
+        //                         name: 'Modernization',
+        //                         projects: _z()
+        //                     },
+        //                     {
+        //                         name: 'Installation',
+        //                         projects: _z()
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 name: 'Global',
+        //                 projects: _z()
+        //             }
+        //         ];
+        //     console.log(JSON.stringify(projects));
+        //     onSuccess({
+        //         projects
+        //     });
+        // }
     }
     public getTestimonials(onSuccess: Function = null, onError: Function = null): void {
         onSuccess({
@@ -172,14 +174,9 @@ export class DataService extends BaseService {
 
         (this.http
             .get(url, options)
-            .map((res) => {
-                return res.text();
-            }))
-            .subscribe((result: string) => {
-                // this._parseResult(result, (d) => {
-                // });
+            .subscribe((data) => {
                 if (onSuccess) {
-                    onSuccess(result);
+                    onSuccess(data.json());
                 }
             }, (error) => {
                 if (onError) {
@@ -187,7 +184,7 @@ export class DataService extends BaseService {
                 } else {
                     console.error(error);
                 }
-            });
+            }));
     }
     private _post(name: string, params: any = {}, onSuccess: Function = null, onError: Function = null): void {
         let url = '{0}/{1}'.format(this._baseUrl, name);

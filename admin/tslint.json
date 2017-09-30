@@ -7,12 +7,21 @@
   ],
   "rules": {
     // Custom
-    "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
-    "interface-name": [false, "always-prefix"],
+    "trailing-comma": [
+      false,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "interface-name": [
+      false,
+      "always-prefix"
+    ],
     // Angular 2
-    "component-class-suffix": true,
+    "component-class-suffix": false,
     // "component-selector": [true, "element", "my", "kebab-case"],
-    "directive-class-suffix": true,
+    "directive-class-suffix": false,
     // "directive-selector": [true, "attribute", "my", "camelCase"],
     "import-destructuring-spacing": true,
     "invoke-injectable": true,
@@ -21,7 +30,12 @@
     "no-forward-ref": true,
     "no-input-rename": true,
     "no-output-rename": true,
-    "pipe-naming": [true, "camelCase", "my"],
+    "only-arrow-functions": false,
+    "pipe-naming": [
+      false,
+      "camelCase",
+      "my"
+    ],
     "templates-use-public": true,
     "use-host-property-decorator": true,
     "use-input-property-decorator": true,
@@ -29,14 +43,15 @@
     "use-output-property-decorator": true,
     "use-pipe-transform-interface": true,
     // General
-    "no-console": [true,
+    "no-console": [
+      true,
       "time",
       "timeEnd",
       "trace"
     ],
     "max-line-length": [
       true,
-      100
+      10000
     ],
     "no-string-literal": false,
     "no-use-before-declare": true,
@@ -53,6 +68,7 @@
       "allow-pascal-case",
       "ban-keywords",
       "check-format"
-    ]
+    ],
+    "radix": false
   }
 }

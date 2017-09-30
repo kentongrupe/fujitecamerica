@@ -1,4 +1,9 @@
 about {
+    ol,
+    p {
+        margin: $vgap_ 0;
+    }
+
     .section {
         padding: $vgap_ $hgap_;
         width  : 100%;

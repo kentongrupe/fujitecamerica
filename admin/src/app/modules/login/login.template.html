@@ -1,28 +1,29 @@
-<div class="row login-div">
-    <div class="col-lg-4 col-md-2 col-sm-1 col-xs-"></div>
-    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-10 login-card-div">
-        <div class="card">
-            <div class="card-header">
-                Login
+<div class="login-wrapper">
+    <form class="login">
+        <label class="title">
+            <h3 class="welcome">Welcome to</h3>
+            Company Product Name
+            <h5 class="hint">Use your Company ID to sign in or create one now</h5>
+        </label>
+        <div class="login-group">
+            <div class="auth-source select">
+                <select id="login-auth-source-1">
+                    <option>Local Users</option>
+                    <option>Administrator</option>
+                </select>
             </div>
-            <div class="card-block">
-                <form class="login">
-                    <div class="login-group">
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input class="username" type="text" name="username" [(ngModel)]="username" />
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input class="password" type="password" name="password" [(ngModel)]="password" />
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" (click)="login()">LOG IN</button>
-                        </div>
-                    </div>
-                </form>
+            <input class="username" type="text" id="login_username" placeholder="Username">
+            <input class="password" type="password" id="login_password" placeholder="Password">
+            <div class="checkbox">
+                <input type="checkbox" id="rememberme">
+                <label for="rememberme">
+                    Remember me
+                </label>
             </div>
+            <div class="error active">
+                Invalid user name or password
+            </div>
+            <button type="submit" class="btn btn-primary">NEXT</button>
         </div>
-    </div>
-    <div class="col-lg-4 col-md-2 col-sm-1 col-xs-"></div>
+    </form>
 </div>

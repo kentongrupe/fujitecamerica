@@ -34,6 +34,10 @@ project-info-modal {
                             .images-div {
                                 background: red;
                                 height    : 60%;
+
+                                img {
+                                    width: 100%;
+                                }
                             }
 
                             .details-div {

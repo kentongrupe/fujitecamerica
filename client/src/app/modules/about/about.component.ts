@@ -22,6 +22,7 @@ import {
 export class AboutComponent extends BaseProductRouteComponent {
 
     @ViewChild('message') public message: ElementRef;
+    @ViewChild('about') public about: ElementRef;
     @ViewChild('leadership') public leadership: ElementRef;
     @ViewChild('history') public history: ElementRef;
     @ViewChild('mission') public mission: ElementRef;

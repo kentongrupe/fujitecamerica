@@ -1,12 +1,14 @@
 <clr-modal #info [(clrModalOpen)]="opened" [clrModalSize]="'lg'" [clrModalClosable]="true" (click)="_onClick($event)">
     <div class="modal-body" *ngIf="project">
-        <div class="info-div images-div"></div>
+        <div class="info-div images-div">
+            <img *ngFor="let i of project.images" [attr.src]="i" />
+        </div>
         <div class="info-div details-div">
             <form>
                 <section>
                     <div class="form-group">
                         <label>{{ this | getString : 'name' : 'Name' }}:</label>
-                        <span>{{ project.name }}</span>
+                        <span>{{ project.title }}</span>
                     </div>
                     <div class="form-group">
                         <label>{{ this | getString : 'units' : 'Units' }}:</label>
