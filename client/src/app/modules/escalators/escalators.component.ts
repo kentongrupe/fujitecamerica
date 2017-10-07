@@ -1,61 +1,38 @@
 import {
-    Component,
-    ElementRef,
-    ViewChild
+    Component
 } from '@angular/core';
 import {
     DomSanitizer
 } from '@angular/platform-browser';
 import {
     ActivatedRoute,
-    NavigationEnd,
     Router
 } from '@angular/router';
 import {
-    BaseProductRouteComponent
+    BaseDynamicProductRouteComponent
 } from 'app/core';
 import {
     DataService,
-    DOMService
+    DOMService,
+    StringService
 } from 'app/services';
 
 @Component({
     selector: 'escalators',
     templateUrl: 'escalators.component.html'
 })
-export class EscalatorsComponent extends BaseProductRouteComponent {
-
-    private _html: string = '';
-    private _productUrl: string = '';
+export class EscalatorsComponent extends BaseDynamicProductRouteComponent {
 
     constructor(
-        private dataService: DataService,
-        private domSanitizer: DomSanitizer,
+        protected dataService: DataService,
+        protected domSanitizer: DomSanitizer,
         protected domService: DOMService,
         protected route: ActivatedRoute,
-        protected router: Router
+        protected router: Router,
+        protected stringService: StringService
     ) {
-        super('EscalatorsComponent', domService, route, router);
-    }
+        super('EscalatorsComponent', dataService, domSanitizer, domService, route, router, stringService);
 
-    protected _onProduct(): void {
-        let node = '';
-        switch (this._product) {
-            case 'gs8000':
-                node = '65';
-                break;
-            default:
-                break;
-        }
-
-        if (!this.isNullOrEmpty(node)) {
-            // this.dataService.getHtml(node, (d) => {
-            //     let parser = new DOMParser();
-            //     let xmlDoc = parser.parseFromString(d, 'text/html');
-            //     let n = xmlDoc.getElementById('node-{0}'.format(node)).innerHTML;
-
-            //     this._html = this.domSanitizer.bypassSecurityTrustHtml(n) as string;
-            // });
-        }
+        this._selector = 'escalators';
     }
 }

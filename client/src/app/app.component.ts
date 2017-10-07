@@ -65,15 +65,16 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
 
     public ngOnInit() {
         this.dataService.getTestimonials((d) => {
-            this._references = d.testimonials.map((t) => {
+            this._references = d.testimonials[StringService.locale].map((t) => {
                 return new Testimonial(t);
             });
-        });
 
-        setTimeout(() => {
-            if (this._refDivs !== undefined) {
-                this._initRefs();
-            }
+            Promise.resolve()
+                .then(() => {
+                    if (this._refDivs !== undefined) {
+                        this._initRefs();
+                    }
+                });
         });
     }
 

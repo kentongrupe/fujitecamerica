@@ -51,6 +51,9 @@ export class DataService extends BaseService {
     public get(path: string, onSuccess: Function = null, onError: Function = null): void {
         this._get(path, onSuccess, onError);
     }
+    public getHtml(url: string, onSuccess: Function = null, onError: Function = null): void {
+        this._get(url, onSuccess, onError);
+    }
     public getNodeHtml(node: string, onSuccess: Function = null, onError: Function = null): void {
         let n = 'node/{0}'.format(node);
         this._get(n, onSuccess, onError);
@@ -70,99 +73,12 @@ export class DataService extends BaseService {
     }
     public getProjects(params: any, onSuccess: Function = null, onError: Function = null): void {
         this._get('data/projects/projects.json', onSuccess, onError);
-        // if (onSuccess) {
-        //     let _z = () => {
-        //         let c = ['Elevator', 'Residence', 'Commercial Facilitiy', 'Hotel', 'Residence', 'Office', 'Transportation', 'Moving Walk'];
-        //         let n = Math.max(3, Math.round(Math.random() * 4));
-        //         let z = [];
-        //         let N = params.additional ? 24 : 8;
-        //         for (let i = 0; i < N; i++) {
-        //             z.push({
-        //                 name: 'project ' + i,
-        //                 description: 'Twelve Fujitec elevators are installed in VIA 57 West, an approximately 140m high residential building on the waterfront of the Hudson River ･･･ ',
-        //                 imageUrl: 'http://www.fujitec.com/common/fjhp/doc/top_global/document/project/1704/via57west_view.jpg',
-        //                 categories: ((nn) => {
-        //                     let a = [];
-        //                     for (let j = 0; j < nn; j++) {
-        //                         a.push(c[Math.round(Math.random() * c.length)]);
-        //                     }
-        //                     return a;
-        //                 })(n),
-        //                 projectId: Math.round(Math.random() * 1000)
-        //             });
-        //         }
-        //         return z;
-        //     };
-        //     let projects = params.additional
-        //         ? [
-        //             {
-        //                 name: '',
-        //                 projects: _z()
-        //             }]
-        //         : [
-        //             {
-        //                 name: 'North America',
-        //                 projects: [
-        //                     {
-        //                         name: 'Service & Maintenance',
-        //                         projects: _z()
-        //                     },
-        //                     {
-        //                         name: 'Modernization',
-        //                         projects: _z()
-        //                     },
-        //                     {
-        //                         name: 'Installation',
-        //                         projects: _z()
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 name: 'Global',
-        //                 projects: _z()
-        //             }
-        //         ];
-        //     console.log(JSON.stringify(projects));
-        //     onSuccess({
-        //         projects
-        //     });
-        // }
+    }
+    public getSlides(onSuccess: Function = null, onError: Function = null): void {
+        this._get('data/slides/slides.json', onSuccess, onError);
     }
     public getTestimonials(onSuccess: Function = null, onError: Function = null): void {
-        onSuccess({
-            testimonials: [
-                {
-                    text: '…the only contract we did not take out to bid was the elevator contract because we knew we could not beat the service and support we receive from Fujitec. I believe what separates Fujitec from other elevator companies is the tremendous support we receive from everyone in the company… Their commitment to excellence is why we truly cherish our partnership with Fujitec.',
-                    name: 'S. Baggett',
-                    city: 'Dallas',
-                    state: 'TX'
-                },
-                {
-                    text: '… Fujitec America, Inc. has provided outstanding service at the Lazarus Building, and couple that with an aggressive pricing structure, building management was proud to award Fujitec a building-wide vertical transportation maintenance agreement on 22 elevators. NAI Ohio Equities looks forward to developing an even greater partnership with Fujitec in the future.',
-                    name: 'R. Turrin',
-                    city: 'Columbus',
-                    state: 'OH'
-                },
-                {
-                    text: 'Having two buildings with elevators close in age, it is clear that Fujitec service is far superior to that of other providers... Fujitec is a perfect example of the old cliché; you get what you pay for. An operating expense well spent.',
-                    name: 'M. Robison',
-                    city: 'Washington',
-                    state: 'D.C.'
-                },
-                {
-                    text: '… These days, it seems like many companies are compromising their customer service, it is great to work with a company that truly cares and always does the right thing. I cannot speak highly enough of Fujitec. Thank you!',
-                    name: 'R. Smith',
-                    city: 'Cincinnati',
-                    state: 'OH'
-                },
-                {
-                    text: 'Working with Fujitec Elevator is a pleasure, with clearly superior equipment, and great customer service from every employee, whether upper management or service technicians. It is a joy to work with an elevator company that actually delivers what they say they will, when they say they will.',
-                    name: 'J. Hope',
-                    city: 'Chicago',
-                    state: 'IL'
-                }
-            ]
-        });
+        this._get('data/testimonials.json', onSuccess, onError);
     }
     private _get(name: string, onSuccess: Function = null, onError: Function = null): void {
         let url = '{0}/{1}'.format(this._baseUrl, name);
@@ -176,7 +92,11 @@ export class DataService extends BaseService {
             .get(url, options)
             .subscribe((data) => {
                 if (onSuccess) {
-                    onSuccess(data.json());
+                    if (url.endsWith('.html')) {
+                        onSuccess(data.text());
+                    } else {
+                        onSuccess(data.json());
+                    }
                 }
             }, (error) => {
                 if (onError) {

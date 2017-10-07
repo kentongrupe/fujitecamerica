@@ -8,8 +8,9 @@ $section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.
 
 $section-header-bg-installation: url('/assets/img/modroom.jpg') no-repeat;
 $section-header-bg-modernization: url('/assets/img/modroom.jpg') no-repeat;
+$section-header-bg-monitoring: url('/assets/img/webemis.jpg') no-repeat;
 $section-header-bg-projects: url('/assets/img/westforty.jpg') no-repeat;
-$section-header-bg-service-maintenance: url('/assets/img/servicemaintenance.jpg') no-repeat;
+$section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg') no-repeat;
 
 section-header {
     .section-header-div {
@@ -30,6 +31,10 @@ section-header {
 
             &.modernization {
                 background: $section-header-bg-modernization center;
+            }
+
+            &.monitoring {
+                background: $section-header-bg-monitoring center;
             }
 
             &.projects {

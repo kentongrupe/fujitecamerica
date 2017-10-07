@@ -73,7 +73,7 @@ export class StringService extends BaseService {
         if (this._cache.has(id)) {
             s = this._cache.get(id);
         } else {
-            console.log(id);
+            // console.log(id);
             if (this.isNullOrEmpty(s)) {
                 s = id;
             }

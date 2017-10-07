@@ -28,7 +28,7 @@ export class ModernizationComponent extends BaseProductRouteComponent {
     // @ViewChild('elevators') public elevators: ElementRef;
     // @ViewChild('escalators') public escalators: ElementRef;
 
-    private _sectionType = SectionType;
+    SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

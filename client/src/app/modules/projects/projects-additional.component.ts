@@ -23,7 +23,7 @@ export class ProjectsAdditionalComponent extends BaseComponent implements OnInit
 
     private _project: Project = null;
     private _projects: Project[] = [];
-    private _sectionType = SectionType;
+    SectionType = SectionType;
 
     constructor(
         private dataService: DataService,

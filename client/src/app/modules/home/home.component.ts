@@ -17,10 +17,12 @@ import {
 } from 'app/components';
 import {
     AppRoute,
+    Media,
     MediaType,
-    MenuItem
+    MenuItem,
 } from 'app/models';
 import {
+    DataService,
     RouterService,
     StringService
 } from 'app/services';
@@ -39,7 +41,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
 
     private _intervalId: any = null;
     private _mediaType = MediaType;
-    private _slideItems: any[] = [];
+    private _slideItems: Media[] = [];
     private _slideHeight: number = this._SLIDE_HEIGHT;
     private _slideWidth: number = this._SLIDE_WIDTH;
     private _sliding: boolean = false;
@@ -60,6 +62,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     constructor(
         protected router: Router,
         protected routerService: RouterService,
+        private dataService: DataService,
         private stringService: StringService
     ) {
         super('HomeComponent', router, routerService);
@@ -67,28 +70,16 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this._slideItems = [
-            {
-                type: MediaType.IMAGE,
-                url: '/assets/img/elevatorlobby.jpg'
-            },
-            {
-                type: MediaType.VIDEO,
-                url: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
-            },
-            {
-                type: MediaType.IMAGE,
-                url: '/assets/img/escalatorholloywood.jpg'
-            },
-            {
-                type: MediaType.IMAGE,
-                url: '/assets/img/ezshuttle.jpg'
-            }
-        ];
+        this.dataService.getSlides((d) => {
+            this._slideItems = d.slides.reverse().map((s) => {
+                return new Media(s);
+            });
 
-        setTimeout(() => {
-            this._updateSlidesSize();
-            this._startTimer();
+            Promise.resolve()
+                .then(() => {
+                    this._updateSlidesSize();
+                    this._startTimer();
+                });
         });
     }
     private _onResize(event: UIEvent): void {
@@ -99,8 +90,10 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
             this._intervalId = setInterval(() => {
                 this._sliding = true;
                 setTimeout(() => {
-                    let s = this._slideItems.shift();
-                    this._slideItems.push(s);
+                    // let s = this._slideItems.shift();
+                    // this._slideItems.push(s);
+                    let s = this._slideItems.pop();
+                    this._slideItems.unshift(s);
                     this._sliding = false;
                 }, 1000);
             }, 5000);

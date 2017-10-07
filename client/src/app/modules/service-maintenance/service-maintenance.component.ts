@@ -30,7 +30,7 @@ export class ServiceMaintenanceComponent extends BaseProductRouteComponent {
     // @ViewChild('escalators') public escalators: ElementRef;
     // @ViewChild('foreign') public foreign: ElementRef;
 
-    private _sectionType = SectionType;
+    SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

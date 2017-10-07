@@ -1,0 +1,36 @@
+{
+    "testimonials": {
+        "en": [
+            {
+                "text": "…the only contract we did not take out to bid was the elevator contract because we knew we could not beat the service and support we receive from Fujitec. I believe what separates Fujitec from other elevator companies is the tremendous support we receive from everyone in the company… Their commitment to excellence is why we truly cherish our partnership with Fujitec.",
+                "name": "S. Baggett",
+                "city": "Dallas",
+                "state": "TX"
+            },
+            {
+                "text": "… Fujitec America, Inc. has provided outstanding service at the Lazarus Building, and couple that with an aggressive pricing structure, building management was proud to award Fujitec a building-wide vertical transportation maintenance agreement on 22 elevators. NAI Ohio Equities looks forward to developing an even greater partnership with Fujitec in the future.",
+                "name": "R. Turrin",
+                "city": "Columbus",
+                "state": "OH"
+            },
+            {
+                "text": "Having two buildings with elevators close in age, it is clear that Fujitec service is far superior to that of other providers... Fujitec is a perfect example of the old cliché; you get what you pay for. An operating expense well spent.",
+                "name": "M. Robison",
+                "city": "Washington",
+                "state": "D.C."
+            },
+            {
+                "text": "… These days, it seems like many companies are compromising their customer service, it is great to work with a company that truly cares and always does the right thing. I cannot speak highly enough of Fujitec. Thank you!",
+                "name": "R. Smith",
+                "city": "Cincinnati",
+                "state": "OH"
+            },
+            {
+                "text": "Working with Fujitec Elevator is a pleasure, with clearly superior equipment, and great customer service from every employee, whether upper management or service technicians. It is a joy to work with an elevator company that actually delivers what they say they will, when they say they will.",
+                "name": "J. Hope",
+                "city": "Chicago",
+                "state": "IL"
+            }
+        ]
+    }
+}

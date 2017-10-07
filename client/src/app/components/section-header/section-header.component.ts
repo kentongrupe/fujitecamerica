@@ -106,6 +106,9 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                     }
                 ];
                 break;
+            case SectionType.MONITORING:
+                this._menuLabel = this._getString('remote-monitoring', 'Remote Monitoring').toUpperCase();
+                break;
             case SectionType.PROJECTS:
                 this._menuLabel = this._getString('projects', 'Projects').toUpperCase();
                 this._menuDescription = this._getString('view-additional-projects', 'View additional projects').toUpperCase();

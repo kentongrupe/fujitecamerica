@@ -1,4 +1,4 @@
-<section-header [sectionType]="_sectionType.PROJECTS"></section-header>
+<section-header [sectionType]="SectionType.PROJECTS"></section-header>
 <div class="projects-div" *ngFor="let p of _projects">
     <h1>{{ p.name }}</h1>
     <div class="projects" *ngFor="let p_ of p.projects">

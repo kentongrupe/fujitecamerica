@@ -2,6 +2,7 @@ export enum SectionType {
     UNKNOWN,
     INSTALLATION,
     MODERNIZATION,
+    MONITORING,
     SERVICE_MAINTENANCE,
     PROJECTS
 }

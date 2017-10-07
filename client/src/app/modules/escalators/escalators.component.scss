@@ -1,1 +1,14 @@
-escalators {}
+escalators {
+    .model-div {
+        display: flex;
+
+        ul {
+            list-style : none;
+            margin-left: $hgap_;
+        }
+    }
+
+    .subsection {
+        margin-bottom: 0;
+    }
+}

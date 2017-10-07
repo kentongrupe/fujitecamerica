@@ -18,28 +18,35 @@ home {
         }
 
         .slides-div {
-            display   : inline-flex;
-            left      : 0;
-            position  : absolute;
-            transition: all 0;
+            display : block;
+            left    : 0;
+            position: absolute;
 
-            &.sliding {
-                transition: left $home-slides-transition-duration;
+            .slide-div {
+                @include abs-position();
+
+                .slide {
+                    height : 100%;
+                    opacity: 1;
+                    width  : 100%;
+
+                    .slide-image {
+                        background-position: center;
+                        background-repeat  : no-repeat;
+                        height             : 100%;
+                        width              : 100%;
+                    }
+
+                    video {
+                        background-color: $video-background-color;
+                    }
+                }
             }
 
-            .slide {
-                height: 100%;
-                width : 100%;
-
-                .slide-image {
-                    background-position: center;
-                    background-repeat  : no-repeat;
-                    height             : 100%;
-                    width              : 100%;
-                }
-
-                video {
-                    background-color: $video-background-color;
+            &.sliding {
+                .slide-div:last-of-type {
+                    opacity   : 0;
+                    transition: opacity $home-slides-transition-duration;
                 }
             }
         }
@@ -57,3 +64,63 @@ home {
         }
     }
 }
+
+// home {
+//     width: 100%;
+
+//     .header {
+//         text-align: center;
+//     }
+
+//     .home-slides-div {
+//         background-color: lightgrey;
+//         overflow        : hidden;
+//         position        : relative;
+//         width           : 100%;
+
+//         .slides-bg-div {
+//             box-shadow    : $home-slides-box-shadow;
+//             pointer-events: none;
+//             position      : absolute;
+//         }
+
+//         .slides-div {
+//             display   : inline-flex;
+//             left      : 0;
+//             position  : absolute;
+//             transition: all 0;
+
+//             &.sliding {
+//                 transition: left $home-slides-transition-duration;
+//             }
+
+//             .slide {
+//                 height: 100%;
+//                 width : 100%;
+
+//                 .slide-image {
+//                     background-position: center;
+//                     background-repeat  : no-repeat;
+//                     height             : 100%;
+//                     width              : 100%;
+//                 }
+
+//                 video {
+//                     background-color: $video-background-color;
+//                 }
+//             }
+//         }
+//     }
+
+//     .home-div {
+//         .home-menu-div {
+//             display: inline-flex;
+//             width  : 100%;
+
+//             pro-menu,
+//             sys-menu {
+//                 margin: 0 auto;
+//             }
+//         }
+//     }
+// }

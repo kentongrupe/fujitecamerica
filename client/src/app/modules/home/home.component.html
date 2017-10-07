@@ -1,5 +1,6 @@
 <div #slides class="home-slides-div" [style.height.px]="_slideHeight" (window:resize)="_onResize($event)">
-    <div class="slides-div" [class.sliding]="_sliding" [style.left.%]="_sliding? -100 : 0" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth * _slideItems.length">
+    <!-- <div class="slides-div" [class.sliding]="_sliding" [style.left.%]="_sliding? -100 : 0" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth * _slideItems.length"> -->
+    <div class="slides-div" [class.sliding]="_sliding" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth * _slideItems.length">
         <div class="slide-div" *ngFor="let s of _slideItems" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth">
             <div class="slide" [ngSwitch]="s.type">
                 <ng-template [ngSwitchCase]="_mediaType.IMAGE">
