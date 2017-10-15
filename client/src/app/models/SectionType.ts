@@ -1,5 +1,8 @@
 export enum SectionType {
     UNKNOWN,
+    AUTOWALKS,
+    ELEVATORS,
+    ESCALATORS,
     INSTALLATION,
     MODERNIZATION,
     MONITORING,

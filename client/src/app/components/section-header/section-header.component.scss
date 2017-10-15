@@ -1,16 +1,28 @@
 
-$seciton-header-bg-max-height: 430px;
-$seciton-header-bg-max-width: 1130px;
-$section-header-menu-background-color: rgba(red($red), green($red), blue($red), 0.7);
-$section-header-menu-color: $white;
-$section-header-menu-height: 100px;
-$section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
-
+$section-header-bg-autowalks: url('/assets/img/autowalktab.jpg') no-repeat;
+$section-header-bg-elevators: url('/assets/img/elevator.jpg') no-repeat;
+$section-header-bg-escalators: url('/assets/img/escalatortab.jpg') no-repeat;
 $section-header-bg-installation: url('/assets/img/modroom.jpg') no-repeat;
 $section-header-bg-modernization: url('/assets/img/modroom.jpg') no-repeat;
 $section-header-bg-monitoring: url('/assets/img/webemis.jpg') no-repeat;
 $section-header-bg-projects: url('/assets/img/westforty.jpg') no-repeat;
 $section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg') no-repeat;
+
+$seciton-header-bg-max-height: 430px;
+$section-header-menu-color: $white;
+$section-header-menu-font-size: 40px;
+$section-header-menu-height: 100px;
+$section-header-menu-line-height: 36px;
+$section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
+
+$section-header-menu-background-opacity: .7;
+$section-header-menu-background-color: rgba($red, $section-header-menu-background-opacity);
+$section-header-menu-autowalks-background-color: rgba(#45A798, $section-header-menu-background-opacity);
+$section-header-menu-elevators-background-color: rgba(#D01126, $section-header-menu-background-opacity);
+$section-header-menu-escalators-background-color: rgba(#006086, $section-header-menu-background-opacity);
+
+$section-header-menu-items-font-size: 20px;
+$section-header-menu-item-border: 1px solid $section-header-menu-color;
 
 section-header {
     .section-header-div {
@@ -22,8 +34,19 @@ section-header {
             @include abs-position();
             height    : $seciton-header-bg-max-height;
             max-height: $seciton-header-bg-max-height;
-            max-width : $seciton-header-bg-max-width;
             width     : 100%;
+
+            &.autowalks {
+                background: $section-header-bg-autowalks center;
+            }
+
+            &.elevators {
+                background: $section-header-bg-elevators center;
+            }
+
+            &.escalators {
+                background: $section-header-bg-escalators center;
+            }
 
             &.installation {
                 background: $section-header-bg-installation center;
@@ -39,7 +62,6 @@ section-header {
 
             &.projects {
                 background: $section-header-bg-projects center;
-
             }
 
             &.service-maintenance {
@@ -49,22 +71,64 @@ section-header {
 
         .menu-div {
             @include abs-position();
-            background-color: $section-header-menu-background-color;
-            color           : $section-header-menu-color;
-            display         : inline-flex;
-            height          : $section-header-menu-height;
-            padding         : $vgap_ $hgap;
-            top             : $seciton-header-bg-max-height - $section-header-menu-height;
+            color  : $section-header-menu-color;
+            display: inline-flex;
+            height : $section-header-menu-height;
+            padding: $vgap_ $hgap;
+            top    : $seciton-header-bg-max-height - $section-header-menu-height;
 
-            h1,
-            h3 {
-                color      : $section-header-menu-color;
-                line-height: 29px;
-                margin     : $vgap_ 0;
+            &.autowalks {
+                background-color: $section-header-menu-autowalks-background-color;
             }
 
-            h3 {
-                cursor: pointer;
+            &.elevators {
+                background-color: $section-header-menu-elevators-background-color;
+            }
+
+            &.escalators {
+                background-color: $section-header-menu-escalators-background-color;
+            }
+
+            &.installation,
+            &.modernization,
+            &.monitoring,
+            &.projects,
+            &.service-maintenance {
+                background-color: $section-header-menu-background-color;
+            }
+
+            .title {
+                color         : $section-header-menu-color;
+                font-size     : $section-header-menu-font-size;
+                line-height   : $section-header-menu-line-height;
+                margin        : auto 0;
+                text-transform: uppercase;
+            }
+
+            .menu-items-div {
+                line-height: $section-header-menu-line-height;
+                margin     : auto 0 auto $hgap;
+
+                .menu-items {
+                    @extend .list-style-none;
+                    display       : inline-flex;
+                    font-size     : $section-header-menu-items-font-size;
+                    height        : $section-header-menu-line-height;
+                    margin-bottom : -8px;
+                    vertical-align: bottom;
+
+                    .menu-item {
+                        border-right  : $section-header-menu-item-border;
+                        cursor        : pointer;
+                        display       : inline-block;
+                        padding       : 0 #{$hgap_ / 2};
+                        text-transform: uppercase;
+
+                        &:first-of-type {
+                            border-left: $section-header-menu-item-border;
+                        }
+                    }
+                }
             }
 
             .menu-toggle {
@@ -75,7 +139,7 @@ section-header {
             }
         }
 
-        .menu-items-div {
+        & > .menu-items {
             @include abs-position();
             height    : 0;
             overflow  : hidden;

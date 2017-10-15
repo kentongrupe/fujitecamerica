@@ -1,11 +1,18 @@
 <div class="section-header-div">
     <div [attr.class]="'bg ' + _background"></div>
-    <div class="menu-div">
-        <h1>{{ _menuLabel }}</h1>
-        <div class="menu-toggle" (click)="_toggleMenu()"></div>
+    <div [attr.class]="'menu-div ' + _background">
+        <div class="title">{{ _menuLabel }}</div>
+        <div class="menu-items-div" *ngIf="_menu0.length>0">
+            <ul class="menu-items">
+                <li class="menu-item" *ngFor="let m of _menu0" (click)="onMenuClick(m, $event)">
+                    <span>{{ m.label }}</span>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="_menu1.length>0" class="menu-toggle" (click)="_toggleMenu()"></div>
         <h3 (click)="_onClick()">{{ _menuDescription }}</h3>
     </div>
-    <div class="menu-items-div" [class.expanded]="_expanded" [style.height.px]="_expanded? _menuItems.length*40 : 0">
-        <div class="menu-item" *ngFor="let m of _menuItems" (click)="onMenuClick(m, $event)">{{ m.label }}</div>
+    <div class="menu-items" [class.expanded]="_expanded" [style.height.px]="_expanded? _menuItems.length*40 : 0">
+        <div class="menu-item" *ngFor="let m of _menu1" (click)="onMenuClick(m, $event)">{{ m.label }}</div>
     </div>
 </div>

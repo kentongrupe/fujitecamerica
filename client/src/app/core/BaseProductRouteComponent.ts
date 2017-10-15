@@ -20,10 +20,10 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
     @ViewChild('top') public top: ElementRef;
 
     protected _product: string = '';
-    get product(): string {
+    public get product(): string {
         return this._product;
     }
-    set product(value: string) {
+    public set product(value: string) {
         this._product = value;
         this._onProduct();
     }

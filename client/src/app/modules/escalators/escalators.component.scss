@@ -3,7 +3,7 @@ escalators {
         display: flex;
 
         ul {
-            list-style : none;
+            @extend .list-style-none;
             margin-left: $hgap_;
         }
     }

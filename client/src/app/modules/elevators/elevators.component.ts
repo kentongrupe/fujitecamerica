@@ -10,7 +10,8 @@ import {
 } from 'app/core';
 import {
     AppRoute,
-    MenuItem
+    MenuItem,
+    SectionType
 } from 'app/models';
 import {
     RouterService,
@@ -22,6 +23,8 @@ import {
     templateUrl: 'elevators.component.html'
 })
 export class ElevatorsComponent extends BaseNavRouteComponent implements OnInit {
+
+    private SectionType = SectionType;
 
     constructor(
         protected router: Router,

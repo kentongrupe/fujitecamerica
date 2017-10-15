@@ -76,7 +76,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
                                 routerLink: AppRoute.ELEVATORS_CONTROLLERS_FLEXNX
                             },
                             {
-                                label: this._getString('ez-shuttle', 'EXShuttle'),
+                                label: this._getString('ez-shuttle', 'EZShuttle'),
                                 routerLink: AppRoute.ELEVATORS_CONTROLLERS_EZSHUTTLE
                             }
                         ]
@@ -112,7 +112,7 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
                         routerLink: AppRoute.EZSHUTTLE_DISPATCH_FLEXNX
                     },
                     {
-                        label: this._getString('ez-shuttle', 'EXShuttle'),
+                        label: this._getString('ez-shuttle', 'EZShuttle'),
                         routerLink: AppRoute.EZSHUTTLE_DISPATCH_EZSHUTTLE
                     },
                 ]

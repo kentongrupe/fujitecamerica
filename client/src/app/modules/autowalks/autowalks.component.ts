@@ -12,6 +12,9 @@ import {
     BaseDynamicProductRouteComponent
 } from 'app/core';
 import {
+    SectionType
+} from 'app/models';
+import {
     DataService,
     DOMService,
     StringService
@@ -22,6 +25,8 @@ import {
     templateUrl: 'autowalks.component.html'
 })
 export class AutowalksComponent extends BaseDynamicProductRouteComponent {
+
+    private SectionType = SectionType;
 
     constructor(
         protected dataService: DataService,

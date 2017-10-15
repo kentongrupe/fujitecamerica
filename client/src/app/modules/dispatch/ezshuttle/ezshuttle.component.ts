@@ -4,10 +4,13 @@ import {
 import {
     BaseComponent
 } from 'app/core';
+import {
+    StringService
+} from 'app/services';
 
 @Component({
     selector: 'dispatch-ezshuttle',
-    templateUrl: 'ezshuttle.component.html'
+    templateUrl: '/assets/locales/{0}/dispatch-ezshuttle-{0}.html'.format(StringService.locale)
 })
 export class DispatchEZShuttleComponent extends BaseComponent {
 

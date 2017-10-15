@@ -1,7 +1,7 @@
-<h1>{{ this | getString : 'elevators' : 'Elevators' }}</h1>
-<audio controls>
-    <source src="/assets/audio/Elevator-music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-</audio>
-<div class="elevators-div">
+<section-header [sectionType]="SectionType.ELEVATORS"></section-header>
+<div class="content-div elevators-div">
+    <audio controls>
+        <source src="/assets/audio/Elevator-music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
     <router-outlet></router-outlet>
 </div>

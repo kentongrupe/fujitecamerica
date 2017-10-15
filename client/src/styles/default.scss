@@ -115,10 +115,10 @@ textarea {
 }
 
 ul.links {
-    display   : inline-block;
-    list-style: none;
-    margin    : 0;
-    padding   : 0;
+    @extend .list-style-none;
+    display: inline-block;
+    margin : 0;
+    padding: 0;
 }
 
 div {
@@ -441,6 +441,9 @@ $project-info-category-padding: 5px 10px;
 //         }
 //     }
 // }
+
+// service & maintenance
+$service-maintenance-text-align: center;
 
 // site-map
 $site-map-links-border: $border;

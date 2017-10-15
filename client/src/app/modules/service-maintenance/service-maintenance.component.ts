@@ -25,12 +25,7 @@ import {
 })
 export class ServiceMaintenanceComponent extends BaseProductRouteComponent {
 
-    // @ViewChild('autowalks') public autowalks: ElementRef;
-    // @ViewChild('elevators') public elevators: ElementRef;
-    // @ViewChild('escalators') public escalators: ElementRef;
-    // @ViewChild('foreign') public foreign: ElementRef;
-
-    SectionType = SectionType;
+    private SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

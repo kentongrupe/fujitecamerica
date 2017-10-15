@@ -8,10 +8,10 @@ sys-menu {
     }
 
     .nav-menu-items {
-        display   : $nav-menu-display;
-        list-style: none;
-        margin    : 0 auto;
-        padding   : 0;
+        @extend .list-style-none;
+        display: $nav-menu-display;
+        margin : 0 auto;
+        padding: 0;
 
         &.mode-default {
             .desktop-menu {
