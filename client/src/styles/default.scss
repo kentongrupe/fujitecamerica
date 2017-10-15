@@ -1,5 +1,5 @@
 // app
-@import url( 'https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url( 'https://fonts.googleapis.com/css?family=Source+Sans+Pro::300,400,700');
 
 $red: #d01126;
 $navy: #212d62;
@@ -27,7 +27,7 @@ $footer-border-top: 3px solid $grey5;
 
 // basic text
 $font-family: 'Source Sans Pro', sans-serif;
-$font-size: 14px;
+$font-size: 18px;
 $color: $black;
 
 // header (global navigation)
@@ -49,11 +49,17 @@ $min-color: $grey3;
 body,
 html {
     font-family: $font-family;
+    font-size  : $font-size;
+    font-weight: 400;
     height     : 100%;
     margin     : 0;
     overflow   : hidden;
     padding    : 0;
     width      : 100%;
+
+    p {
+        font-size: $font-size;
+    }
 }
 
 h1,
@@ -62,43 +68,43 @@ h3,
 h4,
 h5,
 h6 {
+    color      : $black;
     font-family: $font-family;
+    font-weight: 300;
     margin-top : 0;
 }
 
 h1 {
+    font-size: 40px;
+
     &.title-photo {
-        color      : $white;
-        font-size  : 28px;
-        font-weight: bold;
+        color    : $white;
+        font-size: 28px;
         // Image (width): browser width
         // Image(height): 240pxinheight
     }
 
     &.title {
-        color      : $black;
-        font-size  : 22px;
-        font-weight: bold;
-        margin     : 40px 0;
+        font-size: 22px;
+        margin   : 40px 0;
     }
 }
 
 h2 {
+    font-size: 36px;
+
     &.title {
-        color      : $black;
-        font-size  : 22px;
-        font-weight: bold;
-        margin     : 20px 0;
+        font-size: 22px;
+        margin   : 20px 0;
     }
-    // line red + grey
 }
 
 h3 {
+    font-size: 32px;
+
     &.title {
-        color      : $black;
-        font-size  : 16px;
-        font-weight: bold;
-        margin     : 20px 0;
+        font-size: 16px;
+        margin   : 20px 0;
     }
 }
 
@@ -447,7 +453,7 @@ $service-maintenance-text-align: center;
 
 // site-map
 $site-map-links-border: $border;
-$site-map-links-margin: 0 0 20px 0;
+$site-map-links-margin: 0 0 $vgap_ 0;
 $site-map-link-background: url('../../assets/img/icon_arrow_common.png') no-repeat right 10px center $white;
 $site-map-link-hover-background-color: $grey1;
 $site-map-link-hover-color: $red;
@@ -506,7 +512,9 @@ $video-background-color: $black;
 }
 
 .section {
-    margin: $vgap_ 0 0;
+    margin    : $vgap_ 0 0;
+    text-align: center;
+    width     : 100%;
 
     &:last-of-type {
         margin-bottom: $vgap_;

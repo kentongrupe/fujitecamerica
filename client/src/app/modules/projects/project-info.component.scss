@@ -31,9 +31,9 @@
         padding   : $project-info-padding;
 
         .info-title {
+            @extend .bold;
             background   : $project-info-title-background;
             border-bottom: $project-info-title-border;
-            font-weight  : bold;
             margin       : $project-info-title-margin;
             padding      : $project-info-title-padding;
             text-align   : center;
@@ -49,12 +49,12 @@
             @include abs-position_bl($vgap_, $project-info-padding);
 
             .info-category {
-                background : $project-info-category-background;
-                display    : inline-block;
-                float      : left;
-                font-weight: bold;
-                margin     : $project-info-category-margin;
-                padding    : $project-info-category-padding;
+                @extend .bold;
+                background: $project-info-category-background;
+                display   : inline-block;
+                float     : left;
+                margin    : $project-info-category-margin;
+                padding   : $project-info-category-padding;
             }
         }
     }

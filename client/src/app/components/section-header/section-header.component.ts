@@ -29,11 +29,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
 
     private _background: string = '';
     private _expanded: boolean = false;
-    private _menu0: MenuItem[] = [];
-    private _menu1: MenuItem[] = [];
-    private _menuDescription: string = '';
     private _menuLabel: string = '';
-    private _nav: string = '';
 
     constructor(
         protected router: Router,
@@ -48,13 +44,11 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         super.ngOnInit();
 
         this._background = SectionType[this.sectionType].toClassName();
-        this._menuDescription = '';
-        this._nav = '';
 
         switch (this.sectionType) {
             case SectionType.AUTOWALKS:
                 this._menuLabel = this._getString('autowalks', 'Autowalks');
-                this._menu0 = [
+                this._menu = [
                     {
                         label: this._getString('fujitec-gs8100', 'Fujitec GS8100'),
                         routerLink: AppRoute.AUTOWALKS + '/gs8100'
@@ -73,9 +67,22 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                     }
                 ];
                 break;
+            case SectionType.DISPATCH:
+                this._menuLabel = this._getString('controls-dispatch', 'Controls & Dispatch');
+                this._menu = [
+                    {
+                        label: this._getString('flex-nx', 'Flex-NX'),
+                        routerLink: AppRoute.CONTROLS_DISPATCH_FLEXNX
+                    },
+                    {
+                        label: this._getString('ezshuttle', 'EZShuttle'),
+                        routerLink: AppRoute.CONTROLS_DISPATCH_EZSHUTTLE
+                    }
+                ];
+                break;
             case SectionType.ELEVATORS:
                 this._menuLabel = this._getString('elevators', 'Elevators');
-                this._menu0 = [
+                this._menu = [
                     {
                         label: this._getString('mrl', 'MRL'),
                         routerLink: AppRoute.ELEVATORS_SYSTEMS_MRL
@@ -104,7 +111,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 break;
             case SectionType.ESCALATORS:
                 this._menuLabel = this._getString('escalators', 'Escalators');
-                this._menu0 = [
+                this._menu = [
                     {
                         label: this._getString('fujitec-gs8000', 'Fujitec GS8000'),
                         routerLink: AppRoute.ESCALATORS + '/gs8000'
@@ -123,51 +130,26 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                     }
                 ];
                 break;
+            case SectionType.INSTALLATION:
+                this._menuLabel = this._getString('installation', 'Installation');
+                break;
             case SectionType.SERVICE_MAINTENANCE:
                 this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');
-                this._menu1 = [
-                    {
-                        label: this._getString('elevators', 'Elevators'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_ELEVATORS
-                    },
-                    {
-                        label: this._getString('escalators', 'Escalators'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_ESCALATORS
-                    },
-                    {
-                        label: this._getString('autowalks', 'Autowalks'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_AUTOWALKS
-                    },
-                    {
-                        label: this._getString('foreigh-maintenance', 'Foreign Maintenance'),
-                        routerLink: AppRoute.SERVICE_MAINTENANCE_FOREIGN
-                    }
-                ];
                 break;
             case SectionType.MODERNIZATION:
                 this._menuLabel = this._getString('modernization', 'Modernization');
-                this._menu1 = [
-                    {
-                        label: this._getString('elevators', 'Elevators'),
-                        routerLink: AppRoute.MODERNIZATION_ELEVATORS
-                    },
-                    {
-                        label: this._getString('escalators', 'Escalators'),
-                        routerLink: AppRoute.MODERNIZATION_ESCALATORS
-                    },
-                    {
-                        label: this._getString('autowalks', 'Autowalks'),
-                        routerLink: AppRoute.MODERNIZATION_AUTOWALKS
-                    }
-                ];
                 break;
             case SectionType.MONITORING:
                 this._menuLabel = this._getString('remote-monitoring', 'Remote Monitoring');
                 break;
             case SectionType.PROJECTS:
                 this._menuLabel = this._getString('projects', 'Projects');
-                this._menuDescription = this._getString('view-additional-projects', 'View additional projects');
-                this._nav = AppRoute.PROJECTS_ADDITIONAL;
+                this._menu = [
+                    {
+                        label: this._getString('view-additional-projects', 'View additional projects'),
+                        routerLink: AppRoute.PROJECTS_ADDITIONAL
+                    }
+                ];
                 break;
             default:
                 break;
@@ -177,11 +159,6 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
     public onMenuClick(item: MenuItem, event?: MouseEvent): void {
         super.onMenuClick(item, event);
         this._expanded = false;
-    }
-    private _onClick(): void {
-        if (!this.isNullOrEmpty(this._nav)) {
-            this.routerService.to(this._nav);
-        }
     }
     private _toggleMenu(): void {
         this._expanded = !this._expanded;

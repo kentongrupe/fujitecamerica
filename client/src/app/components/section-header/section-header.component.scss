@@ -18,6 +18,7 @@ $section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.
 $section-header-menu-background-opacity: .7;
 $section-header-menu-background-color: rgba($red, $section-header-menu-background-opacity);
 $section-header-menu-autowalks-background-color: rgba(#45A798, $section-header-menu-background-opacity);
+$section-header-menu-dispatch-background-color: rgba(#99B129, $section-header-menu-background-opacity);
 $section-header-menu-elevators-background-color: rgba(#D01126, $section-header-menu-background-opacity);
 $section-header-menu-escalators-background-color: rgba(#006086, $section-header-menu-background-opacity);
 
@@ -38,6 +39,10 @@ section-header {
 
             &.autowalks {
                 background: $section-header-bg-autowalks center;
+            }
+
+            &.dispatch {
+                // background: $section-header-bg-dispatch center;
             }
 
             &.elevators {
@@ -81,6 +86,10 @@ section-header {
                 background-color: $section-header-menu-autowalks-background-color;
             }
 
+            &.dispatch {
+                background-color: $section-header-menu-dispatch-background-color;
+            }
+
             &.elevators {
                 background-color: $section-header-menu-elevators-background-color;
             }
@@ -97,7 +106,7 @@ section-header {
                 background-color: $section-header-menu-background-color;
             }
 
-            .title {
+            .menu-title {
                 color         : $section-header-menu-color;
                 font-size     : $section-header-menu-font-size;
                 line-height   : $section-header-menu-line-height;
@@ -136,23 +145,6 @@ section-header {
                 height    : 29px;
                 margin    : $vgap_ $hgap_;
                 width     : 24px;
-            }
-        }
-
-        & > .menu-items {
-            @include abs-position();
-            height    : 0;
-            overflow  : hidden;
-            top       : $seciton-header-bg-max-height;
-            transition: all .5s;
-
-            &.expanded {
-                background: #000;
-            }
-
-            .menu-item {
-                color : $white;
-                height: 40px;
             }
         }
     }

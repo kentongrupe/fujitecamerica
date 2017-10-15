@@ -8,18 +8,23 @@ site-map {
             margin : $site-map-links-margin;
             width  : 100%;
 
+            &:first-of-type {
+                margin-top: $vgap;
+            }
+
             &:last-of-type {
                 margin: 0;
             }
 
             .site-map-link {
-                background  : $site-map-link-background;
-                cursor      : pointer;
-                display     : inline-block;
-                height      : $site-map-link-height;
-                line-height : $site-map-link-height;
-                padding-left: 10px;
-                transition  : color .2s;
+                background    : $site-map-link-background;
+                cursor        : pointer;
+                display       : inline-block;
+                height        : $site-map-link-height;
+                line-height   : $site-map-link-height;
+                padding-left  : 10px;
+                text-transform: capitalize;
+                transition    : color .2s;
 
                 &:hover {
                     background-color: $site-map-link-hover-background-color;
@@ -28,6 +33,8 @@ site-map {
             }
 
             .link {
+                text-transform: capitalize;
+
                 span {
                     cursor     : pointer;
                     display    : inline-block;

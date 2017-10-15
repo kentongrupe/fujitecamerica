@@ -5,8 +5,9 @@ about {
     }
 
     .section {
-        padding: $vgap_ $hgap_;
-        width  : 100%;
+        padding   : $vgap_ $hgap_;
+        text-align: initial;
+        width     : 100%;
 
         .image {
             float : left;
@@ -32,9 +33,9 @@ about {
                 width  : 770px;
 
                 .name-title {
-                    display    : inline-grid;
-                    font-weight: bold;
-                    margin-top : 0;
+                    @extend .bold;
+                    display   : inline-grid;
+                    margin-top: 0;
 
                     span {
                         &:first-child {

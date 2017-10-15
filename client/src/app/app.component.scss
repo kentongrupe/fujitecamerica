@@ -59,7 +59,7 @@ app {
                             text-align: right;
 
                             .reference-name {
-                                font-weight: bold;
+                                @extend .bold;
                             }
                         }
 

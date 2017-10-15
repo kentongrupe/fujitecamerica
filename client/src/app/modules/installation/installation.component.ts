@@ -1,7 +1,5 @@
 import {
     Component
-    // ElementRef,
-    // ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -23,10 +21,6 @@ import {
     templateUrl: '/assets/locales/{0}/installation-{0}.html'.format(StringService.locale)
 })
 export class InstallationComponent extends BaseProductRouteComponent {
-
-    // @ViewChild('autowalks') public autowalks: ElementRef;
-    // @ViewChild('elevators') public elevators: ElementRef;
-    // @ViewChild('escalators') public escalators: ElementRef;
 
     private SectionType = SectionType;
 
