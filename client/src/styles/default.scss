@@ -1,5 +1,5 @@
 // app
-@import url( 'https://fonts.googleapis.com/css?family=Source+Sans+Pro::300,400,700');
+@import url( 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 
 $red: #d01126;
 $navy: #212d62;
@@ -389,7 +389,8 @@ $nav-menu-mobile-item-label-font-size-400: 10px;
 $project-color: $white;
 $project-font-size: 14px;
 $project-height: 320px;
-$project-margin: 0 0 0 1px;
+$project-margin: 1px;
+$project-max-per-line: 4;
 $project-width: 254px;
 
 $project-name-background: rgba(0,0,0,0.7);
@@ -410,6 +411,9 @@ $project-info-category-margin: 0 0 1px 1px;
 $project-info-category-padding: 5px 10px;
 
 // project info modal
+$project-info-slick-dot-color: #cccccc;
+$project-info-slick-dot-active-color: #ffffff;
+
 // $project-info-image-height: 570;
 // $project-info-image-width: 830;
 // $project-info-image-r: $project-info-image-width / $project-info-image-height;

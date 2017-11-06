@@ -5,7 +5,8 @@ projects {
         padding      : 0 $hgap;
 
         .project-info-list {
-            display: inline-block;
+            display  : inline-block;
+            max-width: #{($project-width + $project-margin) * $project-max-per-line};
         }
     }
 }

@@ -23,6 +23,7 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ngcWebpack = require('ngc-webpack');
 //const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 /**
  * Webpack Constants
@@ -370,6 +371,11 @@ module.exports = function (options) {
        * See: https://gist.github.com/sokra/27b24881210b56bbaff7
        */
       new LoaderOptionsPlugin({}),
+
+      new ProvidePlugin({
+        $: 'jquery',
+        slick: 'slick-carousel'
+      }),
 
       new ngcWebpack.NgcWebpackPlugin({
         /**

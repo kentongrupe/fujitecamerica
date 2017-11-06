@@ -7,7 +7,7 @@ $app-min-height: $nav-menu-side-item-icon-height * 4;
 $app-content-display: inline-flex;
 @mixin app-content-scss() {
     margin   : $app-margin-top auto $app-margin-bottom;
-    min-width: $col-side-width + $col-center-width + $col-side-width;
+    min-width: $col-side-width + $col-center-min-width + $col-side-width;
     width    : 100%;
 }
 
@@ -34,7 +34,7 @@ $footer-mobile-links-display: none;
 
 // header
 $header-height: $app-margin-top;
-$header-min-width: $col-side-width + $col-center-width + $col-side-width;
+$header-min-width: $col-side-width + $col-center-min-width + $col-side-width;
 $header-padding-top: 15px;
 $header-padding: $header-padding-top 0 0 0;
 
@@ -58,6 +58,9 @@ $header-mobile-menu-trigger-display: none;
 $menu-hover-color: $red;
 
 // nav menu
+.nav-menu-item {
+    @include drop-shadow(0, 0, 5px, 1px, rgba(0, 0, 0, 0.3));
+}
 $nav-menu-display: inline-block;
 $nav-menu-item-margin: 0 20px 0 0;
 $nav-menu-side-display: inline-grid;

@@ -43,12 +43,8 @@
     box-shadow        : $dx $dy $blur $spread $rgba !important;
 }
 
-// dialog
-.mat-dialog-actions {
-    float: right;
-}
-
-$col-center-width: 544px;
+$col-center-max-width: 1600px;
+$col-center-min-width: 544px;
 $col-side-width: 240px;
 
 //
@@ -74,7 +70,8 @@ $col-side-width: 240px;
 }
 
 .col-center {
-    min-width: $col-center-width;
+    max-width: $col-center-max-width;
+    min-width: $col-center-min-width;
     width    : 100%;
 }
 

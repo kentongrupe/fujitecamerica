@@ -2,6 +2,8 @@ app {
     display       : flex;
     flex-direction: column;
     height        : 100%;
+    max-width     : $col-side-width + $col-center-max-width + $col-side-width;
+    margin        : 0 auto;
     position      : relative;
     top           : 0;
     width         : 100%;

@@ -2,9 +2,6 @@
 <div class="projects-div" *ngFor="let p of _projects">
     <h1>{{ p.name }}</h1>
     <div class="projects" *ngFor="let p_ of p.projects">
-        <div *ngIf="p_.projects.length===0">
-            <project-info [project]="p_" (show)="_showProject($event)"></project-info>
-        </div>
         <div *ngIf="p_.projects.length>0">
             <h1>{{ p_.name }}</h1>
             <div class="project-info-list">

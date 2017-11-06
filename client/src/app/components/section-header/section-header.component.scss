@@ -1,12 +1,13 @@
 
-$section-header-bg-autowalks: url('/assets/img/autowalktab.jpg') no-repeat;
-$section-header-bg-elevators: url('/assets/img/elevator.jpg') no-repeat;
-$section-header-bg-escalators: url('/assets/img/escalatortab.jpg') no-repeat;
-$section-header-bg-installation: url('/assets/img/modroom.jpg') no-repeat;
-$section-header-bg-modernization: url('/assets/img/modroom.jpg') no-repeat;
-$section-header-bg-monitoring: url('/assets/img/webemis.jpg') no-repeat;
-$section-header-bg-projects: url('/assets/img/westforty.jpg') no-repeat;
-$section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg') no-repeat;
+$section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
+$section-header-bg-dispatch: url('/assets/img/controldispatchtab.jpg');
+$section-header-bg-elevators: url('/assets/img/elevator.jpg');
+$section-header-bg-escalators: url('/assets/img/escalatortab.jpg');
+$section-header-bg-installation: url('/assets/img/installationtab.jpg');
+$section-header-bg-modernization: url('/assets/img/modroom.jpg');
+$section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
+$section-header-bg-projects: url('/assets/img/projectstab.jpg');
+$section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
 
 $seciton-header-bg-max-height: 430px;
 $section-header-menu-color: $white;
@@ -33,44 +34,46 @@ section-header {
 
         .bg {
             @include abs-position();
-            height    : $seciton-header-bg-max-height;
-            max-height: $seciton-header-bg-max-height;
-            width     : 100%;
+            background-repeat: no-repeat;
+            background-size  : cover;
+            height           : $seciton-header-bg-max-height;
+            max-height       : $seciton-header-bg-max-height;
+            width            : 100%;
 
             &.autowalks {
-                background: $section-header-bg-autowalks center;
+                background-image: $section-header-bg-autowalks;
             }
 
             &.dispatch {
-                // background: $section-header-bg-dispatch center;
+                background-image: $section-header-bg-dispatch;
             }
 
             &.elevators {
-                background: $section-header-bg-elevators center;
+                background-image: $section-header-bg-elevators;
             }
 
             &.escalators {
-                background: $section-header-bg-escalators center;
+                background-image: $section-header-bg-escalators;
             }
 
             &.installation {
-                background: $section-header-bg-installation center;
+                background-image: $section-header-bg-installation;
             }
 
             &.modernization {
-                background: $section-header-bg-modernization center;
+                background-image: $section-header-bg-modernization;
             }
 
             &.monitoring {
-                background: $section-header-bg-monitoring center;
+                background-image: $section-header-bg-monitoring;
             }
 
             &.projects {
-                background: $section-header-bg-projects center;
+                background-image: $section-header-bg-projects;
             }
 
             &.service-maintenance {
-                background: $section-header-bg-service-maintenance center;
+                background-image: $section-header-bg-service-maintenance;
             }
         }
 

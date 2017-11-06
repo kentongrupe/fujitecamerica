@@ -4,7 +4,7 @@
     float    : left;
     font-size: $project-font-size;
     height   : $project-height;
-    margin   : $project-margin;
+    margin   : 0 0 0 $project-margin;
     overflow : hidden;
     position : relative;
     width    : $project-width;
@@ -40,7 +40,7 @@
         }
 
         .info-desc {
-            @include abs-position(70px, $project-info-padding, 100px, $project-info-padding);
+            @include abs-position(70px, $project-info-padding, 55px, $project-info-padding);
             line-height: $project-info-description-line-height;
             overflow   : hidden;
         }
@@ -56,6 +56,12 @@
                 margin    : $project-info-category-margin;
                 padding   : $project-info-category-padding;
             }
+        }
+
+        .click-for-info-div {
+            @include abs-position_bl($vgap_, $project-info-padding);
+            right     : $project-info-padding;
+            text-align: center;
         }
     }
 

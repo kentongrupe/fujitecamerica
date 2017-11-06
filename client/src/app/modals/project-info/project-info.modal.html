@@ -1,7 +1,7 @@
 <clr-modal #info [(clrModalOpen)]="opened" [clrModalSize]="'lg'" [clrModalClosable]="true" (click)="_onClick($event)">
     <div class="modal-body" *ngIf="project">
         <div class="info-div images-div">
-            <img *ngFor="let i of project.images" [attr.src]="i" />
+            <img *ngFor="let i of project.images" [attr.data-lazy]="i" />
         </div>
         <div class="info-div details-div">
             <form>

@@ -32,11 +32,29 @@ project-info-modal {
                             }
 
                             .images-div {
-                                background: red;
-                                height    : 60%;
+                                height: 60%;
+
+                                .slick-list {
+                                    height: 100%;
+                                }
+
+                                .slick-dots {
+                                    bottom: 10px;
+
+                                    li {
+                                        button:before {
+                                            color: $project-info-slick-dot-color;
+                                        }
+
+                                        &.slick-active button:before {
+                                            color: $project-info-slick-dot-active-color;
+                                        }
+                                    }
+                                }
 
                                 img {
-                                    width: 100%;
+                                    height: 100%;
+                                    width : 100%;
                                 }
                             }
 

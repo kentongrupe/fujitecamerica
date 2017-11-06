@@ -9,6 +9,7 @@ import {
 import {
     Modal
 } from 'clarity-angular';
+import 'slick-carousel/slick/slick';
 import {
     BaseComponent
 } from 'app/core';
@@ -18,6 +19,8 @@ import {
 import {
     StringService
 } from 'app/services';
+
+declare const $;
 
 @Component({
     selector: 'project-info-modal',
@@ -37,6 +40,18 @@ export class ProjectInfoModal extends BaseComponent implements OnInit {
         this._project = value;
         if (value && this._modal) {
             this._modal.open();
+
+            if (this._project.imageCount > 0) {
+                setTimeout(() => {
+                    $('.images-div').slick({
+                        dots: true,
+                        infinite: true,
+                        lazyLoad: 'ondemand',
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    });
+                });
+            }
         }
     }
 
