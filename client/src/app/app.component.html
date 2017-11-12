@@ -44,7 +44,7 @@
     </div>
 </div>
 <div class="app-content-footer" [class.home]="_isHome"></div>
-<div class="pro-menu-div" *ngIf="!_isHome">
+<div class="pro-menu-div not-home" *ngIf="!_isHome">
     <label class="menu-header">{{ this | getString : 'industry-professional-resources' : 'Industry Professional Resources' }}</label>
     <div class="home-menu-div">
         <pro-menu></pro-menu>

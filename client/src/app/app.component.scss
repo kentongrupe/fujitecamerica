@@ -178,6 +178,18 @@ app {
         display   : $app-pro-menu-div-display;
         margin    : 0 auto $vgap;
         text-align: center;
+
+        &.not-home {
+            .home-menu-div {
+                .nav-menu-item {
+                    .nav-menu-item-icon {
+                        background-size: #{$nav-menu-pro-bakground-width * .9} #{$nav-menu-pro-bakground-height * .9};
+                        height         : $nav-menu-pro-height * .9;
+                        width          : $nav-menu-pro-width * .9;
+                    }
+                }
+            }
+        }
     }
 
     .mobile-menu-div {

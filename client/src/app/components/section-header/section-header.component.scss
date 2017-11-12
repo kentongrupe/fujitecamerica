@@ -4,6 +4,7 @@ $section-header-bg-dispatch: url('/assets/img/controldispatchtab.jpg');
 $section-header-bg-elevators: url('/assets/img/elevator.jpg');
 $section-header-bg-escalators: url('/assets/img/escalatortab.jpg');
 $section-header-bg-installation: url('/assets/img/installationtab.jpg');
+$section-header-bg-ionful: url('/assets/img/ionful.jpg');
 $section-header-bg-modernization: url('/assets/img/modroom.jpg');
 $section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
 $section-header-bg-projects: url('/assets/img/projectstab.jpg');
@@ -34,11 +35,12 @@ section-header {
 
         .bg {
             @include abs-position();
-            background-repeat: no-repeat;
-            background-size  : cover;
-            height           : $seciton-header-bg-max-height;
-            max-height       : $seciton-header-bg-max-height;
-            width            : 100%;
+            background-position: center;
+            background-repeat  : no-repeat;
+            background-size    : cover;
+            height             : $seciton-header-bg-max-height;
+            max-height         : $seciton-header-bg-max-height;
+            width              : 100%;
 
             &.autowalks {
                 background-image: $section-header-bg-autowalks;
@@ -58,6 +60,10 @@ section-header {
 
             &.installation {
                 background-image: $section-header-bg-installation;
+            }
+
+            &.ionful {
+                background-image: $section-header-bg-ionful;
             }
 
             &.modernization {
@@ -102,6 +108,7 @@ section-header {
             }
 
             &.installation,
+            &.ionful,
             &.modernization,
             &.monitoring,
             &.projects,

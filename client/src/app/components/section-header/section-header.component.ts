@@ -133,6 +133,9 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
             case SectionType.INSTALLATION:
                 this._menuLabel = this._getString('installation', 'Installation');
                 break;
+            case SectionType.IONFUL:
+                this._menuLabel = '';
+                break;
             case SectionType.SERVICE_MAINTENANCE:
                 this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');
                 break;
