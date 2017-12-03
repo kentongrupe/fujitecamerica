@@ -1,6 +1,5 @@
 import {
-    Component,
-    OnInit
+    Component
 } from '@angular/core';
 import {
     Router
@@ -20,22 +19,17 @@ import {
 
 @Component({
     selector: 'elevators',
-    templateUrl: 'elevators.component.html'
+    templateUrl: '/assets/locales/{0}/elevators-{0}.html'.format(StringService.locale)
 })
-export class ElevatorsComponent extends BaseNavRouteComponent implements OnInit {
+export class ElevatorsComponent extends BaseNavRouteComponent {
 
     private SectionType = SectionType;
 
     constructor(
         protected router: Router,
-        protected routerService: RouterService,
-        private stringService: StringService
+        protected routerService: RouterService
     ) {
         super('ElevatorsComponent', router, routerService);
-        this._stringService = stringService;
-    }
-
-    public ngOnInit() {
-        super.ngOnInit();
+        this._scrollToContent = true;
     }
 }

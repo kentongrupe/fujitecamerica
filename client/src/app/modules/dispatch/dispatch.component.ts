@@ -2,21 +2,32 @@ import {
     Component
 } from '@angular/core';
 import {
-    BaseComponent
+    Router
+} from '@angular/router';
+import {
+    BaseNavRouteComponent
 } from 'app/core';
 import {
     SectionType
 } from 'app/models';
+import {
+    RouterService,
+    StringService
+} from 'app/services';
 
 @Component({
     selector: 'dispatch',
-    templateUrl: 'dispatch.component.html'
+    templateUrl: '/assets/locales/{0}/dispatch-{0}.html'.format(StringService.locale)
 })
-export class DispatchComponent extends BaseComponent {
+export class DispatchComponent extends BaseNavRouteComponent {
 
     private SectionType = SectionType;
 
-    constructor() {
-        super('DispatchComponent');
+    constructor(
+        protected router: Router,
+        protected routerService: RouterService
+    ) {
+        super('DispatchComponent', router, routerService);
+        this._scrollToContent = true;
     }
 }

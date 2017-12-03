@@ -2,42 +2,32 @@ import {
     Component
 } from '@angular/core';
 import {
-    DomSanitizer
-} from '@angular/platform-browser';
-import {
-    ActivatedRoute,
     Router
 } from '@angular/router';
 import {
-    BaseDynamicProductRouteComponent
+    BaseNavRouteComponent
 } from 'app/core';
 import {
     SectionType
 } from 'app/models';
 import {
-    DataService,
-    DOMService,
+    RouterService,
     StringService
 } from 'app/services';
 
 @Component({
     selector: 'escalators',
-    templateUrl: 'escalators.component.html'
+    templateUrl: '/assets/locales/{0}/escalators-{0}.html'.format(StringService.locale)
 })
-export class EscalatorsComponent extends BaseDynamicProductRouteComponent {
+export class EscalatorsComponent extends BaseNavRouteComponent {
 
     private SectionType = SectionType;
 
     constructor(
-        protected dataService: DataService,
-        protected domSanitizer: DomSanitizer,
-        protected domService: DOMService,
-        protected route: ActivatedRoute,
         protected router: Router,
-        protected stringService: StringService
+        protected routerService: RouterService
     ) {
-        super('EscalatorsComponent', dataService, domSanitizer, domService, route, router, stringService);
-
-        this._selector = 'escalators';
+        super('EscalatorsComponent', router, routerService);
+        this._scrollToContent = true;
     }
 }

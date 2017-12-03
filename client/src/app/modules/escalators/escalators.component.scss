@@ -1,14 +1,7 @@
 escalators {
-    .model-div {
-        display: flex;
-
-        ul {
-            @extend .list-style-none;
-            margin-left: $hgap_;
+    .section-image {
+        img {
+            content: $escalators-section-image-content;
         }
-    }
-
-    .subsection {
-        margin-bottom: 0;
     }
 }

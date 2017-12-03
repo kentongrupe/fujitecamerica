@@ -187,7 +187,7 @@ div {
 
 // common
 $border: 1px solid $grey3;
-$max-width: 1000px;
+$max-width: $content-width;
 
 // app
 $reference-color: $red;
@@ -219,6 +219,28 @@ $app-mobile-menu-height-700: 260px;
 $app-mobile-menu-height-600: 220px;
 $app-mobile-menu-height-500: 180px;
 $app-mobile-menu-height-400: 130px;
+
+// autowalks
+$autowalks-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
+
+$autowalks-gs8100-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$autowalks-typef-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$autowalks-typep-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$autowalks-types-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+
+// elevators
+$elevators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
+
+$elevators-ionful-section-image-content: url('../../assets/img/ionful.jpg');
+$elevators-monitoring-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+
+// escalators
+$escalators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
+
+$escalators-gs8000-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$escalators-typef-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$escalators-typep-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$escalators-types-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 
 // footer
 $footer-background-color: $red;
@@ -452,6 +474,35 @@ $project-info-slick-dot-active-color: #ffffff;
 //     }
 // }
 
+// section header
+$section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
+$section-header-bg-dispatch: url('/assets/img/controldispatchtab.jpg');
+$section-header-bg-elevators: url('/assets/img/elevator.jpg');
+$section-header-bg-escalators: url('/assets/img/escalatortab.jpg');
+$section-header-bg-installation: url('/assets/img/installationtab.jpg');
+$section-header-bg-ionful: url('/assets/img/ionful.jpg');
+$section-header-bg-modernization: url('/assets/img/modroom.jpg');
+$section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
+$section-header-bg-projects: url('/assets/img/projectstab.jpg');
+$section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
+
+$seciton-header-bg-max-height: 430px;
+$section-header-menu-color: $white;
+$section-header-menu-font-size: 40px;
+$section-header-menu-height: 100px;
+$section-header-menu-line-height: 36px;
+$section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
+
+$section-header-menu-background-opacity: .7;
+$section-header-menu-background-color: rgba($red, $section-header-menu-background-opacity);
+$section-header-menu-autowalks-background-color: rgba(#45A798, $section-header-menu-background-opacity);
+$section-header-menu-dispatch-background-color: rgba(#99B129, $section-header-menu-background-opacity);
+$section-header-menu-elevators-background-color: rgba(#D01126, $section-header-menu-background-opacity);
+$section-header-menu-escalators-background-color: rgba(#006086, $section-header-menu-background-opacity);
+
+$section-header-menu-items-font-size: 20px;
+$section-header-menu-item-border: 1px solid $section-header-menu-color;
+
 // service & maintenance
 $service-maintenance-text-align: center;
 
@@ -516,7 +567,8 @@ $video-background-color: $black;
 }
 
 .section {
-    margin    : $vgap_ 0 0;
+    margin    : $vgap_ auto 0;
+    max-width : $content-width;
     text-align: center;
     width     : 100%;
 
@@ -538,5 +590,48 @@ $video-background-color: $black;
 
     .subsection {
         margin: $vgap_ 0 $vgap_ $hgap;
+    }
+}
+
+.section-header {
+    display   : inline-flex;
+    height    : $section-header-menu-height;
+    margin-top: $vgap;
+    padding   : $vgap_ $hgap;
+    width     : 100%;
+
+    & > * {
+        color         : $section-header-menu-color;
+        text-transform: uppercase;
+    }
+
+    &.autowalks {
+        background-color: $section-header-menu-autowalks-background-color;
+    }
+
+    &.dispatch {
+        background-color: $section-header-menu-dispatch-background-color;
+    }
+
+    &.elevators {
+        background-color: $section-header-menu-elevators-background-color;
+    }
+
+    &.escalators {
+        background-color: $section-header-menu-escalators-background-color;
+    }
+
+    &.installation,
+    &.ionful,
+    &.modernization,
+    &.projects,
+    &.service-maintenance {
+        background-color: $section-header-menu-background-color;
+    }
+}
+
+.section-image {
+    img {
+        width: 100%;
     }
 }

@@ -20,8 +20,14 @@ import {
     IONFULComponent,                    // home > elevators > ionful
 
     EscalatorsComponent,                // home > escalators
+    EscalatorsGS8000Component,          // home > escalators > gs8000
+    EscalatorsTypePComponent,           // home > escalators > type-p
+    EscalatorsTypeSComponent,           // home > escalators > type-s
 
     AutowalksComponent,                 // home > autowalks
+    AutowalksTypeFComponent,            // home > autowalks > type-f
+    AutowalksTypePComponent,            // home > autowalks > type-p
+    AutowalksTypeSComponent,            // home > autowalks > type-s
 
     DispatchComponent,                  // home > ezshuttle dispatch
     DispatchFlexNXComponent,            // home > ezshuttle dispatch > flex nx
@@ -46,6 +52,12 @@ import {
 
 } from 'app/modules';
 import {
+    AutowalksGS8100Component            // home > autowalks > gs8100
+} from 'app/modules/autowalks/gs8100';
+import {
+    EscalatorsTypeFComponent            // home > escalators > type-f
+} from 'app/modules/escalators/type-f';
+import {
     RouterService
 } from 'app/services';
 
@@ -54,8 +66,20 @@ export const ROUTES: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'about', component: AboutComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'about/:product', component: AboutComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
-    { path: 'autowalks', component: AutowalksComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
-    { path: 'autowalks/:product', component: AutowalksComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    {
+        path: 'autowalks',
+        component: AutowalksComponent,
+        canActivate: [RouterService],
+        canActivateChild: [RouterService],
+        children: [
+            { path: 'gs8100', component: AutowalksGS8100Component, canActivate: [RouterService], canActivateChild: [RouterService] },
+            { path: 'type-f', component: AutowalksTypeFComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+            { path: 'type-p', component: AutowalksTypePComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+            { path: 'type-s', component: AutowalksTypeSComponent, canActivate: [RouterService], canActivateChild: [RouterService] }
+        ]
+    },
+
+
     { path: 'contact', component: ContactComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     {
         path: 'dispatch',
@@ -69,7 +93,6 @@ export const ROUTES: Routes = [
     },
     {
         path: 'elevators',
-
         component: ElevatorsComponent,
         canActivate: [RouterService],
         canActivateChild: [RouterService],
@@ -101,8 +124,18 @@ export const ROUTES: Routes = [
             }
         ]
     },
-    { path: 'escalators', component: EscalatorsComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
-    { path: 'escalators/:product', component: EscalatorsComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    {
+        path: 'escalators',
+        component: EscalatorsComponent,
+        canActivate: [RouterService],
+        canActivateChild: [RouterService],
+        children: [
+            { path: 'gs8000', component: EscalatorsGS8000Component, canActivate: [RouterService], canActivateChild: [RouterService] },
+            { path: 'type-f', component: EscalatorsTypeFComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+            { path: 'type-p', component: EscalatorsTypePComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+            { path: 'type-s', component: EscalatorsTypeSComponent, canActivate: [RouterService], canActivateChild: [RouterService] }
+        ]
+    },
     { path: 'installation', component: InstallationComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'installation/:product', component: InstallationComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'locations', component: LocationsComponent, canActivate: [RouterService], canActivateChild: [RouterService] },

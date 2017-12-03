@@ -2,6 +2,10 @@ export class AppRoute {
     public static ABOUT: string = '/about';
     public static ARCHITECTS: string = '/architects';
     public static AUTOWALKS: string = '/autowalks';
+    public static AUTOWALKS_GS8100: string = '/autowalks/gs8100';
+    public static AUTOWALKS_TYPE_F: string = '/autowalks/type-f';
+    public static AUTOWALKS_TYPE_P: string = '/autowalks/type-p';
+    public static AUTOWALKS_TYPE_S: string = '/autowalks/type-s';
     public static CONTACT: string = '/contact';
     public static CONSULTANTS: string = '/consultants';
     public static ELEVATORS: string = '/elevators';
@@ -17,6 +21,10 @@ export class AppRoute {
     public static ELEVATORS_SYSTEMS_HYDRAULIC: string = '/elevators/systems/hydraulic';
     public static ELEVATORS_SYSTEMS_MRL: string = '/elevators/systems/mrl';
     public static ESCALATORS: string = '/escalators';
+    public static ESCALATORS_GS8000: string = '/escalators/gs8000';
+    public static ESCALATORS_TYPE_F: string = '/escalators/type-f';
+    public static ESCALATORS_TYPE_P: string = '/escalators/type-p';
+    public static ESCALATORS_TYPE_S: string = '/escalators/type-s';
     public static CONTROLS_DISPATCH: string = '/dispatch';
     public static CONTROLS_DISPATCH_EZSHUTTLE: string = '/dispatch/ezshuttle';
     public static CONTROLS_DISPATCH_FLEXNX: string = '/dispatch/flex-nx';

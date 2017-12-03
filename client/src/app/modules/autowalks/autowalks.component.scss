@@ -1,14 +1,7 @@
 autowalks {
-    .model-div {
-        display: flex;
-
-        ul {
-            @extend .list-style-none;
-            margin-left: $hgap_;
+    .section-image {
+        img {
+            content: $autowalks-section-image-content;
         }
-    }
-
-    .subsection {
-        margin-bottom: 0;
     }
 }

@@ -21,6 +21,7 @@ import {
     IFrameComponent,
     MenuComponent,
     ProMenuComponent,
+    ScrollToTopComponent,
     SysMenuComponent,
 } from 'app/components';
 import {
@@ -42,6 +43,7 @@ import {
         IFrameComponent,
         MenuComponent,
         ProMenuComponent,
+        ScrollToTopComponent,
         SectionHeaderComponent,
         SysMenuComponent,
         // modals
@@ -76,6 +78,7 @@ import {
         IFrameComponent,
         MenuComponent,
         ProMenuComponent,
+        ScrollToTopComponent,
         SectionHeaderComponent,
         SysMenuComponent,
         // modals

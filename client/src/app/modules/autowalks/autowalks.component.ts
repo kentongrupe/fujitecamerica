@@ -2,42 +2,32 @@ import {
     Component
 } from '@angular/core';
 import {
-    DomSanitizer
-} from '@angular/platform-browser';
-import {
-    ActivatedRoute,
     Router
 } from '@angular/router';
 import {
-    BaseDynamicProductRouteComponent
+    BaseNavRouteComponent
 } from 'app/core';
 import {
     SectionType
 } from 'app/models';
 import {
-    DataService,
-    DOMService,
+    RouterService,
     StringService
 } from 'app/services';
 
 @Component({
     selector: 'autowalks',
-    templateUrl: 'autowalks.component.html'
+    templateUrl: '/assets/locales/{0}/autowalks-{0}.html'.format(StringService.locale)
 })
-export class AutowalksComponent extends BaseDynamicProductRouteComponent {
+export class AutowalksComponent extends BaseNavRouteComponent {
 
     private SectionType = SectionType;
 
     constructor(
-        protected dataService: DataService,
-        protected domSanitizer: DomSanitizer,
-        protected domService: DOMService,
-        protected route: ActivatedRoute,
         protected router: Router,
-        protected stringService: StringService
+        protected routerService: RouterService
     ) {
-        super('AutowalksComponent', dataService, domSanitizer, domService, route, router, stringService);
-
-        this._selector = 'autowalks';
+        super('AutowalksComponent', router, routerService);
+        this._scrollToContent = true;
     }
 }

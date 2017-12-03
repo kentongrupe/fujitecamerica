@@ -1,1 +1,7 @@
-// monitoring {}
+monitoring {
+    .section-image {
+        img {
+            content: $elevators-monitoring-section-image-content;
+        }
+    }
+}

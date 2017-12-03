@@ -1,32 +1,3 @@
-
-$section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
-$section-header-bg-dispatch: url('/assets/img/controldispatchtab.jpg');
-$section-header-bg-elevators: url('/assets/img/elevator.jpg');
-$section-header-bg-escalators: url('/assets/img/escalatortab.jpg');
-$section-header-bg-installation: url('/assets/img/installationtab.jpg');
-$section-header-bg-ionful: url('/assets/img/ionful.jpg');
-$section-header-bg-modernization: url('/assets/img/modroom.jpg');
-$section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
-$section-header-bg-projects: url('/assets/img/projectstab.jpg');
-$section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
-
-$seciton-header-bg-max-height: 430px;
-$section-header-menu-color: $white;
-$section-header-menu-font-size: 40px;
-$section-header-menu-height: 100px;
-$section-header-menu-line-height: 36px;
-$section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
-
-$section-header-menu-background-opacity: .7;
-$section-header-menu-background-color: rgba($red, $section-header-menu-background-opacity);
-$section-header-menu-autowalks-background-color: rgba(#45A798, $section-header-menu-background-opacity);
-$section-header-menu-dispatch-background-color: rgba(#99B129, $section-header-menu-background-opacity);
-$section-header-menu-elevators-background-color: rgba(#D01126, $section-header-menu-background-opacity);
-$section-header-menu-escalators-background-color: rgba(#006086, $section-header-menu-background-opacity);
-
-$section-header-menu-items-font-size: 20px;
-$section-header-menu-item-border: 1px solid $section-header-menu-color;
-
 section-header {
     .section-header-div {
         height  : $seciton-header-bg-max-height;
@@ -70,10 +41,6 @@ section-header {
                 background-image: $section-header-bg-modernization;
             }
 
-            &.monitoring {
-                background-image: $section-header-bg-monitoring;
-            }
-
             &.projects {
                 background-image: $section-header-bg-projects;
             }
@@ -84,40 +51,10 @@ section-header {
         }
 
         .menu-div {
-            @include abs-position();
-            color  : $section-header-menu-color;
-            display: inline-flex;
-            height : $section-header-menu-height;
-            padding: $vgap_ $hgap;
-            top    : $seciton-header-bg-max-height - $section-header-menu-height;
-
-            &.autowalks {
-                background-color: $section-header-menu-autowalks-background-color;
-            }
-
-            &.dispatch {
-                background-color: $section-header-menu-dispatch-background-color;
-            }
-
-            &.elevators {
-                background-color: $section-header-menu-elevators-background-color;
-            }
-
-            &.escalators {
-                background-color: $section-header-menu-escalators-background-color;
-            }
-
-            &.installation,
-            &.ionful,
-            &.modernization,
-            &.monitoring,
-            &.projects,
-            &.service-maintenance {
-                background-color: $section-header-menu-background-color;
-            }
+            @include abs-position-bl(0, 0);
+            @extend .section-header;
 
             .menu-title {
-                color         : $section-header-menu-color;
                 font-size     : $section-header-menu-font-size;
                 line-height   : $section-header-menu-line-height;
                 margin        : auto 0;

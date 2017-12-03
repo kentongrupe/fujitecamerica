@@ -1,7 +1,9 @@
 import {
+    ElementRef,
     Input,
     OnDestroy,
-    OnInit
+    OnInit,
+    ViewChild
 } from '@angular/core';
 import {
     NavigationEnd,
@@ -25,11 +27,19 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
     public activeItem: any;
     public hasChildren: boolean = false;
 
+    @ViewChild('container')
+    protected _container: ElementRef;
+    @ViewChild('content')
+    protected _content: ElementRef;
+    protected _scrolled: boolean = false;
+    protected _scrollToContent: boolean = false;
+
     protected _menu: MenuItem[] = [];
     public get menu(): MenuItem[] {
         return this._menu;
     }
-    @Input() public set menu(value: MenuItem[]) {
+    @Input()
+    public set menu(value: MenuItem[]) {
         this._menu = value;
     }
 
@@ -51,9 +61,17 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
 
     public ngOnDestroy() {
         this._subscription.unsubscribe();
+
+        if (this._container) {
+            this._container.nativeElement.removeEventListener('scroll', this._onScroll);
+        }
     }
     public ngOnInit() {
         super.ngOnInit();
+
+        if (this._container) {
+            this._container.nativeElement.addEventListener('scroll', this._onScroll);
+        }
     }
     public isActive(m: any): boolean {
         return (this.activeItem !== undefined) && (this.activeItem !== null) && (m.label === this.activeItem.label);
@@ -77,6 +95,27 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
             this.activeItem = item;
         } else {
             this.activeItem = null;
+        }
+
+        if (this._scrollToContent && this._container) {
+            let url = event.url.split('/').filter((u) => {
+                return !this.isNullOrEmpty(u);
+            });
+            if (url.length > 1) {
+                this._container.nativeElement.scrollTo(0, this._content.nativeElement.offsetTop);
+            } else {
+                this._container.nativeElement.scrollTo(0, 0);
+            }
+        }
+    }
+    protected _scrollToTop(): void {
+        if (this._scrollToContent && this._container) {
+            this._container.nativeElement.scrollTo(0, 0);
+        }
+    }
+    private _onScroll(event: Event): void {
+        if (this._container) {
+            this._scrolled = (this._container.nativeElement.scrollTop > 0);
         }
     }
 }

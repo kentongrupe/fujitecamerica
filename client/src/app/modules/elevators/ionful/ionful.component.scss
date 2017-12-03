@@ -1,1 +1,7 @@
-// ionful {}
+ionful {
+    .section-image {
+        img {
+            content: $elevators-ionful-section-image-content;
+        }
+    }
+}

@@ -88,6 +88,8 @@ $site-map-link-height: 50px;
 }
 
 .content-div {
-    margin   : $app-margin;
-    max-width: $max-width;
+    height  : 100%;
+    margin  : $app-margin;
+    overflow: auto;
+    width   : 100%;
 }

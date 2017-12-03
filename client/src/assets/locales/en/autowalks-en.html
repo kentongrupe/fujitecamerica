@@ -1,0 +1,20 @@
+<div #container class="content-div">
+    <section-header [sectionType]="SectionType.AUTOWALKS"></section-header>
+    <div class="autowalks-div">
+        <div class="section">
+            <h1>Fujitec Autowalks</h1>
+            <p>
+            </p>
+        </div>
+        <div class="hrule"></div>
+        <div class="section">
+            <h1>Autowalk Product Breakdown</h1>
+            <div class="section-image">
+                <img />
+            </div>
+        </div>
+        <div #content></div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<scroll-to-top *ngIf="_scrolled" (click)="_scrollToTop()"></scroll-to-top>

@@ -1,0 +1,9 @@
+scroll-to-top {
+    @include abs-position-br(20px, 40px);
+
+    .scroll-to-top-div {
+        background: red;
+        height    : 40px;
+        width     : 40px;
+    }
+}

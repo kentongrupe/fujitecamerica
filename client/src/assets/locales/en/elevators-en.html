@@ -1,0 +1,27 @@
+<div #container class="content-div">
+    <section-header [sectionType]="SectionType.ELEVATORS"></section-header>
+    <div class="elevators-div">
+        <div class="section">
+            <h1>Fujitec Elevators</h1>
+            <p>
+                In addition to 12 global manufacturing and R&D facilities, Fujitec specifically dedicates five locations to elevator R&D, production and performance engineering with our Japan, US, Korea, China and Shanghai locations.
+            </p>
+            <p>
+                Depending on the speed and capacity needs of your individual system, the following table provides a basic guideline to Fujitec’s recommended machine type for system application. Fujitec can modify each to accurately provide your building with the most energy efficient solution possible.
+            </p>
+        </div>
+        <div class="hrule"></div>
+        <div class="section">
+            <h1>Elevator Product Breakdown</h1>
+            <div class="section-image">
+                <img />
+            </div>
+        </div>
+        <!-- <audio controls>
+                <source src="/assets/audio/Elevator-music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+            </audio> -->
+        <div #content></div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<scroll-to-top *ngIf="_scrolled" (click)="_scrollToTop()"></scroll-to-top>

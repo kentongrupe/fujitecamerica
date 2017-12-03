@@ -51,19 +51,19 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menu = [
                     {
                         label: this._getString('fujitec-gs8100', 'Fujitec GS8100'),
-                        routerLink: AppRoute.AUTOWALKS + '/gs8100'
+                        routerLink: AppRoute.AUTOWALKS_GS8100
                     },
                     {
                         label: this._getString('type-s', 'Type S'),
-                        routerLink: AppRoute.AUTOWALKS + '/types'
+                        routerLink: AppRoute.AUTOWALKS_TYPE_S
                     },
                     {
                         label: this._getString('type-f', 'Type F'),
-                        routerLink: AppRoute.AUTOWALKS + '/typef'
+                        routerLink: AppRoute.AUTOWALKS_TYPE_F
                     },
                     {
                         label: this._getString('type-p', 'Type P'),
-                        routerLink: AppRoute.AUTOWALKS + '/typep'
+                        routerLink: AppRoute.AUTOWALKS_TYPE_P
                     }
                 ];
                 break;
@@ -114,36 +114,30 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menu = [
                     {
                         label: this._getString('fujitec-gs8000', 'Fujitec GS8000'),
-                        routerLink: AppRoute.ESCALATORS + '/gs8000'
+                        routerLink: AppRoute.ESCALATORS_GS8000
                     },
                     {
                         label: this._getString('type-s', 'Type S'),
-                        routerLink: AppRoute.ESCALATORS + '/types'
+                        routerLink: AppRoute.ESCALATORS_TYPE_S
                     },
                     {
                         label: this._getString('type-f', 'Type F'),
-                        routerLink: AppRoute.ESCALATORS + '/typef'
+                        routerLink: AppRoute.ESCALATORS_TYPE_F
                     },
                     {
                         label: this._getString('type-p', 'Type P'),
-                        routerLink: AppRoute.ESCALATORS + '/typep'
+                        routerLink: AppRoute.ESCALATORS_TYPE_P
                     }
                 ];
                 break;
             case SectionType.INSTALLATION:
                 this._menuLabel = this._getString('installation', 'Installation');
                 break;
-            case SectionType.IONFUL:
-                this._menuLabel = '';
-                break;
             case SectionType.SERVICE_MAINTENANCE:
                 this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');
                 break;
             case SectionType.MODERNIZATION:
                 this._menuLabel = this._getString('modernization', 'Modernization');
-                break;
-            case SectionType.MONITORING:
-                this._menuLabel = this._getString('remote-monitoring', 'Remote Monitoring');
                 break;
             case SectionType.PROJECTS:
                 this._menuLabel = this._getString('projects', 'Projects');

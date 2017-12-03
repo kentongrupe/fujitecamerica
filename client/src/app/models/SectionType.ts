@@ -5,9 +5,7 @@ export enum SectionType {
     ELEVATORS,
     ESCALATORS,
     INSTALLATION,
-    IONFUL,
     MODERNIZATION,
-    MONITORING,
     SERVICE_MAINTENANCE,
     PROJECTS
 }

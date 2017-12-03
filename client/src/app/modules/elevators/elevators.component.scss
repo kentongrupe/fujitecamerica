@@ -1,1 +1,7 @@
-elevators {}
+elevators {
+    .section-image {
+        img {
+            content: $elevators-section-image-content;
+        }
+    }
+}
