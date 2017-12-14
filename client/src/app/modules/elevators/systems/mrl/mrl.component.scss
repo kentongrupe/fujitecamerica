@@ -1,4 +1,10 @@
 mrl {
+    .section-image {
+        img {
+            content: $elevators-system-mrl-image-content;
+        }
+    }
+
     .mrl-div {
         padding: $vgap $hgap 0;
 

@@ -71,6 +71,7 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
 
         if (this._container) {
             this._container.nativeElement.addEventListener('scroll', this._onScroll);
+            this._onScroll(null);
         }
     }
     public isActive(m: any): boolean {
@@ -103,14 +104,17 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
             });
             if (url.length > 1) {
                 this._container.nativeElement.scrollTo(0, this._content.nativeElement.offsetTop);
+                this._onScroll(null);
             } else {
                 this._container.nativeElement.scrollTo(0, 0);
+                this._scrolled = false;
             }
         }
     }
     protected _scrollToTop(): void {
         if (this._scrollToContent && this._container) {
             this._container.nativeElement.scrollTo(0, 0);
+            this._scrolled = false;
         }
     }
     private _onScroll(event: Event): void {

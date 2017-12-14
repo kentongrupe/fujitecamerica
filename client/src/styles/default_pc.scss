@@ -92,4 +92,8 @@ $site-map-link-height: 50px;
     margin  : $app-margin;
     overflow: auto;
     width   : 100%;
+
+    &.static-content-div {
+        height: auto;
+    }
 }
