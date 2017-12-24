@@ -72,11 +72,11 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menu = [
                     {
                         label: this._getString('flex-nx', 'Flex-NX'),
-                        routerLink: AppRoute.CONTROLS_DISPATCH_FLEXNX
+                        routerLink: AppRoute.DISPATCH_FLEXNX
                     },
                     {
                         label: this._getString('ezshuttle', 'EZShuttle'),
-                        routerLink: AppRoute.CONTROLS_DISPATCH_EZSHUTTLE
+                        routerLink: AppRoute.DISPATCH_EZSHUTTLE
                     }
                 ];
                 break;
@@ -85,19 +85,19 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menu = [
                     {
                         label: this._getString('mrl', 'MRL'),
-                        routerLink: AppRoute.ELEVATORS_SYSTEMS_MRL
+                        routerLink: AppRoute.ELEVATORS_MRL
                     },
                     {
                         label: this._getString('gearless', 'Gearless'),
-                        routerLink: AppRoute.ELEVATORS_SYSTEMS_GEARLESS
+                        routerLink: AppRoute.ELEVATORS_GEARLESS
                     },
                     {
                         label: this._getString('geared', 'Geared'),
-                        routerLink: AppRoute.ELEVATORS_SYSTEMS_GEARED
+                        routerLink: AppRoute.ELEVATORS_GEARED
                     },
                     {
                         label: this._getString('hydro', 'Hydro'),
-                        routerLink: AppRoute.ELEVATORS_SYSTEMS_HYDRAULIC
+                        routerLink: AppRoute.ELEVATORS_HYDRAULIC
                     },
                     {
                         label: this._getString('remote-monitoring', 'Remote Monitoring'),

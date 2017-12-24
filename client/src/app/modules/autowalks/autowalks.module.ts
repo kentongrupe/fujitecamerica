@@ -3,25 +3,15 @@ import {
     NO_ERRORS_SCHEMA
 } from '@angular/core';
 import {
-    AutowalksComponent,             // home > autowalks
-    AutowalksTypeFComponent,        // home > autowalks > type-f
-    AutowalksTypePComponent,        // home > autowalks > type-p
-    AutowalksTypeSComponent         // home > autowalks > type-s
-} from './';
-import {
-    AutowalksGS8100Component        // home > autowalks > gs8100
-} from './gs8100';
-import {
     FujitecSharedModule
-} from 'app/modules';
+} from 'app/modules/_shared';
+import {
+    AutowalksComponent
+} from './autowalks.component';
 
 @NgModule({
     declarations: [
-        AutowalksComponent,             // home > autowalks
-        AutowalksGS8100Component,       // home > autowalks > gs8100
-        AutowalksTypeFComponent,        // home > autowalks > type-f
-        AutowalksTypePComponent,        // home > autowalks > type-p
-        AutowalksTypeSComponent         // home > autowalks > type-s
+        AutowalksComponent
     ],
     imports: [
         FujitecSharedModule
@@ -31,6 +21,8 @@ import {
         AutowalksComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
 })
 export class AutowalksModule { }

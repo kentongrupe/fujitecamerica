@@ -4,24 +4,14 @@ import {
 } from '@angular/core';
 import {
     FujitecSharedModule
-} from 'app/modules';
+} from 'app/modules/_shared';
 import {
-    EscalatorsComponent,            // home > escalators
-    EscalatorsGS8000Component,      // home > escalators > gs8000
-    EscalatorsTypePComponent,       // home > escalators > type-p
-    EscalatorsTypeSComponent        // home > escalators > type-s
-} from './';
-import {
-    EscalatorsTypeFComponent        // home > escalators > type-f
-} from './type-f';
+    EscalatorsComponent
+} from './escalators.component';
 
 @NgModule({
     declarations: [
-        EscalatorsComponent,            // home > escalators
-        EscalatorsGS8000Component,      // home > escalators > gs8000
-        EscalatorsTypeFComponent,       // home > escalators > type-f
-        EscalatorsTypePComponent,       // home > escalators > type-p
-        EscalatorsTypeSComponent        // home > escalators > type-s
+        EscalatorsComponent
     ],
     imports: [
         FujitecSharedModule
@@ -31,6 +21,8 @@ import {
         EscalatorsComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
 })
 export class EscalatorsModule { }

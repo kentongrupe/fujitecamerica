@@ -2,8 +2,11 @@ scroll-to-top {
     @include abs-position-br(20px, 40px);
 
     .scroll-to-top-div {
-        background: red;
-        height    : 40px;
-        width     : 40px;
+        @include drop-shadow(0, 0, 5px, 1px, rgba(0, 0, 0, 0.3));
+
+        background     : $scroll-to-top-background;
+        background-size: $scroll-to-top-width $scroll-to-top-height;
+        height         : $scroll-to-top-height;
+        width          : $scroll-to-top-width;
     }
 }

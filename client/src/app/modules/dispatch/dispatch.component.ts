@@ -1,17 +1,20 @@
 import {
-    Component
+    Component,
+    ElementRef,
+    ViewChild
 } from '@angular/core';
 import {
+    ActivatedRoute,
     Router
 } from '@angular/router';
 import {
-    BaseNavRouteComponent
+    BaseProductRouteComponent
 } from 'app/core';
 import {
     SectionType
 } from 'app/models';
 import {
-    RouterService,
+    DOMService,
     StringService
 } from 'app/services';
 
@@ -19,15 +22,18 @@ import {
     selector: 'dispatch',
     templateUrl: '/assets/locales/{0}/dispatch-{0}.html'.format(StringService.locale)
 })
-export class DispatchComponent extends BaseNavRouteComponent {
+export class DispatchComponent extends BaseProductRouteComponent {
+
+    @ViewChild('ezshuttle') public ezshuttle: ElementRef;
+    @ViewChild('flexnx') public flexnx: ElementRef;
 
     private SectionType = SectionType;
 
     constructor(
-        protected router: Router,
-        protected routerService: RouterService
+        protected domService: DOMService,
+        protected route: ActivatedRoute,
+        protected router: Router
     ) {
-        super('DispatchComponent', router, routerService);
-        this._scrollToContent = true;
+        super('DispatchComponent', domService, route, router);
     }
 }

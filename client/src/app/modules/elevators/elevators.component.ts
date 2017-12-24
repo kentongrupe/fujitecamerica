@@ -1,19 +1,20 @@
 import {
-    Component
+    Component,
+    ElementRef,
+    ViewChild
 } from '@angular/core';
 import {
+    ActivatedRoute,
     Router
 } from '@angular/router';
 import {
-    BaseNavRouteComponent
+    BaseProductRouteComponent
 } from 'app/core';
 import {
-    AppRoute,
-    MenuItem,
     SectionType
 } from 'app/models';
 import {
-    RouterService,
+    DOMService,
     StringService
 } from 'app/services';
 
@@ -21,15 +22,22 @@ import {
     selector: 'elevators',
     templateUrl: '/assets/locales/{0}/elevators-{0}.html'.format(StringService.locale)
 })
-export class ElevatorsComponent extends BaseNavRouteComponent {
+export class ElevatorsComponent extends BaseProductRouteComponent {
+
+    @ViewChild('geared') public geared: ElementRef;
+    @ViewChild('gearless') public gearless: ElementRef;
+    @ViewChild('hydraulic') public hydraulic: ElementRef;
+    @ViewChild('ionful') public ionful: ElementRef;
+    @ViewChild('monitoring') public monitoring: ElementRef;
+    @ViewChild('mrl') public mrl: ElementRef;
 
     private SectionType = SectionType;
 
     constructor(
-        protected router: Router,
-        protected routerService: RouterService
+        protected domService: DOMService,
+        protected route: ActivatedRoute,
+        protected router: Router
     ) {
-        super('ElevatorsComponent', router, routerService);
-        this._scrollToContent = true;
+        super('ElevatorsComponent', domService, route, router);
     }
 }

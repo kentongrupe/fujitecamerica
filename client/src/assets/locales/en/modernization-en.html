@@ -1,44 +1,47 @@
-<section-header [sectionType]="SectionType.MODERNIZATION"></section-header>
-<div class="content-div static-content-div">
-    <div class="section">
-        <h1>NAMO</h1>
-        <h1>North American Modernization Operations</h1>
-        <ol>
-            <li>
-                Industry’s most comprehensive and specialized solution for all OEM modernizations
-            </li>
-            <li>
-                Mobile NAMO division capable of on-site engineering, installation and technical support
-            </li>
-            <li>
-                Specialized in Fujitec, Dover, Otis, Schindler, Westinghouse, Montgomery and other manufacturers
-            </li>
-            <li>
-                Recently awarded one of the largest modernization projects in North American history
-            </li>
-        </ol>
-    </div>
-    <div class="section">
-        <h1>Background</h1>
-        <p>
-            Fujitec’s North American Modernization Operations (NAMO) division is located in Dallas, Texas and provides support for FAI branches to ensure that all aspects of the MOD process are addressed and completed during the lifecycle of the project. Over the past 10 years, Fujitec America has completed the modernization of over 1,000 units across the United States and Canada.
-        </p>
-        <p>
-            NAMO’s approach to modernization is a four stage process.
-        </p>
-        <ol>
-            <li>
-                Assess and Evaluate – Our due-diligence process
-            </li>
-            <li>
-                Estimate, educate and Solve
-            </li>
-            <li>
-                Adjust and advise
-            </li>
-            <li>
-                Schedule, execute and respond
-            </li>
-        </ol>
+<div #container class="content-div">
+    <section-header [sectionType]="SectionType.MODERNIZATION"></section-header>
+    <div class="content-div static-content-div">
+        <div class="section">
+            <h1>NAMO</h1>
+            <h1>North American Modernization Operations</h1>
+            <ol>
+                <li>
+                    Industry’s most comprehensive and specialized solution for all OEM modernizations
+                </li>
+                <li>
+                    Mobile NAMO division capable of on-site engineering, installation and technical support
+                </li>
+                <li>
+                    Specialized in Fujitec, Dover, Otis, Schindler, Westinghouse, Montgomery and other manufacturers
+                </li>
+                <li>
+                    Recently awarded one of the largest modernization projects in North American history
+                </li>
+            </ol>
+        </div>
+        <div class="section">
+            <h1>Background</h1>
+            <p>
+                Fujitec’s North American Modernization Operations (NAMO) division is located in Dallas, Texas and provides support for FAI branches to ensure that all aspects of the MOD process are addressed and completed during the lifecycle of the project. Over the past 10 years, Fujitec America has completed the modernization of over 1,000 units across the United States and Canada.
+            </p>
+            <p>
+                NAMO’s approach to modernization is a four stage process.
+            </p>
+            <ol>
+                <li>
+                    Assess and Evaluate – Our due-diligence process
+                </li>
+                <li>
+                    Estimate, educate and Solve
+                </li>
+                <li>
+                    Adjust and advise
+                </li>
+                <li>
+                    Schedule, execute and respond
+                </li>
+            </ol>
+        </div>
     </div>
 </div>
+<scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.MODERNIZATION" (scrollToTop)="_scrollToTop()"></scroll-to-top>

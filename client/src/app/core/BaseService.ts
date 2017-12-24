@@ -1,6 +1,6 @@
 import {
     BaseClass
-} from '../core';
+} from './BaseClass';
 
 export class BaseService extends BaseClass {
 

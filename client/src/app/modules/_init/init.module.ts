@@ -16,6 +16,8 @@ import {
         InitComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
 })
 export class InitModule { }

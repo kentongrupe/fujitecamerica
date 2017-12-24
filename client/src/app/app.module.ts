@@ -27,10 +27,10 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 import {
-    // components
     AppFooterComponent,
     AppHeaderComponent,
-    // modules
+} from 'app/components';
+import {
     FujitecSharedModule,
 
     AboutModule,
@@ -53,8 +53,8 @@ import {
     ServiceMaintenanceModule,
     SiteMapModule,
     SitePolicyModule,
-
-    // servivces
+} from 'app/modules';
+import {
     AuthenticationService,
     DataService,
     DOMService,
@@ -62,7 +62,7 @@ import {
     RouterService,
     StorageService,
     StringService
-} from 'app';
+} from 'app/services';
 
 // Application wide providers
 const APP_PROVIDERS = [

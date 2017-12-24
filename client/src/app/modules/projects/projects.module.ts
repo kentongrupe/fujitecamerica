@@ -3,6 +3,9 @@ import {
     NO_ERRORS_SCHEMA
 } from '@angular/core';
 import {
+    FujitecSharedModule
+} from 'app/modules/_shared';
+import {
     ProjectInfoComponent
 } from './project-info.component';
 import {
@@ -11,9 +14,6 @@ import {
 import {
     ProjectsComponent
 } from './projects.component';
-import {
-    FujitecSharedModule
-} from 'app/modules';
 
 @NgModule({
     declarations: [
@@ -31,6 +31,9 @@ import {
         ProjectsComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
+
 })
 export class ProjectsModule { }

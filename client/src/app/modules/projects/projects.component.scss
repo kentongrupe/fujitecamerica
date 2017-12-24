@@ -1,14 +1,17 @@
 projects {
+    overflow  : hidden !important;
     text-align: center;
 
-    .projects-div {
-        display      : inline-block;
-        margin-bottom: $vgap;
-        padding      : 0 $hgap;
+    .content-div {
+        .projects-div {
+            display      : inline-block;
+            margin-bottom: $vgap;
+            padding      : 0 $hgap;
 
-        .project-info-list {
-            display  : inline-block;
-            max-width: #{($project-width + $project-margin) * $project-max-per-line};
+            .project-info-list {
+                display  : inline-block;
+                max-width: #{($project-width + $project-margin) * $project-max-per-line};
+            }
         }
     }
 }

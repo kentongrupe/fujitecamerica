@@ -3,11 +3,11 @@ import {
     NO_ERRORS_SCHEMA
 } from '@angular/core';
 import {
+    FujitecSharedModule
+} from 'app/modules/_shared';
+import {
     SiteMapComponent
 } from './site-map.component';
-import {
-    FujitecSharedModule
-} from 'app/modules';
 
 @NgModule({
     declarations: [
@@ -21,6 +21,9 @@ import {
         SiteMapComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
+
 })
 export class SiteMapModule { }

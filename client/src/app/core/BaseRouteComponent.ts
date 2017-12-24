@@ -12,7 +12,7 @@ import {
 } from 'rxjs';
 import {
     BaseComponent
-} from 'app/core';
+} from './BaseComponent';
 
 export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnInit {
 

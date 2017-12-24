@@ -1,7 +1,6 @@
-elevators {
-    .section-image {
-        img {
-            content: $elevators-section-image-content;
-        }
-    }
-}
+@include section-image( 'elevators', '.mrl', $elevators-system-mrl-image-content);
+@include section-image( 'elevators', '.gearless', $elevators-system-gearless-image-content);
+@include section-image( 'elevators', '.geared', $elevators-system-geared-image-content);
+@include section-image( 'elevators', '.hydraulic', $elevators-system-hydraulic-image-content);
+@include section-image( 'elevators', '.monitoring', $elevators-monitoring-section-image-content);
+@include section-image( 'elevators', '.ionful', $elevators-ionful-section-image-content);

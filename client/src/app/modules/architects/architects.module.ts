@@ -3,11 +3,11 @@ import {
     NO_ERRORS_SCHEMA
 } from '@angular/core';
 import {
+    FujitecSharedModule
+} from 'app/modules/_shared';
+import {
     ArchitectsComponent
 } from './architects.component';
-import {
-    FujitecSharedModule
-} from 'app/modules';
 
 @NgModule({
     declarations: [
@@ -21,6 +21,9 @@ import {
         ArchitectsComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
+
 })
 export class ArchitectsModule { }

@@ -47,9 +47,13 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
     public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         return this._canActivate(route, state);
     }
-    public to(location: string, ...args): void {
+    public to(location: string, ...args): boolean {
         let l = location.toLowerCase();
+        if (this.router.url === l) {
+            return false;
+        }
         this.router.navigate(['{0}'.format(location)].concat(args));
+        return true;
     }
     public toUrl(url: string, forceHttps: boolean = false, newWindow: boolean = false): void {
         if (forceHttps === true) {

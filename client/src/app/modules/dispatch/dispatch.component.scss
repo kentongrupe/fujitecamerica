@@ -1,1 +1,2 @@
-dispatch {}
+@include section-image( 'dispatch', '.ezshuttle', $dispatch-ezshuttle-section-image-content);
+@include section-image( 'dispatch', '.flexnx', $dispatch-flexnx-section-image-content);

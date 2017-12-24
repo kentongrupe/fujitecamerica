@@ -105,15 +105,15 @@ export class SysMenuComponent extends NavMenuComponent implements OnInit {
             {
                 label: this._getString('controls-dispatch', 'Controls & Dispatch'),
                 icon: 'ezdispatch',
-                routerLink: AppRoute.CONTROLS_DISPATCH,
+                routerLink: AppRoute.DISPATCH,
                 items: [
                     // {
                     //     label: this._getString('flex-nx', 'Flex - NX'),
-                    //     routerLink: AppRoute.CONTROLS_DISPATCH_FLEXNX
+                    //     routerLink: AppRoute.DISPATCH_FLEXNX
                     // },
                     // {
                     //     label: this._getString('ez-shuttle', 'EZShuttle'),
-                    //     routerLink: AppRoute.CONTROLS_DISPATCH_EZSHUTTLE
+                    //     routerLink: AppRoute.DISPATCH_EZSHUTTLE
                     // },
                 ]
             },

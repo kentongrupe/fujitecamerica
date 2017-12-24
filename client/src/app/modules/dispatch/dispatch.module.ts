@@ -4,18 +4,14 @@ import {
 } from '@angular/core';
 import {
     FujitecSharedModule
-} from 'app/modules';
+} from 'app/modules/_shared';
 import {
-    DispatchComponent,              // home > ezshuttle dispatch
-    DispatchEZShuttleComponent,     // home > ezshuttle dispatch > ezshuttle
-    DispatchFlexNXComponent         // home > ezshuttle dispatch > flex-nx
-} from './';
+    DispatchComponent
+} from './dispatch.component';
 
 @NgModule({
     declarations: [
-        DispatchComponent,              // home > ezshuttle dispatch
-        DispatchEZShuttleComponent,     // home > ezshuttle dispatch > ezshuttle
-        DispatchFlexNXComponent         // home > ezshuttle dispatch > flex-nx
+        DispatchComponent
     ],
     imports: [
         FujitecSharedModule
@@ -25,6 +21,8 @@ import {
         DispatchComponent
     ],
     entryComponents: [],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
 })
 export class DispatchModule { }

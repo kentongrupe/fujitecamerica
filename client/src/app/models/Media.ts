@@ -4,7 +4,7 @@ import {
 } from 'app/core';
 import {
     MediaType
-} from 'app/models';
+} from './MediaType';
 
 export class Media extends BaseModel {
 

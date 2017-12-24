@@ -1,50 +1,53 @@
-<section-header [sectionType]="SectionType.SERVICE_MAINTENANCE"></section-header>
-<div class="content-div static-content-div">
-    <div class="section">
-        <h1>Why Fujitec Service and Maintenance?</h1>
-        <ol>
-            <li>
-                Fujitec mechanics maintain an average of 60-80 units per route.
-            </li>
-            <li>
-                Fujitec mechanics maintain an average of 2.75 – 3.68 units per day.
-            </li>
-            <li>
-                Fujitec offers the industry’s highest number of dedicated maintenance hours
-            </li>
-            <li>
-                Fujitec services ALL major OEM equipment
-            </li>
-            <li>
-                70% of all units serviced by Fujitec received no callbacks from Feb. 2016 to Feb. 2017
-            </li>
-        </ol>
+<div #container class="content-div">
+    <section-header [sectionType]="SectionType.SERVICE_MAINTENANCE"></section-header>
+    <div class="content-div static-content-div">
+        <div class="section">
+            <h1>Why Fujitec Service and Maintenance?</h1>
+            <ol>
+                <li>
+                    Fujitec mechanics maintain an average of 60-80 units per route.
+                </li>
+                <li>
+                    Fujitec mechanics maintain an average of 2.75 – 3.68 units per day.
+                </li>
+                <li>
+                    Fujitec offers the industry’s highest number of dedicated maintenance hours
+                </li>
+                <li>
+                    Fujitec services ALL major OEM equipment
+                </li>
+                <li>
+                    70% of all units serviced by Fujitec received no callbacks from Feb. 2016 to Feb. 2017
+                </li>
+            </ol>
+        </div>
+        <div class="service-maintenance-image service-maintenance-image1"></div>
+        <div class="section">
+            <h1>Success in Service runs through Preventative Maintenance</h1>
+            <p>
+                The science behind Fujitec service is our relentless pursuit of proactive and preventative maintenance. Of the units on service in the United States beginning February 2016 through February 2017, 70 percent of Fujitec customers received no callbacks on service.
+            </p>
+        </div>
+        <div class="service-maintenance-image service-maintenance-image2"></div>
+        <div class="section">
+            <h1>Lowest Number of Units per Mechanic</h1>
+            <p>
+                Fujitec is steadfast in its commitment to the lowest number of units per mechanic (60 – 80) of any OEM elevator provider in North America. This approach allows us to effectively manage the time required to asses, diagnose and complete the necessary repairs that keep your system running.
+            </p>
+            <p>
+                Fujitec Elevator Maintenance Math or FEMM:
+            </p>
+            <p>
+                Fujitec Average Units per Mechanic = 63
+            </p>
+            <p>
+                Average Work Days per Month = 21.75
+            </p>
+            <p>
+                Fujitec Average units Maintained per day = 2.9 units
+            </p>
+        </div>
+        <div class="service-maintenance-image service-maintenance-image3"></div>
     </div>
-    <div class="service-maintenance-image service-maintenance-image1"></div>
-    <div class="section">
-        <h1>Success in Service runs through Preventative Maintenance</h1>
-        <p>
-            The science behind Fujitec service is our relentless pursuit of proactive and preventative maintenance. Of the units on service in the United States beginning February 2016 through February 2017, 70 percent of Fujitec customers received no callbacks on service.
-        </p>
-    </div>
-    <div class="service-maintenance-image service-maintenance-image2"></div>
-    <div class="section">
-        <h1>Lowest Number of Units per Mechanic</h1>
-        <p>
-            Fujitec is steadfast in its commitment to the lowest number of units per mechanic (60 – 80) of any OEM elevator provider in North America. This approach allows us to effectively manage the time required to asses, diagnose and complete the necessary repairs that keep your system running.
-        </p>
-        <p>
-            Fujitec Elevator Maintenance Math or FEMM:
-        </p>
-        <p>
-            Fujitec Average Units per Mechanic = 63
-        </p>
-        <p>
-            Average Work Days per Month = 21.75
-        </p>
-        <p>
-            Fujitec Average units Maintained per day = 2.9 units
-        </p>
-    </div>
-    <div class="service-maintenance-image service-maintenance-image3"></div>
 </div>
+<scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.SERVICE_MAINTENANCE" (scrollToTop)="_scrollToTop()"></scroll-to-top>

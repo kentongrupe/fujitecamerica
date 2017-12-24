@@ -1,7 +1,6 @@
 export * from './BaseClass';
 export * from './BaseComponent';
 export * from './BaseDirective';
-export * from './BaseDynamicProductRouteComponent';
 export * from './BaseModal';
 export * from './BaseModel';
 export * from './BaseNavRouteComponent';

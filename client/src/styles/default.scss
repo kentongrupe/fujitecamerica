@@ -228,13 +228,19 @@ $autowalks-typef-section-image-content: url('../../assets/img/remotemonitoringta
 $autowalks-typep-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 $autowalks-types-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 
+// dispatch
+$dispatch-ezshuttle-section-image-content: url('../../assets/img/ez_shuttle_tab.jpg');
+$dispatch-flexnx-section-image-content: url('../../assets/img/ez_shuttle_tab.jpg');
+
 // elevators
 $elevators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 
-$elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
-
 $elevators-ionful-section-image-content: url('../../assets/img/ionful.jpg');
 $elevators-monitoring-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$elevators-system-geared-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-system-gearless-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-system-hydraulic-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
 
 // escalators
 $escalators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
@@ -475,6 +481,11 @@ $project-info-slick-dot-active-color: #ffffff;
 //         }
 //     }
 // }
+
+// scroll to top
+$scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
+$scroll-to-top-height: 47px;
+$scroll-to-top-width: 80px;
 
 // section header
 $section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');

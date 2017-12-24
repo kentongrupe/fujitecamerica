@@ -1,6 +1,6 @@
 import {
     BaseClass
-} from 'app/core';
+} from './BaseClass';
 
 export class BasePipe extends BaseClass {
 

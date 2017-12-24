@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    OnInit,
     ViewChild
 } from '@angular/core';
 import {
@@ -9,15 +10,21 @@ import {
     Router
 } from '@angular/router';
 import {
+    Observable
+} from 'rxjs/Observable';
+import {
     BaseRouteComponent
 } from './BaseRouteComponent';
+import {
+    AppRoute
+} from 'app/models/AppRoute';
 import {
     DOMService
 } from 'app/services';
 
-export class BaseProductRouteComponent extends BaseRouteComponent {
+declare const $;
 
-    @ViewChild('top') public top: ElementRef;
+export class BaseProductRouteComponent extends BaseRouteComponent implements OnInit {
 
     protected _product: string = '';
     public get product(): string {
@@ -27,6 +34,11 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
         this._product = value;
         this._onProduct();
     }
+    @ViewChild('container')
+    protected _container: ElementRef;
+    protected _scrolled: boolean = false;
+
+    protected AppRoute = AppRoute;
 
     constructor(
         className: string = 'BaseProductRouteComponent',
@@ -35,6 +47,16 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
         protected router: Router
     ) {
         super(className, route, router);
+    }
+
+    public ngOnInit() {
+        super.ngOnInit();
+
+        if (this._container) {
+            $(this._container.nativeElement).on('scroll', (e) => {
+                this._scrolled = (e.target.scrollTop > 0);
+            });
+        }
     }
 
     protected _onNavigationEnd(event: NavigationEnd): void {
@@ -47,6 +69,11 @@ export class BaseProductRouteComponent extends BaseRouteComponent {
         let r = this[p] as ElementRef;
         if (r !== undefined) {
             this.domService.scrollIntoView(r.nativeElement);
+        }
+    }
+    protected _scrollToTop(): void {
+        if (this._container) {
+            this._container.nativeElement.scrollTo(0, 0);
         }
     }
 }

@@ -42,7 +42,17 @@
     -moz-box-shadow   : $dx $dy $blur $spread $rgba !important;
     box-shadow        : $dx $dy $blur $spread $rgba !important;
 }
-
+@mixin section-image($section, $name, $content) {
+    #{$section} {
+        #{$name} {
+            .section-image {
+                img {
+                    content: #{$content};
+                }
+            }
+        }
+    }
+}
 $col-center-max-width: 1600px;
 $col-center-min-width: 544px;
 $col-side-width: 240px;

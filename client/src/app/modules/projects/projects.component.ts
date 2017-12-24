@@ -3,7 +3,11 @@ import {
     OnInit
 } from '@angular/core';
 import {
-    BaseComponent
+    ActivatedRoute,
+    Router
+} from '@angular/router';
+import {
+    BaseProductRouteComponent
 } from 'app/core';
 import {
     AppRoute,
@@ -12,6 +16,7 @@ import {
 } from 'app/models';
 import {
     DataService,
+    DOMService,
     StringService
 } from 'app/services';
 
@@ -19,17 +24,20 @@ import {
     selector: 'projects',
     templateUrl: 'projects.component.html'
 })
-export class ProjectsComponent extends BaseComponent implements OnInit {
+export class ProjectsComponent extends BaseProductRouteComponent implements OnInit {
 
     private _project: Project = null;
     private _projects: Project[] = [];
     private SectionType = SectionType;
 
     constructor(
+        protected domService: DOMService,
+        protected route: ActivatedRoute,
+        protected router: Router,
         private dataService: DataService,
         private stringService: StringService
     ) {
-        super('ProjectsComponent');
+        super('ProjectsComponent', domService, route, router);
     }
 
     public ngOnInit() {
