@@ -220,6 +220,9 @@ $app-mobile-menu-height-600: 220px;
 $app-mobile-menu-height-500: 180px;
 $app-mobile-menu-height-400: 130px;
 
+// about
+$about-background: url('../../assets/img/about_bg.jpg') no-repeat;
+
 // autowalks
 $autowalks-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 
@@ -230,7 +233,7 @@ $autowalks-types-section-image-content: url('../../assets/img/remotemonitoringta
 
 // dispatch
 $dispatch-ezshuttle-section-image-content: url('../../assets/img/ez_shuttle_tab.jpg');
-$dispatch-flexnx-section-image-content: url('../../assets/img/ez_shuttle_tab.jpg');
+$dispatch-flexnx-section-image-content: url('../../assets/img/flex_nx_tab.jpg');
 
 // elevators
 $elevators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
@@ -245,10 +248,10 @@ $elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg'
 // escalators
 $escalators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 
-$escalators-gs8000-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$escalators-typef-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$escalators-typep-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$escalators-types-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$escalators-gs8000-section-image-content: url('../../assets/img/escalator_1.jpg');
+$escalators-typef-section-image-content: url('../../assets/img/escalator_4.jpg');
+$escalators-typep-section-image-content: url('../../assets/img/escalator_4.jpg');
+$escalators-types-section-image-content: url('../../assets/img/escalator_4.jpg');
 
 // footer
 $footer-background-color: $red;
@@ -315,6 +318,14 @@ $header-mobile-menu-item-close-height: 45px;
 // home
 $home-slides-box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.3);
 $home-slides-transition-duration: 1s;
+
+// locations
+$locations-background: url('../../assets/img/locations_bg.jpg') no-repeat;
+$locations-map-background: url('../../assets/img/locations-map.png') no-repeat;
+
+$locations-item-border: 1px solid $white;
+$locations-item-color: $white;
+$locations-item-padding: 2px $hgap;
 
 // login
 $login-modal-height: 270px;

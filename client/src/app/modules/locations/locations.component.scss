@@ -1,1 +1,32 @@
-// locations {}
+locations {
+    .content-div {
+        background     : $locations-background;
+        background-size: cover;
+
+        .locations-div {
+            display: flex;
+            width  : 100%;
+
+            .map-div {
+                background         : $locations-map-background;
+                background-position: center;
+                background-size    : auto 100%;
+                flex               : 1;
+            }
+
+            .list-div {
+                background-color: rgba(0,0,0,0.5);
+                margin-right    : 40px;
+                padding         : $vgap $hgap;
+                width           : 290px;
+
+                & > div {
+                    border-left: $locations-item-border;
+                    color      : $locations-item-color;
+                    padding    : $locations-item-padding;
+                    text-align : left;
+                }
+            }
+        }
+    }
+}

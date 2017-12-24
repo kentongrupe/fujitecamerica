@@ -4,6 +4,11 @@ about {
         margin: $vgap_ 0;
     }
 
+    .content-div {
+        background     : $about-background;
+        background-size: cover;
+    }
+
     .section {
         padding   : $vgap_ $hgap_;
         text-align: initial;
