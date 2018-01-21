@@ -1,22 +1,8 @@
-$_img: ('maintenancerepairguy.jpg', 'maintenancerepairguy.jpg', 'maintenancerepairguy.jpg');
+@include section-image( 'service-maintenance', '.why', $service-maintenance-why-image-content);
+@include section-image( 'service-maintenance', '.lowest', $service-maintenance-lowest-image-content);
 
 service-maintenance {
-    .content-div {
-        .section {
-            text-align: $service-maintenance-text-align;
-            width     : 100%;
-        }
-
-        .service-maintenance-image {
-            height: 241px;
-            margin: $vgap 0;
-            width : 962px;
-            @for $i from 1 through 3 {
-                &.service-maintenance-image#{$i} {
-                    $_bg      : nth($_img, $i);
-                    background: url('/assets/img/#{$_bg}') no-repeat;
-                }
-            }
-        }
+    ol {
+        list-style: none;
     }
 }

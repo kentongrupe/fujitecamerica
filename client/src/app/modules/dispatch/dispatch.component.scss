@@ -1,2 +1,53 @@
 @include section-image( 'dispatch', '.ezshuttle', $dispatch-ezshuttle-section-image-content);
 @include section-image( 'dispatch', '.flexnx', $dispatch-flexnx-section-image-content);
+
+dispatch {
+    .flexnx {
+        ol {
+            list-style: none;
+        }
+
+        .flexnx-image {
+            background-size: $dispatch-image-width $dispatch-image-height;
+            height         : $dispatch-image-height;
+            margin         : 0 auto;
+            width          : $dispatch-image-width;
+
+            &.flexnx-102 {
+                background-image: $dispatch-flexnx-102-background;
+            }
+
+            &.flexnx-252 {
+                background-image: $dispatch-flexnx-252-background;
+            }
+        }
+    }
+
+    .ezshuttle {
+        .ezshuttle-image {
+            background-image: $dispatch-ezshuttle-background;
+            background-size : $dispatch-image-width $dispatch-image-height;
+            height          : $dispatch-image-height;
+            margin          : 0 auto;
+            width           : $dispatch-image-width;
+        }
+
+        .performances {
+            .performances-image {
+                background-size: $dispatch-performances-image-width $dispatch-performances-image-height;
+                display        : inline-block;
+                height         : $dispatch-performances-image-height;
+                width          : $dispatch-performances-image-width;
+
+                &.performances-time {
+                    background-image: $dispatch-performances-time-background;
+                    margin-right    : $hgap_;
+                }
+
+                &.performances-wait {
+                    background-image: $dispatch-performances-wait-background;
+                }
+            }
+        }
+    }
+}

@@ -108,16 +108,22 @@ h3 {
     }
 }
 
+input[type="email"],
+input[type="email"]:not([readonly]),
 input[type="password"],
+input[type="password"]:not([readonly]),
 input[type="text"],
+input[type="text"]:not([readonly]),
 select,
 textarea {
+    background   : none;
     color        : $black;
     border       : 1px solid $grey4;
     font-size    : 14px;
     height       : 45px;
     padding-left : 10px;
     padding-right: 10px;
+    transition   : none;
 }
 
 ul.links {
@@ -189,6 +195,11 @@ div {
 $border: 1px solid $grey3;
 $max-width: $content-width;
 
+$autowalks: #45A798;
+$dispatch: #99B129;
+$elevators: #D01126;
+$escalators: #006086;
+
 // app
 $reference-color: $red;
 $reference-font-size: 16px;
@@ -226,27 +237,68 @@ $about-background: url('../../assets/img/about_bg.jpg') no-repeat;
 // autowalks
 $autowalks-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 
-$autowalks-gs8100-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 $autowalks-typef-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 $autowalks-typep-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 $autowalks-types-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+
+// contact
+$contact-form-max-width: 780px;
+
+$contact-form-field-background-color: $grey1;
+$contact-form-field-border: 1px solid $grey7;
+$contact-form-field-box-shadow: 0 0 2px 2px $grey4;
+$contact-form-field-font-size: 20px;
+$contact-form-field-padding: 7px $hgap_;
+
+$contact-button-background-color: $dispatch;
+$contact-button-border-radius: 10px;
+$contact-button-color: $white;
+$contact-button-padding: 8px 16px;
 
 // dispatch
 $dispatch-ezshuttle-section-image-content: url('../../assets/img/ez_shuttle_tab.jpg');
 $dispatch-flexnx-section-image-content: url('../../assets/img/flex_nx_tab.jpg');
 
+$dispatch-image-height: 512px;
+$dispatch-image-width: 660px;
+$dispatch-flexnx-102-background: url('../../assets/img/flex_nx_102.png');
+$dispatch-flexnx-252-background: url('../../assets/img/flex_nx_252.png');
+
+$dispatch-ezshuttle-background: url('../../assets/img/ez_shuttle.png');
+
+$dispatch-performances-image-height: 384px;
+$dispatch-performances-image-width: 495px;
+$dispatch-performances-time-background: url('../../assets/img/ez_shuttle_time_to.png');
+$dispatch-performances-wait-background: url('../../assets/img/ez_shuttle_wait.png');
+
 // elevators
 $elevators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 
+$elevators-breakdown-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 $elevators-ionful-section-image-content: url('../../assets/img/ionful.jpg');
 $elevators-monitoring-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 $elevators-system-geared-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
-$elevators-system-gearless-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-system-gearless-image-content: url('../../assets/img/gearless_2.jpg');
 $elevators-system-hydraulic-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
 $elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
 
+//  pmgl
+$pmgl-label-background-color: rgba($elevators, 0.7);
+$pmgl-label-color: $white;
+$pmgl-label-font-size: 24px;
+$pmgl-label-height: 60px;
+$pmgl-label-width: 220px;
+
+$pmgl-image-height: 250px;
+$pmgl-image-width: 220px;
+
+$pmgl-pm02-background: url('../../assets/img/pm_02.png');
+$pmgl-pm03-background: url('../../assets/img/pm_03.png');
+$pmgl-pm04-background: url('../../assets/img/pm_04.png');
+$pmgl-fm450-background: url('../../assets/img/fm_450.png');
+
 // escalators
-$escalators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
+$escalators-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 
 $escalators-gs8000-section-image-content: url('../../assets/img/escalator_1.jpg');
 $escalators-typef-section-image-content: url('../../assets/img/escalator_4.jpg');
@@ -325,7 +377,10 @@ $locations-map-background: url('../../assets/img/locations-map.png') no-repeat;
 
 $locations-item-border: 1px solid $white;
 $locations-item-color: $white;
-$locations-item-padding: 2px $hgap;
+$locations-item-padding: 2px 0 2px $hgap;
+
+$location-info-color: $white;
+$location-info-font-size: 18px;
 
 // login
 $login-modal-height: 270px;
@@ -345,6 +400,15 @@ $menu-submenu-background-color: $grey1;
 $menu-submenu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 30px center;
 
 $side-menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/6px 10px;
+
+// modal (clr)
+clr-modal {
+    .modal {
+        .modal-backdrop {
+            background-color: rgba(0,0,0,0.25);
+        }
+    }
+}
 
 // nav menu
 $nav-menu-border: none;
@@ -495,8 +559,8 @@ $project-info-slick-dot-active-color: #ffffff;
 
 // scroll to top
 $scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
-$scroll-to-top-height: 47px;
-$scroll-to-top-width: 80px;
+$scroll-to-top-height: 75px;
+$scroll-to-top-width: 100px;
 
 // section header
 $section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
@@ -519,16 +583,17 @@ $section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.
 
 $section-header-menu-background-opacity: .7;
 $section-header-menu-background-color: rgba($red, $section-header-menu-background-opacity);
-$section-header-menu-autowalks-background-color: rgba(#45A798, $section-header-menu-background-opacity);
-$section-header-menu-dispatch-background-color: rgba(#99B129, $section-header-menu-background-opacity);
-$section-header-menu-elevators-background-color: rgba(#D01126, $section-header-menu-background-opacity);
-$section-header-menu-escalators-background-color: rgba(#006086, $section-header-menu-background-opacity);
+$section-header-menu-autowalks-background-color: rgba($autowalks, $section-header-menu-background-opacity);
+$section-header-menu-dispatch-background-color: rgba($dispatch, $section-header-menu-background-opacity);
+$section-header-menu-elevators-background-color: rgba($elevators, $section-header-menu-background-opacity);
+$section-header-menu-escalators-background-color: rgba($escalators, $section-header-menu-background-opacity);
 
 $section-header-menu-items-font-size: 20px;
 $section-header-menu-item-border: 1px solid $section-header-menu-color;
 
 // service & maintenance
-$service-maintenance-text-align: center;
+$service-maintenance-why-image-content: url('../../assets/img/maintenancerepairguy.jpg');
+$service-maintenance-lowest-image-content: url('../../assets/img/maintenancerepairguy.jpg');
 
 // site-map
 $site-map-links-border: $border;
@@ -541,6 +606,22 @@ $site-map-link-hover-color: $red;
 $video-background-color: $black;
 
 //
+.border-bottom {
+    @include border( 'bottom', $border);
+}
+
+.border-left {
+    @include border( 'left', $border);
+}
+
+.border-right {
+    @include border( 'right', $border);
+}
+
+.border-top {
+    @include border( 'top', $border);
+}
+
 .content-menu {
     background-color: $app-content-menu-background-color;
     display         : flex;
@@ -590,6 +671,25 @@ $video-background-color: $black;
     background-color: rgba(255,255,255,0.001);
 }
 
+.phone {
+    background     : url('../../assets/img/phone.png') no-repeat;
+    background-size: 29px 22px;
+    height         : 22px;
+    margin         : $vgap_ auto;
+    padding-left   : 35px;
+
+    a {
+        color      : $grey7;
+        font-size  : $app-menu-header-font-size;
+        line-height: 22px;
+
+        &:hover {
+            color          : $grey7;
+            text-decoration: none;
+        }
+    }
+}
+
 .section {
     margin    : $vgap_ auto 0;
     max-width : $content-width;
@@ -614,6 +714,14 @@ $video-background-color: $black;
 
     .subsection {
         margin: $vgap_ 0 $vgap_ $hgap;
+    }
+
+    &.summary {
+        p {
+            font-size  : 30px;
+            font-weight: 300;
+            line-height: 30px;
+        }
     }
 }
 
@@ -657,5 +765,123 @@ $video-background-color: $black;
 .section-image {
     img {
         width: 100%;
+    }
+}
+
+//
+@mixin modal-scss() {
+    clr-modal {
+        .modal-dialog {
+            &.modal-lg {
+                height   : 95%;
+                max-width: 1030px;
+                width    : 95%;
+            }
+
+            .modal-outer-wrapper {
+                .modal-content-wrapper {
+                    height: 100%;
+
+                    .modal-content {
+                        height  : 100%;
+                        position: relative;
+
+                        .modal-header {
+                            display: none;
+                        }
+
+                        .modal-body {
+                            @include abs-position(24px, 24px, 90px, 24px);
+                            max-height: unset;
+                            overflow  : hidden;
+                            padding   : 40px 0 0;
+
+                            .info-div {
+                                margin   : 0 auto;
+                                max-width: 830px;
+                                width    : 100%;
+                            }
+
+                            .images-div {
+                                height: 60%;
+
+                                .slick-list {
+                                    height: 100%;
+                                }
+
+                                .slick-dots {
+                                    bottom: 10px;
+
+                                    li {
+                                        button:before {
+                                            color: $project-info-slick-dot-color;
+                                        }
+
+                                        &.slick-active button:before {
+                                            color: $project-info-slick-dot-active-color;
+                                        }
+                                    }
+                                }
+
+                                img {
+                                    height: 100%;
+                                    width : 100%;
+                                }
+                            }
+
+                            .details-div {
+                                height  : 40%;
+                                position: relative;
+
+                                form {
+                                    @include abs-position(0, 0, unset, 0);
+                                    border-bottom: 1px solid $white;
+                                    margin-bottom: $hgap_;
+
+                                    .form-group {
+                                        margin-bottom: 0;
+
+                                        & > label:first-child {
+                                            color: $white;
+                                        }
+                                    }
+                                }
+
+                                .description-div {
+                                    @include abs-position(130px, 0, 0, 0);
+                                    overflow: auto;
+                                }
+                            }
+                            @media only screen and (max-width: 544px) {
+                                .details-div,
+                                .images-div {
+                                    height: 50%;
+                                }
+
+                                .details-div {
+                                    .form-group {
+                                        margin-bottom: $vgap_;
+                                        width        : 100%;
+
+                                        label,
+                                        span {
+                                            display: inline-block;
+                                            flex   : unset;
+                                            margin : 0;
+                                            top    : 0;
+                                            width  : 50%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .modal-footer {
+                            @include abs-position(unset, 0, $vgap_, 0);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -3,7 +3,9 @@
         <div class="map-div">
         </div>
         <div class="list-div">
-            <div *ngFor="let l of _locations">{{ l }}</div>
+            <div *ngFor="let l of _locations" (click)="_showLocation(l)">{{ l.location }}</div>
         </div>
     </div>
 </div>
+
+<location-info-modal [location]="_location" (close)="_onClose()"></location-info-modal>

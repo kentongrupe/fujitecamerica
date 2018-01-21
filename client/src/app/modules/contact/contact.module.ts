@@ -6,12 +6,16 @@ import {
     FujitecSharedModule
 } from 'app/modules/_shared';
 import {
+    IntegerInputDirective
+} from 'app/directives';
+import {
     ContactComponent
 } from './contact.component';
 
 @NgModule({
     declarations: [
-        ContactComponent
+        ContactComponent,
+        IntegerInputDirective
     ],
     imports: [
         FujitecSharedModule

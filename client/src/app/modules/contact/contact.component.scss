@@ -1,1 +1,67 @@
-contact {}
+contact {
+    .contact-div {
+        .contact-form-div {
+            margin   : 0 auto;
+            max-width: $contact-form-max-width;
+
+            .form-group {
+                margin-bottom: $vgap_;
+
+                input,
+                textarea {
+                    background-color: $contact-form-field-background-color;
+                    border          : $contact-form-field-border;
+                    border-radius   : 0;
+                    font-size       : $contact-form-field-font-size;
+                    padding         : $contact-form-field-padding;
+
+                    &:focus {
+                        box-shadow: $contact-form-field-box-shadow;
+                        outline   : 0;
+                    }
+                }
+
+                &:nth-child(1),
+                &:nth-child(3) {
+                    input {
+                        width: 100%;
+                    }
+                }
+
+                &:nth-child(2),
+                &:nth-child(4) {
+                    display: flex;
+
+                    input {
+                        flex: 1;
+
+                        &:first-child {
+                            margin-right: $hgap_;
+                        }
+
+                        &:last-child {
+                            margin-left: $hgap_;
+                        }
+                    }
+                }
+            }
+
+            .info-div {
+                text-align: left;
+            }
+
+            .button-div {
+                color         : $contact-button-color;
+                text-align    : right;
+                text-transform: uppercase;
+
+                div {
+                    background-color: $contact-button-background-color;
+                    border-radius   : $contact-button-border-radius;
+                    display         : inline-block;
+                    padding         : $contact-button-padding;
+                }
+            }
+        }
+    }
+}

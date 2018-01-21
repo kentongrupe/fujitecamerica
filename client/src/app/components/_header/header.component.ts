@@ -44,69 +44,24 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
 
         this._mainMenu = [
             {
-                label: this._getString('installation', 'Installation'),
-                routerLink: AppRoute.INSTALLATION,
-                // expanded: false,
-                // items: [
-                //     {
-                //         label: this._getString('elevators', 'Elevators'),
-                //         routerLink: AppRoute.INSTALLATION_ELEVATORS
-                //     },
-                //     {
-                //         label: this._getString('escalators', 'Escalators'),
-                //         routerLink: AppRoute.INSTALLATION_ESCALATORS
-                //     },
-                //     {
-                //         label: this._getString('autowalks', 'Autowalks'),
-                //         routerLink: AppRoute.INSTALLATION_AUTOWALKS
-                //     }
-                // ]
-            },
-            {
                 label: this._getString('service-and-maintenance', 'Service & Maintenance'),
-                routerLink: AppRoute.SERVICE_MAINTENANCE,
-                // expanded: false,
-                // items: [
-                //     {
-                //         label: this._getString('elevators', 'Elevators'),
-                //         routerLink: AppRoute.SERVICE_MAINTENANCE_ELEVATORS
-                //     },
-                //     {
-                //         label: this._getString('escalators', 'Escalators'),
-                //         routerLink: AppRoute.SERVICE_MAINTENANCE_ESCALATORS
-                //     },
-                //     {
-                //         label: this._getString('autowalks', 'Autowalks'),
-                //         routerLink: AppRoute.SERVICE_MAINTENANCE_AUTOWALKS
-                //     },
-                //     {
-                //         label: this._getString('foreigh-maintenance', 'Foreign Maintenance'),
-                //         routerLink: AppRoute.SERVICE_MAINTENANCE_FOREIGN
-                //     }
-                // ]
+                routerLink: AppRoute.SERVICE_MAINTENANCE
             },
             {
                 label: this._getString('modernization', 'Modernization'),
-                routerLink: AppRoute.MODERNIZATION,
-                // expanded: false,
-                // items: [
-                //     {
-                //         label: this._getString('elevators', 'Elevators'),
-                //         routerLink: AppRoute.MODERNIZATION_ELEVATORS
-                //     },
-                //     {
-                //         label: this._getString('escalators', 'Escalators'),
-                //         routerLink: AppRoute.MODERNIZATION_ESCALATORS
-                //     },
-                //     {
-                //         label: this._getString('autowalks', 'Autowalks'),
-                //         routerLink: AppRoute.MODERNIZATION_AUTOWALKS
-                //     }
-                // ]
+                routerLink: AppRoute.MODERNIZATION
+            },
+            {
+                label: this._getString('installation', 'Installation'),
+                routerLink: AppRoute.INSTALLATION
             },
             {
                 label: this._getString('projects', 'Projects'),
                 routerLink: AppRoute.PROJECTS
+            },
+            {
+                label: this._getString('after-market-support', 'After-Market Support'),
+                routerLink: AppRoute.SUPPORT
             }
         ];
         this._sideMenu = [
@@ -121,13 +76,6 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             {
                 label: this._getString('contact', 'Contact'),
                 routerLink: AppRoute.CONTACT
-                // },
-                // {
-                //     label: this._getString('search', 'Search'),
-                //     icon: 'search',
-                //     command: () => {
-                //         this._showSearch = !this._showSearch;
-                //     }
             }
         ];
         this._mobileMenu = this._mainMenu.concat(this._sideMenu);

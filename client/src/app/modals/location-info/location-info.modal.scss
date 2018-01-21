@@ -1,0 +1,22 @@
+location-info-modal {
+    @include modal-scss();
+
+    form {
+        .form-group {
+            color    : $location-info-color;
+            font-size: $location-info-font-size;
+
+            a,
+            a:link,
+            a:visited {
+                color    : $location-info-color;
+                font-size: $location-info-font-size;
+
+                &:hover {
+                    color          : $location-info-color;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

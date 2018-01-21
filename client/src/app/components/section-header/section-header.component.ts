@@ -47,12 +47,8 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
 
         switch (this.sectionType) {
             case SectionType.AUTOWALKS:
-                this._menuLabel = this._getString('autowalks', 'Autowalks');
+                this._menuLabel = this._getString('autowalks', 'Autowalks: GS8100');
                 this._menu = [
-                    {
-                        label: this._getString('fujitec-gs8100', 'Fujitec GS8100'),
-                        routerLink: AppRoute.AUTOWALKS_GS8100
-                    },
                     {
                         label: this._getString('type-s', 'Type S'),
                         routerLink: AppRoute.AUTOWALKS_TYPE_S
@@ -110,12 +106,8 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 ];
                 break;
             case SectionType.ESCALATORS:
-                this._menuLabel = this._getString('escalators', 'Escalators');
+                this._menuLabel = this._getString('escalators', 'Escalators: GS8000');
                 this._menu = [
-                    {
-                        label: this._getString('fujitec-gs8000', 'Fujitec GS8000'),
-                        routerLink: AppRoute.ESCALATORS_GS8000
-                    },
                     {
                         label: this._getString('type-s', 'Type S'),
                         routerLink: AppRoute.ESCALATORS_TYPE_S

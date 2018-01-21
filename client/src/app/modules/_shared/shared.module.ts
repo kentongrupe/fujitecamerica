@@ -33,6 +33,9 @@ import {
     ProjectInfoModal
 } from 'app/modals';
 import {
+    LocationInfoModal
+} from 'app/modals/location-info';
+import {
     FormatStringPipe,
     GetStringPipe
 } from 'app/pipes';
@@ -48,6 +51,7 @@ import {
         SysMenuComponent,
         // modals
         AlertModal,
+        LocationInfoModal,
         LoginModal,
         ProjectInfoModal,
         // pipes
@@ -83,6 +87,7 @@ import {
         SysMenuComponent,
         // modals
         AlertModal,
+        LocationInfoModal,
         LoginModal,
         ProjectInfoModal,
         // pipes

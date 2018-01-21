@@ -7,5 +7,6 @@ export enum SectionType {
     INSTALLATION,
     MODERNIZATION,
     SERVICE_MAINTENANCE,
-    PROJECTS
+    PROJECTS,
+    SUPPORT
 }

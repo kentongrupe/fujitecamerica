@@ -6,6 +6,10 @@ import {
     BaseComponent
 } from 'app/core';
 import {
+    Location
+} from 'app/models';
+import {
+    DataService,
     StringService
 } from 'app/services';
 
@@ -15,9 +19,11 @@ import {
 })
 export class LocationsComponent extends BaseComponent implements OnInit {
 
-    private _locations: string[] = [];
+    private _location: Location = null;
+    private _locations: Location[] = [];
 
     constructor(
+        private dataService: DataService,
         private stringService: StringService
     ) {
         super('LocationsComponent');
@@ -25,26 +31,19 @@ export class LocationsComponent extends BaseComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this._locations = [
-            this._getString('atlanta', 'Atlanta'),
-            this._getString('baltimore', 'Baltimore'),
-            this._getString('calgary', 'Calcary'),
-            this._getString('chicago', 'Chicago'),
-            this._getString('cincinnati', 'Cincinnati'),
-            this._getString('columbus', 'Columbus'),
-            this._getString('dayton', 'Dayton'),
-            this._getString('dallas', 'Dallas'),
-            this._getString('ft-worth', 'Ft Worth'),
-            this._getString('houston', 'Houston'),
-            this._getString('los-angeles', 'Los Angeles'),
-            this._getString('new-york', 'New York'),
-            this._getString('orlando-tampa', 'Orlando/Tampa'),
-            this._getString('philadelphia', 'Philadelphia'),
-            this._getString('seattle', 'Seattle'),
-            this._getString('toronto', 'Toronto'),
-            this._getString('vancouver', 'Vancouver'),
-            this._getString('virginia-northern', 'Virginia (northern)'),
-            this._getString('washington-dc', 'Washington DC')
-        ];
+        this.dataService.getLocations((d) => {
+            if (this.hasValue(d.locations) && this.hasValue(d.locations[StringService.locale])) {
+                this._locations = d.locations[StringService.locale].map((l) => {
+                    return new Location(l);
+                });
+            }
+        });
+    }
+
+    private _onClose(): void {
+        this._location = null;
+    }
+    private _showLocation(location: Location): void {
+        this._location = location;
     }
 }

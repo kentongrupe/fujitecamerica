@@ -1,6 +1,78 @@
+@include section-image( 'elevators', '.breakdown', $elevators-breakdown-image-content);
 @include section-image( 'elevators', '.mrl', $elevators-system-mrl-image-content);
 @include section-image( 'elevators', '.gearless', $elevators-system-gearless-image-content);
 @include section-image( 'elevators', '.geared', $elevators-system-geared-image-content);
 @include section-image( 'elevators', '.hydraulic', $elevators-system-hydraulic-image-content);
 @include section-image( 'elevators', '.monitoring', $elevators-monitoring-section-image-content);
 @include section-image( 'elevators', '.ionful', $elevators-ionful-section-image-content);
+
+elevators {
+    .pmgl-div {
+        @extend .border-left;
+        @extend .border-right;
+        padding: 0 $hgap;
+
+        .pmgl-row {
+            display: flex;
+            padding: $vgap_ $hgap_;
+            width  : 100%;
+
+            &:first-child {
+                @extend .border-bottom;
+            }
+
+            .pmgl-cell {
+                display   : inline-block;
+                flex      : 1;
+                text-align: center;
+
+                &:first-child {
+                    @extend .border-right;
+                }
+
+                .pmgl-label {
+                    background-color: $pmgl-label-background-color;
+                    color           : $pmgl-label-color;
+                    font-size       : $pmgl-label-font-size;
+                    height          : $pmgl-label-height;
+                    line-height     : $pmgl-label-height;
+                    margin          : 0 auto;
+                    text-align      : center;
+                    width           : $pmgl-label-width;
+                }
+
+                .pmgl-image {
+                    background-repeat: no-repeat;
+                    background-size  : contain;
+                    height           : $pmgl-image-height;
+                    margin           : $vgap_ auto;
+                    width            : $pmgl-image-width;
+                }
+
+                &.pm02 {
+                    .pmgl-image {
+                        background-image: $pmgl-pm02-background;
+                    }
+                }
+
+                &.pm03 {
+                    .pmgl-image {
+                        background-image: $pmgl-pm04-background;
+                    }
+                }
+
+                &.pm04 {
+                    .pmgl-image {
+                        background-image: $pmgl-pm04-background;
+                    }
+                }
+
+                &.fm450 {
+                    .pmgl-image {
+                        background-image: $pmgl-fm450-background;
+                    }
+                }
+            }
+        }
+    }
+}

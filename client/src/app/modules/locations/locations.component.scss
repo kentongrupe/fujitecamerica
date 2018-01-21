@@ -25,6 +25,11 @@ locations {
                     color      : $locations-item-color;
                     padding    : $locations-item-padding;
                     text-align : left;
+
+                    &:hover {
+                        color : $red;
+                        cursor: pointer;
+                    }
                 }
             }
         }

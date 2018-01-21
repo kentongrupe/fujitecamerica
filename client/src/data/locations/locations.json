@@ -1,0 +1,146 @@
+{
+    "locations": {
+        "en": [
+            {
+                "name": "atlanta",
+                "location": "Atlanta",
+                "serviceArea": "Atlanta Metro & Suburban Areas",
+                "phone": "770-209-0322",
+                "email": "atlanta@fujitecamerica.com"
+            },
+            {
+                "name": "baltimore",
+                "location": "Baltimore",
+                "serviceArea": "Boston Metro & Suburban Areas",
+                "phone": "781-961-7190",
+                "email": "boston@fujitecamerica.com"
+            },
+            {
+                "name": "calgary",
+                "location": "Calgary",
+                "serviceArea": "Calgary Metro & Suburban Areas",
+                "phone": "403-730-5901",
+                "email": "calgary@fujitecamerica.com"
+            },
+            {
+                "name": "chicago",
+                "location": "Chicago",
+                "serviceArea": "Chicago Metro & Suburban Areas",
+                "phone": "770-209-0322",
+                "email": "chicago@fujitecamerica.com"
+            },
+            {
+                "name": "cincinnati",
+                "location": "Cincinnati",
+                "serviceArea": "Cincinnati Metro & Suburban Areas",
+                "phone": "513-755-6100",
+                "email": "cincinnati@fujitecamerica.com"
+            },
+            {
+                "name": "columbus",
+                "location": "Columbus",
+                "serviceArea": "Columbus, Dayton & Surrounding Areas",
+                "phone": "770-209-0322",
+                "email": "columbus@fujitecamerica.com"
+            },
+            {
+                "name": "dayton",
+                "location": "Dayton",
+                "serviceArea": "",
+                "phone": "",
+                "email": ""
+            },
+            {
+                "name": "dallas",
+                "location": "Dallas",
+                "serviceArea": "Dallas Metro & Suburban Areas",
+                "phone": "972-404-9984",
+                "email": "dallas@fujitecamerica.com"
+            },
+            {
+                "name": "ftworth",
+                "location": "Ft Worth",
+                "serviceArea": "Ft. Worth & Surrounding Areas",
+                "phone": "817-880-6664",
+                "email": "ftworth@fujitecamerica.com"
+            },
+            {
+                "name": "houston",
+                "location": "Houston",
+                "serviceArea": "Houston Metro & Suburban Areas",
+                "phone": "713-690-1990",
+                "email": "houston@fujitecamerica.com"
+            },
+            {
+                "name": "la",
+                "location": "Los Angeles",
+                "serviceArea": "Greater Los Angeles & Surrounding Region",
+                "phone": "310-464-8270",
+                "email": "la@fujitecamerica.com"
+            },
+            {
+                "name": "newjersey",
+                "location": "New Jersey",
+                "serviceArea": "",
+                "phone": "",
+                "email": ""
+            },
+            {
+                "name": "newyork",
+                "location": "New York",
+                "serviceArea": "NYC, New Jersey, Connecticut",
+                "phone": "973-330-0100",
+                "email": "nyc@fujitecamerica.com"
+            },
+            {
+                "name": "orlangotampa",
+                "location": "Orlando/Tampa",
+                "serviceArea": "Orlando, Tampa & Surrounding Areas",
+                "phone": "407-868-3045",
+                "email": "orlando@fujitecamerica.com"
+            },
+            {
+                "name": "philadelphia",
+                "location": "Philadelphia",
+                "serviceArea": "Philadelphia, Western New Jersey",
+                "phone": "610-534-8985",
+                "email": "philly@fujitecamerica.com"
+            },
+            {
+                "name": "seattle",
+                "location": "Seattle",
+                "serviceArea": "Seattle Metro, Northern Oregon",
+                "phone": "206-622-5565",
+                "email": "seattle@fujitecamerica.com"
+            },
+            {
+                "name": "toronto",
+                "location": "Toronto",
+                "serviceArea": "Toronto Metro & Surrounding Region",
+                "phone": "905-731-8681",
+                "email": "toronto@fujitecamerica.com"
+            },
+            {
+                "name": "vancouver",
+                "location": "Vancouver",
+                "serviceArea": "Vancouver Metro & Surrounding Region",
+                "phone": "604-276-9904",
+                "email": "vancouver@fujitecamerica.com"
+            },
+            {
+                "name": "virginia",
+                "location": "Virginia (northern)",
+                "serviceArea": "",
+                "phone": "",
+                "email": ""
+            },
+            {
+                "name": "dc",
+                "location": "Washington DC",
+                "serviceArea": "DC, South & Central Maryland, Northern Virginia",
+                "phone": "301-918-4911",
+                "email": "dc@fujitecamerica.com"
+            }
+        ]
+    }
+}

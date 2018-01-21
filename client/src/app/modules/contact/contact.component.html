@@ -1,1 +1,32 @@
-contact
+<div class="content-div">
+    <div class="contact-div">
+        <div class="section">
+            <h1>{{ this | getString : 'how-can-we-help' : 'How Can We Help?' }}</h1>
+            <div class="contact-form-div">
+                <div class="form-group">
+                    <input type="text" placeholder="{{ _getString('building-address', 'Building Address') }}" [(ngModel)]="_address" />
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="{{ '* ' + _getString('first-name', 'First Name') }}" [(ngModel)]="_firstName" />
+                    <input type="text" placeholder="{{ '* ' + _getString('last-name', 'Last Name') }}" [(ngModel)]="_lastName" />
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="{{ '* ' + _getString('email', 'Email') }}" [(ngModel)]="_email" />
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="{{ '* ' + _getString('contact-number', 'Contact Number') }}" integer-input [(ngModel)]="_phone" />
+                    <input type="text" placeholder="{{ '* ' + _getString('closest-fujitec-to-facility', 'Closest Fujitec to your facility?') }}" [(ngModel)]="_fujitec" />
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="{{ '* ' + _getString('description-text', 'Please provide description of needs. i.e. service, repair, modernization, etc...') }}" [(ngModel)]="_description"></textarea>
+                </div>
+                <div class="info-div">
+                    <i>{{ this | getString : 'required-fields' : 'Fields marked with * are requreid' }}</i>
+                </div>
+                <div class="button-div">
+                    <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

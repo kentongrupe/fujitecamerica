@@ -2,7 +2,6 @@ export class AppRoute {
     public static ABOUT: string = '/about';
     public static ARCHITECTS: string = '/architects';
     public static AUTOWALKS: string = '/autowalks';
-    public static AUTOWALKS_GS8100: string = '/autowalks/gs8100';
     public static AUTOWALKS_TYPE_F: string = '/autowalks/typef';
     public static AUTOWALKS_TYPE_P: string = '/autowalks/typep';
     public static AUTOWALKS_TYPE_S: string = '/autowalks/types';
@@ -19,7 +18,6 @@ export class AppRoute {
     public static ELEVATORS_MONITORING: string = '/elevators/monitoring';
     public static ELEVATORS_MRL: string = '/elevators/mrl';
     public static ESCALATORS: string = '/escalators';
-    public static ESCALATORS_GS8000: string = '/escalators/gs8000';
     public static ESCALATORS_TYPE_F: string = '/escalators/typef';
     public static ESCALATORS_TYPE_P: string = '/escalators/typep';
     public static ESCALATORS_TYPE_S: string = '/escalators/types';
@@ -36,11 +34,9 @@ export class AppRoute {
     public static SERVICE_MAINTENANCE: string = '/service-maintenance';
     public static SITE_MAP: string = '/site-map';
     public static SITE_POLICY: string = '/site-policy';
+    public static SUPPORT: string = '/support';
 
     public static routes: any[] = [
-        {
-            path: AppRoute.INSTALLATION
-        },
         {
             path: AppRoute.SERVICE_MAINTENANCE
         },
@@ -48,10 +44,16 @@ export class AppRoute {
             path: AppRoute.MODERNIZATION
         },
         {
+            path: AppRoute.INSTALLATION
+        },
+        {
             path: AppRoute.PROJECTS,
             children: [
                 { path: AppRoute.PROJECTS_ADDITIONAL }
             ]
+        },
+        {
+            path: AppRoute.SUPPORT
         },
         {
             path: AppRoute.ELEVATORS,
@@ -67,7 +69,6 @@ export class AppRoute {
         {
             path: AppRoute.ESCALATORS,
             children: [
-                { path: AppRoute.ESCALATORS_GS8000 },
                 { path: AppRoute.ESCALATORS_TYPE_S },
                 { path: AppRoute.ESCALATORS_TYPE_F },
                 { path: AppRoute.ESCALATORS_TYPE_P }
@@ -78,6 +79,14 @@ export class AppRoute {
             children: [
                 { path: AppRoute.DISPATCH_FLEXNX },
                 { path: AppRoute.DISPATCH_EZSHUTTLE }
+            ]
+        },
+        {
+            path: AppRoute.AUTOWALKS,
+            children: [
+                { path: AppRoute.AUTOWALKS_TYPE_S },
+                { path: AppRoute.AUTOWALKS_TYPE_F },
+                { path: AppRoute.AUTOWALKS_TYPE_P }
             ]
         },
         {

@@ -1,0 +1,32 @@
+<clr-modal #info [(clrModalOpen)]="opened" [clrModalSize]="'lg'" [clrModalClosable]="true" (click)="_onClick($event)">
+    <div class="modal-body" *ngIf="location">
+        <div class="info-div images-div">
+            <img [attr.src]="location.imageUrl" />
+        </div>
+        <div class="info-div details-div">
+            <form>
+                <section>
+                    <div class="form-group">
+                        <label>{{ this | getString : 'branch-location' : 'Branch Location' }}:</label>
+                        <span>{{ location.location }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ this | getString : 'service-area' : 'Service Area' }}:</label>
+                        <span>{{ location.serviceArea }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ this | getString : 'phone' : 'Phone' }}:</label>
+                        <a [attr.href]="'tel://'+location.phone">{{ location.phone }}</a>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ this | getString : 'email' : 'Email' }}:</label>
+                        <a [attr.href]="'mailto:'+location.email">{{ location.email }}</a>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="opened=false; _close();">{{ this | getString : 'close' : 'Close' }}</button>
+    </div>
+</clr-modal>

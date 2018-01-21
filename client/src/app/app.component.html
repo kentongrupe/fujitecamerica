@@ -17,14 +17,14 @@
     <div class="col-center">
         <router-outlet></router-outlet>
         <div class="app-menu sys-menu-div" *ngIf="_isHome">
-            <label class="menu-header">{{ this | getString : 'system-solutions' : 'System Solutions' }}</label>
+            <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
             <div class="home-menu-div">
                 <sys-menu></sys-menu>
             </div>
         </div>
         <div class="app-menu pro-menu-div" *ngIf="_isHome">
             <div>
-                <label class="menu-header">{{ this | getString : 'industry-professional-resources' : 'Industry Professional Resources' }}</label>
+                <label class="menu-header">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</label>
                 <div class="home-menu-div">
                     <pro-menu></pro-menu>
                 </div>
@@ -32,10 +32,14 @@
         </div>
     </div>
     <div class="col-right" *ngIf="!_isHome">
-        <div class="app-content-header"></div>
+        <div class="app-content-header border-left">
+            <div class="phone">
+                <a href="tel://8773854832">877.385.4832</a>
+            </div>
+        </div>
         <div class="systems-menu-div border-left">
             <div>
-                <label class="menu-header">{{ this | getString : 'system-solutions' : 'System Solutions' }}</label>
+                <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
                 <div class="home-menu-div">
                     <sys-menu [mode]="2" [expandChildren]="true"></sys-menu>
                 </div>
@@ -45,7 +49,7 @@
 </div>
 <div class="app-content-footer" [class.home]="_isHome"></div>
 <div class="pro-menu-div not-home" *ngIf="!_isHome">
-    <label class="menu-header">{{ this | getString : 'industry-professional-resources' : 'Industry Professional Resources' }}</label>
+    <label class="menu-header">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</label>
     <div class="home-menu-div">
         <pro-menu></pro-menu>
     </div>

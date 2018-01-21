@@ -246,6 +246,10 @@ export class BaseClass {
         this._id = IdManager.getNew();
     }
 
+    public hasValue(value: any): boolean {
+        return ((value !== undefined) && (value !== null));
+    }
+
     public isNullOrEmpty(value: string): boolean {
         if ((value === undefined) || (value === null)) {
             return true;

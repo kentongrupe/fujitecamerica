@@ -11,6 +11,10 @@
         {
             "type": "image",
             "url": "ezshuttle.jpg"
+        },
+        {
+            "type": "image",
+            "url": "autowalk.jpg"
         }
     ]
 }

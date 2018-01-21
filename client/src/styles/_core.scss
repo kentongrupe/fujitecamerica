@@ -37,6 +37,9 @@
     right   : $right;
     top     : $top;
 }
+@mixin border($side, $border) {
+    border-#{$side}: $border;
+}
 @mixin drop-shadow($dx, $dy, $blur, $spread, $rgba) {
     -webkit-box-shadow: $dx $dy $blur $spread $rgba !important;
     -moz-box-shadow   : $dx $dy $blur $spread $rgba !important;
