@@ -125,9 +125,6 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
             case SectionType.INSTALLATION:
                 this._menuLabel = this._getString('installation', 'Installation');
                 break;
-            case SectionType.SERVICE_MAINTENANCE:
-                this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');
-                break;
             case SectionType.MODERNIZATION:
                 this._menuLabel = this._getString('modernization', 'Modernization');
                 break;
@@ -136,9 +133,15 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menu = [
                     {
                         label: this._getString('view-additional-projects', 'View additional projects'),
-                        routerLink: AppRoute.PROJECTS_ADDITIONAL
+                        routerLink: AppRoute.PORTFOLIO_ADDITIONAL
                     }
                 ];
+                break;
+            case SectionType.SERVICE_MAINTENANCE:
+                this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');
+                break;
+            case SectionType.SUPPORT:
+                this._menuLabel = this._getString('after-market-support', 'After-Market Support');
                 break;
             default:
                 break;

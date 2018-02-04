@@ -53,6 +53,7 @@ import {
     ServiceMaintenanceModule,
     SiteMapModule,
     SitePolicyModule,
+    SupportModule
 } from 'app/modules';
 import {
     AuthenticationService,
@@ -122,6 +123,7 @@ type StoreType = {
         ServiceMaintenanceModule,
         SiteMapModule,
         SitePolicyModule,
+        SupportModule,
 
         FujitecSharedModule
     ],

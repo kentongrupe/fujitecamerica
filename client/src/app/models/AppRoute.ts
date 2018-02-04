@@ -27,8 +27,8 @@ export class AppRoute {
     public static LOCATIONS: string = '/locations';
     public static MODERNIZATION: string = '/modernization';
     public static PRIVACY_POLICY: string = '/privacy-policy';
-    public static PROJECTS: string = '/projects';
-    public static PROJECTS_ADDITIONAL: string = '/projects/additional';
+    public static PORTFOLIO: string = '/portfolio';
+    public static PORTFOLIO_ADDITIONAL: string = '/portfolio/additional';
     public static PROPERTY_MANAGERS: string = '/property-managers';
     public static SEARCH: string = '/search';
     public static SERVICE_MAINTENANCE: string = '/service-maintenance';
@@ -47,9 +47,9 @@ export class AppRoute {
             path: AppRoute.INSTALLATION
         },
         {
-            path: AppRoute.PROJECTS,
+            path: AppRoute.PORTFOLIO,
             children: [
-                { path: AppRoute.PROJECTS_ADDITIONAL }
+                { path: AppRoute.PORTFOLIO_ADDITIONAL }
             ]
         },
         {

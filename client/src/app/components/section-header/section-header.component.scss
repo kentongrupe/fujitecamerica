@@ -48,6 +48,10 @@ section-header {
             &.service-maintenance {
                 background-image: $section-header-bg-service-maintenance;
             }
+
+            &.support {
+                background-image: $section-header-bg-support;
+            }
         }
 
         .menu-div {

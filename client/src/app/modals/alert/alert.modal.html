@@ -1,9 +1,14 @@
-<!-- <div md-dialog-content>
-    <h1 md-dialog-title>{{ this | getString : 'alert' : 'Alert' }}</h1>
-    <md-dialog-content>
+<clr-modal #modal [clrModalClosable]="true" (click)="_onClick($event)">
+    <div class="modal-header">
+        <button aria-label="Close" class="close" type="button">
+            <clr-icon aria-hidden="true" shape="close"></clr-icon>
+        </button>
+        <h3 class="modal-title">{{ title }}</h3>
+    </div>
+    <div class="modal-body">
         {{ message }}
-    </md-dialog-content>
-    <md-dialog-actions>
-        <button md-button (click)="_close() ">{{ this | getString : 'ok' : 'OK' }}</button>
-    </md-dialog-actions>
-</div> -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="_close();">{{ this | getString : 'ok' : 'OK' }}</button>
+    </div>
+</clr-modal>

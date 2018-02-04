@@ -72,51 +72,6 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
             this.to(AppRoute.INIT);
             return false;
         }
-        let path = route.url[0].path;
-        let routePaath = '/{0}'.format(path);
-        if (['architects', 'consultants', 'property-managers'].includes(path)) {
-
-            let _checkUserRole = (userRole) => {
-                let isValidUser = false;
-                switch (userRole) {
-                    case UserRole.ARCHITECT:
-                        isValidUser = (routePaath === AppRoute.ARCHITECTS);
-                        break;
-                    case UserRole.CONSULTANT:
-                        isValidUser = (routePaath === AppRoute.CONSULTANTS);
-                        break;
-                    case UserRole.PROPERTY_MANAGER:
-                        isValidUser = (routePaath === AppRoute.PROPERTY_MANAGERS);
-                        break;
-                    default:
-                        break;
-                }
-                return isValidUser;
-            };
-            let _showAlert = () => {
-                // let a = this.dialog.open(AlertModal);
-                // a.componentInstance.message = this._getString('invalid-user-role-for-n', 'invalid user role for {0}').format(path);
-            };
-
-            if (this.authService.isLoggedIn) {
-                if (_checkUserRole(this.authService.currentUser.userRole)) {
-                    return true;
-                } else {
-                    _showAlert();
-                    return false;
-                }
-            }
-            // let l = this.dialog.open(LoginModal);
-            // l.afterClosed().subscribe((user) => {
-            //     if (_checkUserRole(user.userRole)) {
-            //         this.to(routePaath);
-            //     } else {
-            //         _showAlert();
-            //         return false;
-            //     }
-            // });
-            return false;
-        }
         return true;
     }
 }

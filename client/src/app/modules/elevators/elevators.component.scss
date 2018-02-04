@@ -7,6 +7,12 @@
 @include section-image( 'elevators', '.ionful', $elevators-ionful-section-image-content);
 
 elevators {
+    .breakdown {
+        .section-image {
+            padding: $vgap 0;
+        }
+    }
+
     .pmgl-div {
         @extend .border-left;
         @extend .border-right;

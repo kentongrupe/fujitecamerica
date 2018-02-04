@@ -13,6 +13,7 @@ $grey1: #f1f1f1;
 $grey2: #e3e3e3;
 $grey3: #cccccc;
 $grey4: #bbbbbb;
+$grey45: #959595;
 $grey5: #666666;
 $grey6: #555555;
 $grey7: #3A3B3B;
@@ -219,6 +220,19 @@ $app-content-menu-padding: 0 $hgap;
 
 $app-content-menu-item-margin: 0 $hgap_ 0 0;
 
+$app-pro-menu-border: 2px solid $white;
+$app-pro-menu-color: $white;
+$app-pro-menu-height: 100px;
+$app-pro-menu-width: 210px;
+$app-pro-menu-consulting-background: url('../../assets/img/consultants.png');
+$app-pro-menu-contractors-background: url('../../assets/img/Architects_GCs.png');
+$app-pro-menu-property-background: url('../../assets/img/ProjMGMTCos.png');
+
+$app-pro-menu-title-font-size: 26px;
+$app-pro-menu-title-line-height: 32px;
+$app-pro-menu-title-width: 200px;
+$app-pro-menu-label-font-size: 14px;
+
 $app-mobile-content-bottom: 470px;
 $app-mobile-content-bottom-700: 400px;
 $app-mobile-content-bottom-600: 360px;
@@ -300,10 +314,9 @@ $pmgl-fm450-background: url('../../assets/img/fm_450.png');
 // escalators
 $escalators-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 
-$escalators-gs8000-section-image-content: url('../../assets/img/escalator_1.jpg');
 $escalators-typef-section-image-content: url('../../assets/img/escalator_4.jpg');
 $escalators-typep-section-image-content: url('../../assets/img/escalator_4.jpg');
-$escalators-types-section-image-content: url('../../assets/img/escalator_4.jpg');
+$escalators-types-section-image-content: url('../../assets/img/escalator_1.jpg');
 
 // footer
 $footer-background-color: $red;
@@ -573,6 +586,7 @@ $section-header-bg-modernization: url('/assets/img/dougmodernization.jpg');
 $section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
 $section-header-bg-projects: url('/assets/img/projectstab.jpg');
 $section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
+$section-header-bg-support: url('/assets/img/aftermarket_support.jpg');
 
 $seciton-header-bg-max-height: 430px;
 $section-header-menu-color: $white;
@@ -718,9 +732,9 @@ $video-background-color: $black;
 
     &.summary {
         p {
-            font-size  : 30px;
+            font-size  : 40px;
             font-weight: 300;
-            line-height: 30px;
+            line-height: 40px;
         }
     }
 }
@@ -769,7 +783,7 @@ $video-background-color: $black;
 }
 
 //
-@mixin modal-scss() {
+@mixin modal-scss($showHeader:false) {
     clr-modal {
         .modal-dialog {
             &.modal-lg {
@@ -787,7 +801,13 @@ $video-background-color: $black;
                         position: relative;
 
                         .modal-header {
-                            display: none;
+                            * {
+                                color      : $white;
+                                font-family: $font-family;
+                            }
+                            @if $showHeader==false {
+                                display: none;
+                            }
                         }
 
                         .modal-body {

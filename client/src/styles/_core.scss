@@ -97,3 +97,10 @@ $col-side-width: 240px;
 .list-style-none {
     list-style: none;
 }
+
+.text-overflow-ellipsis {
+    display      : block;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}

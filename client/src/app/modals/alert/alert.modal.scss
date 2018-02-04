@@ -1,1 +1,3 @@
-// alert {}
+alert {
+    @include modal-scss(true);
+}

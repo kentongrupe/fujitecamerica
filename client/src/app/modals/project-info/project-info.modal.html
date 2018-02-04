@@ -1,4 +1,4 @@
-<clr-modal #info [(clrModalOpen)]="opened" [clrModalSize]="'lg'" [clrModalClosable]="true" (click)="_onClick($event)">
+<clr-modal #modal [clrModalSize]="'lg'" [clrModalClosable]="true" (click)="_onClick($event)">
     <div class="modal-body" *ngIf="project">
         <div class="info-div images-div">
             <img *ngFor="let i of project.images" [attr.data-lazy]="i" />
@@ -24,6 +24,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline" (click)="opened=false; _close();">{{ this | getString : 'close' : 'Close' }}</button>
+        <button type="button" class="btn btn-outline" (click)="_close();">{{ this | getString : 'close' : 'Close' }}</button>
     </div>
 </clr-modal>

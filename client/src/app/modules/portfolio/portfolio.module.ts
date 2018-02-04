@@ -12,14 +12,14 @@ import {
     ProjectsAdditionalComponent
 } from './projects-additional.component';
 import {
-    ProjectsComponent
-} from './projects.component';
+    PortfolioComponent
+} from './portfolio.component';
 
 @NgModule({
     declarations: [
         ProjectInfoComponent,
         ProjectsAdditionalComponent,
-        ProjectsComponent
+        PortfolioComponent
     ],
     imports: [
         FujitecSharedModule
@@ -28,7 +28,7 @@ import {
     bootstrap: [
         ProjectInfoComponent,
         ProjectsAdditionalComponent,
-        ProjectsComponent
+        PortfolioComponent
     ],
     entryComponents: [],
     schemas: [

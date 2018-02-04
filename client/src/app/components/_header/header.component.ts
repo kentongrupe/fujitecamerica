@@ -56,8 +56,8 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
                 routerLink: AppRoute.INSTALLATION
             },
             {
-                label: this._getString('projects', 'Projects'),
-                routerLink: AppRoute.PROJECTS
+                label: this._getString('portfolio', 'Portfolio'),
+                routerLink: AppRoute.PORTFOLIO
             },
             {
                 label: this._getString('after-market-support', 'After-Market Support'),

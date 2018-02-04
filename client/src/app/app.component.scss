@@ -110,12 +110,12 @@ app {
         }
 
         .col-right {
-            display: $app-col-right-display;
-            padding: 0;
+            display : $app-col-right-display;
+            padding : 0;
+            position: relative;
 
             .systems-menu-div {
-                height    : 100%;
-                margin    : 0 auto;
+                @include abs-position(60px, 0, 0, 0);
                 text-align: center;
 
                 .nav-menu-items {
@@ -177,17 +177,140 @@ app {
     }
 
     .pro-menu-div {
-        display   : $app-pro-menu-div-display;
-        margin    : 0 auto $vgap;
-        text-align: center;
+        background-color: $grey45;
+        color           : $app-pro-menu-color;
+        display         : $app-pro-menu-div-display;
+        margin          : $vgap 0;
+        padding         : $vgap_/2 0;
+        text-align      : center;
+
+        & > div {
+            display : inline-flex;
+            margin  : 0 auto;
+            position: relative;
+
+            & > * {
+                border-left: $app-pro-menu-border;
+
+                &:last-child {
+                    border-right: $app-pro-menu-border;
+                }
+            }
+
+            .pro-menu-title {
+                @include abs-position(30px, initial, initial, -$app-pro-menu-title-width);
+                border-left: none;
+                font-size  : $app-pro-menu-title-font-size;
+                line-height: $app-pro-menu-title-line-height;
+                padding    : 0 $hgap;
+                text-align : right;
+                width      : $app-pro-menu-title-width;
+            }
+
+            .pro-menu-item {
+                background-repeat: none;
+                cursor           : pointer;
+                display          : inline-block;
+                height           : $app-pro-menu-height + 20px;
+                position         : relative;
+                width            : $app-pro-menu-width + $hgap * 3;
+
+                //
+                @mixin _bg($bg) {
+                    background: $bg $hgap*1.5 0/#{$app-pro-menu-width} #{$app-pro-menu-height} no-repeat;
+                    padding   : 0 $hgap * 1.5;
+                }
+
+                &.consulting {
+                    @include _bg($app-pro-menu-consulting-background);
+                }
+
+                &.contractors {
+                    @include _bg($app-pro-menu-contractors-background);
+                }
+
+                &.property {
+                    @include _bg($app-pro-menu-property-background);
+                }
+
+                .pro-menu-label {
+                    @include abs-position(initial, 0, 0, 0);
+                    font-size : $app-pro-menu-label-font-size;
+                    text-align: center;
+                }
+            }
+
+        }
 
         &.not-home {
-            .home-menu-div {
-                .nav-menu-item {
-                    .nav-menu-item-icon {
-                        background-size: #{$nav-menu-pro-bakground-width * .9} #{$nav-menu-pro-bakground-height * .9};
-                        height         : $nav-menu-pro-height * .9;
-                        width          : $nav-menu-pro-width * .9;
+            @include abs-position-bl($footer-height, 0);
+            display: inline-flex;
+            margin : $vgap 0 0;
+            right  : 0;
+
+            & > div {
+                border  : 0;
+                display : inline-flex;
+                margin  : 0;
+                padding : 0;
+                position: initial;
+
+                &.col-center {
+                    $app-pro-menu-height     : 86px;
+                    $app-pro-menu-item-height: 70px;
+                    $app-pro-menu-item-width : 147px;
+
+                    .pro-menu-title {
+                        @extend .text-overflow-ellipsis;
+                        bottom     : initial;
+                        border-left: $app-pro-menu-border;
+                        left       : initial;
+                        line-height: initial;
+                        padding-top: 20px;
+                        position   : relative;
+                        right      : initial;
+                        text-align : center;
+                        top        : initial;
+                        width      : 25%;
+                    }
+
+                    .pro-menu-item {
+                        border-left: $app-pro-menu-border;
+                        height     : $app-pro-menu-height;
+                        overflow   : hidden;
+                        padding    : 8px 0;
+                        width      : 25%;
+
+                        & > div {
+                            //
+                            @mixin _bg2($bg, $x:0, $pl:0px) {
+                                background : $bg $x 0/#{$app-pro-menu-item-width} $app-pro-menu-item-height no-repeat;
+                                display    : inline-block;
+                                height     : $app-pro-menu-item-height;
+                                line-height: $app-pro-menu-height;
+
+                                .pro-menu-label {
+                                    @extend .text-overflow-ellipsis;
+                                    height      : $app-pro-menu-item-height;
+                                    line-height : $app-pro-menu-item-height;
+                                    padding-left: $pl;
+                                    position    : relative;
+                                    text-align  : left;
+                                }
+                            }
+
+                            .consulting {
+                                @include _bg2($app-pro-menu-consulting-background, -35px, 85px);
+                            }
+
+                            .contractors {
+                                @include _bg2($app-pro-menu-contractors-background, -20px, 125px);
+                            }
+
+                            .property {
+                                @include _bg2($app-pro-menu-property-background, -40px, 70px);
+                            }
+                        }
                     }
                 }
             }

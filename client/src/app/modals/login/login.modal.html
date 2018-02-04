@@ -1,32 +1,19 @@
-<!-- <div md-dialog-content [class.show-reg]="_showRegForm">
-    <md-card class="login-card">
-        <h1 md-dialog-title>{{ this | getString : 'login' : 'Login' }}</h1>
-        <md-card-content>
-            <div class="error-message">
-                {{ _errorMessage }}
+<clr-modal #modal [clrModalClosable]="true" (click)="_onClick($event)">
+    <h3 class="modal-title">{{ this | getString : 'login' : 'Login' }}</h3>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label>{{ this | getString : 'username' : 'Username' }}</label>
+                <input type="text" name="username" [(ngModel)]="_username" />
             </div>
-            <md-input-container>
-                <input mdInput required placeholder="{{ this | getString : 'email-address' : 'Email Address' }}" [(ngModel)]="username">
-            </md-input-container>
-            <md-input-container>
-                <input mdInput required placeholder="{{ this | getString : 'password' : 'Password' }}" [(ngModel)]="password">
-            </md-input-container>
-            <div class="register-div">
-                <button md-button (click)="_showRegForm=true">{{ this | getString : 'register' : 'Register' }}</button>
+            <div class="form-group">
+                <label>{{ this | getString : 'password' : 'Password' }}</label>
+                <input type="password" name="password" [(ngModel)]="_password" />
             </div>
-        </md-card-content>
-        <md-card-actions>
-            <button md-button (click)="_cancel()">{{ this | getString : 'cancel' : 'Cancel' }}</button>
-            <button md-button (click)="_login()" [class.disabled]="!_canLogin">{{ this | getString : 'login' : 'Login' }}</button>
-        </md-card-actions>
-    </md-card>
-    <md-card class=" reg-card ">
-        <h1 md-dialog-title>{{ this | getString : 'register' : 'Register' }}</h1>
-        <md-card-content>
-        </md-card-content>
-        <md-card-actions>
-            <button md-button (click)="_cancelRegistration() ">{{ this | getString : 'cancel' : 'Cancel' }}</button>
-            <button md-button (click)="_register() ">{{ this | getString : 'register' : 'Register' }}</button>
-        </md-card-actions>
-    </md-card>
-</div> -->
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="_close();">{{ this | getString : 'cancel' : 'Cancel' }}</button>
+        <button type="button" class="btn btn-outline" (click)="_login();">{{ this | getString : 'login' : 'Login' }}</button>
+    </div>
+</clr-modal>

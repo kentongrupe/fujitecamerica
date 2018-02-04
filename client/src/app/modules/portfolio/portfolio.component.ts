@@ -21,10 +21,10 @@ import {
 } from 'app/services';
 
 @Component({
-    selector: 'projects',
-    templateUrl: 'projects.component.html'
+    selector: 'portfolio',
+    templateUrl: 'portfolio.component.html'
 })
-export class ProjectsComponent extends BaseProductRouteComponent implements OnInit {
+export class PortfolioComponent extends BaseProductRouteComponent implements OnInit {
 
     private _project: Project = null;
     private _projects: Project[] = [];
@@ -37,7 +37,7 @@ export class ProjectsComponent extends BaseProductRouteComponent implements OnIn
         private dataService: DataService,
         private stringService: StringService
     ) {
-        super('ProjectsComponent', domService, route, router);
+        super('PortfolioComponent', domService, route, router);
     }
 
     public ngOnInit() {
@@ -57,9 +57,5 @@ export class ProjectsComponent extends BaseProductRouteComponent implements OnIn
     }
     private _showProject(project: Project): void {
         this._project = project;
-        // this.dataService.getProject({ projectId }, (p) => {
-        //     this._project = p;
-        // });
-        // this.routerService.to(AppRoute.PROJECT, projectId);
     }
 }

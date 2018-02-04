@@ -29,20 +29,24 @@ export class LoginModal extends BaseModal {
     }
 
     constructor(
-        private authService: AuthenticationService
+        private authService: AuthenticationService,
+        private stringService: StringService,
     ) {
         super('LoginModal');
+        this._stringService = stringService;
     }
 
-    private _cancel(user: User): void {
+    protected _close(): void {
+        super._close();
+
         this.username = '';
         this.password = '';
-        // this.loginModal.close(user);
     }
+
     private _login(): void {
         if (this._canLogin) {
             this.authService.login(this.username, this.password, (user) => {
-                this._cancel(user);
+                // this._cancel(user);
             }, (e) => {
                 this._errorMessage = e;
             });

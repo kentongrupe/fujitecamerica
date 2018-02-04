@@ -1,5 +1,6 @@
 import {
-    Component
+    Component,
+    Input
 } from '@angular/core';
 import {
     BaseModal
@@ -11,14 +12,12 @@ import {
 })
 export class AlertModal extends BaseModal {
 
+    @Input()
     public message: string = '';
+    @Input()
+    public title: string = '';
 
-    constructor(
-    ) {
+    constructor() {
         super('AlertModal');
-    }
-
-    private _close(): void {
-        // this.alertModal.close();
     }
 }

@@ -3,6 +3,7 @@ import {
     ElementRef,
     OnInit,
     QueryList,
+    ViewChild,
     ViewChildren
 } from '@angular/core';
 import {
@@ -13,14 +14,20 @@ import {
     BaseNavRouteComponent
 } from 'app/core';
 import {
+    AlertModal,
+    LoginModal
+} from 'app/modals';
+import {
     AppEvent,
     AppRoute,
     MenuItem,
     NavMenuDirection,
     Testimonial,
-    TestimonialMode
+    TestimonialMode,
+    UserRole
 } from 'app/models';
 import {
+    AuthenticationService,
     DataService,
     DOMService,
     EventService,
@@ -34,21 +41,31 @@ import {
 })
 export class AppComponent extends BaseNavRouteComponent implements OnInit {
 
-    @ViewChildren('refs') private _refDivs: QueryList<ElementRef>;
+    @ViewChild('alert')
+    private _alert: AlertModal;
+    @ViewChild('login')
+    private _login: LoginModal;
+    @ViewChildren('refs')
+    private _refDivs: QueryList<ElementRef>;
 
     private _activeIndex: number = 0;
     private _activeSubIndex: number = 0;
+    private _alertMessage: string = '';
+    private _alerTitle: string = '';
     private _initComplete: boolean = false;
     private _intervalId: any = null;
     private _isHome: boolean = true;
     private _menuDirection: NavMenuDirection = NavMenuDirection.SIDE;
     private _references: Testimonial[] = [];
+    private _resources: MenuItem[] = [];
     private _submenu: MenuItem[] = [];
+
     private TestimonialMode = TestimonialMode;
 
     constructor(
         protected router: Router,
         protected routerService: RouterService,
+        private authService: AuthenticationService,
         private dataService: DataService,
         private domService: DOMService,
         private eventService: EventService,
@@ -78,6 +95,24 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
                     });
             }
         });
+
+        this._resources = [
+            {
+                label: this._getString('consulting-firms', 'Consulting Firms'),
+                icon: 'consulting',
+                routerLink: AppRoute.CONSULTANTS
+            },
+            {
+                label: this._getString('property-management-cos', 'Property Management Cos'),
+                icon: 'property',
+                routerLink: AppRoute.PROPERTY_MANAGERS
+            },
+            {
+                label: this._getString('architects-general-contractors', 'Architects & General Contractors'),
+                icon: 'contractors',
+                routerLink: AppRoute.ARCHITECTS
+            },
+        ];
     }
 
     protected _onNavigationEnd(event: NavigationEnd): void {
@@ -152,5 +187,44 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
             let idx = ((this._activeIndex === 0) ? this._references.length : this._activeIndex) - 1;
             this._references[idx].mode = 0;
         }, 1000);
+    }
+    private _showResource(resource: MenuItem): void {
+        let route = resource.routerLink;
+        let _checkUserRole = (userRole) => {
+            let isValidUser = false;
+            switch (userRole) {
+                case UserRole.ARCHITECT:
+                    isValidUser = (route === AppRoute.ARCHITECTS);
+                    break;
+                case UserRole.CONSULTANT:
+                    isValidUser = (route === AppRoute.CONSULTANTS);
+                    break;
+                case UserRole.PROPERTY_MANAGER:
+                    isValidUser = (route === AppRoute.PROPERTY_MANAGERS);
+                    break;
+                default:
+                    break;
+            }
+            return isValidUser;
+        };
+
+        let _showAlert = () => {
+            this._alerTitle = this._getString('error', 'Error');
+            this._alertMessage = this._getString('invalid-user-role-for-n', 'Invalid user role for {0}').format(route);
+            this._alert.show();
+        };
+
+        // if (this.authService.isLoggedIn) {
+        //     if (_checkUserRole(this.authService.currentUser.userRole)) {
+        //         return;
+        //     } else {
+        //         _showAlert();
+        //         return;
+        //     }
+        // }
+
+        // this._login.show();
+
+        this.routerService.to(route);
     }
 }
