@@ -16,6 +16,13 @@
                 "email": "boston@fujitecamerica.com"
             },
             {
+                "name": "boston",
+                "location": "Boston",
+                "serviceArea": "Boston Metro & Suburban Areas",
+                "phone": "781-961-7190",
+                "email": "boston@fujitecamerica.com"
+            },
+            {
                 "name": "calgary",
                 "location": "Calgary",
                 "serviceArea": "Calgary Metro & Suburban Areas",

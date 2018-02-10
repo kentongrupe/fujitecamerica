@@ -6,17 +6,14 @@ $app-min-height: $nav-menu-side-item-icon-height * 4;
 
 $app-content-display: inline-flex;
 @mixin app-content-scss() {
-    margin   : $app-margin-top auto $app-margin-bottom;
+    margin   : 0 auto;
     min-width: $col-side-width + $col-center-min-width + $col-side-width;
-    width    : 100%;
 }
 
 $app-col-left-display: block;
 $app-col-right-display: block;
 
 $app-menu-display: inline-block;
-
-$app-home-height: unset;
 
 $app-pro-menu-div-display: block;
 

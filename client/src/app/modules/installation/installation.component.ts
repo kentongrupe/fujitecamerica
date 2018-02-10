@@ -13,6 +13,7 @@ import {
 } from 'app/models';
 import {
     DOMService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -26,9 +27,10 @@ export class InstallationComponent extends BaseProductRouteComponent {
 
     constructor(
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router
     ) {
-        super('InstallationComponent', domService, route, router);
+        super('InstallationComponent', domService, eventService, route, router);
     }
 }

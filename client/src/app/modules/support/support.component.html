@@ -1,0 +1,34 @@
+<div #container class="content-div">
+    <section-header [sectionType]="SectionType.SUPPORT"></section-header>
+    <div class="content-div static-content-div">
+        <div class="section">
+            <h1>After-Market Support</h1>
+            <div class="contact-form-div">
+                <div class="form-group">
+                    <input type="text" placeholder="{{ '* ' + _getString('name', 'Name') }}" [(ngModel)]="_name" />
+                    <input type="text" placeholder="{{ '* ' + _getString('company', 'Company') }}" [(ngModel)]="_company" />
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="{{ '* ' + _getString('email', 'Email') }}" [(ngModel)]="_email" />
+                    <input type="text" placeholder="{{ '* ' + _getString('phone', 'Phone') }}" integer-input [(ngModel)]="_phone" />
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="{{ '* ' + _getString('description-text', 'Description of parts request or needs') }}" [(ngModel)]="_description"></textarea>
+                </div>
+                <div class="info-div">
+                    <i>{{ this | getString : 'required-fields' : 'Fields marked with * are requreid' }}</i>
+                </div>
+                <div class="button-div">
+                    <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <p>
+                {{ this | getString : 'or-call' : 'Or call' }}:
+                <a href="tel://18773854832">1-877-FUJITEC</a>
+            </p>
+        </div>
+    </div>
+</div>
+<scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.SUPPORT" (scrollToTop)="_scrollToTop()"></scroll-to-top>

@@ -16,10 +16,14 @@ import {
     BaseRouteComponent
 } from './BaseRouteComponent';
 import {
+    AppEvent
+} from 'app/models/AppEvent';
+import {
     AppRoute
 } from 'app/models/AppRoute';
 import {
-    DOMService
+    DOMService,
+    EventService
 } from 'app/services';
 
 declare const $;
@@ -40,9 +44,13 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
 
     protected AppRoute = AppRoute;
 
+    private _scrollThreshold: number = 100;
+    private _scrollTop: number = -1;
+
     constructor(
         className: string = 'BaseProductRouteComponent',
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router
     ) {
@@ -54,7 +62,21 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
 
         if (this._container) {
             $(this._container.nativeElement).on('scroll', (e) => {
-                this._scrolled = (e.target.scrollTop > 0);
+                let scrollTop = e.target.scrollTop;
+                let dir = (scrollTop > this._scrollTop);    // true=down, false=up
+
+                this._scrollTop = scrollTop;
+                this._scrolled = (scrollTop > 0);
+
+                if (dir) {
+                    if (scrollTop > this._scrollThreshold) {
+                        this.eventService.dispatch(AppEvent.HIDE_HEADER);
+                    }
+                } else {
+                    if (scrollTop < this._scrollThreshold) {
+                        this.eventService.dispatch(AppEvent.SHOW_HEADER);
+                    }
+                }
             });
         }
     }

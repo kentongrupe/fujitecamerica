@@ -15,6 +15,7 @@ import {
 } from 'app/models';
 import {
     DOMService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -33,9 +34,10 @@ export class AutowalksComponent extends BaseProductRouteComponent {
 
     constructor(
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router
     ) {
-        super('AutowalksComponent', domService, route, router);
+        super('AutowalksComponent', domService, eventService, route, router);
     }
 }

@@ -15,6 +15,7 @@ import {
 } from 'app/models';
 import {
     DOMService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -35,9 +36,10 @@ export class ElevatorsComponent extends BaseProductRouteComponent {
 
     constructor(
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router
     ) {
-        super('ElevatorsComponent', domService, route, router);
+        super('ElevatorsComponent', domService, eventService, route, router);
     }
 }

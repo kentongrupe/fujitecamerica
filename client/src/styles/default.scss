@@ -28,7 +28,11 @@ $footer-border-top: 3px solid $grey5;
 
 // basic text
 $font-family: 'Source Sans Pro', sans-serif;
-$font-size: 18px;
+$font-size: 24px;
+$font-weight-bold: 700;
+$font-weight-lite: 300;
+$font-weight-regular: 400;
+$line-height: 34px;
 $color: $black;
 
 // header (global navigation)
@@ -59,7 +63,9 @@ html {
     width      : 100%;
 
     p {
-        font-size: $font-size;
+        font-size  : $font-size;
+        font-weight: $font-weight-lite;
+        line-height: $line-height;
     }
 }
 
@@ -142,9 +148,11 @@ div {
 }
 
 .link {
-    color    : $black;
-    cursor   : pointer;
-    font-size: 14px;
+    color      : $black;
+    cursor     : pointer;
+    font-size  : $font-size;
+    font-weight: $font-weight-regular;
+    line-height: $line-height;
 
     * {
         cursor: pointer;
@@ -572,7 +580,7 @@ $project-info-slick-dot-active-color: #ffffff;
 
 // scroll to top
 $scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
-$scroll-to-top-height: 75px;
+$scroll-to-top-height: 100px;
 $scroll-to-top-width: 100px;
 
 // section header
@@ -724,6 +732,12 @@ $video-background-color: $black;
     ol,
     ul {
         margin-left: $hgap;
+
+        li {
+            font-size  : $font-size;
+            font-weight: $font-weight-lite;
+            line-height: $line-height;
+        }
     }
 
     .subsection {
@@ -771,7 +785,8 @@ $video-background-color: $black;
     &.ionful,
     &.modernization,
     &.projects,
-    &.service-maintenance {
+    &.service-maintenance,
+    &.support {
         background-color: $section-header-menu-background-color;
     }
 }

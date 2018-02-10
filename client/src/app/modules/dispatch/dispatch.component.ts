@@ -15,6 +15,7 @@ import {
 } from 'app/models';
 import {
     DOMService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -31,9 +32,10 @@ export class DispatchComponent extends BaseProductRouteComponent {
 
     constructor(
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router
     ) {
-        super('DispatchComponent', domService, route, router);
+        super('DispatchComponent', domService, eventService, route, router);
     }
 }

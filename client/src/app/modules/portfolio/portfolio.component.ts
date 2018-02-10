@@ -17,6 +17,7 @@ import {
 import {
     DataService,
     DOMService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -32,12 +33,13 @@ export class PortfolioComponent extends BaseProductRouteComponent implements OnI
 
     constructor(
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router,
         private dataService: DataService,
         private stringService: StringService
     ) {
-        super('PortfolioComponent', domService, route, router);
+        super('PortfolioComponent', domService, eventService, route, router);
     }
 
     public ngOnInit() {

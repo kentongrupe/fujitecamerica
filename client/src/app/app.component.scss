@@ -1,145 +1,158 @@
 app {
-    display       : flex;
-    flex-direction: column;
-    height        : 100%;
-    max-width     : $col-side-width + $col-center-max-width + $col-side-width;
-    margin        : 0 auto;
-    position      : relative;
-    top           : 0;
-    width         : 100%;
+    @include abs-position();
 
     app-header {
         @include abs-position();
-        height: $header-height;
+        transition: .5s all;
+
+        &.hide-header {
+            height: 0;
+        }
     }
 
     .app-content {
-        border-bottom: none;
-        display      : $app-content-display;
-        flex         : 1;
-        padding      : 0;
+        @include abs-position($header-height, 0, #{$app-footer-height + 110px}, 0);
         @include app-content-scss();
+        transition: .5s all;
 
-        .col-left {
-            display : $app-col-left-display;
-            overflow: hidden;
-            padding : 0;
+        .app-content-div {
+            @include abs-position-tb();
+            display: inline-flex;
+            margin : 0;
+            width  : 100%;
+            @media only screen and (max-width: $col-center-max-width) {
+                margin: 0 auto;
+                width : auto;
+            }
 
-            .references-div {
-                height  : 100%;
+            .col-left {
+                display : $app-col-left-display;
                 overflow: hidden;
-                position: relative;
-                width   : 100%;
+                padding : 0;
 
-                .reference-div {
-                    font-size : $reference-font-size;
-                    font-style: italic;
-                    height    : 100%;
-                    opacity   : 0;
-                    position  : absolute;
-                    right     : 20px;
-                    top       : 100%;
-                    transition: all 1s;
-                    width     : $reference-width;
+                .references-div {
+                    height  : 100%;
+                    overflow: hidden;
+                    position: relative;
+                    width   : 100%;
 
-                    &.current {
-                        opacity: 1;
-                        top    : 0;
-                    }
+                    .reference-div {
+                        font-size : $reference-font-size;
+                        font-style: italic;
+                        height    : 100%;
+                        opacity   : 0;
+                        position  : absolute;
+                        right     : 20px;
+                        top       : 100%;
+                        transition: all 1s;
+                        width     : $reference-width;
 
-                    &.previous {
-                        top: -100%;
-                    }
+                        &.current {
+                            opacity: 1;
+                            top    : 0;
+                        }
 
-                    .reference-content-div {
-                        position : absolute;
-                        top      : 50%;
-                        transform: translateY(-50%);
-                        width    : $reference-width;
+                        &.previous {
+                            top: -100%;
+                        }
 
-                        .reference-source {
-                            text-align: right;
+                        .reference-content-div {
+                            position : absolute;
+                            top      : 50%;
+                            transform: translateY(-50%);
+                            width    : $reference-width;
 
-                            .reference-name {
-                                @extend .bold;
+                            .reference-source {
+                                text-align: right;
+
+                                .reference-name {
+                                    @extend .bold;
+                                }
+                            }
+
+                            .reference-text {
+                                color        : $reference-color;
+                                margin-bottom: 20px;
                             }
                         }
+                    }
+                }
+            }
 
-                        .reference-text {
-                            color        : $reference-color;
-                            margin-bottom: 20px;
+            .col-center {
+                overflow: auto;
+                padding : 0;
+                position: relative;
+
+                .submenu-div {
+                    display : inline-flex;
+                    padding : $app-content-menu-padding;
+                    position: absolute;
+                    width   : 100%;
+
+                    .link {
+                        font-size: $app-content-menu-font-size;
+                        height   : $app-content-menu-height;
+                        padding  : 5px;
+                        margin   : $app-content-menu-item-margin;
+
+                        &.active {
+                            border-bottom: 2px solid $red;
+                            color        : $red;
+                        }
+                    }
+                }
+
+                & > router-outlet + * {
+                    @include abs-position();
+                    display   : inline-block;
+                    margin    : 0 auto;
+                    min-height: $app-min-height;
+                    overflow  : auto;
+                    padding   : $vgap_ $hgap_;
+                    text-align: center;
+                }
+            }
+
+            .col-right {
+                display : $app-col-right-display;
+                padding : 0;
+                position: relative;
+
+                .systems-menu-div {
+                    @include abs-position(60px, 0, 0, 0);
+                    text-align: center;
+
+                    .nav-menu-items {
+                        display: inline-grid;
+
+                        .nav-menu-item {
+                            margin: 0 0 20px;
                         }
                     }
                 }
             }
         }
 
-        .col-center {
-            overflow: hidden;
-            padding : 0;
-            position: relative;
-
-            .submenu-div {
-                display : inline-flex;
-                padding : $app-content-menu-padding;
-                position: absolute;
-                width   : 100%;
-
-                .link {
-                    font-size: $app-content-menu-font-size;
-                    height   : $app-content-menu-height;
-                    padding  : 5px;
-                    margin   : $app-content-menu-item-margin;
-
-                    &.active {
-                        border-bottom: 2px solid $red;
-                        color        : $red;
-                    }
-                }
-            }
-
-            & > router-outlet + * {
-                @include abs-position();
-                display   : inline-block;
-                margin    : 0 auto;
-                min-height: $app-min-height;
-                overflow  : auto;
-                padding   : $vgap_ $hgap_;
-                text-align: center;
-            }
-        }
-
-        .col-right {
-            display : $app-col-right-display;
-            padding : 0;
-            position: relative;
-
-            .systems-menu-div {
-                @include abs-position(60px, 0, 0, 0);
-                text-align: center;
-
-                .nav-menu-items {
-                    display: inline-grid;
-
-                    .nav-menu-item {
-                        margin: 0 0 20px;
-                    }
-                }
-            }
+        &.hide-header {
+            top: 0;
         }
 
         &.home {
+            bottom      : $app-footer-height;
             margin-left : 0;
             margin-right: 0;
             max-width   : none;
 
-            .col-center {
-                height   : $app-home-height;
-                max-width: none;
-                width    : 100%;
+            .app-content-div {
+                .col-center {
+                    height   : 100%;
+                    max-width: none;
+                    width    : 100%;
 
-                & > router-outlet + * {
-                    padding: 0;
+                    & > router-outlet + * {
+                        padding: 0;
+                    }
                 }
             }
         }
@@ -243,10 +256,9 @@ app {
         }
 
         &.not-home {
-            @include abs-position-bl($footer-height, 0);
+            @include abs-position(initial, 0, $footer-height, 0);
             display: inline-flex;
-            margin : $vgap 0 0;
-            right  : 0;
+            margin : 0;
 
             & > div {
                 border  : 0;

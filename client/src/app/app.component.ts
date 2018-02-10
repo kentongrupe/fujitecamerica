@@ -52,6 +52,7 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     private _activeSubIndex: number = 0;
     private _alertMessage: string = '';
     private _alerTitle: string = '';
+    private _hideHeader: boolean = false;
     private _initComplete: boolean = false;
     private _intervalId: any = null;
     private _isHome: boolean = true;
@@ -77,6 +78,12 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
         eventService.register(AppEvent.INIT_COMPLETE, () => {
             this._initComplete = true;
             this.routerService.to(AppRoute.HOME);
+        });
+        eventService.register(AppEvent.SHOW_HEADER, () => {
+            this._hideHeader = false;
+        });
+        eventService.register(AppEvent.HIDE_HEADER, () => {
+            this._hideHeader = true;
         });
     }
 

@@ -3,7 +3,9 @@ app-header {
     border-bottom   : $header-border;
     display         : inline-block;
     font-size       : $header-font-size;
+    height          : $header-height;
     line-height     : $header-height;
+    overflow        : hidden;
     z-index         : 1000;
 
     .header-div {

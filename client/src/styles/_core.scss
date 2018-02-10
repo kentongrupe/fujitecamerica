@@ -27,6 +27,11 @@
     position: absolute;
     right   : $right;
 }
+@mixin abs-position-tb($top:0, $bottom:0) {
+    bottom  : $bottom;
+    position: absolute;
+    top     : $top;
+}
 @mixin abs-position-tl($top:0, $left:0) {
     left    : $left;
     position: absolute;

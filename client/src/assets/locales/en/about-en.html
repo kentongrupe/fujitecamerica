@@ -1,4 +1,4 @@
-<div class="content-div">
+<div #container class="content-div">
     <div #message class="section">
         <img class="image ceo" src="/assets/img/uchiyama.jpg" width="328" height="492" />
         <h1>Message from the CEO</h1>
@@ -171,3 +171,4 @@
         </p>
     </div>
 </div>
+<scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.ABOUT" (scrollToTop)="_scrollToTop()"></scroll-to-top>

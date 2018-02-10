@@ -1,53 +1,54 @@
-<app-header></app-header>
-<div class="app-content" [class.home]="_isHome">
-    <div class="col-left" *ngIf="!_isHome">
-        <div class="app-content-header"></div>
-        <div class="references-div border-right">
-            <div #refs class="reference-div" *ngFor="let r of _references" [class.current]="r.mode===TestimonialMode.CURRENT" [class.previous]="r.mode===TestimonialMode.PREVIOUS">
-                <div class="reference-content-div">
-                    <div class="reference-text">"{{ r.text }}"</div>
-                    <div class="reference-source">
-                        <div class="reference-name">{{ r.name }}</div>
-                        <div class="reference-city-state">{{ r.city }}, {{ r.state }}</div>
+<app-header [class.hide-header]="_hideHeader"></app-header>
+<div class="app-content" [class.hide-header]="_hideHeader" [class.home]="_isHome">
+    <div class="app-content-div">
+        <div class="col-left" *ngIf="!_isHome">
+            <div class="app-content-header"></div>
+            <div class="references-div border-right">
+                <div #refs class="reference-div" *ngFor="let r of _references" [class.current]="r.mode===TestimonialMode.CURRENT" [class.previous]="r.mode===TestimonialMode.PREVIOUS">
+                    <div class="reference-content-div">
+                        <div class="reference-text">"{{ r.text }}"</div>
+                        <div class="reference-source">
+                            <div class="reference-name">{{ r.name }}</div>
+                            <div class="reference-city-state">{{ r.city }}, {{ r.state }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-center">
+            <router-outlet></router-outlet>
+            <div class="app-menu sys-menu-div" *ngIf="_isHome">
+                <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
+                <div class="home-menu-div">
+                    <sys-menu></sys-menu>
+                </div>
+            </div>
+            <div class="app-menu pro-menu-div" *ngIf="_isHome">
+                <div>
+                    <div class="pro-menu-title">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</div>
+                    <div [attr.class]="'pro-menu-item '+r.icon" *ngFor="let r of _resources" (click)="_showResource(r)">
+                        <div class="pro-menu-label">{{ r.label }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-right" *ngIf="!_isHome">
+            <div class="app-content-header border-left">
+                <div class="phone">
+                    <a href="tel://8773854832">877.385.4832</a>
+                </div>
+            </div>
+            <div class="systems-menu-div border-left">
+                <div>
+                    <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
+                    <div class="home-menu-div">
+                        <sys-menu [mode]="2" [expandChildren]="true"></sys-menu>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-center">
-        <router-outlet></router-outlet>
-        <div class="app-menu sys-menu-div" *ngIf="_isHome">
-            <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
-            <div class="home-menu-div">
-                <sys-menu></sys-menu>
-            </div>
-        </div>
-        <div class="app-menu pro-menu-div" *ngIf="_isHome">
-            <div>
-                <div class="pro-menu-title">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</div>
-                <div [attr.class]="'pro-menu-item '+r.icon" *ngFor="let r of _resources" (click)="_showResource(r)">
-                    <div class="pro-menu-label">{{ r.label }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-right" *ngIf="!_isHome">
-        <div class="app-content-header border-left">
-            <div class="phone">
-                <a href="tel://8773854832">877.385.4832</a>
-            </div>
-        </div>
-        <div class="systems-menu-div border-left">
-            <div>
-                <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
-                <div class="home-menu-div">
-                    <sys-menu [mode]="2" [expandChildren]="true"></sys-menu>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-<div class="app-content-footer" [class.home]="_isHome"></div>
 <div class="pro-menu-div not-home" *ngIf="!_isHome">
     <div class="col-left"></div>
     <div class="col-center">

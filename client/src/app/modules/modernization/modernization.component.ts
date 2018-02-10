@@ -13,6 +13,7 @@ import {
 } from 'app/models';
 import {
     DOMService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -26,9 +27,10 @@ export class ModernizationComponent extends BaseProductRouteComponent {
 
     constructor(
         protected domService: DOMService,
+        protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router
     ) {
-        super('ModernizationComponent', domService, route, router);
+        super('ModernizationComponent', domService, eventService, route, router);
     }
 }
