@@ -2,7 +2,18 @@
     <section-header [sectionType]="SectionType.SUPPORT"></section-header>
     <div class="content-div static-content-div">
         <div class="section">
-            <h1>After-Market Support</h1>
+            <h1>HOW CAN WE HELP</h1>
+            <p>
+                In an effort to improve support on Fujitec systems throughout North America, this portal is provided as a means of direct communication with our parts facility locations throughout the US and Canada.
+            </p>
+            <p>
+                If you are in need of repair parts and/or support, please fill out the contact information below, and one of our After-Market Specialists will contact you within 2 business days of your request.
+            </p>
+            <p class="italic">
+                We appreciate your correspondence and are happy to provide solutions for you!
+            </p>
+        </div>
+        <div class="section">
             <div class="contact-form-div">
                 <div class="form-group">
                     <input type="text" placeholder="{{ '* ' + _getString('name', 'Name') }}" [(ngModel)]="_name" />
@@ -15,17 +26,17 @@
                 <div class="form-group">
                     <textarea placeholder="{{ '* ' + _getString('description-text', 'Description of parts request or needs') }}" [(ngModel)]="_description"></textarea>
                 </div>
-                <div class="info-div">
-                    <i>{{ this | getString : 'required-fields' : 'Fields marked with * are requreid' }}</i>
+                <div class="info-div italic">
+                    Fields marked with * are requred
                 </div>
                 <div class="button-div">
-                    <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
+                    <div [class.disabled]="!_canSubmit" (click)="_submit()">Submit'</div>
                 </div>
             </div>
         </div>
         <div class="section">
             <p>
-                {{ this | getString : 'or-call' : 'Or call' }}:
+                Or call
                 <a href="tel://18773854832">1-877-FUJITEC</a>
             </p>
         </div>

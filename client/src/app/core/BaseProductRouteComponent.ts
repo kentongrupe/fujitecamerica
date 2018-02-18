@@ -22,6 +22,9 @@ import {
     AppRoute
 } from 'app/models/AppRoute';
 import {
+    SectionType
+} from 'app/models/SectionType';
+import {
     DOMService,
     EventService
 } from 'app/services';
@@ -43,6 +46,7 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
     protected _scrolled: boolean = false;
 
     protected AppRoute = AppRoute;
+    protected SectionType = SectionType;
 
     private _scrollThreshold: number = 100;
     private _scrollTop: number = -1;

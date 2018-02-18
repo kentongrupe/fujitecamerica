@@ -47,10 +47,7 @@ export class AppRoute {
             path: AppRoute.INSTALLATION
         },
         {
-            path: AppRoute.PORTFOLIO,
-            children: [
-                { path: AppRoute.PORTFOLIO_ADDITIONAL }
-            ]
+            path: AppRoute.PORTFOLIO
         },
         {
             path: AppRoute.SUPPORT

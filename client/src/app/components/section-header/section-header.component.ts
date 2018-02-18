@@ -71,7 +71,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                         routerLink: AppRoute.DISPATCH_FLEXNX
                     },
                     {
-                        label: this._getString('ezshuttle', 'EZShuttle'),
+                        label: this._getString('destination-dispatching', 'Destination Dispatching'),
                         routerLink: AppRoute.DISPATCH_EZSHUTTLE
                     }
                 ];
@@ -128,14 +128,14 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
             case SectionType.MODERNIZATION:
                 this._menuLabel = this._getString('modernization', 'Modernization');
                 break;
-            case SectionType.PROJECTS:
-                this._menuLabel = this._getString('projects', 'Projects');
-                this._menu = [
-                    {
-                        label: this._getString('view-additional-projects', 'View additional projects'),
-                        routerLink: AppRoute.PORTFOLIO_ADDITIONAL
-                    }
-                ];
+            case SectionType.PORTFOLIO:
+                this._menuLabel = this._getString('portfolio', 'Portfolio');
+                // this._menu = [
+                //     {
+                //         label: this._getString('view-additional-projects', 'View additional projects'),
+                //         routerLink: AppRoute.PORTFOLIO_ADDITIONAL
+                //     }
+                // ];
                 break;
             case SectionType.SERVICE_MAINTENANCE:
                 this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');

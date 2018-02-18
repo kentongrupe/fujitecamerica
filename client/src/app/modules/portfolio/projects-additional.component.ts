@@ -7,8 +7,7 @@ import {
 } from 'app/core';
 import {
     AppRoute,
-    Project,
-    SectionType
+    Project
 } from 'app/models';
 import {
     DataService,
@@ -23,7 +22,6 @@ export class ProjectsAdditionalComponent extends BaseComponent implements OnInit
 
     private _project: Project = null;
     private _projects: Project[] = [];
-    private SectionType = SectionType;
 
     constructor(
         private dataService: DataService,
@@ -35,14 +33,14 @@ export class ProjectsAdditionalComponent extends BaseComponent implements OnInit
     public ngOnInit() {
         super.ngOnInit();
 
-        this.dataService.getProjects({
-            additional: true,
-            locale: StringService.locale
-        }, (d) => {
-            this._projects = d.projects.map((p) => {
-                return new Project(p);
-            });
-        });
+        // this.dataService.getProjects({
+        //     additional: true,
+        //     locale: StringService.locale
+        // }, (d) => {
+        //     this._projects = d.projects.map((p) => {
+        //         return new Project(p);
+        //     });
+        // });
     }
 
     private _onClose(): void {

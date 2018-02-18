@@ -8,6 +8,7 @@ scroll-to-top {
         background-size: $scroll-to-top-width $scroll-to-top-height;
         cursor         : pointer;
         height         : $scroll-to-top-height;
+        margin         : $scroll-to-top-margin;
         width          : $scroll-to-top-width;
     }
 }

@@ -10,9 +10,6 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    SectionType
-} from 'app/models';
-import {
     DOMService,
     EventService,
     StringService
@@ -23,8 +20,6 @@ import {
     templateUrl: '/assets/locales/{0}/service-maintenance-{0}.html'.format(StringService.locale)
 })
 export class ServiceMaintenanceComponent extends BaseProductRouteComponent {
-
-    private SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

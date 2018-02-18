@@ -11,8 +11,7 @@ import {
 } from 'app/core';
 import {
     AppRoute,
-    Project,
-    SectionType
+    Project
 } from 'app/models';
 import {
     DataService,
@@ -29,7 +28,6 @@ export class PortfolioComponent extends BaseProductRouteComponent implements OnI
 
     private _project: Project = null;
     private _projects: Project[] = [];
-    private SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,
@@ -45,10 +43,8 @@ export class PortfolioComponent extends BaseProductRouteComponent implements OnI
     public ngOnInit() {
         super.ngOnInit();
 
-        this.dataService.getProjects({
-            locale: StringService.locale
-        }, (d) => {
-            this._projects = d.projects.map((p) => {
+        this.dataService.getProjects((d) => {
+            this._projects = d.projects[StringService.locale].map((p) => {
                 return new Project(p);
             });
         });

@@ -1,5 +1,6 @@
 export * from './AppEvent';
 export * from './AppRoute';
+export * from './Leadership';
 export * from './Location';
 export * from './Media';
 export * from './MediaType';

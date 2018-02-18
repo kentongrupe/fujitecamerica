@@ -14,6 +14,11 @@ about {
         text-align: initial;
         width     : 100%;
 
+        &.about,
+        &.message {
+            background: $about-text-background-color;
+        }
+
         .image {
             float : left;
             margin: 0 80px $vgap 0;

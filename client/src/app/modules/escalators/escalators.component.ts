@@ -11,9 +11,6 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    SectionType
-} from 'app/models';
-import {
     DOMService,
     EventService,
     StringService
@@ -29,8 +26,6 @@ export class EscalatorsComponent extends BaseProductRouteComponent {
     @ViewChild('typef') public typef: ElementRef;
     @ViewChild('typep') public typep: ElementRef;
     @ViewChild('types') public types: ElementRef;
-
-    private SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

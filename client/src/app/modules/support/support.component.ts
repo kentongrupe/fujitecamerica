@@ -14,7 +14,7 @@ import {
 
 @Component({
     selector: 'support',
-    templateUrl: 'support.component.html'
+    templateUrl: '/assets/locales/{0}/support-{0}.html'.format(StringService.locale)
 })
 export class SupportComponent extends BaseComponent implements DoCheck {
 

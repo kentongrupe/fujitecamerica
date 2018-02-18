@@ -1,5 +1,6 @@
+@include section-image( 'service-maintenance', '.current', $service-maintenance-current-image-content);
 @include section-image( 'service-maintenance', '.why', $service-maintenance-why-image-content);
-@include section-image( 'service-maintenance', '.lowest', $service-maintenance-lowest-image-content);
+@include section-image( 'service-maintenance', '.routes', $service-maintenance-routes-image-content);
 
 service-maintenance {
     ol {

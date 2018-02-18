@@ -29,7 +29,8 @@ app-footer {
                     }
 
                     .link {
-                        color: $footer-color;
+                        color    : $footer-color;
+                        font-size: $footer-font-size;
                     }
 
                     &:after {

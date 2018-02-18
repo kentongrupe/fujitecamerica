@@ -1,6 +1,6 @@
 support {
     .contact-form-div {
-        margin   : 0 auto;
+        margin   : $vgap auto 0;
         max-width: $contact-form-max-width;
 
         .form-group {

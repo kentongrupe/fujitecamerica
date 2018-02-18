@@ -255,6 +255,7 @@ $app-mobile-menu-height-400: 130px;
 
 // about
 $about-background: url('../../assets/img/about_bg.jpg') no-repeat;
+$about-text-background-color: rgba(255,255,255,0.7);
 
 // autowalks
 $autowalks-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
@@ -299,9 +300,9 @@ $elevators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product
 $elevators-breakdown-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
 $elevators-ionful-section-image-content: url('../../assets/img/ionful.jpg');
 $elevators-monitoring-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$elevators-system-geared-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-system-geared-image-content: url('../../assets/img/geared.jpg');
 $elevators-system-gearless-image-content: url('../../assets/img/gearless_2.jpg');
-$elevators-system-hydraulic-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-system-hydraulic-image-content: url('../../assets/img/hydro.jpg');
 $elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
 
 //  pmgl
@@ -580,8 +581,9 @@ $project-info-slick-dot-active-color: #ffffff;
 
 // scroll to top
 $scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
-$scroll-to-top-height: 100px;
-$scroll-to-top-width: 100px;
+$scroll-to-top-height: 70px;
+$scroll-to-top-margin: 0 10px 0 0;
+$scroll-to-top-width: 70px;
 
 // section header
 $section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
@@ -592,7 +594,7 @@ $section-header-bg-installation: url('/assets/img/installationtab.jpg');
 $section-header-bg-ionful: url('/assets/img/ionful.jpg');
 $section-header-bg-modernization: url('/assets/img/dougmodernization.jpg');
 $section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
-$section-header-bg-projects: url('/assets/img/projectstab.jpg');
+$section-header-bg-portfolio: url('/assets/img/projectstab.jpg');
 $section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
 $section-header-bg-support: url('/assets/img/aftermarket_support.jpg');
 
@@ -614,8 +616,9 @@ $section-header-menu-items-font-size: 20px;
 $section-header-menu-item-border: 1px solid $section-header-menu-color;
 
 // service & maintenance
+$service-maintenance-current-image-content: url('../../assets/img/maintenancerepairguy.jpg');
 $service-maintenance-why-image-content: url('../../assets/img/maintenancerepairguy.jpg');
-$service-maintenance-lowest-image-content: url('../../assets/img/maintenancerepairguy.jpg');
+$service-maintenance-routes-image-content: url('../../assets/img/maintenancerepairguy.jpg');
 
 // site-map
 $site-map-links-border: $border;
@@ -743,14 +746,6 @@ $video-background-color: $black;
     .subsection {
         margin: $vgap_ 0 $vgap_ $hgap;
     }
-
-    &.summary {
-        p {
-            font-size  : 40px;
-            font-weight: 300;
-            line-height: 40px;
-        }
-    }
 }
 
 .section-header {
@@ -784,7 +779,7 @@ $video-background-color: $black;
     &.installation,
     &.ionful,
     &.modernization,
-    &.projects,
+    &.portfolio,
     &.service-maintenance,
     &.support {
         background-color: $section-header-menu-background-color;

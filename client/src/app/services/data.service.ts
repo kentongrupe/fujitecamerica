@@ -54,6 +54,9 @@ export class DataService extends BaseService {
     public getHtml(url: string, onSuccess: Function = null, onError: Function = null): void {
         this._get(url, onSuccess, onError);
     }
+    public getLeaderships(onSuccess: Function = null, onError: Function = null): void {
+        this._get('data/leaderships/leaderships.json', onSuccess, onError);
+    }
     public getLocations(onSuccess: Function = null, onError: Function = null): void {
         this._get('data/locations/locations.json', onSuccess, onError);
     }
@@ -74,7 +77,7 @@ export class DataService extends BaseService {
         }
         onSuccess(this._projects.get(id));
     }
-    public getProjects(params: any, onSuccess: Function = null, onError: Function = null): void {
+    public getProjects(onSuccess: Function = null, onError: Function = null): void {
         this._get('data/projects/projects.json', onSuccess, onError);
     }
     public getSlides(onSuccess: Function = null, onError: Function = null): void {

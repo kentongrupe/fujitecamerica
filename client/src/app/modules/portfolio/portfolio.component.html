@@ -1,5 +1,5 @@
 <div #container class="content-div">
-    <section-header [sectionType]="SectionType.PROJECTS"></section-header>
+    <section-header [sectionType]="SectionType.PORTFOLIO"></section-header>
     <div class="projects-div" *ngFor="let p of _projects">
         <h1>{{ p.name }}</h1>
         <div class="projects" *ngFor="let p_ of p.projects">
@@ -12,6 +12,6 @@
         </div>
     </div>
 </div>
-<scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.PROJECTS" (scrollToTop)="_scrollToTop()"></scroll-to-top>
+<scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.PORTFOLIO" (scrollToTop)="_scrollToTop()"></scroll-to-top>
 
 <project-info-modal [project]="_project" (close)="_onClose()"></project-info-modal>

@@ -11,9 +11,6 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    SectionType
-} from 'app/models';
-import {
     DOMService,
     EventService,
     StringService
@@ -31,8 +28,6 @@ export class ElevatorsComponent extends BaseProductRouteComponent {
     @ViewChild('ionful') public ionful: ElementRef;
     @ViewChild('monitoring') public monitoring: ElementRef;
     @ViewChild('mrl') public mrl: ElementRef;
-
-    private SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

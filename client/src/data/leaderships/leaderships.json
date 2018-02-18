@@ -1,0 +1,71 @@
+{
+    "leaderships": {
+        "en": [
+            {
+                "id": "katsuji_okuda",
+                "name": "Katsuji Okuda",
+                "title": "President",
+                "profiles": [
+                    "With over 35 years of leadership experience between Fujitec America and Fujitec Canada, Katsuji Okuda organizes and oversees the management of operations, engineering, manufacturing, sales and marketing and service across the United States and Canada.",
+                    "Before continuing his career in America, Mr. Okuda was the General Manager of Field Business Operations for Fujitec in Japan, where he graduated from Hyogo Prefectural Sumoto Industrial Senior High School."
+                ]
+            },
+            {
+                "id": "joseph_rennekamp",
+                "name": "Joseph Rennekamp",
+                "title": "Vice President",
+                "profiles": [
+                    "Joseph Rennekamp started his career with Fujitec in 1992 and manages the day-to-day business operations, production, engineering and quality assurance. Joe holds a bachelor’s in Engineering from the University of Kentucky and a bachelor’s in Physics and MBA from Northern Kentucky University. He is an alternate member of ASME A17.1 Electrical Committee and ASME A17.5/B44.1."
+                ]
+            },
+            {
+                "id": "ray_gibson",
+                "name": "Ray Gibson",
+                "title": "CFO and Treasurer",
+                "profiles": [
+                    "Ray Gibson is responsible for the financial management and consolidated reporting of activity to Fujitec Global. Mr. Gibson has an ASA in Business Administration, BSBA in Accounting from the University of Cincinnati and a MBA from Indiana Wesleyan University."
+                ]
+            },
+            {
+                "id": "darryl_mitchell",
+                "name": "Darryl Mitchell",
+                "title": "Chief Legal Officer & Corporate Secretary",
+                "profiles": [
+                    "Darryl Mitchell joined Fujitec America in 2012 and serves as the CLO and Corporate Secretary. Mr. Mitchell earned his BA in Computer Science from Columbia University and his JD from the University Of Cincinnati College Of Law."
+                ]
+            },
+            {
+                "id": "joseph_smith",
+                "name": "Joseph Smith",
+                "title": "New York Regional Vice President",
+                "profiles": [
+                    "Joseph Smith joined Fujitec in 2011 and currently manages the New York Regional operations. Mr. Smith served four years in United States Marine Corp and earned his MBA (Magna Cum Laude) and bachelor’s degree with National Honors (Alpha Phi Sigma) in Criminal Justice from Caldwell College."
+                ]
+            },
+            {
+                "id": "gary_krupp",
+                "name": "Gary Krupp",
+                "title": "Southern & Western Regional Vice President",
+                "profiles": [
+                    "Gary Krupp has over 25 years in the elevator industry and began his career with Fujitec in 2002. Mr. Krupp graduated from the University of Florida with a bachelor’s in Business Administration/Marketing and manages the southern and western regional operations."
+                ]
+            },
+            {
+                "id": "tom_horan",
+                "name": "Tom Horan",
+                "title": "North Eastern Regional Vice President",
+                "profiles": [
+                    "Tom Horan began his career with Fujitec in 1995 and has nearly 50 years in the elevator industry. Mr. Horan manages Fujitec operations in the north eastern region of the United States and is a graduate of New Haven College."
+                ]
+            },
+            {
+                "id": "sam_patel",
+                "name": "Sam Patel",
+                "title": "North American Modernization Operations (NAMO) Vice President",
+                "profiles": [
+                    "Sam Patel started with Fujitec in 1985, and with over 40 years in the elevator industry, Sam heads up the North American Modernization Operations (NAMO). Mr. Patel also serves as an instructor for the National Elevator Industry Education Program (N.E.I.E.P.) and holds certifications as a Q.E.I. elevator inspector thru NAESA and TDLR."
+                ]
+            }
+        ]
+    }
+}

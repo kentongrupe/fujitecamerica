@@ -11,9 +11,6 @@ import {
     BaseProductRouteComponent
 } from 'app/core';
 import {
-    SectionType
-} from 'app/models';
-import {
     DOMService,
     EventService,
     StringService
@@ -27,8 +24,6 @@ export class DispatchComponent extends BaseProductRouteComponent {
 
     @ViewChild('ezshuttle') public ezshuttle: ElementRef;
     @ViewChild('flexnx') public flexnx: ElementRef;
-
-    private SectionType = SectionType;
 
     constructor(
         protected domService: DOMService,

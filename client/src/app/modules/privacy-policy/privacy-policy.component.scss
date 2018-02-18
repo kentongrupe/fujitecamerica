@@ -1,1 +1,13 @@
-// privacy-policy {}
+privacy-policy {
+    * {
+        text-align: left;
+    }
+
+    ul {
+        list-style: initial;
+
+        &.address {
+            li {}
+        }
+    }
+}
