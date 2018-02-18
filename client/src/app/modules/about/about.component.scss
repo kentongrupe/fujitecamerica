@@ -10,14 +10,10 @@ about {
     }
 
     .section {
+        background: $about-text-background-color;
         padding   : $vgap_ $hgap_;
         text-align: initial;
         width     : 100%;
-
-        &.about,
-        &.message {
-            background: $about-text-background-color;
-        }
 
         .image {
             float : left;
@@ -29,31 +25,31 @@ about {
             }
         }
 
-        p {
-            line-height: 26px;
-        }
-
         &.leadership-div {
             display       : flex;
             flex-direction: column;
 
             .leadership {
-                display: inline-block;
-                margin : 0 auto;
+                display: inline-flex;
+                margin : 0 auto $vgap;
                 width  : 770px;
 
-                .name-title {
-                    @extend .bold;
-                    display   : inline-grid;
-                    margin-top: 0;
+                .info-div {
+                    flex: 1;
 
-                    span {
-                        &:first-child {
-                            font-size: 24px;
-                        }
+                    .name-title {
+                        @extend .bold;
+                        display   : inline-grid;
+                        margin-top: 0;
 
-                        &:last-child {
-                            font-size: 17px;
+                        span {
+                            &:first-child {
+                                font-size: 24px;
+                            }
+
+                            &:last-child {
+                                font-size: 17px;
+                            }
                         }
                     }
                 }

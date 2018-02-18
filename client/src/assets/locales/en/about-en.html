@@ -1,5 +1,5 @@
 <div #container class="content-div">
-    <div #message class="section message">
+    <div #message class="section">
         <img class="image ceo" src="/assets/img/uchiyama.jpg" width="328" height="492" />
         <h1>Message from the CEO</h1>
         <p class="profile">
@@ -21,7 +21,7 @@
         </p>
     </div>
     <div class="hrule"></div>
-    <div #about class="section about">
+    <div #about class="section">
         <h1>North America</h1>
         <p>
             Fujitec America consists of 16 locations earning maintenance, modernization and installation contracts through unparalleled service of all major systems, value-added maintenance and superior technical knowledge. Our ability to identify, evaluate and manage expectations allows for a proactive method of management which keeps systems running longer with minimal downtime and out-of-pocket expenses.
@@ -62,11 +62,13 @@
         </div>
         <div class="leadership" *ngFor="let l of _leaderships">
             <img class="image" [src]="l.thumbUrl" width="205" height="290" />
-            <p class="name-title">
-                <span>{{ l.name }}</span>
-                <span>{{ l.title }}</span>
-            </p>
-            <p class="profile" *ngFor="let p of l.profiles">{{ p }}</p>
+            <div class="info-div">
+                <p class="name-title">
+                    <span>{{ l.name }}</span>
+                    <span>{{ l.title }}</span>
+                </p>
+                <p class="profile" *ngFor="let p of l.profiles">{{ p }}</p>
+            </div>
         </div>
     </div>
     <div class="hrule"></div>
