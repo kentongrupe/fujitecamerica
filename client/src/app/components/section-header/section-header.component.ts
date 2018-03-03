@@ -46,6 +46,19 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         this._background = SectionType[this.sectionType].toClassName();
 
         switch (this.sectionType) {
+            case SectionType.ABOUT:
+                this._menuLabel = this._getString('about', 'About');
+                this._menu = [
+                    {
+                        label: this._getString('deo-message', 'CEO Message'),
+                        routerLink: AppRoute.ABOUT_CEO
+                    },
+                    {
+                        label: this._getString('leadership', 'Leadership'),
+                        routerLink: AppRoute.ABOUT_LEADERSHIP
+                    }
+                ];
+                break;
             case SectionType.AUTOWALKS:
                 this._menuLabel = this._getString('autowalks', 'Autowalks: GS8100');
                 this._menu = [

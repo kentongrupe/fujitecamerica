@@ -13,6 +13,10 @@ section-header {
             max-height         : $seciton-header-bg-max-height;
             width              : 100%;
 
+            &.about {
+                background-image: $section-header-bg-about;
+            }
+
             &.autowalks {
                 background-image: $section-header-bg-autowalks;
             }

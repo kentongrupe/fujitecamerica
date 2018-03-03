@@ -255,6 +255,7 @@ $app-mobile-menu-height-400: 130px;
 
 // about
 $about-background: url('../../assets/img/about_bg.jpg') no-repeat;
+$about-background2: url('../../assets/img/about_2_bg.jpg') no-repeat;
 $about-text-background-color: rgba(255,255,255,0.7);
 
 // autowalks
@@ -324,7 +325,7 @@ $pmgl-fm450-background: url('../../assets/img/fm_450.png');
 $escalators-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
 
 $escalators-typef-section-image-content: url('../../assets/img/escalator_4.jpg');
-$escalators-typep-section-image-content: url('../../assets/img/escalator_4.jpg');
+$escalators-typep-section-image-content: url('../../assets/img/type_p_escalator.jpg');
 $escalators-types-section-image-content: url('../../assets/img/escalator_1.jpg');
 
 // footer
@@ -586,6 +587,7 @@ $scroll-to-top-margin: 0 10px 0 0;
 $scroll-to-top-width: 70px;
 
 // section header
+$section-header-bg-about: url('/assets/img/about_main.jpg');
 $section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
 $section-header-bg-dispatch: url('/assets/img/controldispatchtab.jpg');
 $section-header-bg-elevators: url('/assets/img/elevator.jpg');
@@ -776,6 +778,7 @@ $video-background-color: $black;
         background-color: $section-header-menu-escalators-background-color;
     }
 
+    &.about,
     &.installation,
     &.ionful,
     &.modernization,

@@ -1,5 +1,6 @@
 export enum SectionType {
     UNKNOWN,
+    ABOUT,
     AUTOWALKS,
     DISPATCH,
     ELEVATORS,

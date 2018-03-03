@@ -1,38 +1,122 @@
 about {
-    ol,
-    p {
-        margin: $vgap_ 0;
-    }
+    .about-div {
+        .section {
+            margin-top: 0;
+        }
 
-    .content-div {
-        background     : $about-background;
-        background-size: cover;
-    }
+        .mission-vision-div {
+            border    : $border;
+            display   : flex;
+            margin    : 0 $hgap;
+            text-align: center;
 
-    .section {
-        background: $about-text-background-color;
-        padding   : $vgap_ $hgap_;
-        text-align: initial;
-        width     : 100%;
+            & > div {
+                flex   : 1;
+                margin : 0;
+                padding: $vgap $hgap;
 
-        .image {
-            float : left;
-            margin: 0 80px $vgap 0;
+                &:first-of-type {
+                    border-right: $border;
+                }
 
-            &.ceo {
-                float : right;
-                margin: 0 0 $vgap $hgap;
+                & > h1 {
+                    & > span {
+                        border-bottom: $border;
+                    }
+                }
             }
         }
 
-        &.leadership-div {
+        .north-america {
+            background-color: $grey1;
+            max-width       : initial;
+
+            h1 {
+                background-color: $grey3;
+                margin          : 0;
+                padding         : $vgap_ 0;
+            }
+
+            p {
+                margin-left : $hgap;
+                margin-right: $hgap;
+
+                &:last-of-type {
+                    margin-bottom: $vgap;
+                }
+            }
+        }
+
+        .achievements {
+            background     : $about-background2;
+            background-size: cover;
+            max-width      : initial;
+            padding        : 90px;
+
+            .achievements-div {
+                background-color: rgba(255,255,255,0.5);
+
+                h1 {
+                    background-color: $white;
+                    padding         : $vgap_ 0;
+                }
+
+                p {
+                    background-color: $grey1;
+                    padding         : $vgap_ $hgap;
+                }
+            }
+        }
+
+        .operations {
+            max-width: initial;
+
+            h1 {
+                background-color: $grey3;
+                margin          : 0;
+                padding         : $vgap_ 0;
+            }
+
+            p {
+                padding: 0 $hgap;
+            }
+
+            .big {
+                background-color: $grey1;
+                margin-top      : $vgap;
+                padding         : $vgap_ $hgap;
+            }
+
+            .operations-footer {
+                background-color: $grey3;
+
+                p {
+                    margin : 0;
+                    padding: $vgap_ $hgap;
+                }
+            }
+        }
+
+        .leadership {
             display       : flex;
             flex-direction: column;
+            max-width     : $max-width;
 
-            .leadership {
-                display: inline-flex;
-                margin : 0 auto $vgap;
-                width  : 770px;
+            & > div {
+                display: flex;
+                margin : $vgap_ auto;
+
+                // img {
+                //     margin: 0 80px $vgap 0;
+                //     width : 205px;
+                // }
+
+                .image {
+                    background-color: grey;
+                    height          : 290px;
+                    margin          : 0 80px $vgap 0;
+                    width           : 205px;
+                }
 
                 .info-div {
                     flex: 1;
@@ -52,6 +136,25 @@ about {
                             }
                         }
                     }
+                }
+            }
+        }
+
+        .ceo {
+            background     : $about-background;
+            background-size: cover;
+            max-width      : initial;
+            padding        : $vgap $hgap;
+            text-align     : initial;
+
+            .ceo-div {
+                background: $about-text-background-color;
+                margin    : 0 auto;
+                max-width : $max-width;
+                padding   : $vgap_ $hgap_;
+
+                img {
+                    float: right;
                 }
             }
         }

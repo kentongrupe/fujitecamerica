@@ -1,5 +1,7 @@
 export class AppRoute {
     public static ABOUT: string = '/about';
+    public static ABOUT_CEO: string = '/about/ceo';
+    public static ABOUT_LEADERSHIP: string = '/about/leadership';
     public static ARCHITECTS: string = '/architects';
     public static AUTOWALKS: string = '/autowalks';
     public static AUTOWALKS_TYPE_F: string = '/autowalks/typef';
