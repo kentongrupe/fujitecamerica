@@ -77,9 +77,7 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
                         this.eventService.dispatch(AppEvent.HIDE_HEADER);
                     }
                 } else {
-                    if (scrollTop < this._scrollThreshold) {
-                        this.eventService.dispatch(AppEvent.SHOW_HEADER);
-                    }
+                    this.eventService.dispatch(AppEvent.SHOW_HEADER);
                 }
             });
         }

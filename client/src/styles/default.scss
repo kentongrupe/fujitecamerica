@@ -397,6 +397,13 @@ $home-slides-transition-duration: 1s;
 // locations
 $locations-background: url('../../assets/img/locations_bg.jpg') no-repeat;
 $locations-map-background: url('../../assets/img/locations-map.png') no-repeat;
+$locations-map-max-height: 750px;
+$locations-map-max-width: 860px;
+
+$locations-map-marker-height: 30px;
+$locations-map-marker-width: 30px;
+
+$locations-list-width: 320px;
 
 $locations-item-border: 1px solid $white;
 $locations-item-color: $white;
@@ -529,7 +536,7 @@ $project-info-padding: 20px;
 $project-info-title-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 0;
 $project-info-title-border: 1px solid $white;
 $project-info-title-margin: 0 0 15px 0;
-$project-info-title-padding: 0 0 15px 15px;
+$project-info-title-padding: 0 0 15px 0;
 
 $project-info-description-line-height: 24.5px;
 $project-info-description-margin: 0 0 15px 0;

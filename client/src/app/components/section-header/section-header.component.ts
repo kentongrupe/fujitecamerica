@@ -151,7 +151,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 // ];
                 break;
             case SectionType.SERVICE_MAINTENANCE:
-                this._menuLabel = this._getString('service-maintenance', 'Service & Maintenance');
+                this._menuLabel = this._getString('service-maintenance', 'Maintenance');
                 break;
             case SectionType.SUPPORT:
                 this._menuLabel = this._getString('after-market-support', 'After-Market Support');

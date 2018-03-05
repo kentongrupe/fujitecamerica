@@ -20,10 +20,6 @@ app {
             display: inline-flex;
             margin : 0;
             width  : 100%;
-            @media only screen and (max-width: $col-center-max-width) {
-                margin: 0 auto;
-                width : auto;
-            }
 
             .col-left {
                 display : $app-col-left-display;
@@ -109,8 +105,24 @@ app {
                     margin    : 0 auto;
                     min-height: $app-min-height;
                     overflow  : auto;
-                    padding   : $vgap_ $hgap_;
+                    padding   : 0;
                     text-align: center;
+
+                    & > .content-div {
+                        position: relative;
+
+                        & > section-header {
+                            left      : $col-side-width;
+                            position  : fixed;
+                            right     : $col-side-width + 15px;
+                            top       : $header-height;
+                            transition: .5s all;
+
+                            & + div {
+                                padding-top: $seciton-header-bg-max-height + $vgap;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -121,13 +133,22 @@ app {
 
                 .systems-menu-div {
                     @include abs-position(60px, 0, 0, 0);
-                    text-align: center;
+                    display       : flex;
+                    flex-direction: column;
+                    text-align    : center;
 
-                    .nav-menu-items {
-                        display: inline-grid;
+                    div {
+                        &:first-of-type,
+                        &:last-of-type {
+                            flex: 1;
+                        }
 
-                        .nav-menu-item {
-                            margin: 0 0 20px;
+                        .nav-menu-items {
+                            display: inline-grid;
+
+                            .nav-menu-item {
+                                margin: 0 0 20px;
+                            }
                         }
                     }
                 }
@@ -136,6 +157,18 @@ app {
 
         &.hide-header {
             top: 0;
+
+            .app-content-div {
+                .col-center {
+                    & > router-outlet + * {
+                        .content-div {
+                            section-header {
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         &.home {

@@ -44,7 +44,7 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
 
         this._mainMenu = [
             {
-                label: this._getString('service-and-maintenance', 'Service & Maintenance'),
+                label: this._getString('maintenance', ' Maintenance'),
                 routerLink: AppRoute.SERVICE_MAINTENANCE
             },
             {

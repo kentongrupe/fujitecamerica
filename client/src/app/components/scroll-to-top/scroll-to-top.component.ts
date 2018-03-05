@@ -8,6 +8,10 @@ import {
     BaseComponent
 } from 'app/core';
 import {
+    AppEvent
+} from 'app/models/AppEvent';
+import {
+    EventService,
     RouterService
 } from 'app/services';
 
@@ -23,6 +27,7 @@ export class ScrollToTopComponent extends BaseComponent {
     public scrollToTop: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(
+        private eventService: EventService,
         private routerService: RouterService
     ) {
         super('ScrollToTopComponent');
@@ -34,5 +39,6 @@ export class ScrollToTopComponent extends BaseComponent {
                 this.scrollToTop.emit(this.topRoute);
             }
         }
+        this.eventService.dispatch(AppEvent.SHOW_HEADER);
     }
 }

@@ -1,6 +1,25 @@
 <div class="content-div">
     <div class="locations-div">
         <div class="map-div">
+            <div #map class="map-content-div">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" [attr.width]="_width" [attr.height]="_height" [attr.viewBox]="_viewBox">
+                    <image overflow="visible" width="860" height="750" xlink:href="/assets/img/locations-map.png"></image>
+                    <circle id="vancouver" fill="#f000" cx="83.5" cy="246.75" r="15" (click)="_onClick($event)" />
+                    <circle id="seattle" fill="#f000" cx="68.5" cy="312" r="15" (click)="_onClick($event)" />
+                    <circle id="calgary" fill="#f000" cx="284.25" cy="255.25" r="15" (click)="_onClick($event)" />
+                    <circle id="la" fill="#f000" cx="73" cy="541.75" r="15" (click)="_onClick($event)" />
+                    <circle id="ftworth" fill="#f000" cx="405" cy="609.75" r="15" (click)="_onClick($event)" />
+                    <circle id="dallas" fill="#f000" cx="435" cy="611" r="15" (click)="_onClick($event)" />
+                    <circle id="houston" fill="#f000" cx="446.5" cy="665.25" r="15" (click)="_onClick($event)" />
+                    <circle id="orlangotampa" fill="#f000" cx="702.5" cy="647" r="15" (click)="_onClick($event)" />
+                    <circle id="atlanta" fill="#f000" cx="630.25" cy="559.5" r="15" (click)="_onClick($event)" />
+                    <circle id="tronto" fill="#f000" cx="641.75" cy="342.5" r="15" (click)="_onClick($event)" />
+                    <circle id="chicago" fill="#f000" cx="529.25" cy="414.25" r="15" (click)="_onClick($event)" />
+                    <circle id="columbus" fill="#f000" cx="623" cy="427.75" r="15" (click)="_onClick($event)" />
+                    <circle id="cincinnati" fill="#f000" cx="608" cy="456.5" r="15" (click)="_onClick($event)" />
+                    <circle id="boston" fill="#f000" cx="771.336" cy="340.167" r="15" (click)="_onClick($event)" />
+                </svg>
+            </div>
         </div>
         <div class="list-div">
             <div *ngFor="let l of _locations" (click)="_showLocation(l)">{{ l.location }}</div>
