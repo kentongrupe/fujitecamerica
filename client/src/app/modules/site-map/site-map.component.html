@@ -1,18 +1,22 @@
-<div class="site-map-div">
-    <div class="content-div">
-        <h1>{{ this | getString : 'sitemap' : 'Sitemap' }}</h1>
-        <div class="site-map-links" *ngFor="let l0 of _siteMap">
-            <div class="site-map-link" (click)="_onClick(l0)">{{ l0.label }}</div>
-            <div class="links site-map-1" *ngIf="l0.children.length>0">
-                <div class="link" *ngFor="let l1 of l0.children">
-                    <span (click)="_onClick(l1)">{{ l1.label }}</span>
-                    <div class="links site-map-2" *ngIf="l1.children.length>0">
-                        <div class="link" *ngFor="let l2 of l1.children">
-                            <span (click)="_onClick(l2)">{{ l2.label }}</span>
+<div class="content-div">
+    <div class="site-map-div">
+        <div class="col-left"></div>
+        <div class="col-center">
+            <h1>{{ this | getString : 'sitemap' : 'Sitemap' }}</h1>
+            <div class="site-map-links" *ngFor="let l0 of _siteMap">
+                <div class="site-map-link" (click)="_onClick(l0)">{{ l0.label }}</div>
+                <div class="links site-map-1" *ngIf="l0.children.length>0">
+                    <div class="link" *ngFor="let l1 of l0.children">
+                        <span (click)="_onClick(l1)">{{ l1.label }}</span>
+                        <div class="links site-map-2" *ngIf="l1.children.length>0">
+                            <div class="link" *ngFor="let l2 of l1.children">
+                                <span (click)="_onClick(l2)">{{ l2.label }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-right"></div>
     </div>
 </div>

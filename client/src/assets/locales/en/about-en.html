@@ -1,138 +1,141 @@
 <div #container class="content-div">
-    <section-header [sectionType]="SectionType.ABOUT"></section-header>
     <div class="about-div">
-        <div class="mission-vision-div">
-            <div class="section summary">
-                <h1>
-                    <span>
-                        MISSION
-                    </span>
-                </h1>
-                <p>
-                    Enhance customer value through the delivery and support of high quality solutions with honesty and accountability.
-                </p>
-            </div>
-            <div class="section summary">
-                <h1>
-                    <span>
-                        VISION
-                    </span>
-                </h1>
-                <p>
-                    Embrace the imagination to innovate and inspire how we move people toward the future of new technologies.
-                </p>
-            </div>
-        </div>
-        <div class="hrule"></div>
-        <div class="section summary north-america">
-            <h1>
-                NORTH AMERICA
-            </h1>
-            <p>
-                Fujitec America consists of 16 locations earning maintenance, modernization and installation contracts through unparalleled service of all major systems, value-added maintenance and superior technical knowledge. Our ability to identify, evaluate and manage expectations allows for a proactive method of management which keeps systems running longer with minimal downtime and out-of-pocket expenses.
-            </p>
-            <p>
-                North America services more than 11,000 units alone and we attribute much of our growth to a service-driven strategy that aims to sustain an industry-low number of units per mechanic. This approach allows us to perform increased preventative maintenance visits, effectively decreasing billable service calls over the life of the contract.
-            </p>
-        </div>
-        <div class="hrule"></div>
-        <div class="section achievements">
-            <div class="achievements-div">
-                <h1>
-                    ACHIEVEMENTS
-                </h1>
-                <p>
-                    Developed world’s first elevator group supervisory control system using a fuzzy logic computer in 1988
-                </p>
-                <p>
-                    Developed world’s first elevator group supervisory control system that incorporates AI from a neuro-computer in 1995
-                </p>
-                <p>
-                    Successfully performed the world’s first demonstration test of a linear driven elevator in 1995
-                </p>
-                <p>
-                    World’s first Plasmacluster air purification system IONFUL is developed for elevators in 2003
-                </p>
-                <p>
-                    Developed one of the world’s largest passenger elevators with an estimated capacity at 9 tons or approx 120 passengers
-                </p>
-            </div>
-        </div>
-        <div class="hrule"></div>
-        <div class="section summary operations">
-            <h1>
-                HISTORY &amp; GLOBAL OPERATIONS
-            </h1>
-            <p>
-                Shotaro Uchiyama founded Fuji Transportation Engineering and Manufacturing Co., Ltd in Osaka City, Japan in 1948. Specializing in the manufacturing and installation of elevators, Fuji Transportation opened their Tokyo operations in 1956 and eventually became the first Japanese elevator company to expand into Hong Kong in 1964. The following year added an operations facility in Osaka, and after continued expansion throughout the decade, Fuji Transportation officially changed their name to Fujitec Co., Ltd in 1974 and entered the American market in 1977.
-            </p>
-            <p>
-                After substantial growth in the 80’s and 90’s, we entered the 21st century focusing resources on the construction and improvement of research and development facilities and manufacturing locations across the globe. These base locations are considered to be the heartbeat of the company and are dedicated to Fujitec’s continued procurement of product safety and development:
-            </p>
-            <div class="big">
-                <ul class="list-style-none">
-                    <li>
-                        Big Wing – elevator (557 ft./170 m research tower)
-                    </li>
-                    <li>
-                        Big Step – escalator/auto-walk
-                    </li>
-                    <li>
-                        Big Fit – aftermarket product and service support
-                    </li>
-                </ul>
-            </div>
-            <div class="operations-footer">
-                <p>
-                    Fujitec’s global headquarters moved to Tokyo in 2008 and operates 10 global production facilities in Japan, China, South Korea, Taiwan, the United States and India that service 25 countries and regions worldwide.
-                </p>
-            </div>
-        </div>
-        <div class="hrule"></div>
-        <div #leadership class="section leadership">
-            <h1>
-                North American Leadership
-            </h1>
-            <div *ngFor="let l of _leaderships">
-                <!-- <img [src]="l.thumbUrl" width="205" height="290" /> -->
-                <div class="image"></div>
-                <div class="info-div">
-                    <p class="name-title">
-                        <span>{{ l.name }}</span>
-                        <span>{{ l.title }}</span>
+        <div class="col-left"></div>
+        <div class="col-center">
+            <div class="mission-vision-div">
+                <div class="section summary">
+                    <h1>
+                        <span>
+                            MISSION
+                        </span>
+                    </h1>
+                    <p>
+                        Enhance customer value through the delivery and support of high quality solutions with honesty and accountability.
                     </p>
-                    <p class="profile" *ngFor="let p of l.profiles">{{ p }}</p>
+                </div>
+                <div class="section summary">
+                    <h1>
+                        <span>
+                            VISION
+                        </span>
+                    </h1>
+                    <p>
+                        Embrace the imagination to innovate and inspire how we move people toward the future of new technologies.
+                    </p>
+                </div>
+            </div>
+            <div class="hrule"></div>
+            <div class="section summary north-america">
+                <h1>
+                    NORTH AMERICA
+                </h1>
+                <p>
+                    Fujitec America consists of 16 locations earning maintenance, modernization and installation contracts through unparalleled service of all major systems, value-added maintenance and superior technical knowledge. Our ability to identify, evaluate and manage expectations allows for a proactive method of management which keeps systems running longer with minimal downtime and out-of-pocket expenses.
+                </p>
+                <p>
+                    North America services more than 11,000 units alone and we attribute much of our growth to a service-driven strategy that aims to sustain an industry-low number of units per mechanic. This approach allows us to perform increased preventative maintenance visits, effectively decreasing billable service calls over the life of the contract.
+                </p>
+            </div>
+            <div class="hrule"></div>
+            <div class="section achievements">
+                <div class="achievements-div">
+                    <h1>
+                        ACHIEVEMENTS
+                    </h1>
+                    <p>
+                        Developed world’s first elevator group supervisory control system using a fuzzy logic computer in 1988
+                    </p>
+                    <p>
+                        Developed world’s first elevator group supervisory control system that incorporates AI from a neuro-computer in 1995
+                    </p>
+                    <p>
+                        Successfully performed the world’s first demonstration test of a linear driven elevator in 1995
+                    </p>
+                    <p>
+                        World’s first Plasmacluster air purification system IONFUL is developed for elevators in 2003
+                    </p>
+                    <p>
+                        Developed one of the world’s largest passenger elevators with an estimated capacity at 9 tons or approx 120 passengers
+                    </p>
+                </div>
+            </div>
+            <div class="hrule"></div>
+            <div class="section summary operations">
+                <h1>
+                    HISTORY &amp; GLOBAL OPERATIONS
+                </h1>
+                <p>
+                    Shotaro Uchiyama founded Fuji Transportation Engineering and Manufacturing Co., Ltd in Osaka City, Japan in 1948. Specializing in the manufacturing and installation of elevators, Fuji Transportation opened their Tokyo operations in 1956 and eventually became the first Japanese elevator company to expand into Hong Kong in 1964. The following year added an operations facility in Osaka, and after continued expansion throughout the decade, Fuji Transportation officially changed their name to Fujitec Co., Ltd in 1974 and entered the American market in 1977.
+                </p>
+                <p>
+                    After substantial growth in the 80’s and 90’s, we entered the 21st century focusing resources on the construction and improvement of research and development facilities and manufacturing locations across the globe. These base locations are considered to be the heartbeat of the company and are dedicated to Fujitec’s continued procurement of product safety and development:
+                </p>
+                <div class="big">
+                    <ul class="list-style-none">
+                        <li>
+                            Big Wing – elevator (557 ft./170 m research tower)
+                        </li>
+                        <li>
+                            Big Step – escalator/auto-walk
+                        </li>
+                        <li>
+                            Big Fit – aftermarket product and service support
+                        </li>
+                    </ul>
+                </div>
+                <div class="operations-footer">
+                    <p>
+                        Fujitec’s global headquarters moved to Tokyo in 2008 and operates 10 global production facilities in Japan, China, South Korea, Taiwan, the United States and India that service 25 countries and regions worldwide.
+                    </p>
+                </div>
+            </div>
+            <div class="hrule"></div>
+            <div #leadership class="section leadership">
+                <h1>
+                    North American Leadership
+                </h1>
+                <div *ngFor="let l of _leaderships">
+                    <!-- <img [src]="l.thumbUrl" width="205" height="290" /> -->
+                    <div class="image"></div>
+                    <div class="info-div">
+                        <p class="name-title">
+                            <span>{{ l.name }}</span>
+                            <span>{{ l.title }}</span>
+                        </p>
+                        <p class="profile" *ngFor="let p of l.profiles">{{ p }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hrule"></div>
+            <div #ceo class="section ceo">
+                <div class="ceo-div">
+                    <img src="/assets/img/uchiyama.jpg" width="328" height="492" />
+                    <h1>
+                        Message from the CEO
+                    </h1>
+                    <p class="profile">
+                        Elevators and escalators are indispensable parts of urban life that support smooth and effortless movement. Through daily research and development, we are committed to further improving your safety, quality and comfort.
+                    </p>
+                    <p class="profile">
+                        System development in the not-too distant future may have functions beyond our imagination. Just as space travel was once thought to be inconceivable or fantasy-like; our persistent efforts in research and development over the years are making the unthinkable a reality. If we dream of big solutions for advancing these systems, we will achieve new methods in innovative transportation.
+                    </p>
+                    <p class="profile">
+                        We have pursued the unknown and nurtured our dreams as "seeds of the future.” By nurturing these “seeds”, Fujitec has created the future of moving systems once thought to be far-reaching. In doing so, we are opening the door to a new era.
+                    </p>
+                    <p class="profile">
+                        Fujitec Co., Ltd.
+                        <br>President &amp; Chief Executive Officer
+                        <br>
+                        <b>
+                            <i>
+                                Takakazu Uchiyama
+                            </i>
+                        </b>
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="hrule"></div>
-        <div #ceo class="section ceo">
-            <div class="ceo-div">
-                <img src="/assets/img/uchiyama.jpg" width="328" height="492" />
-                <h1>
-                    Message from the CEO
-                </h1>
-                <p class="profile">
-                    Elevators and escalators are indispensable parts of urban life that support smooth and effortless movement. Through daily research and development, we are committed to further improving your safety, quality and comfort.
-                </p>
-                <p class="profile">
-                    System development in the not-too distant future may have functions beyond our imagination. Just as space travel was once thought to be inconceivable or fantasy-like; our persistent efforts in research and development over the years are making the unthinkable a reality. If we dream of big solutions for advancing these systems, we will achieve new methods in innovative transportation.
-                </p>
-                <p class="profile">
-                    We have pursued the unknown and nurtured our dreams as "seeds of the future.” By nurturing these “seeds”, Fujitec has created the future of moving systems once thought to be far-reaching. In doing so, we are opening the door to a new era.
-                </p>
-                <p class="profile">
-                    Fujitec Co., Ltd.
-                    <br>President &amp; Chief Executive Officer
-                    <br>
-                    <b>
-                        <i>
-                            Takakazu Uchiyama
-                        </i>
-                    </b>
-                </p>
-            </div>
-        </div>
+        <div class="col-right"></div>
     </div>
 </div>
 <scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.ABOUT" (scrollToTop)="_scrollToTop()"></scroll-to-top>

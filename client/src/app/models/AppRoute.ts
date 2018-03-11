@@ -32,6 +32,7 @@ export class AppRoute {
     public static PORTFOLIO: string = '/portfolio';
     public static PORTFOLIO_ADDITIONAL: string = '/portfolio/additional';
     public static PROPERTY_MANAGERS: string = '/property-managers';
+    public static RECOMMENDATIONS: string = '/recommendations';
     public static SEARCH: string = '/search';
     public static SERVICE_MAINTENANCE: string = '/service-maintenance';
     public static SITE_MAP: string = '/site-map';

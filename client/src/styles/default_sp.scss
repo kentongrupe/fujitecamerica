@@ -50,7 +50,8 @@ $header-min-width: unset;
 $header-padding-top: 5px;
 $header-padding: $header-padding-top 0 0 0;
 
-$header-logo-background: $header-logo-background-url no-repeat left 10px center/95px 25px;
+$header-logo-backround-width: 95px;
+$header-logo-background: $header-logo-background-url no-repeat left 10px center/$header-logo-backround-width 25px;
 $header-logo-margin: 10px 0 0 10px;
 
 $header-menu-border: none;
@@ -73,6 +74,9 @@ $menu-hover-color: $white;
 $nav-menu-display: inline-grid;
 $nav-menu-item-margin: 0 0 20px;
 $nav-menu-side-display: none;
+
+// section header
+$section-header-logo-background: $section-header-logo-background-url no-repeat right 20px center/$header-logo-backround-width 36px;
 
 // site map
 $site-map-margin: 0 10px;

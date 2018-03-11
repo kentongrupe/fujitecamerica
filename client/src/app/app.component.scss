@@ -1,421 +1,119 @@
 app {
     @include abs-position();
 
-    app-header {
+    .app-div {
         @include abs-position();
-        transition: .5s all;
+        background-color         : $grey1;
 
-        &.hide-header {
-            height: 0;
+        app-header {
+            @include abs-position();
+            // transition: .5s all;
         }
-    }
 
-    .app-content {
-        @include abs-position($header-height, 0, #{$app-footer-height + 110px}, 0);
-        @include app-content-scss();
-        transition: .5s all;
+        $app-pro-menu-height     : 86px;
+        $app-pro-menu-item-height: 70px;
+        $app-pro-menu-item-width : 147px;
 
-        .app-content-div {
-            @include abs-position-tb();
-            display: inline-flex;
-            margin : 0;
-            width  : 100%;
+        .app-content {
+            @include abs-position($header-height, 0, #{$app-footer-height + $app-pro-menu-height + $vgap_}, 0);
+            @include app-content-scss();
 
-            .col-left {
-                display : $app-col-left-display;
-                overflow: hidden;
-                padding : 0;
+            & > section-header {
+                & + router-outlet + * {
+                    & > .content-div {
+                        padding-bottom: $vgap;
+                        padding-top   : $section-header-height + $vgap;
 
-                .references-div {
-                    height  : 100%;
-                    overflow: hidden;
-                    position: relative;
-                    width   : 100%;
-
-                    .reference-div {
-                        font-size : $reference-font-size;
-                        font-style: italic;
-                        height    : 100%;
-                        opacity   : 0;
-                        position  : absolute;
-                        right     : 20px;
-                        top       : 100%;
-                        transition: all 1s;
-                        width     : $reference-width;
-
-                        &.current {
-                            opacity: 1;
-                            top    : 0;
+                        .section-header {
+                            margin-top: $vgap;
+                            padding   : 0 $hgap;
+                            width     : 100%;
                         }
+                    }
+                }
 
-                        &.previous {
-                            top: -100%;
-                        }
-
-                        .reference-content-div {
-                            position : absolute;
-                            top      : 50%;
-                            transform: translateY(-50%);
-                            width    : $reference-width;
-
-                            .reference-source {
-                                text-align: right;
-
-                                .reference-name {
-                                    @extend .bold;
-                                }
-                            }
-
-                            .reference-text {
-                                color        : $reference-color;
-                                margin-bottom: 20px;
-                            }
+                &.hidden {
+                    & + router-outlet + * {
+                        & > .content-div {
+                            padding-top: $vgap;
                         }
                     }
                 }
             }
+        }
+
+        .pro-menu-div {
+            @include abs-position(initial, 0, $app-footer-height, 0);
+            background-color: $grey45;
+            color           : $app-pro-menu-color;
+            display         : inline-flex;
+            margin          : 0;
+            padding         : $vgap_/2 0;
+            text-align      : center;
 
             .col-center {
-                overflow: auto;
-                padding : 0;
-                position: relative;
-
-                .submenu-div {
-                    display : inline-flex;
-                    padding : $app-content-menu-padding;
-                    position: absolute;
-                    width   : 100%;
-
-                    .link {
-                        font-size: $app-content-menu-font-size;
-                        height   : $app-content-menu-height;
-                        padding  : 5px;
-                        margin   : $app-content-menu-item-margin;
-
-                        &.active {
-                            border-bottom: 2px solid $red;
-                            color        : $red;
-                        }
-                    }
-                }
-
-                & > router-outlet + * {
-                    @include abs-position();
-                    display   : inline-block;
-                    margin    : 0 auto;
-                    min-height: $app-min-height;
-                    overflow  : auto;
-                    padding   : 0;
-                    text-align: center;
-
-                    & > .content-div {
-                        position: relative;
-
-                        & > section-header {
-                            left      : $col-side-width;
-                            position  : fixed;
-                            right     : $col-side-width + 15px;
-                            top       : $header-height;
-                            transition: .5s all;
-
-                            & + div {
-                                padding-top: $seciton-header-bg-max-height + $vgap;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .col-right {
-                display : $app-col-right-display;
-                padding : 0;
-                position: relative;
-
-                .systems-menu-div {
-                    @include abs-position(60px, 0, 0, 0);
-                    display       : flex;
-                    flex-direction: column;
-                    text-align    : center;
-
-                    div {
-                        &:first-of-type,
-                        &:last-of-type {
-                            flex: 1;
-                        }
-
-                        .nav-menu-items {
-                            display: inline-grid;
-
-                            .nav-menu-item {
-                                margin: 0 0 20px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &.hide-header {
-            top: 0;
-
-            .app-content-div {
-                .col-center {
-                    & > router-outlet + * {
-                        .content-div {
-                            section-header {
-                                top: 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &.home {
-            bottom      : $app-footer-height;
-            margin-left : 0;
-            margin-right: 0;
-            max-width   : none;
-
-            .app-content-div {
-                .col-center {
-                    height   : 100%;
-                    max-width: none;
-                    width    : 100%;
-
-                    & > router-outlet + * {
-                        padding: 0;
-                    }
-                }
-            }
-        }
-    }
-
-    .app-content-header {
-        display: flex;
-        width  : 100%;
-    }
-
-    .menu-header {
-        color    : $app-menu-header-color;
-        display  : inline-block;
-        font-size: $app-menu-header-font-size;
-        margin   : $vgap_ 0;
-    }
-
-    .app-menu {
-        display   : $app-menu-display;
-        position  : absolute;
-        text-align: center;
-        width     : 100%;
-
-        & > div {
-            margin: 0 auto;
-        }
-
-        &.sys-menu-div {
-            top: 440px;
-        }
-
-        &.pro-menu-div {
-            top: 660px;
-        }
-    }
-
-    .pro-menu-div {
-        background-color: $grey45;
-        color           : $app-pro-menu-color;
-        display         : $app-pro-menu-div-display;
-        margin          : $vgap 0;
-        padding         : $vgap_/2 0;
-        text-align      : center;
-
-        & > div {
-            display : inline-flex;
-            margin  : 0 auto;
-            position: relative;
-
-            & > * {
-                border-left: $app-pro-menu-border;
-
-                &:last-child {
-                    border-right: $app-pro-menu-border;
-                }
-            }
-
-            .pro-menu-title {
-                @include abs-position(30px, initial, initial, -$app-pro-menu-title-width);
-                border-left: none;
-                font-size  : $app-pro-menu-title-font-size;
-                line-height: $app-pro-menu-title-line-height;
-                padding    : 0 $hgap;
-                text-align : right;
-                width      : $app-pro-menu-title-width;
-            }
-
-            .pro-menu-item {
-                background-repeat: none;
-                cursor           : pointer;
-                display          : inline-block;
-                height           : $app-pro-menu-height + 20px;
-                position         : relative;
-                width            : $app-pro-menu-width + $hgap * 3;
-
-                //
-                @mixin _bg($bg) {
-                    background: $bg $hgap*1.5 0/#{$app-pro-menu-width} #{$app-pro-menu-height} no-repeat;
-                    padding   : 0 $hgap * 1.5;
-                }
-
-                &.consulting {
-                    @include _bg($app-pro-menu-consulting-background);
-                }
-
-                &.contractors {
-                    @include _bg($app-pro-menu-contractors-background);
-                }
-
-                &.property {
-                    @include _bg($app-pro-menu-property-background);
-                }
-
-                .pro-menu-label {
-                    @include abs-position(initial, 0, 0, 0);
-                    font-size : $app-pro-menu-label-font-size;
-                    text-align: center;
-                }
-            }
-
-        }
-
-        &.not-home {
-            @include abs-position(initial, 0, $footer-height, 0);
-            display: inline-flex;
-            margin : 0;
-
-            & > div {
-                border  : 0;
-                display : inline-flex;
-                margin  : 0;
-                padding : 0;
-                position: initial;
-
-                &.col-center {
-                    $app-pro-menu-height     : 86px;
-                    $app-pro-menu-item-height: 70px;
-                    $app-pro-menu-item-width : 147px;
-
-                    .pro-menu-title {
-                        @extend .text-overflow-ellipsis;
-                        bottom     : initial;
-                        border-left: $app-pro-menu-border;
-                        left       : initial;
-                        line-height: initial;
-                        padding-top: 20px;
-                        position   : relative;
-                        right      : initial;
-                        text-align : center;
-                        top        : initial;
-                        width      : 25%;
-                    }
-
-                    .pro-menu-item {
-                        border-left: $app-pro-menu-border;
-                        height     : $app-pro-menu-height;
-                        overflow   : hidden;
-                        padding    : 8px 0;
-                        width      : 25%;
-
-                        & > div {
-                            //
-                            @mixin _bg2($bg, $x:0, $pl:0px) {
-                                background : $bg $x 0/#{$app-pro-menu-item-width} $app-pro-menu-item-height no-repeat;
-                                display    : inline-block;
-                                height     : $app-pro-menu-item-height;
-                                line-height: $app-pro-menu-height;
-
-                                .pro-menu-label {
-                                    @extend .text-overflow-ellipsis;
-                                    height      : $app-pro-menu-item-height;
-                                    line-height : $app-pro-menu-item-height;
-                                    padding-left: $pl;
-                                    position    : relative;
-                                    text-align  : left;
-                                }
-                            }
-
-                            .consulting {
-                                @include _bg2($app-pro-menu-consulting-background, -35px, 85px);
-                            }
-
-                            .contractors {
-                                @include _bg2($app-pro-menu-contractors-background, -20px, 125px);
-                            }
-
-                            .property {
-                                @include _bg2($app-pro-menu-property-background, -40px, 70px);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .mobile-menu-div {
-        @include abs-position(unset, 0, 130px, 0);
-        display: $app-mobile-menu-display;
-        height : $app-mobile-menu-height;
-
-        pro-menu,
-        sys-menu {
-            display: flex;
-
-            & > div {
-                margin: 0 auto;
-            }
-
-            .nav-menu-items.mode-mobile {
+                border : 0;
                 display: inline-flex;
-                margin : 0 auto;
+
+                .pro-menu-title {
+                    @extend .text-overflow-ellipsis;
+                    border-left: $app-pro-menu-border;
+                    line-height: $app-pro-menu-height;
+                    text-align : center;
+                    width      : 25%;
+                }
+
+                .pro-menu-item {
+                    border-left: $app-pro-menu-border;
+                    cursor     : pointer;
+                    height     : $app-pro-menu-height;
+                    overflow   : hidden;
+                    padding    : 8px 0;
+                    width      : 25%;
+
+                    &:last-of-type {
+                        border-right: $app-pro-menu-border;
+                    }
+
+                    & > div {
+                        //
+                        @mixin _bg2($bg, $x:0, $pl:0px) {
+                            background : $bg $x 0/#{$app-pro-menu-item-width} $app-pro-menu-item-height no-repeat;
+                            display    : inline-block;
+                            height     : $app-pro-menu-item-height;
+                            line-height: $app-pro-menu-item-height;
+
+                            .pro-menu-label {
+                                @include abs-position(initial, 0, 0, 0);
+                                @extend .text-overflow-ellipsis;
+                                font-size   : $app-pro-menu-label-font-size;
+                                height      : $app-pro-menu-item-height;
+                                line-height : $app-pro-menu-item-height;
+                                padding-left: $pl;
+                                position    : relative;
+                                text-align  : left;
+                            }
+                        }
+
+                        &.consulting {
+                            @include _bg2($app-pro-menu-consulting-background, -35px, 100px);
+                        }
+
+                        &.contractors {
+                            @include _bg2($app-pro-menu-contractors-background, -20px, 125px);
+                        }
+
+                        &.property {
+                            @include _bg2($app-pro-menu-property-background, -40px, 70px);
+                        }
+                    }
+                }
             }
         }
 
-        pro-menu {
-            .nav-menu-items.mode-mobile {
-                margin: -10px auto;
-            }
-        }
-        @media only screen and (max-width: 700px) {
-            height: $app-mobile-menu-height-700;
-        }
-        @media only screen and (max-width: 600px) {
-            height: $app-mobile-menu-height-600;
-        }
-        @media only screen and (max-width: 500px) {
-            height: $app-mobile-menu-height-500;
-        }
-        @media only screen and (max-width: 400px) {
-            height: $app-mobile-menu-height-400;
-        }
-    }
-
-    app-footer {
-        @include abs-position(unset, 0, 0, 0);
-        height: $app-footer-height;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top     : 30%;
-        z-index : 1000;
-
-        &.pro-menu {
-            right: 0;
-        }
-
-        &.sys-menu {
-            left: 0;
+        app-footer {
+            @include abs-position(initial, 0, 0, 0);
+            height: $app-footer-height;
         }
     }
 }

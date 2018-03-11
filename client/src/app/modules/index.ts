@@ -16,6 +16,7 @@ export * from './privacy-policy';
 export * from './project';
 export * from './portfolio';
 export * from './property-managers';
+export * from './recommendations';
 export * from './service-maintenance';
 export * from './site-map';
 export * from './site-policy';

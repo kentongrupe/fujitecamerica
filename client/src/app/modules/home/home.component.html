@@ -17,3 +17,31 @@
     </div>
     <div class="slides-bg-div" [style.height.px]="_slideHeight" [style.width.px]="_slideWidth"></div>
 </div>
+<div class="home-sys-menu-div content-div">
+    <div>
+        <div class="col-left"></div>
+        <div class="col-center">
+            <div class="sys-menu-div">
+                <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
+                <div class="home-menu-div">
+                    <sys-menu></sys-menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-right"></div>
+    </div>
+</div>
+<div class="home-pro-menu-div content-div">
+    <div>
+        <div class="col-left"></div>
+        <div class="col-center">
+            <div class="pro-menu-title">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</div>
+            <div class="pro-menu-item" *ngFor="let r of _resources">
+                <div [attr.class]="r.icon" (click)="_showResource(r)">
+                    <div class="pro-menu-label">{{ r.label }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-right"></div>
+    </div>
+</div>

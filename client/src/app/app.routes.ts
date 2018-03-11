@@ -17,6 +17,7 @@ import {
     PortfolioComponent,
     ProjectsAdditionalComponent,
     SupportComponent,
+    RecommendationsComponent,
 
     AboutComponent,
     LocationsComponent,
@@ -57,6 +58,7 @@ export const ROUTES: Routes = [
     { path: 'privacy-policy', component: PrivacyPolicyComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'portfolio', component: PortfolioComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'portfolio/additional', component: ProjectsAdditionalComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
+    { path: 'recommendations', component: RecommendationsComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'service-maintenance', component: ServiceMaintenanceComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'service-maintenance/:product', component: ServiceMaintenanceComponent, canActivate: [RouterService], canActivateChild: [RouterService] },
     { path: 'site-map', component: SiteMapComponent, canActivate: [RouterService], canActivateChild: [RouterService] },

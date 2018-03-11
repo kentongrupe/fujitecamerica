@@ -16,6 +16,7 @@ import {
     IFrameComponent
 } from 'app/components';
 import {
+    AppEvent,
     AppRoute,
     Media,
     MediaType,
@@ -23,6 +24,7 @@ import {
 } from 'app/models';
 import {
     DataService,
+    EventService,
     RouterService,
     StringService
 } from 'app/services';
@@ -41,6 +43,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
 
     private _intervalId: any = null;
     private _mediaType = MediaType;
+    private _resources: MenuItem[] = [];
     private _slideItems: Media[] = [];
     private _slideHeight: number = this._SLIDE_HEIGHT;
     private _slideWidth: number = this._SLIDE_WIDTH;
@@ -63,6 +66,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         protected router: Router,
         protected routerService: RouterService,
         private dataService: DataService,
+        private eventService: EventService,
         private stringService: StringService
     ) {
         super('HomeComponent', router, routerService);
@@ -70,6 +74,8 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     }
 
     public ngOnInit() {
+        this.eventService.dispatch(AppEvent.SECTION_HEADER_VISIBLE, false);
+
         this.dataService.getSlides((d) => {
             this._slideItems = d.slides.reverse().map((s) => {
                 return new Media(s);
@@ -81,9 +87,30 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
                     this._startTimer();
                 });
         });
+
+        this._resources = [
+            {
+                label: this._getString('consulting-firms', 'Consulting Firms'),
+                icon: 'consulting',
+                routerLink: AppRoute.CONSULTANTS
+            },
+            {
+                label: this._getString('property-management-cos', 'Property Management Cos'),
+                icon: 'property',
+                routerLink: AppRoute.PROPERTY_MANAGERS
+            },
+            {
+                label: this._getString('architects-general-contractors', 'Architects & General Contractors'),
+                icon: 'contractors',
+                routerLink: AppRoute.ARCHITECTS
+            },
+        ];
     }
     private _onResize(event: UIEvent): void {
         this._updateSlidesSize();
+    }
+    private _showResource(resource: MenuItem): void {
+        this.eventService.dispatch(AppEvent.SHOW_RESOURCE, resource);
     }
     private _startTimer(): void {
         if (this._slideItems.length > 1) {

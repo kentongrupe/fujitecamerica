@@ -1,52 +1,55 @@
 <div #container class="content-div">
-    <section-header [sectionType]="SectionType.INSTALLATION"></section-header>
-    <div class="content-div static-content-div">
-        <div class="section">
-            <h1>
-                Fujitec New Installation
-            </h1>
-            <p>
-                Fujitec’s New Installation (NI) is segmented into teams within individual markets. The result is a locally focused group of installation and project management specialists backed by national and global resources for support. Our success revolves around Fujitec’s core commitment to providing specialized customer solutions crafted with safety, quality, reliability and comfort.
-            </p>
+    <div class="static-content-div">
+        <div class="col-left"></div>
+        <div class="col-center">
+            <div class="section">
+                <h1>
+                    Fujitec New Installation
+                </h1>
+                <p>
+                    Fujitec’s New Installation (NI) is segmented into teams within individual markets. The result is a locally focused group of installation and project management specialists backed by national and global resources for support. Our success revolves around Fujitec’s core commitment to providing specialized customer solutions crafted with safety, quality, reliability and comfort.
+                </p>
+            </div>
+            <div class="section">
+                <h1>
+                    What can you expect
+                </h1>
+                <ul>
+                    <li>
+                        Ensure desired results are consistent with specified products
+                    </li>
+                    <li>
+                        Flexible scheduling to allow for “other trade” or unforeseen delays
+                    </li>
+                    <li>
+                        Continual management of customer expectations before, during and after project lifecycle
+                    </li>
+                    <li>
+                        Ability to react and adjust when architects or design teams create change
+                    </li>
+                </ul>
+            </div>
+            <div class="section">
+                <h1>
+                    How we operate
+                </h1>
+                <ul>
+                    <li>
+                        Materials ordered per the building’s schedule - continuously managed/refined by NI
+                    </li>
+                    <li>
+                        NI manages each project with “one week goals” and “two week look aheads” to resolve issues and monitor progress
+                    </li>
+                    <li>
+                        Our sense of urgency is reviewed daily to overcome field and project issues
+                    </li>
+                    <li>
+                        Dedicated “Construction Maintenance” teams perform PM prior to turnover
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="section">
-            <h1>
-                What can you expect
-            </h1>
-            <ul>
-                <li>
-                    Ensure desired results are consistent with specified products
-                </li>
-                <li>
-                    Flexible scheduling to allow for “other trade” or unforeseen delays
-                </li>
-                <li>
-                    Continual management of customer expectations before, during and after project lifecycle
-                </li>
-                <li>
-                    Ability to react and adjust when architects or design teams create change
-                </li>
-            </ul>
-        </div>
-        <div class="section">
-            <h1>
-                How we operate
-            </h1>
-            <ul>
-                <li>
-                    Materials ordered per the building’s schedule - continuously managed/refined by NI
-                </li>
-                <li>
-                    NI manages each project with “one week goals” and “two week look aheads” to resolve issues and monitor progress
-                </li>
-                <li>
-                    Our sense of urgency is reviewed daily to overcome field and project issues
-                </li>
-                <li>
-                    Dedicated “Construction Maintenance” teams perform PM prior to turnover
-                </li>
-            </ul>
-        </div>
+        <div class="col-right"></div>
     </div>
 </div>
 <scroll-to-top *ngIf="_scrolled" [topRoute]="AppRoute.INSTALLATION" (scrollToTop)="_scrollToTop()"></scroll-to-top>

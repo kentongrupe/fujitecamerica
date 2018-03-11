@@ -3,20 +3,26 @@ import {
     DoCheck
 } from '@angular/core';
 import {
-    BaseComponent
+    ActivatedRoute,
+    Router
+} from '@angular/router';
+import {
+    BaseProductRouteComponent
 } from 'app/core';
 import {
     SectionType
 } from 'app/models';
 import {
-    StringService
+    DOMService,
+    EventService,
+    StringService,
 } from 'app/services';
 
 @Component({
     selector: 'support',
     templateUrl: '/assets/locales/{0}/support-{0}.html'.format(StringService.locale)
 })
-export class SupportComponent extends BaseComponent implements DoCheck {
+export class SupportComponent extends BaseProductRouteComponent implements DoCheck {
 
     private _canSubmit: boolean = false;
     private _company: string = '';
@@ -29,9 +35,13 @@ export class SupportComponent extends BaseComponent implements DoCheck {
     private SectionType = SectionType;
 
     constructor(
+        protected domService: DOMService,
+        protected eventService: EventService,
+        protected route: ActivatedRoute,
+        protected router: Router,
         private stringService: StringService
     ) {
-        super('SupportComponent');
+        super('SupportComponent', domService, eventService, route, router);
         this._stringService = stringService;
     }
 

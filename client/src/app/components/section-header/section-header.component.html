@@ -1,13 +1,34 @@
-<div class="section-header-div">
-    <div [attr.class]="'bg ' + _background"></div>
-    <div [attr.class]="'menu-div ' + _background">
-        <h1 class="menu-title">{{ _menuLabel }}</h1>
-        <div class="menu-items-div" *ngIf="_menu.length>0">
-            <ul class="menu-items">
-                <li class="menu-item" *ngFor="let m of _menu" (click)="onMenuClick(m, $event)">
-                    <span>{{ m.label }}</span>
-                </li>
-            </ul>
+<div class="bg-div" [style.height.px]="_bgHeight">
+    <div [attr.class]="'bg ' + _background" [style.top.px]="_bgTop"></div>
+</div>
+<div class="top-menu-bg content-div">
+    <div>
+        <div class="col-left">
+            <div class="logo" [style.top.px]="_logoTop"></div>
         </div>
+        <div class="col-center"></div>
+        <div class="col-right"></div>
+    </div>
+</div>
+<div class="top-menu">
+    <ul class="menu-items">
+        <li class="menu-item" *ngFor="let m of _topMenu" (click)="onMenuClick(m, $event)">
+            <span>{{ m.label }}</span>
+        </li>
+    </ul>
+</div>
+<div>
+</div>
+<div [attr.class]="'menu-div col-left ' + _background" [style.top.px]="_menuTop"></div>
+<div [attr.class]="'menu-div col-center ' + _background" [style.top.px]="_menuTop"></div>
+<div [attr.class]="'menu-div col-right ' + _background" [style.top.px]="_menuTop"></div>
+<div class="menu-div menu-content-div" [class.empty]="_menu.length===0" [style.top.px]="_menuTop">
+    <h1 class="menu-title">{{ _menuLabel }}</h1>
+    <div class="menu-items-div" *ngIf="_menu.length>0">
+        <ul class="menu-items">
+            <li class="menu-item" *ngFor="let m of _menu" (click)="onMenuClick(m, $event)">
+                <span>{{ m.label }}</span>
+            </li>
+        </ul>
     </div>
 </div>

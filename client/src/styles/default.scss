@@ -210,9 +210,9 @@ $elevators: #D01126;
 $escalators: #006086;
 
 // app
-$reference-color: $red;
-$reference-font-size: 16px;
-$reference-width: 200px;
+// $reference-color: $red;
+// $reference-font-size: 16px;
+// $reference-width: 200px;
 
 $app-menu-header-color: $grey7;
 $app-menu-header-font-size: 24px;
@@ -350,15 +350,15 @@ $header-logo-background-url: url('../../assets/img/logo.png');
 $header-logo-padding: 0 40px 0 0;
 
 $header-main-menu-link-font-size: 20px;
-$header-main-menu-link-margin: 0 20px;
+$header-main-menu-link-margin: 30px 20px;
 
 $header-main-menu-submenu-link-font-size: 16px;
 
-$header-side-menu-font-size: 16px;
+$header-side-menu-font-size: 14px;
 $header-side-menu-margin: 10px 0 20px;
 $header-side-menu-padding: 0 0 0 40px;
 $header-side-menu-link-font-size: 16px;
-$header-side-menu-link-margin: 0 8px;
+$header-side-menu-link-margin: 30px 8px;
 
 $header-search-background-color: $black;
 $header-search-height: 80px;
@@ -549,44 +549,6 @@ $project-info-category-padding: 5px 10px;
 $project-info-slick-dot-color: #cccccc;
 $project-info-slick-dot-active-color: #ffffff;
 
-// $project-info-image-height: 570;
-// $project-info-image-width: 830;
-// $project-info-image-r: $project-info-image-width / $project-info-image-height;
-
-// %project-info-scss {
-//     .modal-dialog {
-//         .modal-body {
-//             .images-div {}
-//         }
-//     }
-// }
-
-// %project-info-scss-1000 {
-//     @media only screen and (max-width: 1023px) {
-//         .modal-dialog {
-//             .modal-body {
-//                 .images-div {
-//                     height: #{$project-info-image-height}px;
-//                     width : #{$project-info-image-width}px;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// %project-info-scss-700 {
-//     @media only screen and (max-width: 700px) {
-//         .modal-dialog {
-//             .modal-body {
-//                 .images-div {
-//                     height: #{$project-info-image-height}px;
-//                     width : #{$project-info-image-width}px;
-//                 }
-//             }
-//         }
-//     }
-// }
-
 // scroll to top
 $scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
 $scroll-to-top-height: 70px;
@@ -601,20 +563,33 @@ $section-header-bg-elevators: url('/assets/img/elevator.jpg');
 $section-header-bg-escalators: url('/assets/img/escalatortab.jpg');
 $section-header-bg-installation: url('/assets/img/installationtab.jpg');
 $section-header-bg-ionful: url('/assets/img/ionful.jpg');
-$section-header-bg-modernization: url('/assets/img/dougmodernization.jpg');
+$section-header-bg-modernization: url('/assets/img/modtab.jpg');
 $section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
 $section-header-bg-portfolio: url('/assets/img/projectstab.jpg');
 $section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
 $section-header-bg-support: url('/assets/img/aftermarket_support.jpg');
 
-$seciton-header-bg-max-height: 430px;
+$section-header-height: 570px;
+
+$section-header-logo-background-url: url('../../assets/img/logo_white.png');
+
+$section-header-top-menu-border: 1px solid $white;
+$section-header-top-menu-height: 50px;
+$section-header-top-menu-item-background: url('/assets/img/arrow_right_icon.png') no-repeat;
+$section-header-top-menu-item-background-height: 50px;
+$section-header-top-menu-item-background-position: 0 15px;
+$section-header-top-menu-item-background-width: 85px;
+$section-header-top-menu-item-padding: 0 0 0 80px;
+
+$seciton-header-bg-max-height: $section-header-height;
 $section-header-menu-color: $white;
 $section-header-menu-font-size: 40px;
-$section-header-menu-height: 100px;
-$section-header-menu-line-height: 36px;
+$section-header-menu-height: 80px;
+$section-header-menu-line-height: $section-header-menu-height;
 $section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
 
 $section-header-menu-background-opacity: .7;
+$section-header-top-menu-background-color: rgba(0, 0, 0, $section-header-menu-background-opacity);
 $section-header-menu-background-color: rgba($red, $section-header-menu-background-opacity);
 $section-header-menu-autowalks-background-color: rgba($autowalks, $section-header-menu-background-opacity);
 $section-header-menu-dispatch-background-color: rgba($dispatch, $section-header-menu-background-opacity);
@@ -726,7 +701,6 @@ $video-background-color: $black;
 
 .section {
     margin    : $vgap_ auto 0;
-    max-width : $content-width;
     text-align: center;
     width     : 100%;
 
@@ -758,14 +732,15 @@ $video-background-color: $black;
 }
 
 .section-header {
-    display   : inline-flex;
-    height    : $section-header-menu-height;
-    margin-top: $vgap;
-    padding   : $vgap_ $hgap;
-    width     : 100%;
+    display    : inline-flex;
+    height     : $section-header-menu-height;
+    line-height: $section-header-menu-height;
 
-    & > * {
+    * {
         color         : $section-header-menu-color;
+        display       : inline-flex;
+        height        : $section-header-menu-height;
+        line-height   : $section-header-menu-height;
         text-transform: uppercase;
     }
 

@@ -1,17 +1,22 @@
 section-header {
-    .section-header-div {
-        height  : $seciton-header-bg-max-height;
-        margin  : 0;
-        position: relative;
+    & > * {
+        margin: 0 17px 0 0;
+    }
+
+    .bg-div {
+        @include abs-position();
+        overflow      : hidden;
+        pointer-events: none;
 
         .bg {
             @include abs-position();
-            background-position: center;
+            background-position: bottom;
             background-repeat  : no-repeat;
             background-size    : cover;
             height             : $seciton-header-bg-max-height;
+            margin             : 0 17px 0 0;
             max-height         : $seciton-header-bg-max-height;
-            width              : 100%;
+            pointer-events     : none;
 
             &.about {
                 background-image: $section-header-bg-about;
@@ -57,50 +62,120 @@ section-header {
                 background-image: $section-header-bg-support;
             }
         }
+    }
 
-        .menu-div {
-            @include abs-position-bl(0, 0);
-            @extend .section-header;
+    .top-menu-bg {
+        @include abs-position(0, 17px, inherit, inherit);
+        background-color: $section-header-top-menu-background-color;
+        height          : $section-header-top-menu-height;
+        overflow        : hidden;
+        pointer-events  : none;
+        width           : 100%;
+
+        .logo {
+            @include abs-position-tr(-$header-height, 0);
+            background: $section-header-logo-background;
+            cursor    : pointer;
+            height    : $section-header-top-menu-height;
+            width     : 100%;
+        }
+    }
+
+    .top-menu {
+        @include abs-position-tl(0, 50%);
+        @extend .section-header;
+        border-left : $section-header-top-menu-border;
+        border-right: $section-header-top-menu-border;
+        height      : $section-header-top-menu-height;
+        transform   : translateX(-50%);
+
+        .menu-items {
+            .menu-item {
+                height     : $section-header-top-menu-height;
+                line-height: $section-header-top-menu-height;
+
+                &:not(:last-of-type) {
+                    border-right: $section-header-top-menu-border;
+                }
+
+                & > span {
+                    height     : $section-header-top-menu-height;
+                    line-height: $section-header-top-menu-height;
+                }
+            }
+        }
+    }
+
+    .menu-div {
+        @extend .section-header;
+
+        &.empty {
+            pointer-events: none;
+
+            & > * {
+                pointer-events: none;
+            }
+        }
+
+        &.col-left {
+            @include abs-position(490px, inherit, 0, 0);
+            pointer-events: none;
+        }
+
+        &.col-center {
+            @include abs-position(490px, $col-side-width, inherit, $col-side-width);
+            pointer-events: none;
+            width         : auto;
+        }
+
+        &.menu-content-div {
+            @include abs-position-tl(490px, $col-side-width);
+            padding-left: $hgap;
 
             .menu-title {
                 font-size     : $section-header-menu-font-size;
                 line-height   : $section-header-menu-line-height;
                 margin        : auto 0;
+                pointer-events: none;
                 text-transform: uppercase;
             }
 
             .menu-items-div {
                 line-height: $section-header-menu-line-height;
-                margin     : auto 0 auto $hgap;
+                margin     : 0 0 0 $hgap;
 
                 .menu-items {
-                    @extend .list-style-none;
-                    display       : inline-flex;
-                    font-size     : $section-header-menu-items-font-size;
-                    height        : $section-header-menu-line-height;
-                    margin-bottom : -8px;
-                    vertical-align: bottom;
+                    height: $section-header-menu-line-height;
 
                     .menu-item {
-                        border-right  : $section-header-menu-item-border;
-                        cursor        : pointer;
-                        display       : inline-block;
-                        padding       : 0 #{$hgap_ / 2};
-                        text-transform: uppercase;
-
-                        &:first-of-type {
-                            border-left: $section-header-menu-item-border;
-                        }
+                        background         : $section-header-top-menu-item-background;
+                        background-position: $section-header-top-menu-item-background-position;
+                        background-size    : $section-header-top-menu-item-background-width $section-header-top-menu-item-background-height;
+                        margin-right       : $hgap_;
+                        padding            : $section-header-top-menu-item-padding;
                     }
                 }
             }
+        }
 
-            .menu-toggle {
-                background: $section-header-menu-toggle-background $section-header-menu-color center;
-                height    : 29px;
-                margin    : $vgap_ $hgap_;
-                width     : 24px;
-            }
+        &.col-right {
+            @include abs-position(490px, 0, 0, inherit);
+            pointer-events: none;
+        }
+    }
+
+    .menu-items {
+        @extend .list-style-none;
+        display       : inline-flex;
+        font-size     : $section-header-menu-items-font-size;
+        margin-bottom : -8px;
+        vertical-align: bottom;
+
+        .menu-item {
+            cursor        : pointer;
+            display       : inline-block;
+            padding       : 0 $hgap_;
+            text-transform: uppercase;
         }
     }
 }

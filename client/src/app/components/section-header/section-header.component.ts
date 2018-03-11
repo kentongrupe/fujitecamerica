@@ -4,17 +4,21 @@ import {
     OnInit
 } from '@angular/core';
 import {
+    NavigationEnd,
     Router
 } from '@angular/router';
 import {
     BaseNavRouteComponent
 } from 'app/core';
 import {
+    AppConstants,
+    AppEvent,
     AppRoute,
     MenuItem,
     SectionType
 } from 'app/models';
 import {
+    EventService,
     RouterService,
     StringService
 } from 'app/services';
@@ -25,37 +29,98 @@ import {
 })
 export class SectionHeaderComponent extends BaseNavRouteComponent implements OnInit {
 
-    @Input() public sectionType: SectionType = SectionType.UNKNOWN;
-
     private _background: string = '';
-    private _expanded: boolean = false;
+    private _bgHeight: number = AppConstants.SECTION_HEIGHT;
+    private _bgTop: number = 0;
+    private _logoTop: number = -73;
     private _menuLabel: string = '';
+    private _menuTop: number = AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT;
+    private _sectionType: SectionType = SectionType.UNKNOWN;
+    private _topMenu: MenuItem[] = [];
 
     constructor(
         protected router: Router,
         protected routerService: RouterService,
-        protected stringService: StringService
+        protected stringService: StringService,
+        private eventService: EventService
     ) {
         super('SectionHeaderComponent', router, routerService);
         this._stringService = stringService;
+
+        this.eventService.register(AppEvent.SCROLL, (t, d) => {
+            this._scroll(t, d);
+        });
+        this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
+            this._scrollToTop();
+        });
     }
 
     public ngOnInit() {
         super.ngOnInit();
 
-        this._background = SectionType[this.sectionType].toClassName();
+        this._topMenu = [
+            {
+                label: this._getString('elevators', 'Elevators'),
+                routerLink: AppRoute.ELEVATORS
+            },
+            {
+                label: this._getString('escalators', 'Escalators'),
+                routerLink: AppRoute.ESCALATORS
+            },
+            {
+                label: this._getString('controls-n-dispatch', 'Controls & Dispatch'),
+                routerLink: AppRoute.DISPATCH
+            },
+            {
+                label: this._getString('autowalks', 'Autowalks'),
+                routerLink: AppRoute.AUTOWALKS
+            }
+        ];
 
-        switch (this.sectionType) {
+        this._init();
+    }
+    protected _onNavigationEnd(event: NavigationEnd): void {
+        let url = '';
+        event.url.split('/').every((s) => {
+            if (!this.isNullOrEmpty(s)) {
+                url = s;
+                return false;
+            }
+            return true;
+        });
+        if (!this.isNullOrEmpty(url)) {
+            this._sectionType = SectionType[url.toEnumName()];
+
+            if (this.hasValue(this._sectionType)) {
+                this._init();
+                this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+                this.eventService.dispatch(AppEvent.SECTION_HEADER_VISIBLE, true);
+            } else {
+                this.eventService.dispatch(AppEvent.SECTION_HEADER_VISIBLE, false);
+            }
+        }
+    }
+    protected _scrollToTop(): void {
+        this._bgHeight = AppConstants.SECTION_HEIGHT;
+        this._bgTop = 0;
+        this._logoTop = -73;
+        this._menuTop = AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT;
+    }
+    private _init() {
+        this._background = SectionType[this._sectionType].toClassName();
+        this._menu = [];
+
+        switch (this._sectionType) {
             case SectionType.ABOUT:
-                this._menuLabel = this._getString('about', 'About');
+                this._menuLabel = this._getString('about-us', 'About Us');
                 this._menu = [
-                    {
-                        label: this._getString('deo-message', 'CEO Message'),
-                        routerLink: AppRoute.ABOUT_CEO
-                    },
                     {
                         label: this._getString('leadership', 'Leadership'),
                         routerLink: AppRoute.ABOUT_LEADERSHIP
+                    },
+                    {
+                        label: this._getString('deo-message', 'CEO Message'),
+                        routerLink: AppRoute.ABOUT_CEO
                     }
                 ];
                 break;
@@ -80,7 +145,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menuLabel = this._getString('controls-dispatch', 'Controls & Dispatch');
                 this._menu = [
                     {
-                        label: this._getString('flex-nx', 'Flex-NX'),
+                        label: this._getString('group-supervisory-control', 'Group Supervisory Control'),
                         routerLink: AppRoute.DISPATCH_FLEXNX
                     },
                     {
@@ -161,11 +226,48 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         }
     }
 
-    public onMenuClick(item: MenuItem, event?: MouseEvent): void {
-        super.onMenuClick(item, event);
-        this._expanded = false;
-    }
-    private _toggleMenu(): void {
-        this._expanded = !this._expanded;
+    private _scroll(value: number, delta: number): void {
+        // logo
+        let lt = this._logoTop + delta;
+        if (delta < 0) {
+            lt = Math.max(lt, -75);
+        } else {
+            lt = Math.min(lt, 0);
+        }
+        this._logoTop = lt;
+
+        // bg
+        let bh = this._bgHeight - delta;
+        if (delta < 0) {
+            bh = Math.min(bh, AppConstants.SECTION_HEIGHT);
+            this._bgHeight = bh;
+        } else {
+            if (value > AppConstants.HEADER_HEIGHT) {
+                bh = Math.max(bh, (AppConstants.MENU_HEIGHT + AppConstants.SECTION_MENU_HEIGHT));
+                this._bgHeight = bh;
+            }
+        }
+        let bt = this._bgTop - delta;
+        if (delta < 0) {
+            bt = Math.min(bt, 0);
+            this._bgTop = bt;
+        } else {
+            if (value > AppConstants.HEADER_HEIGHT) {
+                bt = Math.max(bt, -AppConstants.SECTION_BACKGROUND_HEIGHT);
+                this._bgTop = bt;
+            }
+        }
+
+        // menu
+        let mt = this._menuTop - delta;
+        if (delta < 0) {
+            mt = Math.min(mt, (AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT));
+            this._menuTop = mt;
+        } else {
+            if (value > AppConstants.HEADER_HEIGHT) {
+                mt = Math.max(mt, AppConstants.MENU_HEIGHT);
+                this._menuTop = mt;
+            }
+        }
     }
 }

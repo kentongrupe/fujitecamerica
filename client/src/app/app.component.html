@@ -1,77 +1,25 @@
-<app-header [class.hide-header]="_hideHeader"></app-header>
-<div class="app-content" [class.hide-header]="_hideHeader" [class.home]="_isHome">
-    <div class="app-content-div">
-        <div class="col-left" *ngIf="!_isHome">
-            <div class="app-content-header"></div>
-            <div class="references-div border-right">
-                <div #refs class="reference-div" *ngFor="let r of _references" [class.current]="r.mode===TestimonialMode.CURRENT" [class.previous]="r.mode===TestimonialMode.PREVIOUS">
-                    <div class="reference-content-div">
-                        <div class="reference-text">"{{ r.text }}"</div>
-                        <div class="reference-source">
-                            <div class="reference-name">{{ r.name }}</div>
-                            <div class="reference-city-state">{{ r.city }}, {{ r.state }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-center">
-            <router-outlet></router-outlet>
-            <div class="app-menu sys-menu-div" *ngIf="_isHome">
-                <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
-                <div class="home-menu-div">
-                    <sys-menu></sys-menu>
-                </div>
-            </div>
-            <div class="app-menu pro-menu-div" *ngIf="_isHome">
-                <div>
-                    <div class="pro-menu-title">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</div>
-                    <div [attr.class]="'pro-menu-item '+r.icon" *ngFor="let r of _resources" (click)="_showResource(r)">
-                        <div class="pro-menu-label">{{ r.label }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-right" *ngIf="!_isHome">
-            <div class="app-content-header border-left">
-                <div class="phone">
-                    <a href="tel://8773854832">877.385.4832</a>
-                </div>
-            </div>
-            <div class="systems-menu-div border-left">
-                <div></div>
-                <div>
-                    <label class="menu-header">{{ this | getString : 'solutions' : 'Solutions' }}</label>
-                    <div class="home-menu-div">
-                        <sys-menu [mode]="2" [expandChildren]="true"></sys-menu>
-                    </div>
-                </div>
-                <div></div>
-            </div>
-        </div>
+<div class="app-div">
+    <app-header [style.top.px]="_headerTop"></app-header>
+    <div class="app-content" [style.top.px]="_contentTop" [style.padding-top.px]="_contentPaddingTop">
+        <section-header [class.hidden]="!_sectionHeaderVisible"></section-header>
+        <router-outlet></router-outlet>
     </div>
-</div>
-<div class="pro-menu-div not-home" *ngIf="!_isHome">
-    <div class="col-left"></div>
-    <div class="col-center">
-        <div class="pro-menu-title">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</div>
-        <div class="pro-menu-item" *ngFor="let r of _resources" (click)="_showResource(r)">
-            <div>
-                <div [attr.class]="r.icon">
+    <div class="pro-menu-div" *ngIf="!_isHome">
+        <div class="col-left"></div>
+        <div class="col-center">
+            <div class="pro-menu-title">{{ this | getString : 'industry-resources' : 'Industry Resources' }}</div>
+            <div class="pro-menu-item" *ngFor="let r of _resources">
+                <div [attr.class]="r.icon" (click)="_showResource(r)">
                     <div class="pro-menu-label">{{ r.label }}</div>
                 </div>
             </div>
         </div>
+        <div class="col-right"></div>
     </div>
-    <div class="col-right"></div>
+    <app-footer></app-footer>
 </div>
-<div class="mobile-menu-div">
-    <sys-menu [mode]="1"></sys-menu>
-    <pro-menu [mode]="1"></pro-menu>
-</div>
-<app-footer></app-footer>
 
 <alert #alert [message]="_alertMessage"></alert>
 <login #login></login>
 
-<button style="display:none;position:absolute;top:0;left:0;z-index:2000" (click)="_exportStrings()">export</button>
+<!-- <button style="position:absolute;top:0;left:0;z-index:2000" (click)="_exportStrings()">export</button> -->

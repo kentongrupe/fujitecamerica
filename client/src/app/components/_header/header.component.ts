@@ -62,6 +62,10 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             {
                 label: this._getString('after-market-support', 'After-Market Support'),
                 routerLink: AppRoute.SUPPORT
+            },
+            {
+                label: this._getString('recommendations', 'Recommendations'),
+                routerLink: AppRoute.RECOMMENDATIONS
             }
         ];
         this._sideMenu = [

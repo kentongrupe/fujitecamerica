@@ -63,7 +63,7 @@
 }
 $col-center-max-width: 1600px;
 $col-center-min-width: 544px;
-$col-side-width: 240px;
+$col-side-width: 260px;
 
 //
 .bold {
@@ -78,13 +78,13 @@ $col-side-width: 240px;
 }
 
 .col-left {
-    padding-right: 20px;
-    text-align   : right;
+    position  : relative;
+    text-align: right;
 }
 
 .col-right {
-    padding-left: 20px;
-    text-align  : left;
+    position  : relative;
+    text-align: left;
 }
 
 .col-center {

@@ -30,12 +30,11 @@ $footer-copyright-float: right;
 $footer-mobile-links-display: none;
 
 // header
-$header-height: $app-margin-top;
+$header-height: 95px;
 $header-min-width: $col-side-width + $col-center-min-width + $col-side-width;
-$header-padding-top: 15px;
-$header-padding: $header-padding-top 0 0 0;
 
-$header-logo-background: $header-logo-background-url no-repeat right 20px center/149px 36px;
+$header-logo-backround-width: 149px;
+$header-logo-background: $header-logo-background-url no-repeat right 20px center/$header-logo-backround-width 36px;
 $header-logo-margin: 20px 0 20px 10px;
 
 $header-menu-border: $header-border;
@@ -62,6 +61,9 @@ $nav-menu-display: inline-block;
 $nav-menu-item-margin: 0 20px 0 0;
 $nav-menu-side-display: inline-grid;
 
+// section header
+$section-header-logo-background: $section-header-logo-background-url no-repeat right 3px center/$header-logo-backround-width 36px;
+
 // site map
 $site-map-margin: 0;
 
@@ -80,6 +82,10 @@ $site-map-link-height: 50px;
     margin  : $app-margin;
     overflow: auto;
     width   : 100%;
+
+    & > div {
+        display: flex;
+    }
 
     &.static-content-div {
         height: auto;

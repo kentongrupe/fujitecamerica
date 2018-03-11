@@ -39,6 +39,6 @@ export class ScrollToTopComponent extends BaseComponent {
                 this.scrollToTop.emit(this.topRoute);
             }
         }
-        this.eventService.dispatch(AppEvent.SHOW_HEADER);
+        this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
     }
 }

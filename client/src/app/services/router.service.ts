@@ -58,7 +58,7 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
             return false;
         }
         this.router.navigate(['{0}'.format(location)].concat(args));
-        this.eventService.dispatch(AppEvent.SHOW_HEADER);
+        // this.eventService.dispatch(AppEvent.SHOW_HEADER);
         return true;
     }
     public toUrl(url: string, forceHttps: boolean = false, newWindow: boolean = false): void {

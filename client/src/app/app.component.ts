@@ -1,10 +1,7 @@
 import {
     Component,
-    ElementRef,
     OnInit,
-    QueryList,
-    ViewChild,
-    ViewChildren
+    ViewChild
 } from '@angular/core';
 import {
     NavigationEnd,
@@ -18,12 +15,10 @@ import {
     LoginModal
 } from 'app/modals';
 import {
+    AppConstants,
     AppEvent,
     AppRoute,
     MenuItem,
-    NavMenuDirection,
-    Testimonial,
-    TestimonialMode,
     UserRole
 } from 'app/models';
 import {
@@ -45,23 +40,15 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     private _alert: AlertModal;
     @ViewChild('login')
     private _login: LoginModal;
-    @ViewChildren('refs')
-    private _refDivs: QueryList<ElementRef>;
 
-    private _activeIndex: number = 0;
-    private _activeSubIndex: number = 0;
     private _alertMessage: string = '';
     private _alerTitle: string = '';
-    private _hideHeader: boolean = false;
-    private _initComplete: boolean = false;
-    private _intervalId: any = null;
+    private _contentPaddingTop: number = 0;
+    private _contentTop: number = AppConstants.HEADER_HEIGHT;
+    private _headerTop: number = 0;
     private _isHome: boolean = true;
-    private _menuDirection: NavMenuDirection = NavMenuDirection.SIDE;
-    private _references: Testimonial[] = [];
     private _resources: MenuItem[] = [];
-    private _submenu: MenuItem[] = [];
-
-    private TestimonialMode = TestimonialMode;
+    private _sectionHeaderVisible: boolean = false;
 
     constructor(
         protected router: Router,
@@ -75,34 +62,24 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
         super('AppComponent', router, routerService);
         this._stringService = stringService;
 
-        eventService.register(AppEvent.INIT_COMPLETE, () => {
-            this._initComplete = true;
+        this.eventService.register(AppEvent.INIT_COMPLETE, () => {
             this.routerService.to(AppRoute.HOME);
         });
-        eventService.register(AppEvent.SHOW_HEADER, () => {
-            this._hideHeader = false;
+        this.eventService.register(AppEvent.SCROLL, (t, d) => {
+            this._scroll(t, d);
         });
-        eventService.register(AppEvent.HIDE_HEADER, () => {
-            this._hideHeader = true;
+        this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
+            this._scrollToTop();
+        });
+        this.eventService.register(AppEvent.SECTION_HEADER_VISIBLE, (v) => {
+            this._sectionHeaderVisible = v;
+        });
+        this.eventService.register(AppEvent.SHOW_RESOURCE, (r) => {
+            this._showResource(r);
         });
     }
 
     public ngOnInit() {
-        this.dataService.getTestimonials((d) => {
-            if (this.hasValue(d.testimonials) && this.hasValue(d.testimonials[StringService.locale])) {
-                this._references = d.testimonials[StringService.locale].map((t) => {
-                    return new Testimonial(t);
-                });
-
-                Promise.resolve()
-                    .then(() => {
-                        if (this._refDivs !== undefined) {
-                            this._initRefs();
-                        }
-                    });
-            }
-        });
-
         this._resources = [
             {
                 label: this._getString('consulting-firms', 'Consulting Firms'),
@@ -125,75 +102,45 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     protected _onNavigationEnd(event: NavigationEnd): void {
         super._onNavigationEnd(event);
         this._isHome = (event.url === AppRoute.HOME);
-
-        let url = '/' + event.url.split('/')[1];
-
-        switch (url) {
-            case AppRoute.ABOUT:
-                this._submenu = [
-                    {
-                        label: this._getString('ceo-message', 'CEO Message'),
-                        routerLink: AppRoute.ABOUT,
-                        url: 'message'
-                    },
-                    {
-                        label: this._getString('leadership', 'Leadership'),
-                        routerLink: AppRoute.ABOUT,
-                        url: 'leadership'
-                    },
-                    {
-                        label: this._getString('history', 'History'),
-                        routerLink: AppRoute.ABOUT,
-                        url: 'history'
-                    },
-                    {
-                        label: this._getString('mission', 'Mission'),
-                        routerLink: AppRoute.ABOUT,
-                        url: 'mission'
-                    }
-                ];
-                break;
-            default:
-                this._submenu = [];
-                break;
-        }
-
-        if (this._submenu.length > 0) {
-            this._activeSubIndex = this._submenu.findIndex((m) => {
-                return (event.url.endsWith(m.url));
-            });
-
-            if (this._activeSubIndex < 0) {
-                this._activeSubIndex = 0;
-            }
-        }
+        this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
     }
-    private _exportStrings(): void {
-        this.stringService.export();
+    protected _scrollToTop(): void {
+        this._headerTop = 0;
+        this._contentTop = AppConstants.HEADER_HEIGHT;
+        this._contentPaddingTop = 0;
     }
-    private _initRefs(): void {
-        this._intervalId = setInterval(() => {
-            this._showRef();
-        }, 10000);
-        this._showRef(true);
-    }
-    private _onSubmenuClick(item: MenuItem): void {
-        this._navTo('{0}/{1}'.format(item.routerLink, item.url));
-    }
-    private _showRef(isInit: boolean = false): void {
-        if (isInit) {
-            this._references[0].mode = 1;
+    private _scroll(value: number, delta: number): void {
+        // header
+        let ht = this._headerTop - delta;
+        if (delta < 0) {
+            ht = Math.min(ht, 0);
         } else {
-            this._references[this._activeIndex++].mode = 2;
-            if (this._activeIndex >= this._references.length) {
-                this._activeIndex = 0;
-            }
-            this._references[this._activeIndex].mode = 1;
+            ht = Math.max(ht, -AppConstants.HEADER_HEIGHT);
         }
-        setTimeout(() => {
-            let idx = ((this._activeIndex === 0) ? this._references.length : this._activeIndex) - 1;
-            this._references[idx].mode = 0;
-        }, 1000);
+        // this._headerTop = ht;
+        // if (ht === -AppConstants.HEADER_HEIGHT) {
+        //     this.eventService.dispatch(AppEvent.HEADER_VISIBLE, false);
+        // } else if (ht === 0) {
+        //     this.eventService.dispatch(AppEvent.HEADER_VISIBLE, true);
+        // }
+
+        // content
+        let ct = this._contentTop - delta;
+        if (delta < 0) {
+            ct = Math.min(ct, AppConstants.HEADER_HEIGHT);
+        } else {
+            ct = Math.max(ct, 0);
+        }
+        this._contentTop = ct;
+
+        // content padding-top
+        let pt = this._contentPaddingTop - delta;
+        if (delta < 0) {
+            //
+        } else {
+            pt = Math.max(pt, AppConstants.HEADER_HEIGHT);
+        }
+        this._contentPaddingTop = Math.min(AppConstants.HEADER_HEIGHT, value);
     }
     private _showResource(resource: MenuItem): void {
         let route = resource.routerLink;

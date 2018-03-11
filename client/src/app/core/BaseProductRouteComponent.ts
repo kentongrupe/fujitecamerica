@@ -22,9 +22,6 @@ import {
     AppRoute
 } from 'app/models/AppRoute';
 import {
-    SectionType
-} from 'app/models/SectionType';
-import {
     DOMService,
     EventService
 } from 'app/services';
@@ -46,10 +43,8 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
     protected _scrolled: boolean = false;
 
     protected AppRoute = AppRoute;
-    protected SectionType = SectionType;
 
-    private _scrollThreshold: number = 100;
-    private _scrollTop: number = -1;
+    private _scrollTop: number = 0;
 
     constructor(
         className: string = 'BaseProductRouteComponent',
@@ -67,18 +62,12 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
         if (this._container) {
             $(this._container.nativeElement).on('scroll', (e) => {
                 let scrollTop = e.target.scrollTop;
-                let dir = (scrollTop > this._scrollTop);    // true=down, false=up
+                let dir = scrollTop - this._scrollTop;
 
                 this._scrollTop = scrollTop;
                 this._scrolled = (scrollTop > 0);
 
-                if (dir) {
-                    if (scrollTop > this._scrollThreshold) {
-                        this.eventService.dispatch(AppEvent.HIDE_HEADER);
-                    }
-                } else {
-                    this.eventService.dispatch(AppEvent.SHOW_HEADER);
-                }
+                this.eventService.dispatch(AppEvent.SCROLL, scrollTop, dir);
             });
         }
     }

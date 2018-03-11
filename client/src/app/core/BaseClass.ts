@@ -213,6 +213,16 @@ if (!String.prototype.toClassName) {
         }).join('-').replace(/_/g, '\-');
     };
 }
+if (!String.prototype.toEnumName) {
+    String.prototype.toEnumName = function () {
+        if (String.isNullOrEmpty(this)) {
+            return '';
+        }
+        return this.toLowerCase().split(' ').filter((s) => {
+            return (s.length > 0);
+        }).join('_').replace(/\-/g, '_').toUpperCase();
+    };
+}
 String.isNullOrEmpty = function (s) {
     return (s === undefined) || (s === null) || (s.toString().replace(' ', '').length === 0);
 };

@@ -6,7 +6,6 @@ app-header {
     height          : $header-height;
     line-height     : $header-height;
     overflow        : hidden;
-    z-index         : 1000;
 
     .header-div {
         @include abs-position();
@@ -16,17 +15,14 @@ app-header {
         line-height   : $header-height;
         margin        : 0 auto;
         min-width     : $header-min-width;
-        padding       : $header-padding;
 
         .header-content-div {
-            display : inline-flex;
-            width   : 100%;
-
-            $_height: $header-height - $header-padding-top;
+            display: inline-flex;
+            width  : 100%;
 
             & > * {
-                height     : $_height;
-                line-height: $_height;
+                height     : $header-height;
+                line-height: $header-height;
             }
 
             .header-logo-div {
@@ -52,11 +48,16 @@ app-header {
                     margin: 0 auto;
 
                     .links {
+                        height     : $header-height;
+                        line-height: $header-height;
+
                         .link {
                             font-size: $header-main-menu-link-font-size;
                             margin   : $header-main-menu-link-margin;
 
                             .link-label {
+                                text-transform: uppercase;
+
                                 &:hover {
                                     color: $header-menu-hover-color;
                                 }
@@ -84,27 +85,12 @@ app-header {
                         font-size: $header-side-menu-link-font-size;
                         margin   : $header-side-menu-link-margin;
 
-                        &:hover {
-                            color: $header-menu-hover-color;
-                        }
+                        .link-label {
+                            text-transform: uppercase;
 
-                        .menu-icon {
-                            display: none;
-                            // height  : $header-search-icon-font-size;
-                            // position: relative;
-                            // width   : $header-search-icon-font-size;
-
-                            .material-icons {
-                                font-size: $header-search-icon-font-size;
+                            &:hover {
+                                color: $header-menu-hover-color;
                             }
-                        }
-
-                        .menu-text {
-                            line-height: 10px;
-                        }
-
-                        &.active {
-                            color: $header-menu-hover-color;
                         }
                     }
                 }
@@ -167,50 +153,6 @@ app-header {
         }
     }
 
-    .search-div {
-        background-color: $header-search-background-color;
-        display         : inline-flex;
-        height          : $header-search-height;
-        opacity         : $header-search-opacity;
-        padding         : $header-search-padding;
-        pointer-events  : none;
-        text-align      : center;
-        transition      : all .4s;
-        width           : 100%;
-
-        &.active {
-            opacity       : 1;
-            pointer-events: all;
-        }
-
-        .search-input-div {
-            margin: 0 auto;
-            width : $header-search-input-div-width;
-
-            & > * {
-                float: right;
-            }
-
-            .search-input {
-                height: $header-search-input-height;
-                width : $header-search-input-width;
-            }
-
-            .search-icon {
-                background-color: $header-search-icon-background-color;
-                height          : $header-search-icon-size;
-                width           : $header-search-icon-size;
-
-                .material-icons {
-                    color    : $header-search-icon-color;
-                    font-size: $header-search-icon-font-size;
-                    position : relative;
-                    top      : $header-search-icon-top;
-                }
-            }
-        }
-    }
-
     .header-mobile-menu-div {
         @include abs-position($header-height, 0, unset, 0);
         background-color: $header-mobile-menu-background-color;
@@ -220,11 +162,6 @@ app-header {
 
         &.active {
             transform: translateY(0%);
-
-            .search-div {
-                opacity: 1;
-            }
-
         }
 
         ul {

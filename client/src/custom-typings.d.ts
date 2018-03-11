@@ -166,6 +166,7 @@ interface String {
     replaceCharAt(index: number, char: string): string;
     toBoolean(): boolean;
     toClassName(): string;
+    toEnumName(): string;
 }
 interface StringConstructor {
     isNullOrEmpty(str: any): boolean;

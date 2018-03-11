@@ -51,19 +51,19 @@ export class DataService extends BaseService {
     public get(path: string, onSuccess: Function = null, onError: Function = null): void {
         this._get(path, onSuccess, onError);
     }
-    public getHtml(url: string, onSuccess: Function = null, onError: Function = null): void {
-        this._get(url, onSuccess, onError);
-    }
+    // public getHtml(url: string, onSuccess: Function = null, onError: Function = null): void {
+    //     this._get(url, onSuccess, onError);
+    // }
     public getLeaderships(onSuccess: Function = null, onError: Function = null): void {
         this._get('data/leaderships/leaderships.json', onSuccess, onError);
     }
     public getLocations(onSuccess: Function = null, onError: Function = null): void {
         this._get('data/locations/locations.json', onSuccess, onError);
     }
-    public getNodeHtml(node: string, onSuccess: Function = null, onError: Function = null): void {
-        let n = 'node/{0}'.format(node);
-        this._get(n, onSuccess, onError);
-    }
+    // public getNodeHtml(node: string, onSuccess: Function = null, onError: Function = null): void {
+    //     let n = 'node/{0}'.format(node);
+    //     this._get(n, onSuccess, onError);
+    // }
     public getProject(params: any, onSuccess: Function = null, onError: Function = null): void {
         let id = params.projectId;
         if (!this._projects.has(id)) {

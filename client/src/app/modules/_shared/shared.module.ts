@@ -25,9 +25,6 @@ import {
     SysMenuComponent,
 } from 'app/components';
 import {
-    SectionHeaderComponent
-} from 'app/components/section-header';
-import {
     AlertModal,
     LoginModal,
     ProjectInfoModal
@@ -47,7 +44,6 @@ import {
         MenuComponent,
         ProMenuComponent,
         ScrollToTopComponent,
-        SectionHeaderComponent,
         SysMenuComponent,
         // modals
         AlertModal,
@@ -83,7 +79,6 @@ import {
         MenuComponent,
         ProMenuComponent,
         ScrollToTopComponent,
-        SectionHeaderComponent,
         SysMenuComponent,
         // modals
         AlertModal,

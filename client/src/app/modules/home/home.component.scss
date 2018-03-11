@@ -1,5 +1,6 @@
 home {
-    width: 100%;
+    display: inline-grid;
+    width  : 100%;
 
     .header {
         text-align: center;
@@ -52,75 +53,94 @@ home {
         }
     }
 
-    .home-div {
-        .home-menu-div {
-            display: inline-flex;
-            width  : 100%;
+    .content-div {
+        height : initial;
+        padding: 0 !important;
+    }
 
-            pro-menu,
-            sys-menu {
-                margin: 0 auto;
+    .home-sys-menu-div {
+        margin: $vgap 0;
+
+        .col-center {
+            display: flex;
+
+            .sys-menu-div {
+                display: inline-grid;
+                margin : 0 auto;
+
+                .menu-header {
+                    margin-bottom: $vgap_;
+                    text-align   : center;
+                    width        : 100%;
+                }
+            }
+        }
+    }
+
+    .home-pro-menu-div {
+        background-color: $grey45;
+        color           : $app-pro-menu-color;
+        display         : $app-pro-menu-div-display;
+        margin          : $vgap 0;
+        padding         : $vgap_/2 0 !important;
+        text-align      : center;
+
+        .col-center {
+            position: relative;
+        }
+
+        & > div {
+            .pro-menu-title {
+                @include abs-position(30px, initial, initial, -$hgap);
+                border-left: none;
+                font-size  : $app-pro-menu-title-font-size;
+                line-height: $app-pro-menu-title-line-height;
+                padding    : 0 $hgap;
+                text-align : right;
+                width      : $app-pro-menu-title-width;
+            }
+
+            .pro-menu-item {
+                background-repeat: none;
+                border-left      : $app-pro-menu-border;
+                cursor           : pointer;
+                display          : inline-block;
+                height           : $app-pro-menu-height + 20px;
+                position         : relative;
+                width            : $app-pro-menu-width + $hgap * 3;
+
+                &:last-of-type {
+                    border-right: $app-pro-menu-border;
+                }
+
+                & > div {
+                    //
+                    @mixin _bg($bg) {
+                        background: $bg $hgap*1.5 0/#{$app-pro-menu-width} #{$app-pro-menu-height} no-repeat;
+                        height    : $app-pro-menu-height + 20px;
+                        padding   : 0 $hgap * 1.5;
+                        width     : $app-pro-menu-width + $hgap * 3;
+                    }
+
+                    &.consulting {
+                        @include _bg($app-pro-menu-consulting-background);
+                    }
+
+                    &.contractors {
+                        @include _bg($app-pro-menu-contractors-background);
+                    }
+
+                    &.property {
+                        @include _bg($app-pro-menu-property-background);
+                    }
+
+                    .pro-menu-label {
+                        @include abs-position(initial, 0, 0, 0);
+                        font-size : $app-pro-menu-label-font-size;
+                        text-align: center;
+                    }
+                }
             }
         }
     }
 }
-
-// home {
-//     width: 100%;
-
-//     .header {
-//         text-align: center;
-//     }
-
-//     .home-slides-div {
-//         background-color: lightgrey;
-//         overflow        : hidden;
-//         position        : relative;
-//         width           : 100%;
-
-//         .slides-bg-div {
-//             box-shadow    : $home-slides-box-shadow;
-//             pointer-events: none;
-//             position      : absolute;
-//         }
-
-//         .slides-div {
-//             display   : inline-flex;
-//             left      : 0;
-//             position  : absolute;
-//             transition: all 0;
-
-//             &.sliding {
-//                 transition: left $home-slides-transition-duration;
-//             }
-
-//             .slide {
-//                 height: 100%;
-//                 width : 100%;
-
-//                 .slide-image {
-//                     background-position: center;
-//                     background-repeat  : no-repeat;
-//                     height             : 100%;
-//                     width              : 100%;
-//                 }
-
-//                 video {
-//                     background-color: $video-background-color;
-//                 }
-//             }
-//         }
-//     }
-
-//     .home-div {
-//         .home-menu-div {
-//             display: inline-flex;
-//             width  : 100%;
-
-//             pro-menu,
-//             sys-menu {
-//                 margin: 0 auto;
-//             }
-//         }
-//     }
-// }

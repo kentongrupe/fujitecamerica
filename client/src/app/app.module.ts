@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {
     NgModule,
-    ApplicationRef
+    ApplicationRef,
+    NO_ERRORS_SCHEMA
 } from '@angular/core';
 import {
     removeNgStyles,
@@ -29,6 +30,7 @@ import { AppState, InternalStateType } from './app.service';
 import {
     AppFooterComponent,
     AppHeaderComponent,
+    SectionHeaderComponent
 } from 'app/components';
 import {
     FujitecSharedModule,
@@ -50,6 +52,7 @@ import {
     ProjectModule,
     ProjectsModule,
     PropertyManagersModule,
+    RecommendationsModule,
     ServiceMaintenanceModule,
     SiteMapModule,
     SitePolicyModule,
@@ -94,7 +97,8 @@ type StoreType = {
         // components
         AppComponent,
         AppFooterComponent,
-        AppHeaderComponent
+        AppHeaderComponent,
+        SectionHeaderComponent
     ],
     imports: [ // import Angular's modules
         BrowserModule,
@@ -120,6 +124,7 @@ type StoreType = {
         ProjectModule,
         ProjectsModule,
         PropertyManagersModule,
+        RecommendationsModule,
         ServiceMaintenanceModule,
         SiteMapModule,
         SitePolicyModule,
@@ -130,6 +135,9 @@ type StoreType = {
     providers: [ // expose our Services and Providers into Angular's dependency injection
         ENV_PROVIDERS,
         APP_PROVIDERS
+    ],
+    schemas: [
+        NO_ERRORS_SCHEMA
     ]
 })
 export class AppModule {

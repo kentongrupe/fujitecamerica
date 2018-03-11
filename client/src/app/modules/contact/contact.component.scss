@@ -1,5 +1,7 @@
 contact {
     .contact-div {
+        padding-top: $vgap;
+
         .contact-form-div {
             margin   : 0 auto;
             max-width: $contact-form-max-width;

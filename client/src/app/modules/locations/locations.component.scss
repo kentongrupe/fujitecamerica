@@ -5,9 +5,8 @@ locations {
         overflow       : hidden;
 
         .locations-div {
+            @include abs-position();
             display: flex;
-            height : 100%;
-            width  : 100%;
 
             .map-div {
                 flex    : 1;
@@ -61,6 +60,7 @@ locations {
 
             .list-div {
                 background-color: rgba(0,0,0,0.5);
+                display         : inline-table;
                 margin-right    : $hgap;
                 padding         : $vgap $hgap;
                 width           : $locations-list-width;
