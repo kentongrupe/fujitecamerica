@@ -34,7 +34,7 @@ app {
             // }
         }
 
-        $app-pro-menu-height     : 86px;
+        $app-pro-menu-height     : -$vgap_; //86px;
         $app-pro-menu-item-height: 70px;
         $app-pro-menu-item-width : 119px;
 
