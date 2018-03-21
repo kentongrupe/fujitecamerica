@@ -62,26 +62,20 @@ $nav-menu-item-margin: 0 20px 0 0;
 $nav-menu-side-display: inline-grid;
 
 // section header
-$section-header-logo-background: $section-header-logo-background-url no-repeat right 3px center/$header-logo-backround-width 36px;
+$section-header-logo-background: $section-header-logo-background-url no-repeat right 20px center/$header-logo-backround-width 36px;
 
 // site map
 $site-map-margin: 0;
 
 $site-map-link-height: 50px;
 
-.col-left {
-    // border-right: $border;
-}
-
-.col-right {
-    // border-left: $border;
-}
-
 .content-div {
-    height  : 100%;
-    margin  : $app-margin;
-    overflow: auto;
-    width   : 100%;
+    bottom     : 0;
+    margin     : $app-margin;
+    overflow   : auto;
+    padding-top: 570px;
+    position   : absolute;
+    top        : 0;
 
     & > div {
         display: flex;
@@ -89,5 +83,14 @@ $site-map-link-height: 50px;
 
     &.static-content-div {
         height: auto;
+    }
+
+    .col-center {
+        padding: $vgap 0;
+
+        .section-header {
+            padding: 0 $hgap;
+            width  : 100%;
+        }
     }
 }

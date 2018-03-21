@@ -2,78 +2,85 @@ locations {
     .content-div {
         background     : $locations-background;
         background-size: cover;
+        display        : flex;
         overflow       : hidden;
+        padding        : 0;
+        width          : 100%;
 
         .locations-div {
             @include abs-position();
             display: flex;
 
-            .map-div {
-                flex    : 1;
-                padding : $vgap $hgap;
-                position: relative;
+            .col-center {
+                display: flex;
 
-                .map-content-div {
-                    height    : 100%;
-                    margin    : 0 auto;
-                    max-height: $locations-map-max-height;
-                    max-width : $locations-map-max-width;
-                    position  : relative;
+                .map-div {
+                    flex    : 1;
+                    padding : $vgap $hgap;
+                    position: relative;
 
-                    svg {
-                        @include abs-position-tl();
+                    .map-content-div {
+                        height    : 100%;
+                        margin    : 0 auto;
+                        max-height: $locations-map-max-height;
+                        max-width : $locations-map-max-width;
+                        position  : relative;
 
-                        image {
-                            pointer-events: none;
+                        svg {
+                            @include abs-position-tl();
+
+                            image {
+                                pointer-events: none;
+                            }
+
+                            circle {
+                                cursor: pointer;
+                            }
                         }
 
-                        circle {
-                            cursor: pointer;
-                        }
                     }
 
+                    // .map-content-div {
+                    //     background         : $locations-map-background;
+                    //     background-position: top center;
+                    //     background-size    : 100%;
+                    // }
+
+                    // .map-content-div,
+                    // .map-markers-div {
+                    //     @include abs-position($vgap, $hgap, inherit, $hgap);
+                    //     height    : 100%;
+                    //     margin    : 0 auto;
+                    //     max-height: $locations-map-max-height;
+                    //     max-width : $locations-map-max-width;
+                    // }
+
+                    // .marker {
+                    //     background-color: rgba(0,255,0,0.5);
+                    //     cursor          : pointer;
+                    //     height          : $locations-map-marker-height;
+                    //     position        : absolute;
+                    //     width           : $locations-map-marker-width;
+                    // }
                 }
 
-                // .map-content-div {
-                //     background         : $locations-map-background;
-                //     background-position: top center;
-                //     background-size    : 100%;
-                // }
+                .list-div {
+                    background-color: rgba(0,0,0,0.5);
+                    display         : inline-table;
+                    margin-right    : $hgap;
+                    padding         : $vgap $hgap;
+                    width           : $locations-list-width;
 
-                // .map-content-div,
-                // .map-markers-div {
-                //     @include abs-position($vgap, $hgap, inherit, $hgap);
-                //     height    : 100%;
-                //     margin    : 0 auto;
-                //     max-height: $locations-map-max-height;
-                //     max-width : $locations-map-max-width;
-                // }
+                    & > div {
+                        border-left: $locations-item-border;
+                        color      : $locations-item-color;
+                        padding    : $locations-item-padding;
+                        text-align : left;
 
-                // .marker {
-                //     background-color: rgba(0,255,0,0.5);
-                //     cursor          : pointer;
-                //     height          : $locations-map-marker-height;
-                //     position        : absolute;
-                //     width           : $locations-map-marker-width;
-                // }
-            }
-
-            .list-div {
-                background-color: rgba(0,0,0,0.5);
-                display         : inline-table;
-                margin-right    : $hgap;
-                padding         : $vgap $hgap;
-                width           : $locations-list-width;
-
-                & > div {
-                    border-left: $locations-item-border;
-                    color      : $locations-item-color;
-                    padding    : $locations-item-padding;
-                    text-align : left;
-
-                    &:hover {
-                        color : $red;
-                        cursor: pointer;
+                        &:hover {
+                            color : $red;
+                            cursor: pointer;
+                        }
                     }
                 }
             }

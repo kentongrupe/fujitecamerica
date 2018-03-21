@@ -1,67 +1,76 @@
 contact {
-    .contact-div {
-        padding-top: $vgap;
+    .content-div {
+        padding-top: 0;
+        width      : 100%;
 
-        .contact-form-div {
-            margin   : 0 auto;
-            max-width: $contact-form-max-width;
+        .contact-div {
+            padding-top: $vgap;
 
-            .form-group {
-                margin-bottom: $vgap_;
+            .col-center {
+                width: 100%;
 
-                input,
-                textarea {
-                    background-color: $contact-form-field-background-color;
-                    border          : $contact-form-field-border;
-                    border-radius   : 0;
-                    font-size       : $contact-form-field-font-size;
-                    padding         : $contact-form-field-padding;
+                .contact-form-div {
+                    margin   : 0 auto;
+                    max-width: $contact-form-max-width;
 
-                    &:focus {
-                        box-shadow: $contact-form-field-box-shadow;
-                        outline   : 0;
-                    }
-                }
+                    .form-group {
+                        margin-bottom: $vgap_;
 
-                &:nth-child(1),
-                &:nth-child(3) {
-                    input {
-                        width: 100%;
-                    }
-                }
+                        input,
+                        textarea {
+                            background-color: $contact-form-field-background-color;
+                            border          : $contact-form-field-border;
+                            border-radius   : 0;
+                            font-size       : $contact-form-field-font-size;
+                            padding         : $contact-form-field-padding;
 
-                &:nth-child(2),
-                &:nth-child(4) {
-                    display: flex;
-
-                    input {
-                        flex: 1;
-
-                        &:first-child {
-                            margin-right: $hgap_;
+                            &:focus {
+                                box-shadow: $contact-form-field-box-shadow;
+                                outline   : 0;
+                            }
                         }
 
-                        &:last-child {
-                            margin-left: $hgap_;
+                        &:nth-child(1),
+                        &:nth-child(3) {
+                            input {
+                                width: 100%;
+                            }
+                        }
+
+                        &:nth-child(2),
+                        &:nth-child(4) {
+                            display: flex;
+
+                            input {
+                                flex: 1;
+
+                                &:first-child {
+                                    margin-right: $hgap_;
+                                }
+
+                                &:last-child {
+                                    margin-left: $hgap_;
+                                }
+                            }
                         }
                     }
-                }
-            }
 
-            .info-div {
-                text-align: left;
-            }
+                    .info-div {
+                        text-align: left;
+                    }
 
-            .button-div {
-                color         : $contact-button-color;
-                text-align    : right;
-                text-transform: uppercase;
+                    .button-div {
+                        color         : $contact-button-color;
+                        text-align    : right;
+                        text-transform: uppercase;
 
-                div {
-                    background-color: $contact-button-background-color;
-                    border-radius   : $contact-button-border-radius;
-                    display         : inline-block;
-                    padding         : $contact-button-padding;
+                        div {
+                            background-color: $contact-button-background-color;
+                            border-radius   : $contact-button-border-radius;
+                            display         : inline-block;
+                            padding         : $contact-button-padding;
+                        }
+                    }
                 }
             }
         }

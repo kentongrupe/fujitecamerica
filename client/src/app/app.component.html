@@ -1,9 +1,9 @@
 <div class="app-div">
     <app-header [style.top.px]="_headerTop"></app-header>
-    <div class="app-content" [style.top.px]="_contentTop" [style.padding-top.px]="_contentPaddingTop">
-        <section-header [class.hidden]="!_sectionHeaderVisible"></section-header>
+    <div #appContent class="app-content" [style.top.px]="_contentTop" [style.padding-top.px]="_sectionHeaderVisible? _contentPaddingTop : 0">
         <router-outlet></router-outlet>
     </div>
+    <section-header [class.hidden]="!_sectionHeaderVisible" [style.top.px]="_sectionHeaderTop" [class.animate]="_animateTop"></section-header>
     <div class="pro-menu-div" *ngIf="!_isHome">
         <div class="col-left"></div>
         <div class="col-center">

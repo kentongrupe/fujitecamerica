@@ -40,6 +40,8 @@ export class RecommendationsComponent extends BaseProductRouteComponent implemen
     }
 
     public ngOnInit() {
+        super.ngOnInit();
+
         this.dataService.getTestimonials((d) => {
             if (this.hasValue(d.testimonials) && this.hasValue(d.testimonials[StringService.locale])) {
                 this._testimonials = d.testimonials[StringService.locale].map((t) => {

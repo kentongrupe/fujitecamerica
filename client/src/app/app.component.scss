@@ -10,36 +10,37 @@ app {
             // transition: .5s all;
         }
 
+        section-header {
+            @include abs-position($header-height, 17px, initial, 0);
+            // & + router-outlet + * {
+            //     & > .content-div {
+            //         padding-bottom: $vgap;
+            //         padding-top   : $section-header-height + $vgap;
+
+            //         .section-header {
+            //             margin-top: $vgap;
+            //             padding   : 0 $hgap;
+            //             width     : 100%;
+            //         }
+            //     }
+            // }
+
+            // &.hidden {
+            //     & + router-outlet + * {
+            //         & > .content-div {
+            //             padding-top: $vgap;
+            //         }
+            //     }
+            // }
+        }
+
         $app-pro-menu-height     : 86px;
         $app-pro-menu-item-height: 70px;
-        $app-pro-menu-item-width : 147px;
+        $app-pro-menu-item-width : 119px;
 
         .app-content {
             @include abs-position($header-height, 0, #{$app-footer-height + $app-pro-menu-height + $vgap_}, 0);
             @include app-content-scss();
-
-            & > section-header {
-                & + router-outlet + * {
-                    & > .content-div {
-                        padding-bottom: $vgap;
-                        padding-top   : $section-header-height + $vgap;
-
-                        .section-header {
-                            margin-top: $vgap;
-                            padding   : 0 $hgap;
-                            width     : 100%;
-                        }
-                    }
-                }
-
-                &.hidden {
-                    & + router-outlet + * {
-                        & > .content-div {
-                            padding-top: $vgap;
-                        }
-                    }
-                }
-            }
         }
 
         .pro-menu-div {
@@ -96,15 +97,15 @@ app {
                         }
 
                         &.consulting {
-                            @include _bg2($app-pro-menu-consulting-background, -35px, 100px);
+                            @include _bg2($app-pro-menu-consulting-background, -20px, 90px);
                         }
 
                         &.contractors {
-                            @include _bg2($app-pro-menu-contractors-background, -20px, 125px);
+                            @include _bg2($app-pro-menu-contractors-background, -5px, 115px);
                         }
 
                         &.property {
-                            @include _bg2($app-pro-menu-property-background, -40px, 70px);
+                            @include _bg2($app-pro-menu-property-background, -30px, 70px);
                         }
                     }
                 }

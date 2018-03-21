@@ -80,23 +80,19 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         this._init();
     }
     protected _onNavigationEnd(event: NavigationEnd): void {
-        let url = '';
-        event.url.split('/').every((s) => {
-            if (!this.isNullOrEmpty(s)) {
-                url = s;
-                return false;
-            }
-            return true;
-        });
+        this._parseUrl(event.url);
+
+        let url = this._urls[0];
+
         if (!this.isNullOrEmpty(url)) {
             this._sectionType = SectionType[url.toEnumName()];
 
             if (this.hasValue(this._sectionType)) {
                 this._init();
-                this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
-                this.eventService.dispatch(AppEvent.SECTION_HEADER_VISIBLE, true);
-            } else {
-                this.eventService.dispatch(AppEvent.SECTION_HEADER_VISIBLE, false);
+
+                if (url.length < 2) {
+                    this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+                }
             }
         }
     }
@@ -158,10 +154,6 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menuLabel = this._getString('elevators', 'Elevators');
                 this._menu = [
                     {
-                        label: this._getString('mrl', 'MRL'),
-                        routerLink: AppRoute.ELEVATORS_MRL
-                    },
-                    {
                         label: this._getString('gearless', 'Gearless'),
                         routerLink: AppRoute.ELEVATORS_GEARLESS
                     },
@@ -170,11 +162,15 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                         routerLink: AppRoute.ELEVATORS_GEARED
                     },
                     {
+                        label: this._getString('mrl', 'MRL'),
+                        routerLink: AppRoute.ELEVATORS_MRL
+                    },
+                    {
                         label: this._getString('hydro', 'Hydro'),
                         routerLink: AppRoute.ELEVATORS_HYDRAULIC
                     },
                     {
-                        label: this._getString('remote-monitoring', 'Remote Monitoring'),
+                        label: this._getString('monitoring', 'Monitoring'),
                         routerLink: AppRoute.ELEVATORS_MONITORING
                     },
                     {
@@ -205,15 +201,30 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 break;
             case SectionType.MODERNIZATION:
                 this._menuLabel = this._getString('modernization', 'Modernization');
+                this._menu = [
+                    {
+                        label: this._getString('benefits', 'Benefits'),
+                        routerLink: AppRoute.MODERNIZATION_BENEFITS
+                    },
+                    {
+                        label: this._getString('assessment', 'Assessment'),
+                        routerLink: AppRoute.MODERNIZATION_ASSESSMENT
+                    },
+                    {
+                        label: this._getString('process', 'Process'),
+                        routerLink: AppRoute.MODERNIZATION_PROCESS
+                    },
+                    {
+                        label: this._getString('why-namo', 'Why NAMO'),
+                        routerLink: AppRoute.MODERNIZATION_WHY_NAMO
+                    }
+                ];
                 break;
             case SectionType.PORTFOLIO:
                 this._menuLabel = this._getString('portfolio', 'Portfolio');
-                // this._menu = [
-                //     {
-                //         label: this._getString('view-additional-projects', 'View additional projects'),
-                //         routerLink: AppRoute.PORTFOLIO_ADDITIONAL
-                //     }
-                // ];
+                break;
+            case SectionType.RECOMMENDATIONS:
+                this._menuLabel = this._getString('recommendations', 'Recommendations');
                 break;
             case SectionType.SERVICE_MAINTENANCE:
                 this._menuLabel = this._getString('service-maintenance', 'Maintenance');
@@ -225,32 +236,37 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 break;
         }
     }
-
+    private _resetView(): void {
+        this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+    }
     private _scroll(value: number, delta: number): void {
         // logo
         let lt = this._logoTop + delta;
         if (delta < 0) {
-            lt = Math.max(lt, -75);
+            // if (value < 130) {
+            //     lt = Math.max(lt, -75);
+            //     this._logoTop = lt;
+            // }
         } else {
             lt = Math.min(lt, 0);
+            this._logoTop = lt;
         }
-        this._logoTop = lt;
 
         // bg
-        let bh = this._bgHeight - delta;
-        if (delta < 0) {
-            bh = Math.min(bh, AppConstants.SECTION_HEIGHT);
-            this._bgHeight = bh;
-        } else {
-            if (value > AppConstants.HEADER_HEIGHT) {
-                bh = Math.max(bh, (AppConstants.MENU_HEIGHT + AppConstants.SECTION_MENU_HEIGHT));
-                this._bgHeight = bh;
-            }
-        }
+        // let bh = this._bgHeight - delta;
+        // if (delta < 0) {
+        //     bh = Math.min(bh, AppConstants.SECTION_HEIGHT);
+        //     this._bgHeight = bh;
+        // } else {
+        //     if (value > AppConstants.HEADER_HEIGHT) {
+        //         bh = Math.max(bh, (AppConstants.MENU_HEIGHT + AppConstants.SECTION_MENU_HEIGHT));
+        //         // this._bgHeight = bh;
+        //     }
+        // }
         let bt = this._bgTop - delta;
         if (delta < 0) {
-            bt = Math.min(bt, 0);
-            this._bgTop = bt;
+            // bt = Math.min(bt, 0);
+            // this._bgTop = bt;
         } else {
             if (value > AppConstants.HEADER_HEIGHT) {
                 bt = Math.max(bt, -AppConstants.SECTION_BACKGROUND_HEIGHT);
@@ -261,8 +277,8 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         // menu
         let mt = this._menuTop - delta;
         if (delta < 0) {
-            mt = Math.min(mt, (AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT));
-            this._menuTop = mt;
+            // mt = Math.min(mt, (AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT));
+            // this._menuTop = mt;
         } else {
             if (value > AppConstants.HEADER_HEIGHT) {
                 mt = Math.max(mt, AppConstants.MENU_HEIGHT);

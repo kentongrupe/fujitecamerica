@@ -54,6 +54,10 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
         protected router: Router
     ) {
         super(className, route, router);
+
+        this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
+            $(this._container.nativeElement).scrollTop(0);
+        });
     }
 
     public ngOnInit() {

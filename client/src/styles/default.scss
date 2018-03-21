@@ -144,6 +144,17 @@ div {
     &.hrule {
         border-top: 1px solid $grey3;
         margin    : $vgap 0;
+
+        .hrule-arrow {
+            background         : url('../../assets/img/back_to_top.png') no-repeat;
+            background-color   : $grey1;
+            background-position: center;
+            background-size    : 40px 40px;
+            height             : 40px;
+            margin             : -20px auto;
+            transform          : rotate(180deg);
+            width              : 40px;
+        }
     }
 }
 
@@ -221,7 +232,7 @@ $app-menu-padding: 20px 0;
 
 $app-content-padding: 20px;
 
-$app-content-menu-background-color: #f1f1f1;
+$app-content-menu-background-color: $grey1;
 $app-content-menu-font-size: 18px;
 $app-content-menu-height: 32px;
 $app-content-menu-padding: 0 $hgap;
@@ -230,11 +241,12 @@ $app-content-menu-item-margin: 0 $hgap_ 0 0;
 
 $app-pro-menu-border: 2px solid $white;
 $app-pro-menu-color: $white;
+
 $app-pro-menu-height: 100px;
-$app-pro-menu-width: 210px;
+$app-pro-menu-width: 170px;
 $app-pro-menu-consulting-background: url('../../assets/img/consultants.png');
-$app-pro-menu-contractors-background: url('../../assets/img/Architects_GCs.png');
-$app-pro-menu-property-background: url('../../assets/img/ProjMGMTCos.png');
+$app-pro-menu-contractors-background: url('../../assets/img/architects_gcs.png');
+$app-pro-menu-property-background: url('../../assets/img/property_mgmt.png');
 
 $app-pro-menu-title-font-size: 26px;
 $app-pro-menu-title-line-height: 32px;
@@ -440,6 +452,42 @@ clr-modal {
     }
 }
 
+// modernization
+$modernization-background-color: $white;
+
+$modernization-benefits-background-color: #4188A4;
+$modernization-benefits-color: $white;
+$modernization-benefits-padding: $vgap_ $hgap;
+
+$modernization-assessment-background: url('../../assets/img/mod_tampa_content.jpg') no-repeat;
+
+$modernization-process-background: url('../../assets/img/namo_process.png') no-repeat;
+$modernization-process-background-color: $grey1;
+$modernization-process-background-size: auto 350px;
+$modernization-process-border: 10px solid #478DA6;
+$modernization-process-height: 650px;
+
+$modernization-process-box-background-color: #959595;
+$modernization-process-box-border: 1px solid $white;
+$modernization-process-box-color: $white;
+$modernization-process-box-font-weight: 100;
+$modernization-process-box-height: 145px;
+$modernization-process-box-hpos: 115px;
+$modernization-process-box-vpos: 60px;
+$modernization-process-box-width: 350px;
+
+$modernization-process-box0-font-weight: 60px;
+$modernization-process-box1-font-weight: 35px;
+$modernization-process-box1-left: 140px;
+
+$modernization-whynamo-background: url('../../assets/img/namo_ plane2.png') no-repeat;
+$modernization-whynamo-background-color: #BDD5DF;
+$modernization-whynamo-background-position: right 85px bottom 50px;
+$modernization-whynamo-background-size: 760px 280px;
+$modernization-whynamo-height: 465px;
+
+$modernization-whynamo-text-background-color: $grey1;
+
 // nav menu
 $nav-menu-border: none;
 $nav-menu-item-arrow-color: $red;
@@ -551,9 +599,9 @@ $project-info-slick-dot-active-color: #ffffff;
 
 // scroll to top
 $scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
-$scroll-to-top-height: 70px;
+$scroll-to-top-height: 45px;
 $scroll-to-top-margin: 0 10px 0 0;
-$scroll-to-top-width: 70px;
+$scroll-to-top-width: 45px;
 
 // section header
 $section-header-bg-about: url('/assets/img/about_main.jpg');
@@ -566,8 +614,13 @@ $section-header-bg-ionful: url('/assets/img/ionful.jpg');
 $section-header-bg-modernization: url('/assets/img/modtab.jpg');
 $section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
 $section-header-bg-portfolio: url('/assets/img/projectstab.jpg');
+$section-header-bg-recommendations: url('/assets/img/aftermarket_support.jpg');
 $section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
 $section-header-bg-support: url('/assets/img/aftermarket_support.jpg');
+
+$section-header-modernization-namo-bakground: url('../../assets/img/namo_logo33.png') no-repeat;
+$section-header-modernization-namo-height: 214px;
+$section-header-modernization-namo-width: 219px;
 
 $section-header-height: 570px;
 
@@ -576,10 +629,10 @@ $section-header-logo-background-url: url('../../assets/img/logo_white.png');
 $section-header-top-menu-border: 1px solid $white;
 $section-header-top-menu-height: 50px;
 $section-header-top-menu-item-background: url('/assets/img/arrow_right_icon.png') no-repeat;
-$section-header-top-menu-item-background-height: 50px;
-$section-header-top-menu-item-background-position: 0 15px;
-$section-header-top-menu-item-background-width: 85px;
-$section-header-top-menu-item-padding: 0 0 0 80px;
+$section-header-top-menu-item-background-height: 25px;
+$section-header-top-menu-item-background-position: 0 27px;
+$section-header-top-menu-item-background-width: 40px;
+$section-header-top-menu-item-padding: 0 0 0 35px;
 
 $seciton-header-bg-max-height: $section-header-height;
 $section-header-menu-color: $white;
@@ -765,6 +818,7 @@ $video-background-color: $black;
     &.ionful,
     &.modernization,
     &.portfolio,
+    &.recommendations,
     &.service-maintenance,
     &.support {
         background-color: $section-header-menu-background-color;

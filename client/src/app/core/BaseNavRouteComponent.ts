@@ -33,6 +33,7 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
     protected _content: ElementRef;
     protected _scrolled: boolean = false;
     protected _scrollToContent: boolean = false;
+    protected _urls: string[] = [];
 
     protected _menu: MenuItem[] = [];
     public get menu(): MenuItem[] {
@@ -89,6 +90,8 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
         this._routerService.to(url);
     }
     protected _onNavigationEnd(event: NavigationEnd): void {
+        this._parseUrl(event.url);
+
         let item = this.menu.find((m) => {
             return (!this.isNullOrEmpty(m.routerLink) && event.url.startsWith(m.routerLink));
         });
@@ -110,6 +113,11 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
                 this._scrolled = false;
             }
         }
+    }
+    protected _parseUrl(url: string): void {
+        this._urls = url.split('/').filter((u) => {
+            return !this.isNullOrEmpty(u);
+        });
     }
     protected _scrollToTop(): void {
         if (this._scrollToContent && this._container) {

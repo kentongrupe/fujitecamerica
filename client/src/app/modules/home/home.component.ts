@@ -74,8 +74,6 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.eventService.dispatch(AppEvent.SECTION_HEADER_VISIBLE, false);
-
         this.dataService.getSlides((d) => {
             this._slideItems = d.slides.reverse().map((s) => {
                 return new Media(s);

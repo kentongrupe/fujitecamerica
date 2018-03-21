@@ -43,11 +43,13 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
 
     private _alertMessage: string = '';
     private _alerTitle: string = '';
+    private _animateTop: boolean = false;
     private _contentPaddingTop: number = 0;
     private _contentTop: number = AppConstants.HEADER_HEIGHT;
     private _headerTop: number = 0;
     private _isHome: boolean = true;
     private _resources: MenuItem[] = [];
+    private _sectionHeaderTop: number = AppConstants.HEADER_HEIGHT;
     private _sectionHeaderVisible: boolean = false;
 
     constructor(
@@ -71,9 +73,9 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
         this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
             this._scrollToTop();
         });
-        this.eventService.register(AppEvent.SECTION_HEADER_VISIBLE, (v) => {
-            this._sectionHeaderVisible = v;
-        });
+        // this.eventService.register(AppEvent.SECTION_HEADER_VISIBLE, (v) => {
+        //     this._sectionHeaderVisible = v;
+        // });
         this.eventService.register(AppEvent.SHOW_RESOURCE, (r) => {
             this._showResource(r);
         });
@@ -102,45 +104,73 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     protected _onNavigationEnd(event: NavigationEnd): void {
         super._onNavigationEnd(event);
         this._isHome = (event.url === AppRoute.HOME);
-        this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+
+        switch (event.url) {
+            case AppRoute.CONTACT:
+            case AppRoute.HOME:
+            case AppRoute.LOCATIONS:
+            case AppRoute.PRIVACY_POLICY:
+            case AppRoute.SITE_MAP:
+            case AppRoute.SITE_POLICY:
+                this._sectionHeaderVisible = false;
+                break;
+            default:
+                this._sectionHeaderVisible = true;
+                break;
+        }
+
+        if (this._urls.length < 2) {
+            this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+        }
     }
     protected _scrollToTop(): void {
+        this._animateTop = true;
+        setTimeout(() => {
+            this._animateTop = false;
+        }, 1000);
+
         this._headerTop = 0;
         this._contentTop = AppConstants.HEADER_HEIGHT;
         this._contentPaddingTop = 0;
+        this._sectionHeaderTop = AppConstants.HEADER_HEIGHT;
     }
     private _scroll(value: number, delta: number): void {
-        // header
-        let ht = this._headerTop - delta;
-        if (delta < 0) {
-            ht = Math.min(ht, 0);
-        } else {
-            ht = Math.max(ht, -AppConstants.HEADER_HEIGHT);
+        if ((delta < 0) && (value < 530)) {
+            this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+            return;
         }
-        // this._headerTop = ht;
-        // if (ht === -AppConstants.HEADER_HEIGHT) {
-        //     this.eventService.dispatch(AppEvent.HEADER_VISIBLE, false);
-        // } else if (ht === 0) {
-        //     this.eventService.dispatch(AppEvent.HEADER_VISIBLE, true);
-        // }
+
+        // section header
+        let st = this._sectionHeaderTop - delta;
+        if (delta < 0) {
+            if (value > 5) {
+                // st = Math.min(st, AppConstants.HEADER_HEIGHT);
+                // this._sectionHeaderTop = st;
+            }
+        } else {
+            st = Math.max(st, 0);
+            this._sectionHeaderTop = st;
+        }
 
         // content
-        let ct = this._contentTop - delta;
-        if (delta < 0) {
-            ct = Math.min(ct, AppConstants.HEADER_HEIGHT);
-        } else {
-            ct = Math.max(ct, 0);
-        }
-        this._contentTop = ct;
+        // let ct = this._contentTop - delta;
+        // if (delta < 0) {
+        //     ct = Math.min(ct, AppConstants.HEADER_HEIGHT);
+        // } else {
+        //     ct = Math.max(ct, 0);
+        // }
+        // this._contentTop = ct;
 
         // content padding-top
-        let pt = this._contentPaddingTop - delta;
-        if (delta < 0) {
-            //
-        } else {
-            pt = Math.max(pt, AppConstants.HEADER_HEIGHT);
-        }
-        this._contentPaddingTop = Math.min(AppConstants.HEADER_HEIGHT, value);
+        // let pt = this._contentPaddingTop - delta;
+        // pt = Math.max(pt, AppConstants.HEADER_HEIGHT);
+        // if (delta < 0) {
+        // if (pt <= AppConstants.HEADER_HEIGHT) {
+        //     // this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+        //     return;
+        // }
+        // }
+        // this._contentPaddingTop = Math.min(AppConstants.HEADER_HEIGHT, value);
     }
     private _showResource(resource: MenuItem): void {
         let route = resource.routerLink;

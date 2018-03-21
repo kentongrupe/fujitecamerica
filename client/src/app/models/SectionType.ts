@@ -8,9 +8,8 @@ export enum SectionType {
     HOME,
     INSTALLATION,
     MODERNIZATION,
+    RECOMMENDATIONS,
     SERVICE_MAINTENANCE,
     PORTFOLIO,
-    // PRIVACY_POLICY,
-    // SITE_POLICY,
     SUPPORT
 }

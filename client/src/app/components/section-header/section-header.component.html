@@ -1,14 +1,14 @@
 <div class="bg-div" [style.height.px]="_bgHeight">
-    <div [attr.class]="'bg ' + _background" [style.top.px]="_bgTop"></div>
-</div>
-<div class="top-menu-bg content-div">
-    <div>
-        <div class="col-left">
-            <div class="logo" [style.top.px]="_logoTop"></div>
-        </div>
-        <div class="col-center"></div>
-        <div class="col-right"></div>
+    <div [attr.class]="'bg ' + _background" [style.top.px]="_bgTop">
+        <div class="namo"></div>
     </div>
+</div>
+<div class="top-menu-bg">
+    <div class="col-left">
+        <div class="logo" [style.top.px]="_logoTop" (click)="_resetView()"></div>
+    </div>
+    <div class="col-center"></div>
+    <div class="col-right"></div>
 </div>
 <div class="top-menu">
     <ul class="menu-items">
@@ -16,8 +16,6 @@
             <span>{{ m.label }}</span>
         </li>
     </ul>
-</div>
-<div>
 </div>
 <div [attr.class]="'menu-div col-left ' + _background" [style.top.px]="_menuTop"></div>
 <div [attr.class]="'menu-div col-center ' + _background" [style.top.px]="_menuTop"></div>

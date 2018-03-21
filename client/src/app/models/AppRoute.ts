@@ -28,6 +28,10 @@ export class AppRoute {
     public static INSTALLATION: string = '/installation';
     public static LOCATIONS: string = '/locations';
     public static MODERNIZATION: string = '/modernization';
+    public static MODERNIZATION_ASSESSMENT: string = '/modernization/assessment';
+    public static MODERNIZATION_BENEFITS: string = '/modernization/benefits';
+    public static MODERNIZATION_PROCESS: string = '/modernization/process';
+    public static MODERNIZATION_WHY_NAMO: string = '/modernization/whynamo';
     public static PRIVACY_POLICY: string = '/privacy-policy';
     public static PORTFOLIO: string = '/portfolio';
     public static PORTFOLIO_ADDITIONAL: string = '/portfolio/additional';

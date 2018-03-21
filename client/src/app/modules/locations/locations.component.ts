@@ -76,8 +76,6 @@ export class LocationsComponent extends BaseComponent implements OnInit {
         let h = m.height();
         let r = w / h;
 
-        r = W / w;
-
         this._width = '{0}px'.format(w);
         this._height = '{0}px'.format(h);
 

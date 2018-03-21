@@ -1,5 +1,197 @@
 modernization {
-    ol {
-        list-style: none;
+    .modernization-div {
+        .col-center {
+            background-color: $modernization-background-color;
+
+            .benefits-div {
+                color         : $modernization-benefits-color;
+                display       : flex;
+                text-transform: uppercase;
+
+                .col {
+                    flex  : 1 1 auto;
+                    margin: 1px;
+
+                    .row {
+                        background-color       : $modernization-benefits-background-color;
+                        display                : inline-grid;
+                        line-height            : 1.5;
+                        margin                 : 1px;
+                        padding                : $modernization-benefits-padding;
+                        text-align             : center;
+                        text-underline-position: under;
+                        width                  : 100%;
+
+                        span {
+                            text-decoration: underline;
+                            width          : 100%;
+                        }
+                    }
+                }
+            }
+
+            .assessment-div {
+                background     : $modernization-assessment-background;
+                background-size: cover;
+                padding        : $vgap_ $hgap_;
+
+                & * {
+                    padding: $vgap_ $hgap_;
+                }
+
+                & > div {
+                    display: flex;
+
+                    //
+                    @mixin _a() {
+                        background-color: $white;
+                        text-align      : left;
+                        width           : 48%;
+
+                        p {
+                            margin : 0;
+                            padding: 0;
+                        }
+                    }
+                    @mixin _b() {
+                        background-color: rgba(255,255,255,0.7);
+                        color           : $black;
+                        position        : relative;
+                        width           : 52%;
+
+                        p {
+                            font-size: 50px;
+                            margin   : 0;
+                            padding  : 0;
+                            position : absolute;
+                            top      : 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+
+                    &:first-of-type {
+                        & > div {
+                            &:first-of-type {
+                                @include _a();
+                            }
+
+                            &:last-of-type {
+                                @include _b();
+
+                                p {
+                                    right: 100px;
+                                }
+                            }
+                        }
+                    }
+
+                    &:last-of-type {
+                        & > div {
+                            &:first-of-type {
+                                @include _b();
+
+                                p {
+                                    left: 60px;
+                                }
+                            }
+
+                            &:last-of-type {
+                                @include _a();
+                            }
+                        }
+                    }
+                }
+            }
+
+            .process-div {
+                background         : $modernization-process-background;
+                background-color   : $modernization-process-background-color;
+                background-position: center;
+                background-size    : $modernization-process-background-size;
+                border-left        : $modernization-process-border;
+                border-right       : $modernization-process-border;
+                height             : $modernization-process-height;
+                position           : relative;
+
+                .process-box {
+                    background-color: $modernization-process-box-background-color;
+                    color           : $modernization-process-box-color;
+                    display         : inline-flex;
+                    font-weight     : $modernization-process-box-font-weight;
+                    height          : $modernization-process-box-height;
+                    padding         : $vgap $hgap;
+                    width           : $modernization-process-box-width;
+
+                    & > div {
+                        color      : $modernization-process-box-color;
+                        line-height: 1;
+                        text-align : left;
+
+                        &:first-of-type {
+                            border-right : $modernization-process-box-border;
+                            font-size    : $modernization-process-box0-font-weight;
+                            padding-right: $hgap;
+                        }
+
+                        &:last-of-type {
+                            @include abs-position-tl(50%, $modernization-process-box1-left);
+                            font-size: $modernization-process-box1-font-weight;
+                            transform: translateY(-50%);
+                        }
+                    }
+
+                    &:nth-of-type(1) {
+                        @include abs-position-tl($modernization-process-box-vpos, $modernization-process-box-hpos);
+                    }
+
+                    &:nth-of-type(2) {
+                        @include abs-position-tr($modernization-process-box-vpos, $modernization-process-box-hpos);
+                    }
+
+                    &:nth-of-type(3) {
+                        @include abs-position-br($modernization-process-box-vpos, $modernization-process-box-hpos);
+                    }
+
+                    &:nth-of-type(4) {
+                        @include abs-position-bl($modernization-process-box-vpos, $modernization-process-box-hpos);
+                    }
+                }
+            }
+
+            .whynamo-div {
+                background         : $modernization-whynamo-background;
+                background-color   : $modernization-whynamo-background-color;
+                background-position: $modernization-whynamo-background-position;
+                background-size    : $modernization-whynamo-background-size;
+                height             : $modernization-whynamo-height;
+                position           : relative;
+
+                .whynamo-text-div {
+                    @include abs-position-tl();
+                    background-color: $modernization-whynamo-text-background-color;
+                    padding         : $vgap $hgap;
+                    text-align      : left;
+
+                    p {
+                        margin-top: 0;
+                    }
+                }
+
+                .lets-modernize-america {
+                    @include abs-position-tl(220px, 220px);
+                    -webkit-background-clip: text;
+                    -moz-background-clip   : text;
+                    background-clip        : text;
+                    background-color       : $black;
+                    color                  : transparent;
+                    font-family            : 'Times New Roman', Times, serif;
+                    font-size              : 70px;
+                    line-height            : 1;
+                    text-align             : left;
+                    text-shadow            : 0 2px 1px #767B7F;
+                    width                  : 300px;
+                }
+            }
+        }
     }
 }

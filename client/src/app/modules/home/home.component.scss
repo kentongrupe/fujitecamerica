@@ -53,13 +53,9 @@ home {
         }
     }
 
-    .content-div {
-        height : initial;
-        padding: 0 !important;
-    }
-
     .home-sys-menu-div {
-        margin: $vgap 0;
+        display: flex;
+        margin : $vgap 0;
 
         .col-center {
             display: flex;
@@ -80,7 +76,7 @@ home {
     .home-pro-menu-div {
         background-color: $grey45;
         color           : $app-pro-menu-color;
-        display         : $app-pro-menu-div-display;
+        display         : flex;
         margin          : $vgap 0;
         padding         : $vgap_/2 0 !important;
         text-align      : center;
@@ -101,7 +97,7 @@ home {
             }
 
             .pro-menu-item {
-                background-repeat: none;
+                background-repeat: no-repeat;
                 border-left      : $app-pro-menu-border;
                 cursor           : pointer;
                 display          : inline-block;

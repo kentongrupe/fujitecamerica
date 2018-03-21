@@ -25,6 +25,9 @@ import {
     SysMenuComponent,
 } from 'app/components';
 import {
+    HRuleDirective
+} from 'app/directives';
+import {
     AlertModal,
     LoginModal,
     ProjectInfoModal
@@ -45,6 +48,8 @@ import {
         ProMenuComponent,
         ScrollToTopComponent,
         SysMenuComponent,
+        // directives
+        HRuleDirective,
         // modals
         AlertModal,
         LocationInfoModal,
@@ -80,6 +85,8 @@ import {
         ProMenuComponent,
         ScrollToTopComponent,
         SysMenuComponent,
+        // directives
+        HRuleDirective,
         // modals
         AlertModal,
         LocationInfoModal,

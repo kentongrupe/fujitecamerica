@@ -16,7 +16,7 @@ export class DOMService extends BaseService {
         super('DOMService');
     }
 
-    public scrollIntoView(element: any): void {
+    public scrollIntoView(element: Element): void {
         element.scrollIntoView(true);
     }
 }
