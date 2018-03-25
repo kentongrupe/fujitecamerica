@@ -158,12 +158,12 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                         routerLink: AppRoute.ELEVATORS_GEARLESS
                     },
                     {
-                        label: this._getString('geared', 'Geared'),
-                        routerLink: AppRoute.ELEVATORS_GEARED
-                    },
-                    {
                         label: this._getString('mrl', 'MRL'),
                         routerLink: AppRoute.ELEVATORS_MRL
+                    },
+                    {
+                        label: this._getString('geared', 'Geared'),
+                        routerLink: AppRoute.ELEVATORS_GEARED
                     },
                     {
                         label: this._getString('hydro', 'Hydro'),
@@ -199,6 +199,23 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
             case SectionType.INSTALLATION:
                 this._menuLabel = this._getString('installation', 'Installation');
                 break;
+            case SectionType.MAINTENANCE:
+                this._menuLabel = this._getString('service-maintenance', 'Maintenance');
+                this._menu = [
+                    {
+                        label: this._getString('service-stats', 'Service Stats'),
+                        routerLink: AppRoute.MAINTENANCE_SERVICE_STATS
+                    },
+                    {
+                        label: this._getString('why-fujitec', 'Why Fujitec'),
+                        routerLink: AppRoute.MAINTENANCE_WHY_FUJITEC
+                    },
+                    {
+                        label: this._getString('mechanic-routes', 'Mechanic Routes'),
+                        routerLink: AppRoute.MAINTENANCE_MECHOANIC_ROUTES
+                    },
+                ];
+                break;
             case SectionType.MODERNIZATION:
                 this._menuLabel = this._getString('modernization', 'Modernization');
                 this._menu = [
@@ -225,9 +242,6 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 break;
             case SectionType.RECOMMENDATIONS:
                 this._menuLabel = this._getString('recommendations', 'Recommendations');
-                break;
-            case SectionType.SERVICE_MAINTENANCE:
-                this._menuLabel = this._getString('service-maintenance', 'Maintenance');
                 break;
             case SectionType.SUPPORT:
                 this._menuLabel = this._getString('after-market-support', 'After-Market Support');

@@ -1,3 +1,11 @@
 project-info-modal {
     @include modal-scss();
+
+    .project-unit {
+        &:not(:last-of-type) {
+            &:after {
+                content: ',';
+            }
+        }
+    }
 }

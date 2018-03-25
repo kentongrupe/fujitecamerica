@@ -12,7 +12,8 @@ locations {
             display: flex;
 
             .col-center {
-                display: flex;
+                background: none;
+                display   : flex;
 
                 .map-div {
                     flex    : 1;

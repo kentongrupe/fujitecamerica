@@ -22,6 +22,12 @@
     left    : $left;
     position: absolute;
 }
+@mixin abs-position-blr($bottom:0, $left:0, $right:0) {
+    bottom  : $bottom;
+    left    : $left;
+    position: absolute;
+    right   : $right;
+}
 @mixin abs-position-br($bottom:0, $right:0) {
     bottom  : $bottom;
     position: absolute;
@@ -37,6 +43,12 @@
     position: absolute;
     top     : $top;
 }
+@mixin abs-position-tlr($top:0, $left:0,$right:0) {
+    left    : $left;
+    position: absolute;
+    right   : $right;
+    top     : $top;
+}
 @mixin abs-position-tr($top:0, $right:0) {
     position: absolute;
     right   : $right;
@@ -50,12 +62,37 @@
     -moz-box-shadow   : $dx $dy $blur $spread $rgba !important;
     box-shadow        : $dx $dy $blur $spread $rgba !important;
 }
+@mixin hr($color:#000000) {
+    $widths: 50 70 90 120 150 200 300 350;
+
+    hr {
+        @each $w in $widths {
+            &.hr-#{$w} {
+                border     : 1px solid $color;
+                margin-left: 0;
+                width      : #{$w}px;
+            }
+        }
+
+        &.hr-100_ {
+            border: 1px solid $color;
+            margin: $vgap_ $hgap;
+        }
+    }
+}
 @mixin section-image($section, $name, $content) {
     #{$section} {
         #{$name} {
             .section-image {
                 img {
                     content: #{$content};
+                }
+
+                .img {
+                    background         : $content;
+                    background-position: center top;
+                    background-repeat  : no-repeat;
+                    background-size    : 100% auto;
                 }
             }
         }
@@ -99,6 +136,11 @@ $col-side-width: 260px;
     white-space  : nowrap;
 }
 
+.flex-column {
+    display       : flex;
+    flex-direction: column;
+}
+
 .italic {
     font-style: italic;
 }
@@ -107,9 +149,18 @@ $col-side-width: 260px;
     list-style: none;
 }
 
+.margin-0-auto {
+    margin: 0 auto;
+}
+
 .text-overflow-ellipsis {
     display      : block;
     overflow     : hidden;
     text-overflow: ellipsis;
     white-space  : nowrap;
+}
+
+.underline {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }

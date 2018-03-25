@@ -27,6 +27,10 @@ export class AppRoute {
     public static INIT: string = '';
     public static INSTALLATION: string = '/installation';
     public static LOCATIONS: string = '/locations';
+    public static MAINTENANCE: string = '/maintenance';
+    public static MAINTENANCE_MECHOANIC_ROUTES: string = '/maintenance/routes';
+    public static MAINTENANCE_SERVICE_STATS: string = '/maintenance/stats';
+    public static MAINTENANCE_WHY_FUJITEC: string = '/maintenance/whyfujitec';
     public static MODERNIZATION: string = '/modernization';
     public static MODERNIZATION_ASSESSMENT: string = '/modernization/assessment';
     public static MODERNIZATION_BENEFITS: string = '/modernization/benefits';
@@ -38,14 +42,18 @@ export class AppRoute {
     public static PROPERTY_MANAGERS: string = '/property-managers';
     public static RECOMMENDATIONS: string = '/recommendations';
     public static SEARCH: string = '/search';
-    public static SERVICE_MAINTENANCE: string = '/service-maintenance';
     public static SITE_MAP: string = '/site-map';
     public static SITE_POLICY: string = '/site-policy';
     public static SUPPORT: string = '/support';
 
     public static routes: any[] = [
         {
-            path: AppRoute.SERVICE_MAINTENANCE
+            path: AppRoute.MAINTENANCE,
+            children: [
+                { path: AppRoute.MAINTENANCE_MECHOANIC_ROUTES },
+                { path: AppRoute.MAINTENANCE_SERVICE_STATS },
+                { path: AppRoute.MAINTENANCE_WHY_FUJITEC }
+            ]
         },
         {
             path: AppRoute.MODERNIZATION

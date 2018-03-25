@@ -19,10 +19,6 @@ section-header {
             max-height         : $seciton-header-bg-max-height;
             pointer-events     : none;
 
-            .namo {
-                display: none;
-            }
-
             &.about {
                 background-image: $section-header-bg-about;
             }
@@ -51,17 +47,12 @@ section-header {
                 background-image: $section-header-bg-ionful;
             }
 
+            &.maintenance {
+                background-image: $section-header-bg-service-maintenance;
+            }
+
             &.modernization {
                 background-image: $section-header-bg-modernization;
-
-                .namo {
-                    @include abs-position(140px, 0);
-                    background     : $section-header-modernization-namo-bakground;
-                    background-size: $section-header-modernization-namo-width $section-header-modernization-namo-height;
-                    display        : inline-block;
-                    height         : $section-header-modernization-namo-height;
-                    width          : $section-header-modernization-namo-width;
-                }
             }
 
             &.portfolio {
@@ -70,10 +61,6 @@ section-header {
 
             &.recommendations {
                 background-image: $section-header-bg-recommendations;
-            }
-
-            &.service-maintenance {
-                background-image: $section-header-bg-service-maintenance;
             }
 
             &.support {

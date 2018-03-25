@@ -8,77 +8,332 @@
 
 elevators {
     .breakdown {
+        h1 {
+            margin-bottom: $hgap_;
+            text-align   : center;
+        }
+
         .section-image {
             padding: $vgap 0;
         }
     }
 
-    .pmgl-div {
-        @extend .border-left;
-        @extend .border-right;
-        padding: 0 $hgap;
+    .gearless {
+        .section {
+            &.gearless-1 {
+                display: flex;
 
-        .pmgl-row {
+                & > div {
+                    flex: 1;
+
+                    &:first-child {
+                        margin-right: $hgap_/2;
+                    }
+
+                    &:last-child {
+                        margin-left: $hgap_/2;
+                    }
+                }
+            }
+
+            &.gearless-2 {
+                border-left : $pmgl-border;
+                border-right: $pmgl-border;
+                display     : flex;
+
+                .pmgl-cell {
+                    border-bottom: $pmgl-border;
+                    display      : inline-block;
+                    flex         : 1;
+                    text-align   : center;
+
+                    .pmgl-label {
+                        background-color: $pmgl-label-background-color;
+                        color           : $pmgl-label-color;
+                        font-size       : $pmgl-label-font-size;
+                        height          : $pmgl-label-height;
+                        line-height     : $pmgl-label-height;
+                        margin          : 0 1px;
+                        text-align      : center;
+                    }
+
+                    .pmgl-image {
+                        border : $pmgl-border;
+                        padding: $vgap $hgap;
+
+                        & > div {
+                            background-repeat: no-repeat;
+                            background-size  : contain;
+                            height           : $pmgl-image-height;
+                            width            : $pmgl-image-width;
+                        }
+                    }
+
+                    //
+                    @mixin _pml-image($pm, $bg) {
+                        &.#{$pm} {
+                            .pmgl-image {
+                                & > div {
+                                    background-image: $bg;
+                                }
+                            }
+                        }
+                    }
+                    @include _pml-image( 'pm02', $pmgl-pm02-background);
+                    @include _pml-image( 'pm03', $pmgl-pm03-background);
+                    @include _pml-image( 'pm04', $pmgl-pm04-background);
+                    @include _pml-image( 'fm450', $pmgl-fm450-background);
+
+                    &:first-of-type {
+                        .pmgl-label {
+                            margin-left: 0;
+                        }
+                    }
+
+                    &:last-of-type {
+                        .pmgl-label {
+                            margin-right: 0;
+                        }
+                    }
+
+                    .pmgl-info {
+                        background-color: $pmgl-info-background-color;
+                        border          : $pmgl-border;
+                        padding         : $vgap $hgap;
+                    }
+                }
+            }
+        }
+    }
+
+    .mrl {
+        .section-header {
+            h1 {
+                span {
+                    font-style: italic;
+                }
+            }
+        }
+
+        .section-image {
+            & > div {
+                & > div {
+                    display   : flex;
+                    margin-top: $vgap_;
+
+                    & > div {
+                        @extend .flex-column;
+                        flex: 1;
+
+                        &:not(:last-child) {
+                            margin-right: $hgap_;
+                        }
+
+                        & > div {
+                            @extend .margin-0-auto;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        & > div {
+                            &:nth-child(1),
+                            &:nth-child(3) {
+                                flex: 2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .geared {
+        .section-image {
+            & > div {
+                display: flex;
+
+                & > div {
+                    @extend .flex-column;
+                    flex       : 1;
+                    margin-left: $vgap_;
+                    margin-top : auto;
+
+                    &:nth-child(3) {
+                        flex: .9;
+                    }
+
+                    &:nth-child(4) {
+                        flex        : .75;
+                        margin-right: $vgap_;
+                    }
+
+                    & > div {
+                        @extend .margin-0-auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .hydraulic {
+        .section-image {
+            & > div {
+                padding-top: 300px;
+
+                & > div {
+                    column-count: 2;
+                    column-gap  : $hgap * 2;
+
+                    & * {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+
+    .monitoring {
+        .section-image {
+            & > div.img {
+                background-size: cover;
+                display        : flex;
+                height         : 520px;
+
+                & > div {
+                    flex: 1;
+
+                    & > div {
+                        width: 415px;
+
+                    }
+
+                    &:nth-child(2) {
+                        & > div {
+                            @include abs-position-br();
+
+                            & > * {
+                                text-align: left;
+                            }
+
+                            ul {
+                                font-size  : $font-size;
+                                font-weight: $font-weight-lite;
+                                line-height: $line-height;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .monitoring-info-0 {
             display: flex;
-            padding: $vgap_ $hgap_;
-            width  : 100%;
+            margin : $vgap $hgap;
 
-            &:first-child {
-                @extend .border-bottom;
-            }
+            & > div {
+                flex   : 1;
+                padding: 0 $hgap;
 
-            .pmgl-cell {
-                display   : inline-block;
-                flex      : 1;
-                text-align: center;
+                &:last-child {
+                    border-left: 2px solid $grey5;
 
-                &:first-child {
-                    @extend .border-right;
-                }
+                    & > div {
+                        padding: 0 $hgap $vgap;
 
-                .pmgl-label {
-                    background-color: $pmgl-label-background-color;
-                    color           : $pmgl-label-color;
-                    font-size       : $pmgl-label-font-size;
-                    height          : $pmgl-label-height;
-                    line-height     : $pmgl-label-height;
-                    margin          : 0 auto;
-                    text-align      : center;
-                    width           : $pmgl-label-width;
-                }
-
-                .pmgl-image {
-                    background-repeat: no-repeat;
-                    background-size  : contain;
-                    height           : $pmgl-image-height;
-                    margin           : $vgap_ auto;
-                    width            : $pmgl-image-width;
-                }
-
-                &.pm02 {
-                    .pmgl-image {
-                        background-image: $pmgl-pm02-background;
-                    }
-                }
-
-                &.pm03 {
-                    .pmgl-image {
-                        background-image: $pmgl-pm04-background;
-                    }
-                }
-
-                &.pm04 {
-                    .pmgl-image {
-                        background-image: $pmgl-pm04-background;
-                    }
-                }
-
-                &.fm450 {
-                    .pmgl-image {
-                        background-image: $pmgl-fm450-background;
+                        &:last-child {
+                            border-top: 2px solid $grey5;
+                            padding   : $vgap $hgap 0;
+                        }
                     }
                 }
             }
+        }
+    }
+
+    .ionful {
+        margin-bottom: $vgap;
+
+        .section-image {
+            & > div.img {
+                background-size: auto 375px;
+                display        : flex;
+                position       : relative;
+
+                & > div {
+                    & > * {
+                        text-align: left;
+                    }
+
+                    &:nth-child(1) {
+                        display: grid;
+                        flex   : 1;
+
+                        & > div {
+                            & > * {
+                                text-align: left;
+                            }
+
+                            &:nth-child(1) {
+                                display: inline-table;
+                                width  : 340px;
+                            }
+
+                            &:nth-child(2) {
+                                margin-top: auto;
+                                width     : 250px;
+
+                                hr {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        width: 220px;
+
+                        hr {
+                            margin-left: 0;
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        @include abs-position(375px + $vgap_, 220px, inherit, 250px);
+                        @extend .flex-column;
+                        width: calc(100% - 470px);
+
+                        //
+                        @include hr($grey6);
+
+                        & > * {
+                            text-align: center;
+                        }
+
+                        & > div {
+                            &:nth-child(1) {
+                                margin: $vgap_ auto;
+                            }
+
+                            &:nth-child(2) {
+                                background-color: $grey1;
+                                padding         : $vgap_ $hgap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .energy {
+        h1 {
+            display   : inline-block;
+            text-align: center;
+            width     : 100%;
+        }
+
+        .grey-box {
+            padding: $vgap 140px;
         }
     }
 }

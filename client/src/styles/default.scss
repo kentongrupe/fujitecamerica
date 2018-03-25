@@ -28,11 +28,11 @@ $footer-border-top: 3px solid $grey5;
 
 // basic text
 $font-family: 'Source Sans Pro', sans-serif;
-$font-size: 24px;
+$font-size: 18px;
 $font-weight-bold: 700;
 $font-weight-lite: 300;
 $font-weight-regular: 400;
-$line-height: 34px;
+$line-height: 1.5;
 $color: $black;
 
 // header (global navigation)
@@ -47,170 +47,6 @@ $footer-color: $white;
 $min-font-size: 10px;
 $min-color: $grey3;
 
-* {
-    box-sizing: border-box;
-}
-
-body,
-html {
-    font-family: $font-family;
-    font-size  : $font-size;
-    font-weight: 400;
-    height     : 100%;
-    margin     : 0;
-    overflow   : hidden;
-    padding    : 0;
-    width      : 100%;
-
-    p {
-        font-size  : $font-size;
-        font-weight: $font-weight-lite;
-        line-height: $line-height;
-    }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color      : $black;
-    font-family: $font-family;
-    font-weight: 300;
-    margin-top : 0;
-}
-
-h1 {
-    font-size: 40px;
-
-    &.title-photo {
-        color    : $white;
-        font-size: 28px;
-        // Image (width): browser width
-        // Image(height): 240pxinheight
-    }
-
-    &.title {
-        font-size: 22px;
-        margin   : 40px 0;
-    }
-}
-
-h2 {
-    font-size: 36px;
-
-    &.title {
-        font-size: 22px;
-        margin   : 20px 0;
-    }
-}
-
-h3 {
-    font-size: 32px;
-
-    &.title {
-        font-size: 16px;
-        margin   : 20px 0;
-    }
-}
-
-input[type="email"],
-input[type="email"]:not([readonly]),
-input[type="password"],
-input[type="password"]:not([readonly]),
-input[type="text"],
-input[type="text"]:not([readonly]),
-select,
-textarea {
-    background   : none;
-    color        : $black;
-    border       : 1px solid $grey4;
-    font-size    : 14px;
-    height       : 45px;
-    padding-left : 10px;
-    padding-right: 10px;
-    transition   : none;
-}
-
-ul.links {
-    @extend .list-style-none;
-    display: inline-block;
-    margin : 0;
-    padding: 0;
-}
-
-div {
-    &.hrule {
-        border-top: 1px solid $grey3;
-        margin    : $vgap 0;
-
-        .hrule-arrow {
-            background         : url('../../assets/img/back_to_top.png') no-repeat;
-            background-color   : $grey1;
-            background-position: center;
-            background-size    : 40px 40px;
-            height             : 40px;
-            margin             : -20px auto;
-            transform          : rotate(180deg);
-            width              : 40px;
-        }
-    }
-}
-
-.link {
-    color      : $black;
-    cursor     : pointer;
-    font-size  : $font-size;
-    font-weight: $font-weight-regular;
-    line-height: $line-height;
-
-    * {
-        cursor: pointer;
-    }
-
-    &:hover {
-        color: $red;
-    }
-
-    &.underline {
-        text-decoration: underline;
-    }
-}
-
-.date-link {
-    color    : $black;
-    font-size: 14px;
-
-    .date {
-        font-weight: bold;
-    }
-}
-
-.anchor-link {
-    @extend .link;
-    margin: 0 20px;
-}
-
-.footer-link {
-    color    : $white;
-    font-size: 12px;
-    margin   : 0 10px;
-}
-
-.disabled {
-    opacity       : .3;
-    pointer-events: none;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.section {
-    display: inline-block;
-}
-
 // common
 $border: 1px solid $grey3;
 $max-width: $content-width;
@@ -221,15 +57,12 @@ $elevators: #D01126;
 $escalators: #006086;
 
 // app
-// $reference-color: $red;
-// $reference-font-size: 16px;
-// $reference-width: 200px;
-
 $app-menu-header-color: $grey7;
 $app-menu-header-font-size: 24px;
 
 $app-menu-padding: 20px 0;
 
+$app-content-background-color: $white;
 $app-content-padding: 20px;
 
 $app-content-menu-background-color: $grey1;
@@ -319,6 +152,8 @@ $elevators-system-hydraulic-image-content: url('../../assets/img/hydro.jpg');
 $elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
 
 //  pmgl
+$pmgl-border: 1px solid $grey4;
+
 $pmgl-label-background-color: rgba($elevators, 0.7);
 $pmgl-label-color: $white;
 $pmgl-label-font-size: 24px;
@@ -326,12 +161,14 @@ $pmgl-label-height: 60px;
 $pmgl-label-width: 220px;
 
 $pmgl-image-height: 250px;
-$pmgl-image-width: 220px;
+$pmgl-image-width: 100%;
 
 $pmgl-pm02-background: url('../../assets/img/pm_02.png');
 $pmgl-pm03-background: url('../../assets/img/pm_03.png');
 $pmgl-pm04-background: url('../../assets/img/pm_04.png');
 $pmgl-fm450-background: url('../../assets/img/fm_450.png');
+
+$pmgl-info-background-color: $grey2;
 
 // escalators
 $escalators-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
@@ -614,7 +451,7 @@ $section-header-bg-ionful: url('/assets/img/ionful.jpg');
 $section-header-bg-modernization: url('/assets/img/modtab.jpg');
 $section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
 $section-header-bg-portfolio: url('/assets/img/projectstab.jpg');
-$section-header-bg-recommendations: url('/assets/img/aftermarket_support.jpg');
+$section-header-bg-recommendations: url('/assets/img/recomendationstab.jpg');
 $section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
 $section-header-bg-support: url('/assets/img/aftermarket_support.jpg');
 
@@ -653,9 +490,15 @@ $section-header-menu-items-font-size: 20px;
 $section-header-menu-item-border: 1px solid $section-header-menu-color;
 
 // service & maintenance
-$service-maintenance-current-image-content: url('../../assets/img/maintenancerepairguy.jpg');
-$service-maintenance-why-image-content: url('../../assets/img/maintenancerepairguy.jpg');
-$service-maintenance-routes-image-content: url('../../assets/img/maintenancerepairguy.jpg');
+$service-maintenance-stats-image-content: url('../../assets/img/fai_truck.jpg');
+$service-maintenance-routes-image-content: url('../../assets/img/maintenance_site.jpg');
+
+$maintenance-service-graph-background: url('../../assets/img/service_graph.png') no-repeat;
+
+$maintenance-why-border: $hgap_ solid $elevators;
+
+$maintenance-why-index-font-size: 80px;
+$maintenance-why-index-font-weight: 300;
 
 // site-map
 $site-map-links-border: $border;
@@ -668,6 +511,187 @@ $site-map-link-hover-color: $red;
 $video-background-color: $black;
 
 //
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: $font-family;
+    font-size  : $font-size;
+    font-weight: 400;
+    height     : 100%;
+    margin     : 0;
+    overflow   : hidden;
+    padding    : 0;
+    width      : 100%;
+
+    p {
+        font-size  : $font-size;
+        font-weight: $font-weight-lite;
+        line-height: $line-height;
+        margin     : 0;
+    }
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color      : $black;
+    font-family: $font-family;
+    font-weight: 300;
+    margin     : 0 0 $hgap_;
+}
+
+.h1,
+h1 {
+    font-size: 40px;
+
+    &.title-photo {
+        color    : $white;
+        font-size: 28px;
+        // Image (width): browser width
+        // Image(height): 240pxinheight
+    }
+
+    &.title {
+        font-size: 22px;
+        margin   : 40px 0;
+    }
+}
+
+.h2,
+h2 {
+    font-size: 36px;
+
+    &.title {
+        font-size: 22px;
+        margin   : 20px 0;
+    }
+}
+
+.h3,
+h3 {
+    font-size: 32px;
+
+    &.title {
+        font-size: 16px;
+        margin   : 20px 0;
+    }
+}
+
+.h4,
+h4 {
+    font-size: 30px;
+}
+
+input[type="email"],
+input[type="email"]:not([readonly]),
+input[type="password"],
+input[type="password"]:not([readonly]),
+input[type="text"],
+input[type="text"]:not([readonly]),
+select,
+textarea {
+    background   : none;
+    color        : $black;
+    border       : 1px solid $grey4;
+    font-size    : 14px;
+    height       : 45px;
+    padding-left : 10px;
+    padding-right: 10px;
+    transition   : none;
+}
+
+ul.links {
+    @extend .list-style-none;
+    display: inline-block;
+    margin : 0;
+    padding: 0;
+}
+
+div {
+    &.hrule {
+        border-top: 1px solid $grey3;
+        display   : block;
+        height    : 0;
+        margin    : $vgap * 2 0;
+
+        .hrule-arrow {
+            background         : url('../../assets/img/back_to_top.png') no-repeat;
+            background-color   : $app-content-background-color;
+            background-position: center;
+            background-size    : 40px 40px;
+            height             : 40px;
+            margin             : -20px auto;
+            transform          : rotate(180deg);
+            width              : 40px;
+        }
+    }
+}
+
+.link {
+    color      : $black;
+    cursor     : pointer;
+    font-size  : $font-size;
+    font-weight: $font-weight-regular;
+    line-height: $line-height;
+
+    * {
+        cursor: pointer;
+    }
+
+    &:hover {
+        color: $red;
+    }
+
+    &.underline {
+        text-decoration: underline;
+    }
+}
+
+.date-link {
+    color    : $black;
+    font-size: 14px;
+
+    .date {
+        font-weight: bold;
+    }
+}
+
+.anchor-link {
+    @extend .link;
+    margin: 0 20px;
+}
+
+.footer-link {
+    color    : $white;
+    font-size: 12px;
+    margin   : 0 10px;
+}
+
+.disabled {
+    opacity       : .3;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    display: inline-block;
+}
+
 .border-bottom {
     @include border( 'bottom', $border);
 }
@@ -682,6 +706,57 @@ $video-background-color: $black;
 
 .border-top {
     @include border( 'top', $border);
+}
+
+.content-div {
+    .col-center {
+        background-color: $app-content-background-color;
+    }
+
+    .grey-box {
+        background-color: rgba($black, 0.6);
+        color           : $white;
+        line-height     : 1.2;
+        padding         : $vgap_ $hgap;
+
+        & > * {
+            color     : $white;
+            text-align: center;
+        }
+
+        //
+        @include hr($grey3);
+    }
+
+    .teal-box {
+        background-color: rgba($escalators, 0.6);
+        color           : $white;
+        line-height     : 1.2;
+        padding         : $vgap_ $hgap;
+
+        &.flex-column {
+            display       : flex;
+            flex-direction: column;
+        }
+
+        & > * {
+            color     : $white;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: $vgap_;
+        }
+
+        //
+        @include hr($white);
+    }
+
+    .white-box {
+        background-color: rgba($white, 0.7);
+        color           : $black;
+        line-height     : 1.2;
+    }
 }
 
 .content-menu {
@@ -816,16 +891,18 @@ $video-background-color: $black;
     &.about,
     &.installation,
     &.ionful,
+    &.maintenance,
     &.modernization,
     &.portfolio,
     &.recommendations,
-    &.service-maintenance,
     &.support {
         background-color: $section-header-menu-background-color;
     }
 }
 
 .section-image {
+    position: relative;
+
     img {
         width: 100%;
     }

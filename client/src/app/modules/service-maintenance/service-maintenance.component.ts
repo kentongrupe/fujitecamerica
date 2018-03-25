@@ -1,6 +1,8 @@
 
 import {
-    Component
+    Component,
+    ElementRef,
+    ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -20,6 +22,10 @@ import {
     templateUrl: '/assets/locales/{0}/service-maintenance-{0}.html'.format(StringService.locale)
 })
 export class ServiceMaintenanceComponent extends BaseProductRouteComponent {
+
+    @ViewChild('stats') public stats: ElementRef;
+    @ViewChild('whyfujitec') public whyfujitec: ElementRef;
+    @ViewChild('routes') public routes: ElementRef;
 
     constructor(
         protected domService: DOMService,

@@ -1,9 +1,211 @@
-@include section-image( 'service-maintenance', '.current', $service-maintenance-current-image-content);
-@include section-image( 'service-maintenance', '.why', $service-maintenance-why-image-content);
+@include section-image( 'service-maintenance', '.stats', $service-maintenance-stats-image-content);
 @include section-image( 'service-maintenance', '.routes', $service-maintenance-routes-image-content);
 
 service-maintenance {
-    ol {
-        list-style: none;
+    .maintenance-div {
+        .stats {
+            @include hr($grey45);
+
+            .section-summary {
+                h1 {
+                    font-style: italic;
+                }
+
+                h2 {
+                    margin    : $vgap $hgap;
+                    text-align: center;
+                }
+            }
+
+            .section-image {
+                & > div {
+                    background-size: cover;
+                    height         : 490px;
+                    position       : relative;
+
+                    & > div {
+                        &:nth-child(1) {
+                            @include abs-position-tlr(95px);
+                            display: flex;
+                            height : 235px;
+
+                            & > div {
+                                display: flex;
+                                padding: 0;
+
+                                h3 {
+                                    line-height: inherit;
+                                }
+
+                                &:nth-child(1) {
+                                    display       : flex;
+                                    flex          : .47;
+                                    flex-direction: column;
+
+                                    & > div {
+                                        margin: auto 240px auto 100px;
+
+                                        h3 {
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+
+                                &:nth-child(2) {
+                                    flex: .53;
+
+                                    h3 {
+                                        margin: auto 10px auto 120px;
+                                    }
+                                }
+                            }
+
+                            .service-graph {
+                                @include abs-position-tl(0, 44%);
+                                background         : $maintenance-service-graph-background;
+                                background-position: center;
+                                background-size    : cover;
+                                height             : 320px;
+                                transform          : translateX(-50%) translateY(-(320px - 235px)/2);
+                                width              : 320px;
+
+                                & > * {
+                                    color         : $white;
+                                    text-align    : center;
+                                    text-transform: uppercase;
+                                    width         : 90px;
+
+                                    & > span {
+                                        font-size: 50px;
+                                    }
+
+                                    &:nth-child(1) {
+                                        @include abs-position-tl(80px, 40px);
+                                    }
+
+                                    &:nth-child(2) {
+                                        @include abs-position-tr(140px, 50px);
+                                    }
+                                }
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            @include abs-position-blr($vgap_);
+                            height    : 80px;
+                            text-align: center;
+
+                            & > * {
+                                line-height: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .why-fujitec {
+            h1 {
+                text-align: center;
+            }
+
+            .section {
+                border-left   : $maintenance-why-border;
+                border-right  : $maintenance-why-border;
+                display       : flex;
+                flex-direction: column;
+
+                //
+                @include hr();
+
+                & > div {
+                    display: flex;
+
+                    & > div {
+                        display       : flex;
+                        flex          : 1;
+                        flex-direction: column;
+                        height        : 335px;
+
+                        & > div {
+                            display       : flex;
+                            flex-direction: column;
+                            margin        : auto;
+
+                            & > div {
+                                display: flex;
+                                margin : $vgap_ auto;
+
+                                span {
+                                    font-size  : $maintenance-why-index-font-size;
+                                    font-weight: $maintenance-why-index-font-weight;
+                                }
+
+                                hr {
+                                    margin-left : $hgap_;
+                                    margin-right: 0;
+                                }
+                            }
+
+                            & > p {
+                                margin: $hgap auto 0;
+                                width : 50%;
+                            }
+
+                        }
+
+                        &.why-1,
+                        &.why-6 {
+                            background-color: $grey2;
+                        }
+
+                        &.why-2 {
+                            background-color: $grey1;
+
+                            hr {
+                                border-color: $grey45;
+                            }
+                        }
+
+                        &.why-3,
+                        &.why-4 {
+                            background-color: $grey45;
+
+                            hr {
+                                border-color: $white;
+                            }
+                        }
+
+                        &.why-5 {
+                            hr {
+                                border-color: $grey45;
+                            }
+                        }
+                    }
+
+                    &:first-child {
+                        margin-bottom: $hgap_;
+                    }
+                }
+            }
+        }
+
+        .routes {
+            @include hr($grey45);
+
+            .section-image {
+                & > div {
+                    height  : 475px;
+                    position: relative;
+
+                    & > div {
+                        display: inline-block;
+                        margin : $vgap $hgap;
+                        padding: $vgap $hgap;
+                        width  : 940px;
+                    }
+                }
+            }
+        }
     }
 }

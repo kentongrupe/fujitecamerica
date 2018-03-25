@@ -108,7 +108,7 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
         this._updateSlidesSize();
     }
     private _showResource(resource: MenuItem): void {
-        this.eventService.dispatch(AppEvent.SHOW_RESOURCE, resource);
+        // this.eventService.dispatch(AppEvent.SHOW_RESOURCE, resource);
     }
     private _startTimer(): void {
         if (this._slideItems.length > 1) {

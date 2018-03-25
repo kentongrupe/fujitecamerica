@@ -98,16 +98,16 @@ home {
 
             .pro-menu-item {
                 background-repeat: no-repeat;
-                border-left      : $app-pro-menu-border;
+                // border-left      : $app-pro-menu-border;
                 cursor           : pointer;
                 display          : inline-block;
                 height           : $app-pro-menu-height + 20px;
                 position         : relative;
                 width            : $app-pro-menu-width + $hgap * 3;
 
-                &:last-of-type {
-                    border-right: $app-pro-menu-border;
-                }
+                // &:last-of-type {
+                //     border-right: $app-pro-menu-border;
+                // }
 
                 & > div {
                     //
