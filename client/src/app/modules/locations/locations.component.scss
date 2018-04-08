@@ -17,7 +17,7 @@ locations {
 
                 .map-div {
                     flex    : 1;
-                    padding : $vgap $hgap;
+                    padding : 0 $hgap;
                     position: relative;
 
                     .map-content-div {
@@ -40,29 +40,6 @@ locations {
                         }
 
                     }
-
-                    // .map-content-div {
-                    //     background         : $locations-map-background;
-                    //     background-position: top center;
-                    //     background-size    : 100%;
-                    // }
-
-                    // .map-content-div,
-                    // .map-markers-div {
-                    //     @include abs-position($vgap, $hgap, inherit, $hgap);
-                    //     height    : 100%;
-                    //     margin    : 0 auto;
-                    //     max-height: $locations-map-max-height;
-                    //     max-width : $locations-map-max-width;
-                    // }
-
-                    // .marker {
-                    //     background-color: rgba(0,255,0,0.5);
-                    //     cursor          : pointer;
-                    //     height          : $locations-map-marker-height;
-                    //     position        : absolute;
-                    //     width           : $locations-map-marker-width;
-                    // }
                 }
 
                 .list-div {

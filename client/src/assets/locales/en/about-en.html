@@ -24,7 +24,7 @@
                     </p>
                 </div>
             </div>
-            <div hrule></div>
+            <div #northamerica hrule></div>
             <div class="section summary north-america">
                 <h1>
                     NORTH AMERICA
@@ -36,7 +36,7 @@
                     North America services more than 11,000 units alone and we attribute much of our growth to a service-driven strategy that aims to sustain an industry-low number of units per mechanic. This approach allows us to perform increased preventative maintenance visits, effectively decreasing billable service calls over the life of the contract.
                 </p>
             </div>
-            <div hrule></div>
+            <div #achievements hrule></div>
             <div class="section achievements">
                 <div class="achievements-div">
                     <h1>
@@ -59,7 +59,7 @@
                     </p>
                 </div>
             </div>
-            <div hrule></div>
+            <div #history hrule></div>
             <div class="section summary operations">
                 <h1>
                     HISTORY &amp; GLOBAL OPERATIONS
@@ -89,25 +89,8 @@
                     </p>
                 </div>
             </div>
-            <div hrule></div>
-            <div #leadership class="section leadership">
-                <h1>
-                    North American Leadership
-                </h1>
-                <div *ngFor="let l of _leaderships">
-                    <!-- <img [src]="l.thumbUrl" width="205" height="290" /> -->
-                    <div class="image"></div>
-                    <div class="info-div">
-                        <p class="name-title">
-                            <span>{{ l.name }}</span>
-                            <span>{{ l.title }}</span>
-                        </p>
-                        <p class="profile" *ngFor="let p of l.profiles">{{ p }}</p>
-                    </div>
-                </div>
-            </div>
-            <div hrule></div>
-            <div #ceo class="section ceo">
+            <div #ceo hrule></div>
+            <div class="section ceo">
                 <div class="ceo-div">
                     <img src="/assets/img/uchiyama.jpg" width="328" height="492" />
                     <h1>
@@ -132,6 +115,23 @@
                             </i>
                         </b>
                     </p>
+                </div>
+            </div>
+            <div #leadership hrule></div>
+            <div class="section leadership">
+                <h1>
+                    North American Leadership
+                </h1>
+                <div *ngFor="let l of _leaderships">
+                    <!-- <img [src]="l.thumbUrl" width="205" height="290" /> -->
+                    <div class="image"></div>
+                    <div class="info-div">
+                        <p class="name-title">
+                            <span>{{ l.name }}</span>
+                            <span>{{ l.title }}</span>
+                        </p>
+                        <p class="profile" *ngFor="let p of l.profiles">{{ p }}</p>
+                    </div>
                 </div>
             </div>
         </div>

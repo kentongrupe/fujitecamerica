@@ -27,8 +27,11 @@ import {
 })
 export class AboutComponent extends BaseProductRouteComponent implements OnInit {
 
+    @ViewChild('achievements') public achievements: ElementRef;
     @ViewChild('ceo') public ceo: ElementRef;
+    @ViewChild('history') public history: ElementRef;
     @ViewChild('leadership') public leadership: ElementRef;
+    @ViewChild('northamerica') public northamerica: ElementRef;
 
     private _leaderships: Leadership[] = [];
 

@@ -73,16 +73,12 @@ export class LocationsComponent extends BaseComponent implements OnInit {
 
         let m = $(this._map.nativeElement);
         let w = m.width();
-        let h = m.height();
-        let r = w / h;
+        let h = w / R;
 
-        this._width = '{0}px'.format(w);
-        this._height = '{0}px'.format(h);
+        this._width = w + 'px';
+        this._height = h + 'px';
 
-        w *= r;
-        h *= r;
-
-        this._viewBox = '0 0 {0} {1}'.format(w, h);
+        this._viewBox = '0 0 {0} {1}'.format(W, H);
     }
     private _showLocation(location: Location): void {
         this._location = location;

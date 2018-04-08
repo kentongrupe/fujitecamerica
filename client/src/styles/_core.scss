@@ -80,7 +80,7 @@
         }
     }
 }
-@mixin section-image($section, $name, $content) {
+@mixin section-image($section, $name, $content, $min-width:null) {
     #{$section} {
         #{$name} {
             .section-image {
@@ -93,6 +93,12 @@
                     background-position: center top;
                     background-repeat  : no-repeat;
                     background-size    : 100% auto;
+                    @if ($min-width!=null) {
+                        background-size: auto 100%;
+                        @media only screen and (min-width: $min-width) {
+                            background-size: 100% auto;
+                        }
+                    }
                 }
             }
         }

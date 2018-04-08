@@ -111,12 +111,24 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menuLabel = this._getString('about-us', 'About Us');
                 this._menu = [
                     {
-                        label: this._getString('leadership', 'Leadership'),
-                        routerLink: AppRoute.ABOUT_LEADERSHIP
+                        label: this._getString('north-america', 'North America'),
+                        routerLink: AppRoute.ABOUT_NORTH_AMERICA
+                    },
+                    {
+                        label: this._getString('achievements', 'Achievements'),
+                        routerLink: AppRoute.ABOUT_ACHIEVEMENTS
+                    },
+                    {
+                        label: this._getString('history', 'History'),
+                        routerLink: AppRoute.ABOUT_HISTORY
                     },
                     {
                         label: this._getString('deo-message', 'CEO Message'),
                         routerLink: AppRoute.ABOUT_CEO
+                    },
+                    {
+                        label: this._getString('leadership', 'Leadership'),
+                        routerLink: AppRoute.ABOUT_LEADERSHIP
                     }
                 ];
                 break;
@@ -174,7 +186,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                         routerLink: AppRoute.ELEVATORS_MONITORING
                     },
                     {
-                        label: this._getString('clean-air-cab', 'Clean Air Cab'),
+                        label: this._getString('green-solutions', 'Green Solutions'),
                         routerLink: AppRoute.ELEVATORS_IONFUL
                     }
                 ];

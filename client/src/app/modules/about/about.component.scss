@@ -5,18 +5,18 @@ about {
         }
 
         .mission-vision-div {
-            border    : $border;
-            display   : flex;
-            margin    : 0 $hgap;
+            display   : inline-flex;
+            padding   : 0 $hgap;
             text-align: center;
 
             & > div {
+                border : $border;
                 flex   : 1;
                 margin : 0;
                 padding: $vgap $hgap;
 
                 &:first-of-type {
-                    border-right: $border;
+                    border-right: none;
                 }
 
                 & > h1 {
@@ -106,16 +106,12 @@ about {
                 display: flex;
                 margin : $vgap_ auto;
 
-                // img {
-                //     margin: 0 80px $vgap 0;
-                //     width : 205px;
-                // }
-
                 .image {
-                    background-color: grey;
-                    height          : 290px;
-                    margin          : 0 80px $vgap 0;
-                    width           : 205px;
+                    background     : $about-leadership-background;
+                    background-size: 205px 290px;
+                    height         : 290px;
+                    margin         : 0 80px $vgap 0;
+                    width          : 205px;
                 }
 
                 .info-div {

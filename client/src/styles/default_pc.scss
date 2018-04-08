@@ -3,6 +3,7 @@ $app-margin: auto;
 $app-margin-bottom: 110px;
 $app-margin-top: 70px;
 $app-min-height: $nav-menu-side-item-icon-height * 4;
+$app-min-width: 1420px;
 
 $app-content-display: inline-flex;
 @mixin app-content-scss() {
@@ -69,6 +70,20 @@ $site-map-margin: 0;
 
 $site-map-link-height: 50px;
 
+body,
+html {
+    min-width: 1633px;
+}
+
+html {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+body {
+    overflow: hidden;
+}
+
 .content-div {
     bottom     : 0;
     margin     : $app-margin;
@@ -76,6 +91,14 @@ $site-map-link-height: 50px;
     padding-top: 570px;
     position   : absolute;
     top        : 0;
+
+    &.no-header {
+        padding-top: 0;
+
+        .section {
+            padding: 0 $hgap;
+        }
+    }
 
     & > div {
         display: flex;

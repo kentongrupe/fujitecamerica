@@ -66,6 +66,7 @@
       true,
       "allow-leading-underscore",
       "allow-pascal-case",
+      "allow-trailing-underscore",
       "ban-keywords",
       "check-format"
     ],

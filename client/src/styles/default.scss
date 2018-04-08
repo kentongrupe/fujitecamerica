@@ -77,9 +77,9 @@ $app-pro-menu-color: $white;
 
 $app-pro-menu-height: 100px;
 $app-pro-menu-width: 170px;
-$app-pro-menu-consulting-background: url('../../assets/img/consultants.png');
-$app-pro-menu-contractors-background: url('../../assets/img/architects_gcs.png');
-$app-pro-menu-property-background: url('../../assets/img/property_mgmt.png');
+$app-pro-menu-consulting-background: url('../img/consultants.png');
+$app-pro-menu-contractors-background: url('../img/architects_gcs.png');
+$app-pro-menu-property-background: url('../img/property_mgmt.png');
 
 $app-pro-menu-title-font-size: 26px;
 $app-pro-menu-title-line-height: 32px;
@@ -99,16 +99,17 @@ $app-mobile-menu-height-500: 180px;
 $app-mobile-menu-height-400: 130px;
 
 // about
-$about-background: url('../../assets/img/about_bg.jpg') no-repeat;
-$about-background2: url('../../assets/img/about_2_bg.jpg') no-repeat;
+$about-background: url('../img/about_bg.jpg') no-repeat;
+$about-background2: url('../img/about_2_bg.jpg') no-repeat;
+$about-leadership-background: url('../img/leadership_photos.png') no-repeat;
 $about-text-background-color: rgba(255,255,255,0.7);
 
 // autowalks
-$autowalks-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
+$autowalks-section-image-content: url('../img/Fujitec-Elevator-Product-Map.png');
 
-$autowalks-typef-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$autowalks-typep-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$autowalks-types-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$autowalks-typef-section-image-content: url('../img/remotemonitoringtab.jpg');
+$autowalks-typep-section-image-content: url('../img/remotemonitoringtab.jpg');
+$autowalks-types-section-image-content: url('../img/remotemonitoringtab.jpg');
 
 // contact
 $contact-form-max-width: 780px;
@@ -125,31 +126,31 @@ $contact-button-color: $white;
 $contact-button-padding: 8px 16px;
 
 // dispatch
-$dispatch-ezshuttle-section-image-content: url('../../assets/img/ez_shuttle_tab.jpg');
-$dispatch-flexnx-section-image-content: url('../../assets/img/flex_nx_tab.jpg');
+$dispatch-ezshuttle-section-image-content: url('../img/ez_shuttle_tab.jpg');
+$dispatch-flexnx-section-image-content: url('../img/flex_nx_tab.jpg');
 
 $dispatch-image-height: 512px;
 $dispatch-image-width: 660px;
-$dispatch-flexnx-102-background: url('../../assets/img/flex_nx_102.png');
-$dispatch-flexnx-252-background: url('../../assets/img/flex_nx_252.png');
+$dispatch-flexnx-102-background: url('../img/flex_nx_102.png');
+$dispatch-flexnx-252-background: url('../img/flex_nx_252.png');
 
-$dispatch-ezshuttle-background: url('../../assets/img/ez_shuttle.png');
+$dispatch-ezshuttle-background: url('../img/ez_shuttle.png');
 
 $dispatch-performances-image-height: 384px;
 $dispatch-performances-image-width: 495px;
-$dispatch-performances-time-background: url('../../assets/img/ez_shuttle_time_to.png');
-$dispatch-performances-wait-background: url('../../assets/img/ez_shuttle_wait.png');
+$dispatch-performances-time-background: url('../img/ez_shuttle_time_to.png');
+$dispatch-performances-wait-background: url('../img/ez_shuttle_wait.png');
 
 // elevators
-$elevators-section-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
+$elevators-section-image-content: url('../img/Fujitec-Elevator-Product-Map.png');
 
-$elevators-breakdown-image-content: url('../../assets/img/Fujitec-Elevator-Product-Map.png');
-$elevators-ionful-section-image-content: url('../../assets/img/ionful.jpg');
-$elevators-monitoring-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
-$elevators-system-geared-image-content: url('../../assets/img/geared.jpg');
-$elevators-system-gearless-image-content: url('../../assets/img/gearless_2.jpg');
-$elevators-system-hydraulic-image-content: url('../../assets/img/hydro.jpg');
-$elevators-system-mrl-image-content: url('../../assets/img/Viridian-MRL-tab.jpg');
+$elevators-breakdown-image-content: url('../img/Fujitec-Elevator-Product-Map.png');
+$elevators-ionful-section-image-content: url('../img/ionful.jpg');
+$elevators-monitoring-section-image-content: url('../img/remotemonitoringtab.jpg');
+$elevators-system-geared-image-content: url('../img/geared.jpg');
+$elevators-system-gearless-image-content: url('../img/gearless_2.jpg');
+$elevators-system-hydraulic-image-content: url('../img/hydro.jpg');
+$elevators-system-mrl-image-content: url('../img/Viridian-MRL-tab.jpg');
 
 //  pmgl
 $pmgl-border: 1px solid $grey4;
@@ -163,19 +164,19 @@ $pmgl-label-width: 220px;
 $pmgl-image-height: 250px;
 $pmgl-image-width: 100%;
 
-$pmgl-pm02-background: url('../../assets/img/pm_02.png');
-$pmgl-pm03-background: url('../../assets/img/pm_03.png');
-$pmgl-pm04-background: url('../../assets/img/pm_04.png');
-$pmgl-fm450-background: url('../../assets/img/fm_450.png');
+$pmgl-pm02-background: url('../img/pm_02.png');
+$pmgl-pm03-background: url('../img/pm_03.png');
+$pmgl-pm04-background: url('../img/pm_04.png');
+$pmgl-fm450-background: url('../img/fm_450.png');
 
 $pmgl-info-background-color: $grey2;
 
 // escalators
-$escalators-section-image-content: url('../../assets/img/remotemonitoringtab.jpg');
+$escalators-section-image-content: url('../img/remotemonitoringtab.jpg');
 
-$escalators-typef-section-image-content: url('../../assets/img/escalator_4.jpg');
-$escalators-typep-section-image-content: url('../../assets/img/type_p_escalator.jpg');
-$escalators-types-section-image-content: url('../../assets/img/escalator_1.jpg');
+$escalators-typef-section-image-content: url('../img/escalator_4.jpg');
+$escalators-typep-section-image-content: url('../img/type_p_escalator.jpg');
+$escalators-types-section-image-content: url('../img/escalator_1.jpg');
 
 // footer
 $footer-background-color: $red;
@@ -195,7 +196,7 @@ $header-border: none;
 $header-font-size: 20px;
 $header-max-width: $max-width;
 
-$header-logo-background-url: url('../../assets/img/logo.png');
+$header-logo-background-url: url('../img/logo.png');
 $header-logo-padding: 0 40px 0 0;
 
 $header-main-menu-link-font-size: 20px;
@@ -229,11 +230,11 @@ $header-mobile-menu-trigger-line-width: 22px;
 $header-mobile-menu-background-color: rgba(0,0,0,0.3);
 $header-mobile-menu-trigger-color: $black;
 $header-mobile-menu-trigger-open-color: $red;
-$header-mobile-menu-item-background: url('../../assets/img/icon_arrow_sp_white.png') no-repeat right 10px center $black;
+$header-mobile-menu-item-background: url('../img/icon_arrow_sp_white.png') no-repeat right 10px center $black;
 $header-mobile-menu-item-border-bottom: $border;
 $header-mobile-menu-item-color: $white;
 $header-mobile-menu-item-arrow-color: $grey3;
-$header-mobile-menu-item-close-background: url('../../assets/img/icon_spmenuclose.png') no-repeat right 10px center $grey5;
+$header-mobile-menu-item-close-background: url('../img/icon_spmenuclose.png') no-repeat right 10px center $grey5;
 $header-mobile-menu-item-close-color: $white;
 $header-mobile-menu-item-height: 45px;
 
@@ -244,8 +245,8 @@ $home-slides-box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.3);
 $home-slides-transition-duration: 1s;
 
 // locations
-$locations-background: url('../../assets/img/locations_bg.jpg') no-repeat;
-$locations-map-background: url('../../assets/img/locations-map.png') no-repeat;
+$locations-background: url('../img/locations_bg.jpg') no-repeat;
+$locations-map-background: url('../img/locations-map.png') no-repeat;
 $locations-map-max-height: 750px;
 $locations-map-max-width: 860px;
 
@@ -269,16 +270,16 @@ $login-modal-width: 400px;
 $menu-background-color: $white;
 $menu-border: $border;
 $menu-color: $grey7;
-$menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/10px 16px;
+$menu-item-background: url('../img/icon_arrow_common.png') no-repeat left 8px center/10px 16px;
 $menu-item-font-size: 14px;
 $menu-item-font-size_: 12px;
 $menu-item-height: 40px;
 $menu-item-padding: 0 10px 0 30px;
 
 $menu-submenu-background-color: $grey1;
-$menu-submenu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 30px center;
+$menu-submenu-item-background: url('../img/icon_arrow_common.png') no-repeat left 30px center;
 
-$side-menu-item-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 8px center/6px 10px;
+$side-menu-item-background: url('../img/icon_arrow_common.png') no-repeat left 8px center/6px 10px;
 
 // modal (clr)
 clr-modal {
@@ -296,9 +297,9 @@ $modernization-benefits-background-color: #4188A4;
 $modernization-benefits-color: $white;
 $modernization-benefits-padding: $vgap_ $hgap;
 
-$modernization-assessment-background: url('../../assets/img/mod_tampa_content.jpg') no-repeat;
+$modernization-assessment-background: url('../img/mod_tampa_content.jpg') no-repeat;
 
-$modernization-process-background: url('../../assets/img/namo_process.png') no-repeat;
+$modernization-process-background: url('../img/namo_process.png') no-repeat;
 $modernization-process-background-color: $grey1;
 $modernization-process-background-size: auto 350px;
 $modernization-process-border: 10px solid #478DA6;
@@ -317,7 +318,7 @@ $modernization-process-box0-font-weight: 60px;
 $modernization-process-box1-font-weight: 35px;
 $modernization-process-box1-left: 140px;
 
-$modernization-whynamo-background: url('../../assets/img/namo_ plane2.png') no-repeat;
+$modernization-whynamo-background: url('../img/namo_ plane2.png') no-repeat;
 $modernization-whynamo-background-color: #BDD5DF;
 $modernization-whynamo-background-position: right 85px bottom 50px;
 $modernization-whynamo-background-size: 760px 280px;
@@ -340,10 +341,10 @@ $nav-menu-sys-bakground-width: 230px;
 $nav-menu-sys-bakground-height: floor( $nav-menu-sys-bakground-width / $_R);
 $nav-menu-sys-height: $nav-menu-sys-bakground-height + $nav-menu-item-label-height;
 $nav-menu-sys-width: $nav-menu-sys-bakground-width;
-$nav-menu-autowalks-background: url('../../assets/img/autowalkopt2.png') no-repeat;
-$nav-menu-elevators-background: url('../../assets/img/elevatoropt2.png') no-repeat;
-$nav-menu-escalators-background: url('../../assets/img/escalatoropt2.png') no-repeat;
-$nav-menu-ezdispatch-background: url('../../assets/img/ezshuttleopt2.png') no-repeat;
+$nav-menu-autowalks-background: url('../img/autowalkopt2.png') no-repeat;
+$nav-menu-elevators-background: url('../img/elevatoropt2.png') no-repeat;
+$nav-menu-escalators-background: url('../img/escalatoropt2.png') no-repeat;
+$nav-menu-ezdispatch-background: url('../img/ezshuttleopt2.png') no-repeat;
 
 $_w: 417;
 $_h: 200;
@@ -354,18 +355,18 @@ $nav-side-menu-sys-bakground-width: 148px;
 $nav-side-menu-sys-bakground-height: floor( $nav-side-menu-sys-bakground-width / $_r);
 $nav-side-menu-sys-height: $nav-side-menu-sys-bakground-height + $nav-side-menu-item-label-height;
 $nav-side-menu-sys-width: $nav-side-menu-sys-bakground-width;
-$nav-side-menu-autowalks-background: url('../../assets/img/autowalk_side.png') no-repeat;
-$nav-side-menu-elevators-background: url('../../assets/img/elevator_side.png') no-repeat;
-$nav-side-menu-escalators-background: url('../../assets/img/escalator_side.png') no-repeat;
-$nav-side-menu-ezdispatch-background: url('../../assets/img/ez_shuttle_side.png') no-repeat;
+$nav-side-menu-autowalks-background: url('../img/autowalk_side.png') no-repeat;
+$nav-side-menu-elevators-background: url('../img/elevator_side.png') no-repeat;
+$nav-side-menu-escalators-background: url('../img/escalator_side.png') no-repeat;
+$nav-side-menu-ezdispatch-background: url('../img/ez_shuttle_side.png') no-repeat;
 
 $nav-menu-pro-bakground-height: 91px;
 $nav-menu-pro-bakground-width: 193px;
 $nav-menu-pro-height: $nav-menu-pro-bakground-height + $nav-menu-item-label-height;
 $nav-menu-pro-width: $nav-menu-pro-bakground-width;
-$nav-menu-architects-background: url('../../assets/img/Architects_GCs.png') no-repeat;
-$nav-menu-consultants-background: url('../../assets/img/consultants.png') no-repeat;
-$nav-menu-property-managers-background: url('../../assets/img/ProjMGMTCos.png') no-repeat;
+$nav-menu-architects-background: url('../img/Architects_GCs.png') no-repeat;
+$nav-menu-consultants-background: url('../img/consultants.png') no-repeat;
+$nav-menu-property-managers-background: url('../img/ProjMGMTCos.png') no-repeat;
 
 $nav-menu-side-item-icon-background-height: 50px;
 $nav-menu-side-item-icon-background-width: 100px;
@@ -418,7 +419,7 @@ $project-name-padding: 15px 0;
 
 $project-info-padding: 20px;
 
-$project-info-title-background: url('../../assets/img/icon_arrow_common.png') no-repeat left 0;
+$project-info-title-background: url('../img/icon_arrow_common.png') no-repeat left 0;
 $project-info-title-border: 1px solid $white;
 $project-info-title-margin: 0 0 15px 0;
 $project-info-title-padding: 0 0 15px 0;
@@ -435,37 +436,37 @@ $project-info-slick-dot-color: #cccccc;
 $project-info-slick-dot-active-color: #ffffff;
 
 // scroll to top
-$scroll-to-top-background: url('/assets/img/back_to_top.png') no-repeat;
+$scroll-to-top-background: url('../img/back_to_top.png') no-repeat;
 $scroll-to-top-height: 45px;
 $scroll-to-top-margin: 0 10px 0 0;
 $scroll-to-top-width: 45px;
 
 // section header
-$section-header-bg-about: url('/assets/img/about_main.jpg');
-$section-header-bg-autowalks: url('/assets/img/autowalktab.jpg');
-$section-header-bg-dispatch: url('/assets/img/controldispatchtab.jpg');
-$section-header-bg-elevators: url('/assets/img/elevator.jpg');
-$section-header-bg-escalators: url('/assets/img/escalatortab.jpg');
-$section-header-bg-installation: url('/assets/img/installationtab.jpg');
-$section-header-bg-ionful: url('/assets/img/ionful.jpg');
-$section-header-bg-modernization: url('/assets/img/modtab.jpg');
-$section-header-bg-monitoring: url('/assets/img/remotemonitoringtab.jpg');
-$section-header-bg-portfolio: url('/assets/img/projectstab.jpg');
-$section-header-bg-recommendations: url('/assets/img/recomendationstab.jpg');
-$section-header-bg-service-maintenance: url('/assets/img/maintenancerepairguy.jpg');
-$section-header-bg-support: url('/assets/img/aftermarket_support.jpg');
+$section-header-bg-about: url('../img/about_main.jpg');
+$section-header-bg-autowalks: url('../img/autowalktab.jpg');
+$section-header-bg-dispatch: url('../img/controldispatchtab.jpg');
+$section-header-bg-elevators: url('../img/elevator.jpg');
+$section-header-bg-escalators: url('../img/escalatortab.jpg');
+$section-header-bg-installation: url('../img/installationtab.jpg');
+$section-header-bg-ionful: url('../img/ionful.jpg');
+$section-header-bg-modernization: url('../img/modtab.jpg');
+$section-header-bg-monitoring: url('../img/remotemonitoringtab.jpg');
+$section-header-bg-portfolio: url('../img/projectstab.jpg');
+$section-header-bg-recommendations: url('../img/recomendationstab.jpg');
+$section-header-bg-service-maintenance: url('../img/maintenancerepairguy.jpg');
+$section-header-bg-support: url('../img/aftermarket_support.jpg');
 
-$section-header-modernization-namo-bakground: url('../../assets/img/namo_logo33.png') no-repeat;
+$section-header-modernization-namo-bakground: url('../img/namo_logo33.png') no-repeat;
 $section-header-modernization-namo-height: 214px;
 $section-header-modernization-namo-width: 219px;
 
 $section-header-height: 570px;
 
-$section-header-logo-background-url: url('../../assets/img/logo_white.png');
+$section-header-logo-background-url: url('../img/logo.png');
 
 $section-header-top-menu-border: 1px solid $white;
 $section-header-top-menu-height: 50px;
-$section-header-top-menu-item-background: url('/assets/img/arrow_right_icon.png') no-repeat;
+$section-header-top-menu-item-background: url('../img/arrow_right_icon.png') no-repeat;
 $section-header-top-menu-item-background-height: 25px;
 $section-header-top-menu-item-background-position: 0 27px;
 $section-header-top-menu-item-background-width: 40px;
@@ -476,7 +477,7 @@ $section-header-menu-color: $white;
 $section-header-menu-font-size: 40px;
 $section-header-menu-height: 80px;
 $section-header-menu-line-height: $section-header-menu-height;
-$section-header-menu-toggle-background: url('../../assets/img/icon_arrow_common.png') no-repeat;
+$section-header-menu-toggle-background: url('../img/icon_arrow_common.png') no-repeat;
 
 $section-header-menu-background-opacity: .7;
 $section-header-top-menu-background-color: rgba(0, 0, 0, $section-header-menu-background-opacity);
@@ -490,10 +491,10 @@ $section-header-menu-items-font-size: 20px;
 $section-header-menu-item-border: 1px solid $section-header-menu-color;
 
 // service & maintenance
-$service-maintenance-stats-image-content: url('../../assets/img/fai_truck.jpg');
-$service-maintenance-routes-image-content: url('../../assets/img/maintenance_site.jpg');
+$service-maintenance-stats-image-content: url('../img/fai_truck.jpg');
+$service-maintenance-routes-image-content: url('../img/maintenance_site.jpg');
 
-$maintenance-service-graph-background: url('../../assets/img/service_graph.png') no-repeat;
+$maintenance-service-graph-background: url('../img/service_graph.png') no-repeat;
 
 $maintenance-why-border: $hgap_ solid $elevators;
 
@@ -503,7 +504,7 @@ $maintenance-why-index-font-weight: 300;
 // site-map
 $site-map-links-border: $border;
 $site-map-links-margin: 0 0 $vgap_ 0;
-$site-map-link-background: url('../../assets/img/icon_arrow_common.png') no-repeat right 10px center $white;
+$site-map-link-background: url('../img/icon_arrow_common.png') no-repeat right 10px center $white;
 $site-map-link-hover-background-color: $grey1;
 $site-map-link-hover-color: $red;
 
@@ -517,12 +518,13 @@ $video-background-color: $black;
 
 body,
 html {
+    @include abs-position();
+    display    : block;
     font-family: $font-family;
     font-size  : $font-size;
     font-weight: 400;
     height     : 100%;
     margin     : 0;
-    overflow   : hidden;
     padding    : 0;
     width      : 100%;
 
@@ -627,7 +629,7 @@ div {
         margin    : $vgap * 2 0;
 
         .hrule-arrow {
-            background         : url('../../assets/img/back_to_top.png') no-repeat;
+            background         : url('../img/back_to_top.png') no-repeat;
             background-color   : $app-content-background-color;
             background-position: center;
             background-size    : 40px 40px;
@@ -809,7 +811,7 @@ div {
 }
 
 .phone {
-    background     : url('../../assets/img/phone.png') no-repeat;
+    background     : url('../img/phone.png') no-repeat;
     background-size: 29px 22px;
     height         : 22px;
     margin         : $vgap_ auto;
