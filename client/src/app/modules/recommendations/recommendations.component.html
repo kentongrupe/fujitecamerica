@@ -2,12 +2,12 @@
     <div class="recommendations-div">
         <div class="col-left"></div>
         <div class="col-center">
-            <div *ngFor="let t of _testimonials">
-                <div class="testimonial-text">"{{ t.text }}"</div>
-                <div class="testimonial-source">
-                    <div class="testimonial-name">{{ t.name }}</div>
-                    <div class="testimonial-city-state">{{ t.city }}, {{ t.state }}</div>
+            <div *ngFor="let t of _testimonials; let idx=index">
+                <div class="testimonial-div">
+                    <div class="testimonial-text">"{{ t.text }}"</div>
+                    <div class="testimonial-source">{{ t.name }}: {{ t.company }} - {{ t.city }}, {{ t.state }}</div>
                 </div>
+                <div *ngIf="idx<(_testimonials.length-1)" hrule></div>
             </div>
         </div>
         <div class="col-right"></div>

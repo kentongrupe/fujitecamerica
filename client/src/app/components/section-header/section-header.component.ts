@@ -29,6 +29,9 @@ import {
 })
 export class SectionHeaderComponent extends BaseNavRouteComponent implements OnInit {
 
+    @Input()
+    public showAll: boolean = false;
+
     private _background: string = '';
     private _bgHeight: number = AppConstants.SECTION_HEIGHT;
     private _bgTop: number = 0;

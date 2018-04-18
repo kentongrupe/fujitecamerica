@@ -2,6 +2,16 @@ support {
     .content-div {
         padding-bottom: 100px;
 
+        .col-center {
+            .section {
+                margin-top: 0;
+
+                .help-text {
+                    margin: 0 $hgap $vgap;
+                }
+            }
+        }
+
         .contact-form-div {
             margin   : $vgap auto 0;
             max-width: $contact-form-max-width;
@@ -43,16 +53,7 @@ support {
             }
 
             .button-div {
-                color         : $contact-button-color;
-                text-align    : right;
-                text-transform: uppercase;
-
-                div {
-                    background-color: $contact-button-background-color;
-                    border-radius   : $contact-button-border-radius;
-                    display         : inline-block;
-                    padding         : $contact-button-padding;
-                }
+                @include submit-button();
             }
         }
     }

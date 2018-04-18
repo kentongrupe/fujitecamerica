@@ -3,7 +3,10 @@
         <div class="col-left"></div>
         <div class="col-center">
             <div class="projects-div" *ngFor="let p of _projects">
-                <h1>{{ p.name }}</h1>
+                <h1 class="projects-header">
+                    {{ p.name }}
+                    <hr class="hr-90" />
+                </h1>
                 <div class="projects" *ngFor="let p_ of p.projects">
                     <div *ngIf="p_.projects.length>0">
                         <h1>{{ p_.name }}</h1>

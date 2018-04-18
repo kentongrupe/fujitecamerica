@@ -1,1 +1,18 @@
-// recommendations {}
+recommendations {
+    .testimonial-div {
+        background-color: $recommendation-background-color;
+        color           : $recommendation-color;
+        margin          : $vgap_ $hgap;
+        padding         : $vgap $hgap * 2;
+
+        .testimonial-text {
+            font-size    : $recommendation-font-size;
+            font-style   : italic;
+            margin-bottom: $vgap_;
+        }
+
+        .testimonial-source {
+            font-size: $recommendation-source-font-size;
+        }
+    }
+}

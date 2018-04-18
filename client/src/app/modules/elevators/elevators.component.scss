@@ -259,6 +259,10 @@ elevators {
                 display        : flex;
                 position       : relative;
 
+                h3 {
+                    line-height: 42px;
+                }
+
                 & > div {
                     & > * {
                         text-align: left;

@@ -1,5 +1,111 @@
+@include section-image( 'installation', '.installation', $installation-installation-image-content);
+@include section-image( 'installation', '.expectations', $installation-expectations-image-content);
+
 installation {
-    ul {
-        list-style: none;
+    @include hr($grey6);
+
+    .col-center {
+        .section:first-of-type {
+            margin: 0;
+        }
+
+        .installation {
+            & > div {
+                & > div {
+                    display   : flex;
+                    min-height: 520px;
+
+                    .teal-box {
+                        display: inline-grid;
+                        flex   : .4;
+                        margin : $vgap_ $hgap_ auto 0;
+
+                        &:nth-child(2) {
+                            flex: .2;
+                        }
+
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+
+                        .h4 {
+                            display: inline-block;
+                            margin : 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-div {
+            display: inline-block;
+        }
+
+        .expectations {
+            text-align: center;
+
+            & > div {
+                & > div {
+                    display   : flex;
+                    min-height: 520px;
+                    padding   : $vgap * 2 $hgap;
+
+                    .grey-box {
+                        flex    : 1;
+                        position: relative;
+
+                        &:not(:last-of-type) {
+                            margin-right: $hgap;
+                        }
+
+                        .chekmark {
+                            @include abs-position($vgap, $hgap, 55%, $hgap);
+                            background         : $installation-checkmark-backround;
+                            background-position: center;
+                            background-repeat  : no-repeat;
+                            background-size    : cover;
+                            display            : inline-block;
+                        }
+
+                        .hr-140 {
+                            margin  : 0 auto;
+                            position: relative;
+                            top     : 50%;
+                        }
+
+                        p {
+                            @include abs-position(60%, $hgap, $vgap, $hgap);
+                        }
+                    }
+                }
+            }
+        }
+
+        .operations {
+            text-align: center;
+
+            .operations-row {
+                display: flex;
+                margin : 0 100px $vgap_;
+
+                .grey-box {
+                    flex  : 1;
+                    height: 150px;
+
+                    p {
+                        font-size : $installation-operations-font-size;
+                        font-style: italic;
+                    }
+                }
+
+                .teal-arrow {
+                    background         : $installation-arrow-background;
+                    background-position: center;
+                    background-size    : 55%;
+                    transform          : rotate(90deg);
+                    width              : 190px;
+                }
+            }
+        }
     }
 }

@@ -24,6 +24,8 @@ import {
 })
 export class SupportComponent extends BaseProductRouteComponent implements DoCheck {
 
+    private _body: string = '';
+
     private _canSubmit: boolean = false;
     private _company: string = '';
     private _description: string = '';
@@ -49,6 +51,16 @@ export class SupportComponent extends BaseProductRouteComponent implements DoChe
         this._canSubmit = !this.isNullOrEmpty(this._name) && !this.isNullOrEmpty(this._company)
             && !this.isNullOrEmpty(this._email) && !this.isNullOrEmpty(this._phone)
             && !this.isNullOrEmpty(this._description);
+
+        if (this._canSubmit) {
+            this._body = [
+                '{0}: {1}'.format(this._getString('name', 'Name'), this._name),
+                '{0}: {1}'.format(this._getString('company', 'Company'), this._company),
+                '{0}: {1}'.format(this._getString('email', 'Email'), this._email),
+                '{0}: {1}'.format(this._getString('phone', 'Phone'), this._phone),
+                '{0}: {1}'.format(this._getString('description', 'Description'), this._description)
+            ].join('%0D%0A');
+        }
     }
 
     private _submit(): void {

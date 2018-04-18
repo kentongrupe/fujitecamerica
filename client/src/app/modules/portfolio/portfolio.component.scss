@@ -2,11 +2,26 @@ portfolio {
     overflow  : hidden !important;
     text-align: center;
 
+    //
+    @include hr($grey3);
+
     .content-div {
         .projects-div {
             display      : inline-block;
             margin-bottom: $vgap;
             padding      : 0 $hgap;
+
+            h1.projects-header {
+                display: inline-block;
+
+                .hr-90 {
+                    margin-left: 0;
+                }
+            }
+
+            .projects {
+                margin-bottom: $vgap;
+            }
 
             .project-info-list {
                 display  : inline-block;

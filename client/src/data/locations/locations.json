@@ -12,8 +12,8 @@
             {
                 "name": "baltimore",
                 "location": "Baltimore",
-                "serviceArea": "Boston Metro & Suburban Areas",
-                "phone": "781-961-7190",
+                "serviceArea": "Northern Virginia, DC and Maryland",
+                "phone": "301-918-4911",
                 "email": "info@fujitecamerica.com",
                 "marker": "0,0"
             },
@@ -37,7 +37,7 @@
                 "name": "chicago",
                 "location": "Chicago",
                 "serviceArea": "Chicago Metro & Suburban Areas",
-                "phone": "770-209-0322",
+                "phone": "630-629-8808",
                 "email": "info@fujitecamerica.com",
                 "marker": "825,545"
             },
@@ -68,9 +68,9 @@
             {
                 "name": "dayton",
                 "location": "Dayton",
-                "serviceArea": "",
-                "phone": "",
-                "email": "",
+                "serviceArea": "Dayton, Columbus and surrounding areas",
+                "phone": "614-865-0818",
+                "email": "info@fujitecamerica.com",
                 "marker": "0,0"
             },
             {
@@ -100,9 +100,9 @@
             {
                 "name": "newjersey",
                 "location": "New Jersey",
-                "serviceArea": "",
-                "phone": "",
-                "email": "",
+                "serviceArea": "New Jersey, New York and surrounding areas",
+                "phone": "973-330-0100",
+                "email": "info@fujitecamerica.com",
                 "marker": "0,0"
             },
             {
@@ -156,9 +156,9 @@
             {
                 "name": "virginia",
                 "location": "Virginia (northern)",
-                "serviceArea": "",
-                "phone": "",
-                "email": "",
+                "serviceArea": "Northern Virginia, DC and Maryland",
+                "phone": "301-918-4911",
+                "email": "info@fujitecamerica.com",
                 "marker": "0,0"
             },
             {

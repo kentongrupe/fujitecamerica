@@ -2,34 +2,60 @@
     "testimonials": {
         "en": [
             {
-                "text": "…the only contract we did not take out to bid was the elevator contract because we knew we could not beat the service and support we receive from Fujitec. I believe what separates Fujitec from other elevator companies is the tremendous support we receive from everyone in the company… Their commitment to excellence is why we truly cherish our partnership with Fujitec.",
+                "text": "I have worked at Comerica Bank Tower for over 10 years and have dealt with Fujitec on a daily basis for each of those years. When the ownership of the Building changed in 2007, the only contract we did not take out to bid was the elevator contract because we knew we could not beat the service and support we receive from Fujitec. We have consistently received excellent service from our Elevator Technician. I believe what separates Fujitec from other elevator companies is the tremendous support we receive from everyone in the company. Anyone on my management staff knows they can call on the Fujitec team at any time and get the assistance needed. I also greatly appreciate the support that Fujitec offers to the Real Estate community through their involvement in BOMA and IREM. Their commitment to excellence is why we truly cherish our partnership with Fujitec.",
                 "name": "S. Baggett",
+                "company": "Comerica Bank Tower",
                 "city": "Dallas",
                 "state": "TX"
             },
             {
-                "text": "… Fujitec America, Inc. has provided outstanding service at the Lazarus Building, and couple that with an aggressive pricing structure, building management was proud to award Fujitec a building-wide vertical transportation maintenance agreement on 22 elevators. NAI Ohio Equities looks forward to developing an even greater partnership with Fujitec in the future.",
+                "text": "We continuously strive to provide top level services for our building’s occupants. One way of succeeding in this endeavor is to partner with companies striving for the same goal. Fujitec America, Inc. has provided outstanding service at the Lazarus Building, and couple that with an aggressive pricing structure, building management was proud to award Fujitec a building-wide vertical transportation maintenance agreement on 22 elevators. NAI Ohio Equities looks forward to developing an even greater partnership with Fujitec in the future.",
                 "name": "R. Turrin",
+                "company": "Lazarus Building",
                 "city": "Columbus",
                 "state": "OH"
             },
             {
-                "text": "Having two buildings with elevators close in age, it is clear that Fujitec service is far superior to that of other providers... Fujitec is a perfect example of the old cliché; you get what you pay for. An operating expense well spent.",
-                "name": "M. Robison",
+                "text": "Fujitec is professional, prompt and great at keeping us informed. Always available if there is a need!",
+                "name": "K. Place",
+                "company": "Santa Fe Building",
+                "city": "Chicago",
+                "state": "IL"
+            },
+            {
+                "text": "Having two buildings with elevators close in age, it is clear that Fujitec service is far superior to that of other providers. We have owned the building for almost a full year and in that time, have had only two callbacks. We have no maintenance related issues with our elevators. Our mechanic performs proper PM and is responsive. Fujitec is a perfect example of the old cliché; you get what you pay for. An operating expense well spent.",
+                "name": "M.Robison",
+                "company": "1501 M. Street",
                 "city": "Washington",
                 "state": "D.C."
             },
             {
-                "text": "… These days, it seems like many companies are compromising their customer service, it is great to work with a company that truly cares and always does the right thing. I cannot speak highly enough of Fujitec. Thank you!",
+                "text": "We have thoroughly enjoyed our ongoing business partnership with Fujitec over the years. You have the tools, knowledge and expertise to successfully resolve any issue and your service for the Reds stadium has always been first rate! These days, it seems like many companies are compromising their customer service, it is great to work with a company that truly cares and always does the right thing. I cannot speak highly enough of Fujitec. Thank you!",
                 "name": "R. Smith",
+                "company": "Reds Stadium",
                 "city": "Cincinnati",
                 "state": "OH"
             },
             {
-                "text": "Working with Fujitec Elevator is a pleasure, with clearly superior equipment, and great customer service from every employee, whether upper management or service technicians. It is a joy to work with an elevator company that actually delivers what they say they will, when they say they will.",
+                "text": "Working with Fujitec Elevator is a pleasure, with clearly superior equipment, and great customer service from every employee, whether upper management or service technicians. It is a joy to work with an elevator company that actually delivers what they say they will, when they say they will. Thank you for taking such great care of 55 East Erie!",
                 "name": "J. Hope",
+                "company": "55 East Erie Condominium Assoc.",
                 "city": "Chicago",
                 "state": "IL"
+            },
+            {
+                "text": "Fujitec installed all of the vertical transportation equipment at 900 North Michigan in 1987 and 1988 and has been providing exceptional maintenance for the 30 years since. We have extremely high expectations for our vertical transportation systems and Fujitec has not disappointed us.",
+                "name": "B. Graham",
+                "company": "900 N. Michigan",
+                "city": "Chicago",
+                "state": "IL"
+            },
+            {
+                "text": "Although it took over a year to settle on getting the mod started at no fault of Fujitec’s, I would like to extend a Big Thank You to the entire team for a job well done. I was extremely satisfied with the way Fujitec team handled this project throughout the entire process. You guys Rock………I look forward to working with Fujitec in the future.",
+                "name": "G. Skinner",
+                "company": "Construction Manager",
+                "city": "Dallas",
+                "state": "TX"
             }
         ]
     }

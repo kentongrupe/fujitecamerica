@@ -1,4 +1,4 @@
-<div class="bg-div" [style.height.px]="_bgHeight">
+<div *ngIf="showAll" class="bg-div" [style.height.px]="_bgHeight">
     <div [attr.class]="'bg ' + _background" [style.top.px]="_bgTop"> </div>
 </div>
 <div class="top-menu-bg">
@@ -15,10 +15,10 @@
         </li>
     </ul>
 </div>
-<div [attr.class]="'menu-div col-left ' + _background" [style.top.px]="_menuTop"></div>
-<div [attr.class]="'menu-div col-center ' + _background" [style.top.px]="_menuTop"></div>
-<div [attr.class]="'menu-div col-right ' + _background" [style.top.px]="_menuTop"></div>
-<div class="menu-div menu-content-div" [class.empty]="_menu.length===0" [style.top.px]="_menuTop">
+<div *ngIf="showAll" [attr.class]="'menu-div col-left ' + _background" [style.top.px]="_menuTop"></div>
+<div *ngIf="showAll" [attr.class]="'menu-div col-center ' + _background" [style.top.px]="_menuTop"></div>
+<div *ngIf="showAll" [attr.class]="'menu-div col-right ' + _background" [style.top.px]="_menuTop"></div>
+<div *ngIf="showAll" class="menu-div menu-content-div" [class.empty]="_menu.length===0" [style.top.px]="_menuTop">
     <h1 class="menu-title">{{ _menuLabel }}</h1>
     <div class="menu-items-div" *ngIf="_menu.length>0">
         <ul class="menu-items">

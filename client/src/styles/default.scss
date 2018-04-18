@@ -150,7 +150,7 @@ $elevators-monitoring-section-image-content: url('../img/remotemonitoringtab.jpg
 $elevators-system-geared-image-content: url('../img/geared.jpg');
 $elevators-system-gearless-image-content: url('../img/gearless_2.jpg');
 $elevators-system-hydraulic-image-content: url('../img/hydro.jpg');
-$elevators-system-mrl-image-content: url('../img/Viridian-MRL-tab.jpg');
+$elevators-system-mrl-image-content: url('../img/Viridian-MRL-tab.png');
 
 //  pmgl
 $pmgl-border: 1px solid $grey4;
@@ -177,6 +177,16 @@ $escalators-section-image-content: url('../img/remotemonitoringtab.jpg');
 $escalators-typef-section-image-content: url('../img/escalator_4.jpg');
 $escalators-typep-section-image-content: url('../img/type_p_escalator.jpg');
 $escalators-types-section-image-content: url('../img/escalator_1.jpg');
+
+// installation
+$installation-installation-image-content: url('../img/cincy_install_content.jpg');
+$installation-expectations-image-content: url('../img/dolby_install.jpg');
+
+$installation-checkmark-backround: url('../img/check_mark.png');
+
+$installation-operations-font-size: 24px;
+
+$installation-arrow-background: url('../img/teal_arrow.png') no-repeat;
 
 // footer
 $footer-background-color: $red;
@@ -434,6 +444,12 @@ $project-info-category-padding: 5px 10px;
 // project info modal
 $project-info-slick-dot-color: #cccccc;
 $project-info-slick-dot-active-color: #ffffff;
+
+// recommendations
+$recommendation-background-color: $black;
+$recommendation-color: $white;
+$recommendation-font-size: 20px;
+$recommendation-source-font-size: 16px;
 
 // scroll to top
 $scroll-to-top-background: url('../img/back_to_top.png') no-repeat;
@@ -716,7 +732,7 @@ div {
     }
 
     .grey-box {
-        background-color: rgba($black, 0.6);
+        background-color: rgba($black, 0.75);
         color           : $white;
         line-height     : 1.2;
         padding         : $vgap_ $hgap;
@@ -911,6 +927,19 @@ div {
 }
 
 //
+@mixin submit-button() {
+    text-align    : right;
+    text-transform: uppercase;
+
+    a,
+    div {
+        background-color: $contact-button-background-color;
+        border-radius   : $contact-button-border-radius;
+        color           : $contact-button-color;
+        display         : inline-block;
+        padding         : $contact-button-padding;
+    }
+}
 @mixin modal-scss($showHeader:false) {
     clr-modal {
         .modal-dialog {

@@ -26,7 +26,8 @@
                         <i>{{ this | getString : 'required-fields' : 'Fields marked with * are requreid' }}</i>
                     </div>
                     <div class="button-div">
-                        <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
+                        <!-- <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div> -->
+                        <a [class.disabled]="!_canSubmit" [href]="'mailto:info@fujitecamerica.com?subject=Contact&body='+_body">{{ this | getString : 'submit' : 'Submit' }}</a>
                     </div>
                 </div>
             </div>

@@ -63,7 +63,7 @@
     box-shadow        : $dx $dy $blur $spread $rgba !important;
 }
 @mixin hr($color:#000000) {
-    $widths: 50 70 90 120 150 200 300 350;
+    $widths: 50 70 90 120 140 150 200 300 350;
 
     hr {
         @each $w in $widths {

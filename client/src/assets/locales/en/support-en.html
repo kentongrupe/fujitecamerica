@@ -6,11 +6,9 @@
                 <h1>
                     HOW CAN WE HELP
                 </h1>
-                <p>
-                    In an effort to improve support on Fujitec systems throughout North America, this portal is provided as a means of direct communication with our parts facility locations throughout the US and Canada.
-                </p>
-                <p>
-                    If you are in need of repair parts and/or support, please fill out the contact information below, and one of our After-Market Specialists will contact you within 2 business days of your request.
+                <p class="help-text">
+                    In an effort to improve support on Fujitec systems throughout North America, this portal is provided as a means of direct communication with our parts facility locations throughout the US and Canada. If you are in need of repair parts and/or support, please fill out the contact information below, and one of our After-Market Specialists will contact you within 2 business days of your request.
+
                 </p>
                 <p class="italic">
                     We appreciate your correspondence and are happy to provide solutions for you!
@@ -33,7 +31,8 @@
                         Fields marked with * are requred
                     </div>
                     <div class="button-div">
-                        <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
+                        <!-- <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div> -->
+                        <a [class.disabled]="!_canSubmit" [href]="'mailto:info@fujitecamerica.com?subject=Support%20Request&body='+_body">{{ this | getString : 'submit' : 'Submit' }}</a>
                     </div>
                 </div>
             </div>

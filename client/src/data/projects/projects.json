@@ -89,7 +89,7 @@
                             },
                             {
                                 "city": "Boston",
-                                "name": "Rowes Wharf/Residences at Rowes Wharf/ Boston Harbor Hotel",
+                                "name": "Rowes Wharf",
                                 "units": {
                                     "elevators": 26
                                 },
@@ -167,7 +167,7 @@
                                 },
                                 "equipment": "Fujitec DC Gearless, Hydraulic",
                                 "description": "Formerly the headquarters of Enron, Chevron now owns and occupies the 50 story building. Modernization work began in 2013 and was completed in 2015.",
-                                "imageCount": 0,
+                                "imageCount": 1,
                                 "uuid": "72e0abb6-1166-4045-90ff-3ce6698f20be"
                             },
                             {
@@ -184,13 +184,13 @@
                             },
                             {
                                 "city": "Philadelphia",
-                                "name": "Children’s Hospital of Philadelphia Ambulatory Care",
+                                "name": "Children’s Hospital",
                                 "units": {
                                     "elevators": 17
                                 },
                                 "equipment": "Fujitec PMGL, Geared, MRL",
                                 "description": "This prestigious children's hospital is one of the leading pediatric centers in the United States. Many designs provide the facility with uniqueness and warmth such as the children's palm-print patterns used to decorate the glass wall of the elevator cab interior.",
-                                "imageCount": 1,
+                                "imageCount": 3,
                                 "uuid": "eb8c7443-c434-4b9f-816e-a02d89701568"
                             }
                         ]
@@ -313,7 +313,7 @@
                             },
                             {
                                 "city": "Hong Kong",
-                                "name": "The Centre Government Complex (Tamar)",
+                                "name": "Government Complex",
                                 "units": {
                                     "elevators": 58,
                                     "escalators": 25
@@ -325,7 +325,7 @@
                             },
                             {
                                 "city": "South Korea",
-                                "name": "Hana Financial Group Integrated Data Center",
+                                "name": "Hana Financial Group",
                                 "units": {
                                     "elevators": 12,
                                     "escalators": 2
@@ -349,7 +349,7 @@
                             },
                             {
                                 "city": "Malaysia",
-                                "name": "Kuala Lumpur Convention Centre",
+                                "name": "Convention Centre",
                                 "units": {
                                     "elevators": 28,
                                     "escalators": 21
@@ -373,7 +373,7 @@
                             },
                             {
                                 "city": "Berlin",
-                                "name": "The Imperial Parliament Building of Germany",
+                                "name": "German Parliament",
                                 "units": {
                                     "elevators": 19
                                 },
