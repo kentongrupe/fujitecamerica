@@ -7,8 +7,7 @@
     $facility = $_POST["facility"];
     $description = $_POST["description"];
 
-    // $to = "info@fujitecamerica.com";
-    $to = "hiroshi.miyazawa@gmail.com";
+    $to = "info@fujitecamerica.com";
     $subject = "Contact";
     $headers = "From: " . $email;
     $body = ""

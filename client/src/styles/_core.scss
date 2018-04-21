@@ -62,6 +62,14 @@
     -moz-box-shadow   : $dx $dy $blur $spread $rgba !important;
     box-shadow        : $dx $dy $blur $spread $rgba !important;
 }
+@mixin font-size-by-min-widths($font-size, $inc, $max-widths) {
+     @for $i from 1 through length($max-widths){
+        $w: nth($max-widths, $i);
+        @media only screen and (max-width: $w) {
+            font-size: $font-size - ($inc * $i);
+        }
+    }
+}
 @mixin hr($color:#000000) {
     $widths: 50 70 90 120 140 150 200 300 350;
 
