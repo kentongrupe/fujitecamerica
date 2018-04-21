@@ -14,7 +14,7 @@
                     We appreciate your correspondence and are happy to provide solutions for you!
                 </p>
             </div>
-            <div class="section">
+            <div class="section" [class.disabled]="disabled">
                 <div class="contact-form-div">
                     <div class="form-group">
                         <input type="text" placeholder="{{ '* ' + _getString('name', 'Name') }}" [(ngModel)]="_name" />
@@ -31,8 +31,7 @@
                         Fields marked with * are requred
                     </div>
                     <div class="button-div">
-                        <!-- <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div> -->
-                        <a [class.disabled]="!_canSubmit" [href]="'mailto:info@fujitecamerica.com?subject=Support%20Request&body='+_body">{{ this | getString : 'submit' : 'Submit' }}</a>
+                        <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
                     </div>
                 </div>
             </div>

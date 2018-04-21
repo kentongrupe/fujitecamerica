@@ -2,7 +2,7 @@
     <div class="contact-div">
         <div class="col-left"></div>
         <div class="col-center">
-            <div class="section">
+            <div class="section" [class.disabled]="disabled">
                 <h1>{{ this | getString : 'how-can-we-help' : 'How Can We Help?' }}</h1>
                 <div class="contact-form-div">
                     <div class="form-group">
@@ -26,8 +26,7 @@
                         <i>{{ this | getString : 'required-fields' : 'Fields marked with * are requreid' }}</i>
                     </div>
                     <div class="button-div">
-                        <!-- <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div> -->
-                        <a [class.disabled]="!_canSubmit" [href]="'mailto:info@fujitecamerica.com?subject=Contact&body='+_body">{{ this | getString : 'submit' : 'Submit' }}</a>
+                        <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>
                     </div>
                 </div>
             </div>

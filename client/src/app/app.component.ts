@@ -138,6 +138,7 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
         this._contentPaddingTop = 0;
         this._sectionHeaderTop = AppConstants.HEADER_HEIGHT;
     }
+
     private _scroll(value: number, delta: number): void {
         if ((delta < 0) && (value < 530)) {
             this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);

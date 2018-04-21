@@ -1,11 +1,13 @@
 import {
     Component,
-    DoCheck
+    DoCheck,
+    OnInit
 } from '@angular/core';
 import {
     BaseComponent
 } from 'app/core';
 import {
+    DataService,
     StringService
 } from 'app/services';
 
@@ -13,9 +15,7 @@ import {
     selector: 'contact',
     templateUrl: 'contact.component.html'
 })
-export class ContactComponent extends BaseComponent implements DoCheck {
-
-    private _body: string = '';
+export class ContactComponent extends BaseComponent implements DoCheck, OnInit {
 
     private _address: string = '';
     private _canSubmit: boolean = false;
@@ -28,6 +28,7 @@ export class ContactComponent extends BaseComponent implements DoCheck {
     private _phone: string = '';
 
     constructor(
+        private dataService: DataService,
         private stringService: StringService
     ) {
         super('ContactComponent');
@@ -39,19 +40,36 @@ export class ContactComponent extends BaseComponent implements DoCheck {
             && !this.isNullOrEmpty(this._email) && this._emailRegex.test(this._email)
             && !this.isNullOrEmpty(this._phone) && !this.isNullOrEmpty(this._fujitec)
             && !this.isNullOrEmpty(this._description);
-
-        if (this._canSubmit) {
-            this._body = [
-                '{0}: {1} {2}'.format(this._getString('name', 'Name'), this._firstName, this._lastName),
-                '{0}: {1}'.format(this._getString('email', 'Email'), this._email),
-                '{0}: {1}'.format(this._getString('phone', 'Phone'), this._phone),
-                '{0}: {1}'.format(this._getString('fujitec-facility', 'Fujitec Facility'), this._fujitec),
-                '{0}: {1}'.format(this._getString('description', 'Description'), this._description)
-            ].join('%0D%0A');
-        }
+    }
+    public ngOnInit() {
+        this._init();
     }
 
+    private _init(): void {
+        this.enabled = true;
+
+        this._address = '';
+        this._description = '';
+        this._email = '';
+        this._firstName = '';
+        this._fujitec = '';
+        this._lastName = '';
+        this._phone = '';
+    }
     private _submit(): void {
-        // TODO
+        this.enabled = false;
+
+        let params = {
+            address: this.isNullOrEmpty(this._address) ? '' : this._address,
+            name: '{0} {1}'.format(this._firstName, this._lastName),
+            email: this._email,
+            phone: this._phone,
+            facility: this._fujitec,
+            description: this._description
+        };
+        this.dataService.sendContact(params, (d) => {
+            this._init();
+            alert(this._getString('contact-submit-text', 'Your request has been submitted. One of our representatives will contact you soon.'));
+        });
     }
 }

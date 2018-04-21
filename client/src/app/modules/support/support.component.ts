@@ -1,6 +1,7 @@
 import {
     Component,
-    DoCheck
+    DoCheck,
+    OnInit
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -13,6 +14,7 @@ import {
     SectionType
 } from 'app/models';
 import {
+    DataService,
     DOMService,
     EventService,
     StringService,
@@ -22,9 +24,7 @@ import {
     selector: 'support',
     templateUrl: '/assets/locales/{0}/support-{0}.html'.format(StringService.locale)
 })
-export class SupportComponent extends BaseProductRouteComponent implements DoCheck {
-
-    private _body: string = '';
+export class SupportComponent extends BaseProductRouteComponent implements DoCheck, OnInit {
 
     private _canSubmit: boolean = false;
     private _company: string = '';
@@ -41,6 +41,7 @@ export class SupportComponent extends BaseProductRouteComponent implements DoChe
         protected eventService: EventService,
         protected route: ActivatedRoute,
         protected router: Router,
+        private dataService: DataService,
         private stringService: StringService
     ) {
         super('SupportComponent', domService, eventService, route, router);
@@ -51,19 +52,33 @@ export class SupportComponent extends BaseProductRouteComponent implements DoChe
         this._canSubmit = !this.isNullOrEmpty(this._name) && !this.isNullOrEmpty(this._company)
             && !this.isNullOrEmpty(this._email) && !this.isNullOrEmpty(this._phone)
             && !this.isNullOrEmpty(this._description);
-
-        if (this._canSubmit) {
-            this._body = [
-                '{0}: {1}'.format(this._getString('name', 'Name'), this._name),
-                '{0}: {1}'.format(this._getString('company', 'Company'), this._company),
-                '{0}: {1}'.format(this._getString('email', 'Email'), this._email),
-                '{0}: {1}'.format(this._getString('phone', 'Phone'), this._phone),
-                '{0}: {1}'.format(this._getString('description', 'Description'), this._description)
-            ].join('%0D%0A');
-        }
+    }
+    public ngOnInit() {
+        this._init();
     }
 
+    private _init(): void {
+        this.enabled = true;
+
+        this._company = '';
+        this._description = '';
+        this._email = '';
+        this._name = '';
+        this._phone = '';
+    }
     private _submit(): void {
-        // TODO
+        this.enabled = false;
+
+        let params = {
+            name: this._name,
+            company: this._company,
+            email: this._email,
+            phone: this._phone,
+            description: this._description
+        };
+        this.dataService.sendSupport(params, (d) => {
+            this._init();
+            alert(this._getString('support-submit-text', 'Your request has been submitted. One of our representatives will contact you soon.'));
+        });
     }
 }

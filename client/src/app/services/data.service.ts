@@ -22,6 +22,14 @@ import {
 @Injectable()
 export class DataService extends BaseService {
 
+    // gmail...
+    private _apiKey: string = 'AIzaSyC6tqqrsokmNSrQSh_3QgGME589MsQP9hI';
+    private _clietId: string = '866095067096-ogs83uvr9s8e03aj2hjk5m4vvf3p0l88.apps.googleusercontent.com';
+    private _clientSecret: string = 'cdbyfjPYIK0N8KeS9m7kqILy';
+    private _discoveryDocs: string[] = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
+    private _scopes: string = 'https://www.googleapis.com/auth/gmail.send';
+    // ...gmail
+
     private _baseUrl: string = ''; // 'http://fujitecamerica.com';
     private _projects: Map<number, any> = new Map<number, any>();
 
@@ -86,6 +94,12 @@ export class DataService extends BaseService {
     public getTestimonials(onSuccess: Function = null, onError: Function = null): void {
         this._get('data/testimonials.json', onSuccess, onError);
     }
+    public sendContact(params: any, onSuccess: Function = null, onError: Function = null): void {
+        this._post('contact.php', params, onSuccess, onError);
+    }
+    public sendSupport(params: any, onSuccess: Function = null, onError: Function = null): void {
+        this._post('support.php', params, onSuccess, onError);
+    }
     private _get(name: string, onSuccess: Function = null, onError: Function = null): void {
         let url = '{0}/{1}'.format(this._baseUrl, name);
         let options = new RequestOptions({
@@ -128,19 +142,9 @@ export class DataService extends BaseService {
 
         (this.http
             .post(url, body.toString(), options)
-            .map((res) => {
-                return res.text();
-            }))
-            .subscribe((result: string) => {
-                // this._parseResult(result, (d) => {
-                //     if ((d.showLogin !== undefined) && (this.parseBoolean(d.showLogin) === true)) {
-                //         this._showLogin();
-                //     } else if (onSuccess) {
-                //         onSuccess(d);
-                //     }
-                // });
+            .subscribe((data) => {
                 if (onSuccess) {
-                    onSuccess(result);
+                    onSuccess(data.json());
                 }
             }, (error) => {
                 if (onError) {
@@ -148,17 +152,6 @@ export class DataService extends BaseService {
                 } else {
                     console.error(error);
                 }
-            });
+            }));
     }
-
-    // private _parseResult(result: string, callback: Function): void {
-    //     Utils.parseXML(result, (d) => {
-    //         if (this.isDev) {
-    //             console.log(d);
-    //         }
-    //         if (callback) {
-    //             callback(d);
-    //         }
-    //     });
-    // }
 }
