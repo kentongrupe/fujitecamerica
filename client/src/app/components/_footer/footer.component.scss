@@ -3,6 +3,7 @@ app-footer {
     color           : $footer-color;
     display         : inline-block;
     font-size       : $footer-font-size;
+    height          : $app-footer-height;
     width           : 100%;
 
     .footer-div {

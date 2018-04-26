@@ -3,13 +3,11 @@ import {
     OnInit
 } from '@angular/core';
 import {
-    Router
-} from '@angular/router';
-import {
-    BaseNavRouteComponent
+    BaseComponent
 } from 'app/core';
 import {
-    AppRoute
+    AppRoute,
+    MenuItem
 } from 'app/models';
 import {
     RouterService,
@@ -20,23 +18,23 @@ import {
     selector: 'app-footer',
     templateUrl: 'footer.component.html'
 })
-export class AppFooterComponent extends BaseNavRouteComponent implements OnInit {
+export class AppFooterComponent extends BaseComponent implements OnInit {
 
     private _copyright: number = (new Date()).getFullYear();
+    private _menu: MenuItem[] = [];
 
     constructor(
-        protected router: Router,
-        protected routerService: RouterService,
+        private routerService: RouterService,
         private stringService: StringService
     ) {
-        super('AppFooterComponent', router, routerService);
+        super('AppFooterComponent');
         this._stringService = stringService;
     }
 
     public ngOnInit() {
         super.ngOnInit();
 
-        this.menu = [
+        this._menu = [
             {
                 label: this._getString('site-map', 'Site Map'),
                 routerLink: AppRoute.SITE_MAP
@@ -50,5 +48,14 @@ export class AppFooterComponent extends BaseNavRouteComponent implements OnInit 
                 routerLink: AppRoute.SITE_POLICY
             }
         ];
+    }
+
+    public onMenuClick(item: MenuItem, event?: MouseEvent): void {
+        this._preventDefault(event);
+        if (!this.isNullOrEmpty(item.routerLink)) {
+            this.routerService.to(item.routerLink);
+        } else if (item.command !== undefined) {
+            item.command();
+        }
     }
 }

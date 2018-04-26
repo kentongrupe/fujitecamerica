@@ -18,6 +18,7 @@ import {
 } from 'clarity-angular';
 import 'hammerjs';
 import {
+    AppFooterComponent,
     IFrameComponent,
     MenuComponent,
     ProMenuComponent,
@@ -43,6 +44,7 @@ import {
 @NgModule({
     declarations: [
         // components
+        AppFooterComponent,
         IFrameComponent,
         MenuComponent,
         ProMenuComponent,
@@ -80,6 +82,7 @@ import {
         ClarityModule,
 
         // components
+        AppFooterComponent,
         IFrameComponent,
         MenuComponent,
         ProMenuComponent,

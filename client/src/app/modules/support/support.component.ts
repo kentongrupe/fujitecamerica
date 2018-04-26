@@ -34,8 +34,6 @@ export class SupportComponent extends BaseProductRouteComponent implements DoChe
     private _name: string = '';
     private _phone: string = '';
 
-    private SectionType = SectionType;
-
     constructor(
         protected domService: DOMService,
         protected eventService: EventService,
@@ -54,6 +52,8 @@ export class SupportComponent extends BaseProductRouteComponent implements DoChe
             && !this.isNullOrEmpty(this._description);
     }
     public ngOnInit() {
+        super.ngOnInit();
+
         this._init();
     }
 

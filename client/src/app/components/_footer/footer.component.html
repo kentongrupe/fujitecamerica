@@ -1,12 +1,12 @@
 <div class="footer-mobile-menu-div">
     <ul class="links">
-        <li *ngFor="let m of menu; let i=index" [class.active]="isActive(m)" (click)="onMenuClick(m, $event)">{{ m.label }}</li>
+        <li *ngFor="let m of _menu; let i=index" (click)="onMenuClick(m, $event)">{{ m.label }}</li>
     </ul>
 </div>
 <div class="footer-div">
     <div class="links-div">
         <ul class="links">
-            <li *ngFor="let m of menu; let i=index" [class.active]="isActive(m)" (click)="onMenuClick(m, $event)">
+            <li *ngFor="let m of _menu; let i=index" (click)="onMenuClick(m, $event)">
                 <span class="link">{{ m.label }}</span>
             </li>
         </ul>

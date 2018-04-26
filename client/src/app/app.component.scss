@@ -39,8 +39,12 @@ app {
         $app-pro-menu-item-width : 119px;
 
         .app-content {
-            @include abs-position($header-height, 0, #{$app-footer-height + $app-pro-menu-height + $vgap_}, 0);
+            @include abs-position($header-height, 0, 0, 0);
             @include app-content-scss();
+
+            app-footer {
+                margin-bottom: -6px;
+            }
         }
 
         .pro-menu-div {
@@ -112,9 +116,8 @@ app {
             }
         }
 
-        app-footer {
+        & > app-footer {
             @include abs-position(initial, 0, 0, 0);
-            height: $app-footer-height;
         }
     }
 }

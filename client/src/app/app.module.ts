@@ -28,7 +28,6 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 import {
-    AppFooterComponent,
     AppHeaderComponent,
     SectionHeaderComponent
 } from 'app/components';
@@ -96,7 +95,6 @@ type StoreType = {
     declarations: [
         // components
         AppComponent,
-        AppFooterComponent,
         AppHeaderComponent,
         SectionHeaderComponent
     ],

@@ -23,7 +23,7 @@
                         <textarea placeholder="{{ '* ' + _getString('description-text', 'Please provide description of needs. i.e. service, repair, modernization, etc...') }}" [(ngModel)]="_description"></textarea>
                     </div>
                     <div class="info-div">
-                        <i>{{ this | getString : 'required-fields' : 'Fields marked with * are requreid' }}</i>
+                        <i>{{ this | getString : 'required-fields' : 'Fields marked with * are required' }}</i>
                     </div>
                     <div class="button-div">
                         <div [class.disabled]="!_canSubmit" (click)="_submit()">{{ this | getString : 'submit' : 'Submit' }}</div>

@@ -52,6 +52,7 @@ app-header {
                         line-height: $header-height;
 
                         .link {
+                            @include font-size-by-min-widths($header-main-menu-link-font-size, 2px, $app-max-widths);
                             font-size: $header-main-menu-link-font-size;
                             margin   : $header-main-menu-link-margin;
 

@@ -52,6 +52,7 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     private _sectionHeaderTop: number = AppConstants.HEADER_HEIGHT;
     private _sectionHeaderVisible: boolean = false;
     private _showAllSectionHeader: boolean = false;
+    private _showFooter: boolean = false;
 
     constructor(
         protected router: Router,
@@ -107,9 +108,11 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
         this._isHome = (event.url === AppRoute.HOME);
 
         this._showAllSectionHeader = true;
+        this._showFooter = false;
 
         switch (event.url) {
             case AppRoute.HOME:
+                this._showFooter = true;
             case AppRoute.PRIVACY_POLICY:
             case AppRoute.SITE_MAP:
             case AppRoute.SITE_POLICY:
@@ -118,6 +121,7 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
             case AppRoute.CONTACT:
             case AppRoute.LOCATIONS:
                 this._showAllSectionHeader = false;
+                this._showFooter = true;
             default:
                 this._sectionHeaderVisible = true;
                 break;

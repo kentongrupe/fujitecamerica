@@ -104,15 +104,15 @@ export class AppRoute {
                 { path: AppRoute.AUTOWALKS_TYPE_P }
             ]
         },
-        {
-            path: AppRoute.CONSULTANTS
-        },
-        {
-            path: AppRoute.PROPERTY_MANAGERS
-        },
-        {
-            path: AppRoute.ARCHITECTS
-        },
+        // {
+        //     path: AppRoute.CONSULTANTS
+        // },
+        // {
+        //     path: AppRoute.PROPERTY_MANAGERS
+        // },
+        // {
+        //     path: AppRoute.ARCHITECTS
+        // },
         {
             path: AppRoute.ABOUT
         },

@@ -1,6 +1,6 @@
 <div class="app-div">
     <app-header [style.top.px]="_headerTop"></app-header>
-    <div #appContent class="app-content" [style.top.px]="_contentTop" [style.padding-top.px]="_sectionHeaderVisible? _contentPaddingTop : 0">
+    <div #appContent class="app-content" [class.home]="_isHome" [style.top.px]="_contentTop" [style.padding-top.px]="_sectionHeaderVisible? _contentPaddingTop : 0">
         <router-outlet></router-outlet>
     </div>
     <section-header [class.hidden]="!_sectionHeaderVisible" [style.top.px]="_sectionHeaderTop" [class.animate]="_animateTop" [showAll]="_showAllSectionHeader"></section-header>
@@ -16,7 +16,7 @@
         </div>
         <div class="col-right"></div>
     </div> -->
-    <app-footer></app-footer>
+    <app-footer *ngIf="_showFooter"></app-footer>
 </div>
 
 <alert #alert [message]="_alertMessage"></alert>
