@@ -281,7 +281,7 @@ export class BaseClass {
         if (this.isNullOrEmpty(defaultValue)) {
             return id;
         }
-        let stringId = '{0}.{1}'.format(this.className, id);
+        let stringId = this.className + '.' + id;
         if (this._stringService) {
             return this._stringService.get(stringId, defaultValue);
         }

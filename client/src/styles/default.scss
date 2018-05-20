@@ -863,8 +863,6 @@ div {
 
     ol,
     ul {
-        margin-left: $hgap;
-
         li {
             font-size  : $font-size;
             font-weight: $font-weight-lite;
@@ -1002,13 +1000,17 @@ div {
                                 }
 
                                 img {
-                                    height: 100%;
-                                    width : 100%;
+                                    display  : block !important;
+                                    height   : 100%;
+                                    margin   : 0 auto;
+                                    max-width: 100%;
+                                    width    : auto !important;
                                 }
                             }
 
                             .details-div {
                                 height  : 40%;
+                                overflow: auto;
                                 position: relative;
 
                                 form {
@@ -1027,7 +1029,6 @@ div {
 
                                 .description-div {
                                     @include abs-position(130px, 0, 0, 0);
-                                    overflow: auto;
                                 }
                             }
                             @media only screen and (max-width: 544px) {

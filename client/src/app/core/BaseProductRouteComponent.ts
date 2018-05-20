@@ -40,6 +40,7 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
     }
     @ViewChild('container')
     protected _container: ElementRef;
+    protected _products: ElementRef[] = [];
     protected _scrolled: boolean = false;
 
     protected AppRoute = AppRoute;
@@ -72,6 +73,15 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
                 this._scrolled = (scrollTop > 0);
 
                 this.eventService.dispatch(AppEvent.SCROLL, scrollTop, dir);
+
+                let i = this._products.length - 1;
+                for (; i >= 0; i--) {
+                    if (scrollTop >= this._products[i].nativeElement.offsetTop) {
+                        break;
+                    }
+                }
+
+                this.eventService.dispatch(AppEvent.SECTION_SUB_INDEX, i);
             });
         }
     }

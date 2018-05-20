@@ -1,6 +1,7 @@
 import {
     OnDestroy,
-    OnInit
+    OnInit,
+    ReflectiveInjector
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -13,6 +14,9 @@ import {
 import {
     BaseComponent
 } from './BaseComponent';
+import {
+    StringService
+} from 'app/services/string.service';
 
 export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnInit {
 
@@ -36,6 +40,10 @@ export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnIn
                 this._onNavigationEnd(event as NavigationEnd);
             }
         });
+
+        let providers = ReflectiveInjector.resolve([StringService]);
+        let injector = ReflectiveInjector.fromResolvedProviders(providers);
+        this._stringService = injector.get(StringService);
     }
 
     public ngOnDestroy() {
@@ -57,6 +65,20 @@ export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnIn
                 let value = params[key];
                 this._params.set(key, value);
             });
+        }
+
+        if (event !== null) {
+            document.title = [
+                this._stringService.get('fujitec-america', 'Fujitec America'),
+                ...event.url
+                    .split('/')
+                    .filter((s) => {
+                        return !this.isNullOrEmpty(s);
+                    }).map((s) => {
+                        let stringId = this.className + '.' + s;
+                        return this._stringService.get(stringId, stringId);
+                    })
+            ].join(' | ');
         }
     }
 }

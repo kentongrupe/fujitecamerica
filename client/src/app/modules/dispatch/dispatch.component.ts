@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    OnInit,
     ViewChild
 } from '@angular/core';
 import {
@@ -20,7 +21,7 @@ import {
     selector: 'dispatch',
     templateUrl: '/assets/locales/{0}/dispatch-{0}.html'.format(StringService.locale)
 })
-export class DispatchComponent extends BaseProductRouteComponent {
+export class DispatchComponent extends BaseProductRouteComponent implements OnInit {
 
     @ViewChild('ezshuttle') public ezshuttle: ElementRef;
     @ViewChild('flexnx') public flexnx: ElementRef;
@@ -32,5 +33,14 @@ export class DispatchComponent extends BaseProductRouteComponent {
         protected router: Router
     ) {
         super('DispatchComponent', domService, eventService, route, router);
+    }
+
+    public ngOnInit() {
+        this._products = [
+            this.flexnx,
+            this.ezshuttle
+        ];
+
+        super.ngOnInit();
     }
 }

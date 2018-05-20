@@ -56,6 +56,9 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
             this._scrollToTop();
         });
+        this.eventService.register(AppEvent.SECTION_SUB_INDEX, (idx) => {
+            this._selectSubMenuAt(idx);
+        });
     }
 
     public ngOnInit() {
@@ -314,5 +317,8 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
                 this._menuTop = mt;
             }
         }
+    }
+    private _selectSubMenuAt(index: number): void {
+        console.log(index);
     }
 }

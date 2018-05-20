@@ -4,7 +4,12 @@ import {
     OnInit
 } from '@angular/core';
 import {
-    BaseComponent
+    ActivatedRoute,
+    NavigationEnd,
+    Router
+} from '@angular/router';
+import {
+    BaseRouteComponent
 } from 'app/core';
 import {
     DataService,
@@ -15,7 +20,7 @@ import {
     selector: 'contact',
     templateUrl: 'contact.component.html'
 })
-export class ContactComponent extends BaseComponent implements DoCheck, OnInit {
+export class ContactComponent extends BaseRouteComponent implements DoCheck, OnInit {
 
     private _address: string = '';
     private _canSubmit: boolean = false;
@@ -28,10 +33,12 @@ export class ContactComponent extends BaseComponent implements DoCheck, OnInit {
     private _phone: string = '';
 
     constructor(
+        protected route: ActivatedRoute,
+        protected router: Router,
         private dataService: DataService,
         private stringService: StringService
     ) {
-        super('ContactComponent');
+        super('ContactComponent', route, router);
         this._stringService = stringService;
     }
 

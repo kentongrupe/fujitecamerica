@@ -3,10 +3,12 @@ import {
 } from '@angular/core';
 import {
     BaseService
-} from 'app/core';
+} from 'app/core/BaseService';
 
 @Injectable()
 export class StringService extends BaseService {
+
+    public static data: Map<string, string> = new Map<string, string>();
 
     private static _locale: string = 'en';
     public static get locale(): string {
@@ -29,7 +31,9 @@ export class StringService extends BaseService {
         this._locale = value;
     }
 
-    private _cache: Map<string, string> = null;
+    private get _cache(): Map<string, string> {
+        return StringService.data;
+    }
 
     public get hasStrings(): boolean {
         return ((this._cache !== undefined) && (this._cache !== null) && (this._cache.size > 0));
@@ -37,29 +41,17 @@ export class StringService extends BaseService {
 
     constructor() {
         super('StringService');
-        this._cache = new Map<string, string>();
     }
 
     public export(): void {
         let strings = [];
         this._cache.forEach((value, key) => {
-            strings.push({
-                id: key,
-                value
-            });
+            strings.push(key);
         });
-        strings = strings.sort((a, b) => {
-            if (a.id < b.id) {
-                return -1;
-            } else if (a.id > b.id) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }).map((s) => {
-            return '"{0}":"{1}"'.format(s.id, s.value);
-        });
-        console.log(strings.join(','));
+        strings.sort();
+        console.log(strings.map((s) => {
+            return '"{0}":"{1}"'.format(s, this._cache.get(s));
+        }).join());
     }
     public get(id: string, defaultValue?: string): string {
         // console.debug('get string with id "{0}"'.format(id));
@@ -80,10 +72,5 @@ export class StringService extends BaseService {
             this._cache.set(id, s);
         }
         return s;
-    }
-    public set(id: string, value: string): void {
-        if (!this._cache.has(id)) {
-            this._cache.set(id, value);
-        }
     }
 }

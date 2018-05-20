@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    OnInit,
     ViewChild
 } from '@angular/core';
 import {
@@ -20,7 +21,7 @@ import {
     selector: 'elevators',
     templateUrl: '/assets/locales/{0}/elevators-{0}.html'.format(StringService.locale)
 })
-export class ElevatorsComponent extends BaseProductRouteComponent {
+export class ElevatorsComponent extends BaseProductRouteComponent implements OnInit {
 
     @ViewChild('geared') public geared: ElementRef;
     @ViewChild('gearless') public gearless: ElementRef;
@@ -36,5 +37,18 @@ export class ElevatorsComponent extends BaseProductRouteComponent {
         protected router: Router
     ) {
         super('ElevatorsComponent', domService, eventService, route, router);
+    }
+
+    public ngOnInit() {
+        this._products = [
+            this.gearless,
+            this.mrl,
+            this.geared,
+            this.hydraulic,
+            this.monitoring,
+            this.ionful
+        ];
+
+        super.ngOnInit();
     }
 }

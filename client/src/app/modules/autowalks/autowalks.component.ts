@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    OnInit,
     ViewChild
 } from '@angular/core';
 import {
@@ -20,9 +21,8 @@ import {
     selector: 'autowalks',
     templateUrl: '/assets/locales/{0}/autowalks-{0}.html'.format(StringService.locale)
 })
-export class AutowalksComponent extends BaseProductRouteComponent {
+export class AutowalksComponent extends BaseProductRouteComponent implements OnInit {
 
-    @ViewChild('gs8100') public gs8100: ElementRef;
     @ViewChild('typef') public typef: ElementRef;
     @ViewChild('typep') public typep: ElementRef;
     @ViewChild('types') public types: ElementRef;
@@ -34,5 +34,15 @@ export class AutowalksComponent extends BaseProductRouteComponent {
         protected router: Router
     ) {
         super('AutowalksComponent', domService, eventService, route, router);
+    }
+
+    public ngOnInit() {
+        this._products = [
+            this.types,
+            this.typef,
+            this.typep
+        ];
+
+        super.ngOnInit();
     }
 }

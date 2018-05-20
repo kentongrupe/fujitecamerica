@@ -7,31 +7,10 @@ app {
 
         app-header {
             @include abs-position();
-            // transition: .5s all;
         }
 
         section-header {
             @include abs-position($header-height, 17px, initial, 0);
-            // & + router-outlet + * {
-            //     & > .content-div {
-            //         padding-bottom: $vgap;
-            //         padding-top   : $section-header-height + $vgap;
-
-            //         .section-header {
-            //             margin-top: $vgap;
-            //             padding   : 0 $hgap;
-            //             width     : 100%;
-            //         }
-            //     }
-            // }
-
-            // &.hidden {
-            //     & + router-outlet + * {
-            //         & > .content-div {
-            //             padding-top: $vgap;
-            //         }
-            //     }
-            // }
         }
 
         $app-pro-menu-height     : -$vgap_; //86px;

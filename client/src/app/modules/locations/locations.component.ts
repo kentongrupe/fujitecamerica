@@ -6,7 +6,12 @@ import {
     ViewChild
 } from '@angular/core';
 import {
-    BaseComponent
+    ActivatedRoute,
+    NavigationEnd,
+    Router
+} from '@angular/router';
+import {
+    BaseRouteComponent
 } from 'app/core';
 import {
     Location
@@ -22,7 +27,7 @@ declare const $;
     selector: 'locations',
     templateUrl: 'locations.component.html'
 })
-export class LocationsComponent extends BaseComponent implements OnInit {
+export class LocationsComponent extends BaseRouteComponent implements OnInit {
 
     private _height: string = '0px';
     private _initComplete: boolean = false;
@@ -34,10 +39,12 @@ export class LocationsComponent extends BaseComponent implements OnInit {
     private _width: string = '0px';
 
     constructor(
+        protected route: ActivatedRoute,
+        protected router: Router,
         private dataService: DataService,
         private stringService: StringService
     ) {
-        super('LocationsComponent');
+        super('LocationsComponent', route, router);
         this._stringService = stringService;
     }
 

@@ -7,10 +7,12 @@ import {
     ViewChildren
 } from '@angular/core';
 import {
+    ActivatedRoute,
+    NavigationEnd,
     Router
 } from '@angular/router';
 import {
-    BaseNavRouteComponent
+    BaseRouteComponent
 } from 'app/core';
 import {
     IFrameComponent
@@ -33,7 +35,7 @@ import {
     selector: 'home',
     templateUrl: 'home.component.html'
 })
-export class HomeComponent extends BaseNavRouteComponent implements OnInit {
+export class HomeComponent extends BaseRouteComponent implements OnInit {
 
     @ViewChild('slides') private _slidesDiv: ElementRef;
     @ViewChildren('slide') private _slides: QueryList<any>;
@@ -63,13 +65,13 @@ export class HomeComponent extends BaseNavRouteComponent implements OnInit {
     }
 
     constructor(
+        protected route: ActivatedRoute,
         protected router: Router,
-        protected routerService: RouterService,
         private dataService: DataService,
         private eventService: EventService,
         private stringService: StringService
     ) {
-        super('HomeComponent', router, routerService);
+        super('HomeComponent', route, router);
         this._stringService = stringService;
     }
 

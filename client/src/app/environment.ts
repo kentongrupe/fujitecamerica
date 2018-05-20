@@ -8,8 +8,15 @@ import {
     enableProdMode
 } from '@angular/core';
 import {
+    Headers,
+    Http,
+    RequestOptions
+} from '@angular/http';
+import {
     StringService
 } from 'app/services';
+
+declare const $;
 
 // Environment Providers
 let PROVIDERS: any[] = [
@@ -32,6 +39,19 @@ if ((s !== undefined) && (s !== null) && (s.replace(' ', '').length > 0) && (s.s
 } else {
     StringService.locale = 'en'; // navigator.language;
 }
+
+$.getJSON(
+    '/assets/locales/{0}/_strings.json'.format(StringService.locale),
+    (data) => {
+        let m = new Map<string, string>();
+        for (let n in data) {
+            if (data[n]) {
+                m.set(n, data[n]);
+            }
+        }
+        StringService.data = m;
+    }
+)
 
 if ('production' === ENV) {
     enableProdMode();

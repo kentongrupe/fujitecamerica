@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    OnInit,
     ViewChild
 } from '@angular/core';
 import {
@@ -20,9 +21,8 @@ import {
     selector: 'escalators',
     templateUrl: '/assets/locales/{0}/escalators-{0}.html'.format(StringService.locale)
 })
-export class EscalatorsComponent extends BaseProductRouteComponent {
+export class EscalatorsComponent extends BaseProductRouteComponent implements OnInit {
 
-    @ViewChild('gs8000') public gs8000: ElementRef;
     @ViewChild('typef') public typef: ElementRef;
     @ViewChild('typep') public typep: ElementRef;
     @ViewChild('types') public types: ElementRef;
@@ -34,5 +34,15 @@ export class EscalatorsComponent extends BaseProductRouteComponent {
         protected router: Router
     ) {
         super('EscalatorsComponent', domService, eventService, route, router);
+    }
+
+    public ngOnInit() {
+        this._products = [
+            this.types,
+            this.typef,
+            this.typep
+        ];
+
+        super.ngOnInit();
     }
 }

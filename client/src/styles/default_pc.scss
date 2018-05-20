@@ -11,7 +11,8 @@ $app-content-display: inline-flex;
     min-width: $col-side-width + $col-center-min-width + $col-side-width;
 
     &.home {
-        bottom: #{$app-footer-height + $app-pro-menu-height + $vgap_};
+        bottom  : $app-footer-height;
+        overflow: auto;
     }
 }
 

@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    OnInit,
     ViewChild
 } from '@angular/core';
 import {
@@ -20,7 +21,7 @@ import {
     selector: 'modernization',
     templateUrl: '/assets/locales/{0}/modernization-{0}.html'.format(StringService.locale)
 })
-export class ModernizationComponent extends BaseProductRouteComponent {
+export class ModernizationComponent extends BaseProductRouteComponent implements OnInit {
 
     @ViewChild('benefits') public benefits: ElementRef;
     @ViewChild('assessment') public assessment: ElementRef;
@@ -34,5 +35,16 @@ export class ModernizationComponent extends BaseProductRouteComponent {
         protected router: Router
     ) {
         super('ModernizationComponent', domService, eventService, route, router);
+    }
+
+    public ngOnInit() {
+        this._products = [
+            this.benefits,
+            this.assessment,
+            this.process,
+            this.whynamo
+        ];
+
+        super.ngOnInit();
     }
 }

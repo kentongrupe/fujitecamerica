@@ -13,6 +13,7 @@ var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var del = require('del');
+var exec = require('child_process').exec;
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -22,6 +23,22 @@ var sourcemaps = require('gulp-sourcemaps');
 /*===========================================================================*/
 gulp.task('clean', function () {
     return del(['./dist/*']);
+});
+
+/*===========================================================================*/
+/* SLICK                                                                     */
+/*===========================================================================*/
+gulp.task('slick', function () {
+    gulp.src([
+        './src/assets/css/slick/slick.css',
+        './src/assets/css/slick/slick-theme.css'
+    ], {
+            base: './src'
+        })
+        .pipe(concat('slick_.css'))
+        .pipe(cleanCSS())
+        .pipe(rename('slick.min.css'))
+        .pipe(gulp.dest('./src/assets/css/slick'));
 });
 
 /*===========================================================================*/
@@ -54,6 +71,28 @@ gulp.task('build-client-scss', function () {
     ].forEach(function (s) {
         _scss(s, 'pc');
         _scss(s, 'sp');
+    });
+});
+
+/*===========================================================================*/
+/* BUILD                                                                     */
+/*===========================================================================*/
+gulp.task('build', function () {
+    exec('gulp build-client-scss && npm run build:prod', {
+        cwd: '.',
+        maxBuffer: 2000 * 1024
+    }, function (error, stdout, stderr) {
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+        if (error) {
+            console.error(`exec error: ${error}`);
+            process.exit(1);
+        }
+
+        gulp.src('./src/sitemap.xml')
+            .pipe(gulp.dest('./dist'));
+
+        console.log('DONE');
     });
 });
 
