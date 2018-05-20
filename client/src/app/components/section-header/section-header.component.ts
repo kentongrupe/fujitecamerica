@@ -35,6 +35,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
     private _background: string = '';
     private _bgHeight: number = AppConstants.SECTION_HEIGHT;
     private _bgTop: number = 0;
+    private _hasMenuLabel: boolean = false;
     private _logoTop: number = -73;
     private _menuLabel: string = '';
     private _menuTop: number = AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT;
@@ -61,6 +62,9 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements OnI
         });
     }
 
+    public ngDoCheck() {
+        this._hasMenuLabel = !this.isNullOrEmpty(this._menuLabel);
+    }
     public ngOnInit() {
         super.ngOnInit();
 
