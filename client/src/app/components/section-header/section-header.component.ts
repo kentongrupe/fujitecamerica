@@ -1,5 +1,6 @@
 import {
     Component,
+    DoCheck,
     Input,
     OnInit
 } from '@angular/core';
@@ -27,7 +28,7 @@ import {
     selector: 'section-header',
     templateUrl: 'section-header.component.html'
 })
-export class SectionHeaderComponent extends BaseNavRouteComponent implements OnInit {
+export class SectionHeaderComponent extends BaseNavRouteComponent implements DoCheck, OnInit {
 
     @Input()
     public showAll: boolean = false;
