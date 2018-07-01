@@ -101,29 +101,23 @@ export class BaseNavRouteComponent extends BaseComponent implements OnDestroy, O
             this.activeItem = null;
         }
 
-        if (this._scrollToContent && this._container) {
-            let url = event.url.split('/').filter((u) => {
-                return !this.isNullOrEmpty(u);
-            });
-            if (url.length > 1) {
-                this._container.nativeElement.scrollTo(0, this._content.nativeElement.offsetTop);
-                this._onScroll(null);
-            } else {
-                this._container.nativeElement.scrollTo(0, 0);
-                this._scrolled = false;
-            }
-        }
+        // if (this._scrollToContent && this._container) {
+        //     let url = event.url.split('/').filter((u) => {
+        //         return !this.isNullOrEmpty(u);
+        //     });
+        //     if (url.length > 1) {
+        //         this._container.nativeElement.scrollTo(0, this._content.nativeElement.offsetTop);
+        //         this._onScroll(null);
+        //     } else {
+        //         this._container.nativeElement.scrollTo(0, 0);
+        //         this._scrolled = false;
+        //     }
+        // }
     }
     protected _parseUrl(url: string): void {
         this._urls = url.split('/').filter((u) => {
             return !this.isNullOrEmpty(u);
         });
-    }
-    protected _scrollToTop(): void {
-        if (this._scrollToContent && this._container) {
-            this._container.nativeElement.scrollTo(0, 0);
-            this._scrolled = false;
-        }
     }
     private _onScroll(event: Event): void {
         if (this._container) {

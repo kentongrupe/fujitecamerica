@@ -5,6 +5,7 @@ import {
     BaseClass
 } from './BaseClass';
 import {
+    EventService,
     StringService
 } from 'app/services';
 
@@ -16,6 +17,8 @@ export class BaseComponent extends BaseClass implements OnInit {
     public get disabled(): boolean {
         return !this.enabled;
     }
+
+    protected _eventIds: number[] = [];
 
     constructor(className: string = 'BaseComponent') {
         super(className);
@@ -30,6 +33,15 @@ export class BaseComponent extends BaseClass implements OnInit {
         if ((event !== undefined) && (event !== null)) {
             event.preventDefault();
             event.stopPropagation();
+        }
+    }
+    protected _unregisterEvents(eventService: EventService, names: string[]): void {
+        if (this.hasValue(eventService)) {
+            if (this._eventIds.length === names.length) {
+                this._eventIds.forEach((id, i) => {
+                    eventService.unregister(names[i], id);
+                });
+            }
         }
     }
 }

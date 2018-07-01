@@ -20,6 +20,8 @@ import {
 
 export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnInit {
 
+    protected _urls: string[] = [];
+
     private _activeItem: any;
     private _params: Map<string, string>;
     private _route: ActivatedRoute;
@@ -59,6 +61,10 @@ export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnIn
         return null;
     }
     protected _onNavigationEnd(event: NavigationEnd): void {
+        if (event) {
+            this._parseUrl(event.url);
+        }
+
         let params = this.route.params['value'];
         if (params !== null) {
             Object.keys(params).forEach((key) => {
@@ -66,19 +72,10 @@ export class BaseRouteComponent extends BaseComponent implements OnDestroy, OnIn
                 this._params.set(key, value);
             });
         }
-
-        if (event !== null) {
-            document.title = [
-                this._stringService.get('fujitec-america', 'Fujitec America'),
-                ...event.url
-                    .split('/')
-                    .filter((s) => {
-                        return !this.isNullOrEmpty(s);
-                    }).map((s) => {
-                        let stringId = this.className + '.' + s;
-                        return this._stringService.get(stringId, stringId);
-                    })
-            ].join(' | ');
-        }
+    }
+    protected _parseUrl(url: string): void {
+        this._urls = url.split('/').filter((u) => {
+            return !this.isNullOrEmpty(u);
+        });
     }
 }

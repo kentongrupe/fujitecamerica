@@ -42,19 +42,42 @@ app-header {
             }
 
             .header-main-menu-div {
-                display: $header-main-menu-display;
+                display       : $header-main-menu-display;
+                flex-direction: column;
 
-                .links-div {
-                    margin: 0 auto;
+                .header-menu-row {
+                    height     : $header-height / 2;
+                    line-height: $header-height / 2;
+                    text-align : right;
+                    width      : 100%;
+
+                    &.header-menu-row-sub {
+                        .links {
+                            .link {
+                                font-size  : $header-side-menu-link-font-size;
+                                font-weight: $header-side-menu-link-font-weight;
+                                margin     : $header-side-menu-link-margin;
+
+                                .link-label {
+                                    color: $header-menu-hover-color;
+                                }
+                            }
+                        }
+                    }
+
+                    &.header-menu-row-main {
+                        .links {
+                            .link {
+                                font-size: $header-main-menu-link-font-size;
+                                margin   : $header-main-menu-link-margin;
+                            }
+                        }
+                    }
 
                     .links {
-                        height     : $header-height;
-                        line-height: $header-height;
-
                         .link {
-                            @include font-size-by-min-widths($header-main-menu-link-font-size, 2px, $app-max-widths);
-                            font-size: $header-main-menu-link-font-size;
-                            margin   : $header-main-menu-link-margin;
+                            height     : $header-height / 2;
+                            line-height: $header-height / 2;
 
                             .link-label {
                                 text-transform: uppercase;
@@ -70,27 +93,12 @@ app-header {
                                 }
                             }
 
-                            menu .menu .menu-item .menu-item-label {
-                                font-size: $header-main-menu-submenu-link-font-size;
+                            &:first-of-type {
+                                margin-left: 0;
                             }
-                        }
-                    }
-                }
-            }
 
-            .header-side-menu-div {
-                font-size: $header-side-menu-font-size;
-
-                .links {
-                    .link {
-                        font-size: $header-side-menu-link-font-size;
-                        margin   : $header-side-menu-link-margin;
-
-                        .link-label {
-                            text-transform: uppercase;
-
-                            &:hover {
-                                color: $header-menu-hover-color;
+                            &:last-of-type {
+                                margin-right: 0;
                             }
                         }
                     }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { APP_BASE_HREF } from '@angular/common';
 import {
     NgModule,
     ApplicationRef,
@@ -132,7 +133,8 @@ type StoreType = {
     ],
     providers: [ // expose our Services and Providers into Angular's dependency injection
         ENV_PROVIDERS,
-        APP_PROVIDERS
+        APP_PROVIDERS,
+        { provide: APP_BASE_HREF, useValue: '!' }
     ],
     schemas: [
         NO_ERRORS_SCHEMA

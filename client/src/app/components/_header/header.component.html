@@ -2,7 +2,14 @@
     <div class="header-content-div">
         <div class="header-logo-div col-left" (click)="_onLogoClick()"></div>
         <div class="header-main-menu-div col-center">
-            <div class="links-div">
+            <div class="header-menu-row header-menu-row-sub">
+                <ul class="links">
+                    <li class="link" *ngFor="let m of _sideMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">
+                        <div class="link-label">{{ m.label }}</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-menu-row header-menu-row-main">
                 <ul class="links">
                     <li class="link" *ngFor="let m of _mainMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m, $event)">
                         <div class="link-label">{{ m.label }}</div>
@@ -10,15 +17,9 @@
                 </ul>
             </div>
         </div>
-        <div class="header-side-menu-div col-right">
-            <ul class="links">
-                <li class="link" *ngFor="let m of _sideMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">
-                    <div class="link-label">{{ m.label }}</div>
-                </li>
-            </ul>
-        </div>
+        <div class="header-side-menu-div col-right"></div>
     </div>
-    <div class="header-mobile-menu-trigger-div" [class.menu-open]="_showMenu" (click)="_showMenu=!_showMenu">
+    <!-- <div class="header-mobile-menu-trigger-div" [class.menu-open]="_showMenu" (click)="_showMenu=!_showMenu">
         <div class="header-mobile-menu-lines-div">
             <span></span>
             <span></span>
@@ -26,10 +27,10 @@
         </div>
         <div class="header-mobile-menu-text" *ngIf="!_showMenu">{{ this | getString : 'menu' : 'MENU' }}</div>
         <div class="header-mobile-menu-text" *ngIf="_showMenu">{{ this | getString : 'close' : 'CLOSE' }}</div>
-    </div>
+    </div> -->
 </div>
 
-<div class="header-mobile-menu-div" [class.active]="_showMenu">
+<!-- <div class="header-mobile-menu-div" [class.active]="_showMenu">
     <ul class="links">
         <li *ngFor="let m of _mobileMenu; let i=index" [class.active]="isActive(m)" (click)="_onMenuClick(m)">{{ m.label }}</li>
     </ul>
@@ -42,4 +43,4 @@
         </div>
     </div>
     <div class="mobile-menu-close-div" (click)="_showMenu=false">{{ this | getString : 'close' : 'CLOSE'}}</div>
-</div>
+</div> -->

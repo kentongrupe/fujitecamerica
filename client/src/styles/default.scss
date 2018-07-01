@@ -210,15 +210,16 @@ $header-logo-background-url: url('../img/logo.png');
 $header-logo-padding: 0 40px 0 0;
 
 $header-main-menu-link-font-size: 20px;
-$header-main-menu-link-margin: 30px 20px;
+$header-main-menu-link-margin: -10px 17px auto;
 
 $header-main-menu-submenu-link-font-size: 16px;
 
 $header-side-menu-font-size: 14px;
 $header-side-menu-margin: 10px 0 20px;
 $header-side-menu-padding: 0 0 0 40px;
-$header-side-menu-link-font-size: 16px;
-$header-side-menu-link-margin: 30px 8px;
+$header-side-menu-link-font-size: 14px;
+$header-side-menu-link-font-weight: $font-weight-lite;
+$header-side-menu-link-margin: auto 10px;
 
 $header-search-background-color: $black;
 $header-search-height: 80px;
@@ -539,10 +540,8 @@ html {
     font-family: $font-family;
     font-size  : $font-size;
     font-weight: 400;
-    height     : 100%;
     margin     : 0;
     padding    : 0;
-    width      : 100%;
 
     p {
         font-size  : $font-size;

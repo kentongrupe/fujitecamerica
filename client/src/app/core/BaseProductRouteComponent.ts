@@ -1,6 +1,6 @@
 import {
-    Component,
     ElementRef,
+    OnDestroy,
     OnInit,
     ViewChild
 } from '@angular/core';
@@ -9,9 +9,6 @@ import {
     NavigationEnd,
     Router
 } from '@angular/router';
-import {
-    Observable
-} from 'rxjs/Observable';
 import {
     BaseRouteComponent
 } from './BaseRouteComponent';
@@ -28,7 +25,7 @@ import {
 
 declare const $;
 
-export class BaseProductRouteComponent extends BaseRouteComponent implements OnInit {
+export class BaseProductRouteComponent extends BaseRouteComponent implements OnDestroy, OnInit {
 
     protected _product: string = '';
     public get product(): string {
@@ -56,11 +53,18 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
     ) {
         super(className, route, router);
 
-        this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
-            $(this._container.nativeElement).scrollTop(0);
-        });
+        this._eventIds = [
+            this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
+                this.domService.scrollToTop(this._container);
+            })
+        ];
     }
 
+    public ngOnDestroy() {
+        this._unregisterEvents(this.eventService, [
+            AppEvent.SCROLL_TO_TOP
+        ]);
+    }
     public ngOnInit() {
         super.ngOnInit();
 
@@ -72,7 +76,7 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
                 this._scrollTop = scrollTop;
                 this._scrolled = (scrollTop > 0);
 
-                this.eventService.dispatch(AppEvent.SCROLL, scrollTop, dir);
+                // this.eventService.dispatch(AppEvent.SCROLL, scrollTop, dir);
 
                 let i = this._products.length - 1;
                 for (; i >= 0; i--) {
@@ -90,17 +94,16 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnI
         super._onNavigationEnd(event);
 
         this.product = this._getParam('product');
+
+        if (this._urls.length < 2) {
+            this.domService.scrollToTop(this._container);
+        }
     }
     protected _onProduct(): void {
         let p = this.isNullOrEmpty(this._product) ? 'top' : this._product;
         let r = this[p] as ElementRef;
         if (r !== undefined) {
-            this.domService.scrollIntoView(r.nativeElement);
-        }
-    }
-    protected _scrollToTop(): void {
-        if (this._container) {
-            this._container.nativeElement.scrollTo(0, 0);
+            this.domService.scrollIntoView(this._container, r);
         }
     }
 }

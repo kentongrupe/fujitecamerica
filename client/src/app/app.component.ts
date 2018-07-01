@@ -49,7 +49,6 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
     private _headerTop: number = 0;
     private _isHome: boolean = true;
     private _resources: MenuItem[] = [];
-    private _sectionHeaderTop: number = AppConstants.HEADER_HEIGHT;
     private _sectionHeaderVisible: boolean = false;
     private _showAllSectionHeader: boolean = false;
     private _showFooter: boolean = false;
@@ -68,9 +67,6 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
 
         this.eventService.register(AppEvent.INIT_COMPLETE, () => {
             this.routerService.to(AppRoute.HOME);
-        });
-        this.eventService.register(AppEvent.SCROLL, (t, d) => {
-            this._scroll(t, d);
         });
         this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
             this._scrollToTop();
@@ -127,8 +123,22 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
                 break;
         }
 
+        if (event !== null) {
+            document.title = [
+                this._stringService.get('fujitec-america', 'Fujitec America'),
+                ...event.url
+                    .split('/')
+                    .filter((s) => {
+                        return !this.isNullOrEmpty(s);
+                    }).map((s) => {
+                        let stringId = this.className + '.' + s;
+                        return this._stringService.get(stringId, stringId);
+                    })
+            ].join(' | ');
+        }
+
         if (this._urls.length < 2) {
-            this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+            // this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
         }
     }
     protected _scrollToTop(): void {
@@ -140,49 +150,10 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
         this._headerTop = 0;
         this._contentTop = AppConstants.HEADER_HEIGHT;
         this._contentPaddingTop = 0;
-        this._sectionHeaderTop = AppConstants.HEADER_HEIGHT;
     }
 
     private _exportStrings(): void {
         this.stringService.export();
-    }
-    private _scroll(value: number, delta: number): void {
-        if ((delta < 0) && (value < 530)) {
-            this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
-            return;
-        }
-
-        // section header
-        let st = this._sectionHeaderTop - delta;
-        if (delta < 0) {
-            if (value > 5) {
-                // st = Math.min(st, AppConstants.HEADER_HEIGHT);
-                // this._sectionHeaderTop = st;
-            }
-        } else {
-            st = Math.max(st, 0);
-            this._sectionHeaderTop = st;
-        }
-
-        // content
-        // let ct = this._contentTop - delta;
-        // if (delta < 0) {
-        //     ct = Math.min(ct, AppConstants.HEADER_HEIGHT);
-        // } else {
-        //     ct = Math.max(ct, 0);
-        // }
-        // this._contentTop = ct;
-
-        // content padding-top
-        // let pt = this._contentPaddingTop - delta;
-        // pt = Math.max(pt, AppConstants.HEADER_HEIGHT);
-        // if (delta < 0) {
-        // if (pt <= AppConstants.HEADER_HEIGHT) {
-        //     // this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
-        //     return;
-        // }
-        // }
-        // this._contentPaddingTop = Math.min(AppConstants.HEADER_HEIGHT, value);
     }
     private _showResource(resource: MenuItem): void {
         let route = resource.routerLink;

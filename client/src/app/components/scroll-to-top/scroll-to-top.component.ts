@@ -34,11 +34,11 @@ export class ScrollToTopComponent extends BaseComponent {
     }
 
     private _onClick(): void {
-        if (!this.isNullOrEmpty(this.topRoute)) {
-            if (this.routerService.to(this.topRoute) === false) {
-                this.scrollToTop.emit(this.topRoute);
-            }
-        }
+        // if (!this.isNullOrEmpty(this.topRoute)) {
+        //     if (this.routerService.to(this.topRoute) === false) {
+        //         this.scrollToTop.emit(this.topRoute);
+        //     }
+        // }
         this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
     }
 }

@@ -48,27 +48,27 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
                 routerLink: AppRoute.MAINTENANCE
             },
             {
-                label: this._getString('modernization', 'Modernization'),
+                label: this._getString('modernize', 'Modernize'),
                 routerLink: AppRoute.MODERNIZATION
             },
             {
-                label: this._getString('installation', 'Installation'),
+                label: this._getString('install', 'Install'),
                 routerLink: AppRoute.INSTALLATION
             },
             {
                 label: this._getString('portfolio', 'Portfolio'),
                 routerLink: AppRoute.PORTFOLIO
-            },
-            {
-                label: this._getString('after-market-support', 'After-Market Support'),
-                routerLink: AppRoute.SUPPORT
-            },
-            {
-                label: this._getString('recommendations', 'Recommendations'),
-                routerLink: AppRoute.RECOMMENDATIONS
             }
         ];
         this._sideMenu = [
+            {
+                label: this._getString('testimonials', 'Testimonials'),
+                routerLink: AppRoute.RECOMMENDATIONS
+            },
+            {
+                label: this._getString('support', 'Support'),
+                routerLink: AppRoute.SUPPORT
+            },
             {
                 label: this._getString('about', 'About'),
                 routerLink: AppRoute.ABOUT
@@ -84,7 +84,7 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
         ];
         this._mobileMenu = this._mainMenu.concat(this._sideMenu);
         this._mobileMenu.pop();
-        this.menu = this._mainMenu.concat(this._sideMenu);
+        this._menu = this._mainMenu.concat(this._sideMenu);
     }
     protected _navTo(url: string): void {
         this._showMenu = false;
@@ -99,10 +99,10 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             m.expanded = false;
         });
     }
-    private _search(): void {
-        if (!this.isNullOrEmpty(this._searchText)) {
-            console.log(this._searchText);
-            this._showSearch = false;
-        }
-    }
+    // private _search(): void {
+    //     if (!this.isNullOrEmpty(this._searchText)) {
+    //         console.log(this._searchText);
+    //         this._showSearch = false;
+    //     }
+    // }
 }

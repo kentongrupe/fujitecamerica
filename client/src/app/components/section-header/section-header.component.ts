@@ -1,7 +1,9 @@
 import {
     Component,
     DoCheck,
+    HostBinding,
     Input,
+    OnDestroy,
     OnInit
 } from '@angular/core';
 import {
@@ -24,11 +26,13 @@ import {
     StringService
 } from 'app/services';
 
+declare const $;
+
 @Component({
     selector: 'section-header',
     templateUrl: 'section-header.component.html'
 })
-export class SectionHeaderComponent extends BaseNavRouteComponent implements DoCheck, OnInit {
+export class SectionHeaderComponent extends BaseNavRouteComponent implements DoCheck, OnDestroy, OnInit {
 
     @Input()
     public showAll: boolean = false;
@@ -37,38 +41,43 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
     private _bgHeight: number = AppConstants.SECTION_HEIGHT;
     private _bgTop: number = 0;
     private _hasMenuLabel: boolean = false;
-    private _logoTop: number = -73;
+    private _logoTop: number = AppConstants.SECTION_LOGO_TOP;
     private _menuLabel: string = '';
-    private _menuTop: number = AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT;
+    private _menuTop: number = AppConstants.SECTION_MENU_TOP;
     private _sectionType: SectionType = SectionType.UNKNOWN;
+    @HostBinding('style.top.px')
+    private _top: number = AppConstants.HEADER_HEIGHT;
     private _topMenu: MenuItem[] = [];
 
     constructor(
         protected router: Router,
         protected routerService: RouterService,
-        protected stringService: StringService,
-        private eventService: EventService
+        private eventService: EventService,
+        private stringService: StringService
     ) {
         super('SectionHeaderComponent', router, routerService);
         this._stringService = stringService;
 
-        this.eventService.register(AppEvent.SCROLL, (t, d) => {
-            this._scroll(t, d);
-        });
-        this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
-            this._scrollToTop();
-        });
-        this.eventService.register(AppEvent.SECTION_SUB_INDEX, (idx) => {
-            this._selectSubMenuAt(idx);
-        });
+        this._eventIds = [
+            this.eventService.register(AppEvent.SECTION_SUB_INDEX, (idx) => {
+                this._selectSubMenuAt(idx);
+            })
+        ];
     }
 
     public ngDoCheck() {
+        let c = $('div.content-div');
+        let t = c.scrollTop();
+        this._scroll(t);
+
         this._hasMenuLabel = !this.isNullOrEmpty(this._menuLabel);
     }
+    public ngOnDestroy() {
+        this._unregisterEvents(this.eventService, [
+            AppEvent.SECTION_SUB_INDEX
+        ]);
+    }
     public ngOnInit() {
-        super.ngOnInit();
-
         this._topMenu = [
             {
                 label: this._getString('elevators', 'Elevators'),
@@ -102,16 +111,10 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
                 this._init();
 
                 if (url.length < 2) {
-                    this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+                    // this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
                 }
             }
         }
-    }
-    protected _scrollToTop(): void {
-        this._bgHeight = AppConstants.SECTION_HEIGHT;
-        this._bgTop = 0;
-        this._logoTop = -73;
-        this._menuTop = AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT;
     }
     private _init() {
         this._background = SectionType[this._sectionType].toClassName();
@@ -276,18 +279,25 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
     private _resetView(): void {
         this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
     }
-    private _scroll(value: number, delta: number): void {
+    private _scroll(value: number, delta?: number): void {
+        // top
+        let t = AppConstants.HEADER_HEIGHT - value;
+        this._top = Math.max(0, t);
+
         // logo
-        let lt = this._logoTop + delta;
-        if (delta < 0) {
-            // if (value < 130) {
-            //     lt = Math.max(lt, -75);
-            //     this._logoTop = lt;
-            // }
-        } else {
-            lt = Math.min(lt, 0);
-            this._logoTop = lt;
-        }
+        // let lt = this._logoTop + delta;
+        // if (delta < 0) {
+        //     // if (value < 130) {
+        //     //     lt = Math.max(lt, -75);
+        //     //     this._logoTop = lt;
+        //     // }
+        // } else {
+        //     lt = Math.min(lt, 0);
+        //     this._logoTop = lt;
+        // }
+        // this._logoTop = -value;
+        let lt = AppConstants.SECTION_LOGO_TOP + value;
+        this._logoTop = Math.min(0, lt);
 
         // bg
         // let bh = this._bgHeight - delta;
@@ -300,30 +310,42 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
         //         // this._bgHeight = bh;
         //     }
         // }
-        let bt = this._bgTop - delta;
-        if (delta < 0) {
-            // bt = Math.min(bt, 0);
-            // this._bgTop = bt;
+        // let bt = this._bgTop - delta;
+        // if (delta < 0) {
+        //     // bt = Math.min(bt, 0);
+        //     // this._bgTop = bt;
+        // } else {
+        //     if (value > AppConstants.HEADER_HEIGHT) {
+        //         bt = Math.max(bt, -AppConstants.SECTION_BACKGROUND_HEIGHT);
+        //         this._bgTop = bt;
+        //     }
+        // }
+        if (value > AppConstants.HEADER_HEIGHT) {
+            let bt = AppConstants.HEADER_HEIGHT - value;
+            this._bgTop = Math.max(bt, -AppConstants.SECTION_BACKGROUND_HEIGHT);
         } else {
-            if (value > AppConstants.HEADER_HEIGHT) {
-                bt = Math.max(bt, -AppConstants.SECTION_BACKGROUND_HEIGHT);
-                this._bgTop = bt;
-            }
+            this._bgTop = 0;
         }
 
         // menu
-        let mt = this._menuTop - delta;
-        if (delta < 0) {
-            // mt = Math.min(mt, (AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT));
-            // this._menuTop = mt;
+        // let mt = this._menuTop - delta;
+        // if (delta < 0) {
+        //     // mt = Math.min(mt, (AppConstants.SECTION_HEIGHT - AppConstants.SECTION_MENU_HEIGHT));
+        //     // this._menuTop = mt;
+        // } else {
+        //     if (value > AppConstants.HEADER_HEIGHT) {
+        //         mt = Math.max(mt, AppConstants.MENU_HEIGHT);
+        //         this._menuTop = mt;
+        //     }
+        // }
+        if (value > AppConstants.HEADER_HEIGHT) {
+            let mt = (AppConstants.HEADER_HEIGHT + AppConstants.SECTION_MENU_TOP) - value;
+            this._menuTop = Math.max(mt, AppConstants.MENU_HEIGHT);
         } else {
-            if (value > AppConstants.HEADER_HEIGHT) {
-                mt = Math.max(mt, AppConstants.MENU_HEIGHT);
-                this._menuTop = mt;
-            }
+            this._menuTop = AppConstants.SECTION_MENU_TOP;
         }
     }
     private _selectSubMenuAt(index: number): void {
-        console.log(index);
+        //
     }
 }

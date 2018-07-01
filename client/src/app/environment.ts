@@ -53,8 +53,9 @@ $.getJSON(
     }
 )
 
+enableProdMode();
+
 if ('production' === ENV) {
-    enableProdMode();
 
     // Production
     _decorateModuleRef = (modRef: any) => {
