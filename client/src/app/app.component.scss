@@ -10,7 +10,7 @@ app {
         }
 
         section-header {
-            @include abs-position($header-height, 17px, initial, 0);
+            @include abs-position($header-height, 0, initial, 0);
         }
 
         $app-pro-menu-height     : -$vgap_; //86px;

@@ -94,6 +94,8 @@ section-header {
         transform   : translateX(-50%);
 
         .menu-items {
+            height: $section-header-top-menu-height;
+
             .menu-item {
                 @extend .text-overflow-ellipsis;
                 height     : $section-header-top-menu-height;
@@ -107,6 +109,9 @@ section-header {
                     height     : $section-header-top-menu-height;
                     line-height: $section-header-top-menu-height;
                 }
+
+                $max-widths: 1200px, 1132px, 1066px, 1000px;
+                @include font-size-by-min-widths($header-main-menu-link-font-size, 2px, $max-widths);
             }
         }
     }
@@ -133,10 +138,15 @@ section-header {
             width         : auto;
         }
 
+        &.col-right {
+            @include abs-position-tr(490px, 0);
+            bottom        : 0;
+            pointer-events: none;
+        }
+
         &.menu-content-div {
-            @include abs-position-tlr(490px, $col-side-width, $col-side-width);
-            padding-left : $hgap;
-            padding-right: $hgap;
+            @include abs-position-tl(490px, $col-side-width);
+            background: none;
 
             .menu-title {
                 font-size     : $section-header-menu-font-size;
@@ -151,7 +161,9 @@ section-header {
                 margin     : 0 0 0 $hgap_;
 
                 .menu-items {
-                    height: $section-header-menu-line-height;
+                    display  : flex;
+                    flex-wrap: wrap;
+                    height   : $section-header-menu-line-height;
 
                     .menu-item {
                         background         : $section-header-top-menu-item-background;
@@ -166,12 +178,61 @@ section-header {
                     }
                 }
             }
-        }
+            @mixin _section-header($mw1, $mw2:null, $mw3:null) {
+                 @media only screen and (max-width: $mw1){
+                    * {
+                        $h: $section-header-menu-line-height / 2;
 
-        &.col-right {
-            @include abs-position-tr(490px, 0);
-            bottom        : 0;
-            pointer-events: none;
+                        &:not(.menu-title) {
+                            height     : $h;
+                            line-height: $h;
+                        }
+                    }
+
+                    .menu-items-div {
+                        padding-left : $hgap_;
+                        padding-right: $hgap_;
+
+                        .menu-items {
+                            .menu-item {
+                                background-position-y: 10px;
+                            }
+                        }
+                    }
+                }
+                @if ($mw2 != null) {
+                     @media only screen and (max-width: $mw2){
+                        * {
+                            $h: $section-header-menu-line-height / 3;
+
+                            &:not(.menu-title) {
+                                height     : $h;
+                                line-height: $h;
+                            }
+                        }
+
+                        .menu-items-div {
+                            padding-left : $hgap_;
+                            padding-right: $hgap_;
+
+                            .menu-items {
+                                .menu-item {
+                                    background-position-y: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+                @if ($mw3 != null) {
+                     @media only screen and (max-width: $mw3){
+                        right: 0;
+                    }
+                }
+            }
+
+            &.elevators {
+                @include _section-header(1538px, 1216px, 1111px);
+            }
         }
     }
 

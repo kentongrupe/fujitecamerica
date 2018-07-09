@@ -1,6 +1,7 @@
 import {
     Component,
     DoCheck,
+    ElementRef,
     HostBinding,
     Input,
     OnDestroy,
@@ -52,6 +53,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
     constructor(
         protected router: Router,
         protected routerService: RouterService,
+        private el: ElementRef,
         private eventService: EventService,
         private stringService: StringService
     ) {
@@ -59,6 +61,9 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
         this._stringService = stringService;
 
         this._eventIds = [
+            this.eventService.register(AppEvent.RESIZE, () => {
+                this._resize();
+            }),
             this.eventService.register(AppEvent.SECTION_SUB_INDEX, (idx) => {
                 this._selectSubMenuAt(idx);
             })
@@ -74,6 +79,7 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
     }
     public ngOnDestroy() {
         this._unregisterEvents(this.eventService, [
+            AppEvent.RESIZE,
             AppEvent.SECTION_SUB_INDEX
         ]);
     }
@@ -278,6 +284,13 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
     }
     private _resetView(): void {
         this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+    }
+    private _resize(): void {
+        let W = $(this.el.nativeElement).find('.menu-content-div').width();
+        let w = $(this.el.nativeElement).find('.menu-content-div .menu-items-div').width();
+        let h = $(this.el.nativeElement).find('.menu-content-div .menu-items-div').height();
+
+        // console.log(W, w, h);
     }
     private _scroll(value: number, delta?: number): void {
         // top

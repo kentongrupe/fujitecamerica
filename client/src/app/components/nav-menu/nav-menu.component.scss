@@ -8,377 +8,74 @@ sys-menu {
     }
 
     .nav-menu-items {
-        @extend .list-style-none;
-        display: $nav-menu-display;
-        margin : 0 auto;
-        padding: 0;
+        display  : flex;
+        flex-wrap: wrap;
 
-        &.mode-default {
-            .desktop-menu {
-                display: inline-block;
-            }
+        .nav-menu-item-div {
+            height: $nav-menu-sys-height;
+            margin: 0 $hgap_ / 2 $vgap_;
+            width : $nav-menu-sys-width;
 
-            .mobile-menu {
-                display: none;
-            }
-        }
-
-        &.mode-mobile {
-            .desktop-menu {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: inline-block;
-            }
-        }
-
-        .nav-menu-item {
-            border  : $nav-menu-border;
-            display : inline-flex;
-            float   : left;
-            margin  : $nav-menu-item-margin;
-            position: relative;
-
-            &:last-of-type {
-                margin-right: 0;
-            }
-
-            .nav-menu-item-icon {
-                // sys
-                &.autowalks {
-                    @include _menuitem($nav-menu-autowalks-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
-                }
-
-                &.elevators {
-                    @include _menuitem($nav-menu-elevators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
-                }
-
-                &.escalators {
-                    @include _menuitem($nav-menu-escalators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
-                }
-
-                &.ezdispatch {
-                    @include _menuitem($nav-menu-ezdispatch-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
-                }
-
-                // pro
-                &.architects {
-                    @include _menuitem($nav-menu-architects-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
-                }
-
-                &.consultants {
-                    @include _menuitem($nav-menu-consultants-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
-                }
-
-                &.property-managers {
-                    @include _menuitem($nav-menu-property-managers-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
-                }
-            }
-
-            .nav-menu-item-label {
-                background  : $menu-item-background;
-                bottom      : 0;
-                display     : inline-flex;
-                height      : $nav-menu-item-label-height;
-                left        : 0;
-                line-height : $nav-menu-item-label-height;
-                padding-left: 5px;
-                position    : absolute;
-                width       : $nav-menu-item-label-width;
-
-                & > label {
-                    display   : inline-block;
-                    font-size : $nav-menu-item-label-font-size;
-                    text-align: center;
-                    width     : 100%;
-                }
-
-                menu {
-                    left   : -1px;
-                    top    : $nav-menu-item-label-height;
-                    z-index: 1000;
-
-                    .menu-item {
-                        .menu-item-label {
-                            font-size: $nav-menu-item-label-font-size;
-                        }
-
-                        .submenu-div {
-                            menu {
-                                position: absolute;
-                                top     : -1px;
-
-                                .menu-div {
-                                    .menu-item {
-                                        .menu-item-label {
-                                            font-size: $nav-menu-item-label-font-size;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &.mode-side {
             .nav-menu-item {
-                @extend .nav-menu-item;
+                border  : $nav-menu-border;
+                display : inline-flex;
+                float   : left;
+                margin  : $nav-menu-item-margin;
+                position: relative;
 
-                &:first-child {
-                    .nav-menu-item-label {
-                        menu {
-                            .menu-item {
-                                &:nth-child(1) {
-                                    height: 87px;
-                                }
-
-                                &:nth-child(2) {
-                                    height: 70px;
-                                }
-                            }
-                        }
-                    }
+                &:last-of-type {
+                    margin-right: 0;
                 }
 
                 .nav-menu-item-icon {
                     // sys
                     &.autowalks {
-                        @include _menuitem($nav-side-menu-autowalks-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                        @include _menuitem($nav-menu-autowalks-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                     }
 
                     &.elevators {
-                        @include _menuitem($nav-side-menu-elevators-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                        @include _menuitem($nav-menu-elevators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                     }
 
                     &.escalators {
-                        @include _menuitem($nav-side-menu-escalators-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
+                        @include _menuitem($nav-menu-escalators-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                     }
 
                     &.ezdispatch {
-                        @include _menuitem($nav-side-menu-ezdispatch-background, $nav-side-menu-sys-bakground-width, $nav-side-menu-sys-bakground-height, $nav-side-menu-sys-width, $nav-side-menu-sys-height);
-                    }
-                }
-
-                .nav-menu-item-label {
-                    background : $side-menu-item-background;
-                    height     : $nav-side-menu-item-label-height;
-                    line-height: $nav-side-menu-item-label-height;
-
-                    & > label {
-                        font-size: $nav-side-menu-item-label-font-size;
+                        @include _menuitem($nav-menu-ezdispatch-background, $nav-menu-sys-bakground-width, $nav-menu-sys-bakground-height, $nav-menu-sys-width, $nav-menu-sys-height);
                     }
 
-                    menu {
-                        top: $nav-side-menu-item-label-height;
-
-                        .menu-item {
-                            background: none;
-                            height    : $nav-side-menu-item-label-height;
-                            position  : relative;
-
-                            .menu-item-label {
-                                background : $side-menu-item-background;
-                                font-size  : $nav-side-menu-item-label-font-size;
-                                height     : $nav-side-menu-item-label-height;
-                                line-height: $nav-side-menu-item-label-height;
-                            }
-
-                            .submenu-div {
-                                @include abs-position($nav-side-menu-item-label-height, 0, 0, 0);
-                                display     : inline-block;
-                                border-top  : $menu-border;
-                                overflow    : hidden;
-                                padding-left: 20px;
-
-                                menu.submenu {
-                                    position: relative;
-                                    width   : calc(100% + 2px);
-
-                                    .menu-div {
-                                        .menu {
-                                            display: inline-block;
-
-                                            .menu-item {
-                                                height: $nav-side-menu-item-label-height;
-
-                                                .menu-item-label {
-                                                    background: $side-menu-item-background;
-                                                    font-size : $nav-side-menu-item-label-font-size;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &.direction-side {
-            display: $nav-menu-side-display;
-
-            .nav-menu-item {
-                height: $nav-menu-side-item-icon-height;
-                margin: 0;
-                width : $nav-menu-side-item-icon-width;
-
-                .nav-menu-item-icon {
-                    height    : $nav-menu-side-item-icon-height;
-                    width     : $nav-menu-side-item-icon-width;
-
-                    $_size_pos: $nav-menu-side-item-icon-position-x 0/#{$nav-menu-side-item-icon-background-width} #{$nav-menu-side-item-icon-background-height};
-
+                    // pro
                     &.architects {
-                        background: $nav-menu-architects-background $_size_pos;
-                    }
-
-                    &.autowalks {
-                        background: $nav-menu-autowalks-background $_size_pos;
+                        @include _menuitem($nav-menu-architects-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
                     }
 
                     &.consultants {
-                        background: $nav-menu-consultants-background $_size_pos;
-                    }
-
-                    &.elevators {
-                        background: $nav-menu-elevators-background $_size_pos;
-                    }
-
-                    &.escalators {
-                        background: $nav-menu-escalators-background $_size_pos;
-                    }
-
-                    &.ezdispatch {
-                        background: $nav-menu-ezdispatch-background $_size_pos;
+                        @include _menuitem($nav-menu-consultants-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
                     }
 
                     &.property-managers {
-                        background: $nav-menu-property-managers-background $_size_pos;
+                        @include _menuitem($nav-menu-property-managers-background, $nav-menu-pro-bakground-width, $nav-menu-pro-bakground-height, $nav-menu-pro-width, $nav-menu-pro-height);
                     }
                 }
 
                 .nav-menu-item-label {
-                    background: none;
-                    height    : 0;
-                    padding   : 0;
-                    position  : absolute;
-                    top       : 0;
+                    background  : $menu-item-background;
+                    bottom      : 0;
+                    display     : inline-flex;
+                    height      : $nav-menu-item-label-height;
+                    left        : 0;
+                    line-height : $nav-menu-item-label-height;
+                    padding-left: 5px;
+                    position    : absolute;
+                    width       : $nav-menu-item-label-width;
 
                     & > label {
-                        display: none;
+                        display   : inline-block;
+                        font-size : $nav-menu-item-label-font-size;
+                        text-align: center;
+                        width     : 100%;
                     }
-
-                    menu {
-                        left       : 0;
-                        margin-left: $nav-menu-side-item-icon-width;
-                        margin-top : 0;
-
-                        .menu-item {
-                            .submenu-div {
-                                menu {
-                                    left       : auto;
-                                    margin-left: 0;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &.mode-mobile {
-            .nav-menu-item {
-                border: none;
-                height: $nav-menu-mobile-item-icon-height;
-                margin: $nav-menu-mobile-item-margin;
-                width : $nav-menu-mobile-item-icon-width;
-
-                .mobile-menu {
-                    .nav-menu-item-icon {
-                        border-radius: $nav-menu-mobile-item-icon-border-radius;
-                        height       : $nav-menu-mobile-item-icon-height;
-                        width        : $nav-menu-mobile-item-icon-width;
-
-                        label {
-                            color      : $nav-menu-mobile-item-label-color;
-                            display    : inline-block;
-                            font-size  : $nav-menu-mobile-item-label-font-size;
-                            line-height: normal;
-                            position   : absolute;
-                            text-align : center;
-                            top        : 50%;
-                            transform  : translateY(-50%);
-                            width      : 100%;
-                        }
-
-                        &.architects {
-                            background: $nav-menu-mobile-architects-background;
-                        }
-
-                        &.autowalks {
-                            background: $nav-menu-mobile-autowalks-background;
-                        }
-
-                        &.consultants {
-                            background: $nav-menu-mobile-consultants-background;
-                        }
-
-                        &.elevators {
-                            background: $nav-menu-mobile-elevators-background;
-                        }
-
-                        &.escalators {
-                            background: $nav-menu-mobile-escalators-background;
-                        }
-
-                        &.ezdispatch {
-                            background: $nav-menu-mobile-ezdispatch-background;
-                        }
-
-                        &.property-managers {
-                            background: $nav-menu-mobile-property-managers-background;
-                        }
-                    }
-                }
-
-                $_map : ( 700: ($nav-menu-mobile-item-icon-height-700, $nav-menu-mobile-item-icon-width-700, $nav-menu-mobile-item-label-font-size-700), 600: ($nav-menu-mobile-item-icon-height-600, $nav-menu-mobile-item-icon-width-600, $nav-menu-mobile-item-label-font-size-600), 500: ($nav-menu-mobile-item-icon-height-500, $nav-menu-mobile-item-icon-width-500, $nav-menu-mobile-item-label-font-size-500), 400: ($nav-menu-mobile-item-icon-height-400, $nav-menu-mobile-item-icon-width-400, $nav-menu-mobile-item-label-font-size-400) );
-                @mixin _menuicon($n) {
-                    $d    : map-get($_map, $n);
-                    $h    : nth($d, 1);
-                    $w    : nth($d, 2);
-                    $f    : nth($d, 3);
-
-                    height: $h;
-                    width : $w;
-
-                    .mobile-menu {
-                        .nav-menu-item-icon {
-                            background-size: floor( $h * $nav-menu-mobile-background-ratio ) auto !important;
-                            height         : $h;
-                            width          : $w;
-
-                            label {
-                                font-size: $f;
-                            }
-                        }
-                    }
-                }
-                @media only screen and (max-width: 700px) {
-                     @include _menuicon(700);
-                }
-                @media only screen and (max-width: 600px) {
-                     @include _menuicon(600);
-                }
-                @media only screen and (max-width: 500px) {
-                     @include _menuicon(500);
-                }
-                @media only screen and (max-width: 400px) {
-                     @include _menuicon(400);
                 }
             }
         }

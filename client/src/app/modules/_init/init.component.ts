@@ -37,7 +37,7 @@ export class InitComponent extends BaseComponent implements OnInit {
     public ngOnInit() {
         super.ngOnInit();
 
-        let url = '/assets/locales/{0}/_strings.json'.format(StringService.locale);
+        let url = 'assets/locales/{0}/_strings.json'.format(StringService.locale);
         let options = new RequestOptions({
             headers: new Headers({
                 'Content-Type': 'application/json'

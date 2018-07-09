@@ -1,23 +1,23 @@
 import {
     Component,
     ElementRef,
-    HostListener,
+    OnDestroy,
     OnInit,
     ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
-    NavigationEnd,
     Router
 } from '@angular/router';
 import {
     BaseRouteComponent
 } from 'app/core';
 import {
-    Location
+    Location, AppEvent
 } from 'app/models';
 import {
     DataService,
+    EventService,
     StringService
 } from 'app/services';
 
@@ -27,7 +27,7 @@ declare const $;
     selector: 'locations',
     templateUrl: 'locations.component.html'
 })
-export class LocationsComponent extends BaseRouteComponent implements OnInit {
+export class LocationsComponent extends BaseRouteComponent implements OnDestroy, OnInit {
 
     private _height: string = '0px';
     private _initComplete: boolean = false;
@@ -42,22 +42,34 @@ export class LocationsComponent extends BaseRouteComponent implements OnInit {
         protected route: ActivatedRoute,
         protected router: Router,
         private dataService: DataService,
+        private eventService: EventService,
         private stringService: StringService
     ) {
         super('LocationsComponent', route, router);
         this._stringService = stringService;
     }
 
+    public ngOnDestroy() {
+        this._unregisterEvents(this.eventService, [
+            AppEvent.RESIZE
+        ]);
+    }
     public ngOnInit() {
         this.dataService.getLocations((d) => {
             if (this.hasValue(d.locations) && this.hasValue(d.locations[StringService.locale])) {
                 this._locations = d.locations[StringService.locale].map((l) => {
                     return new Location(l);
                 });
-
-                this._onResize(null);
             }
         });
+
+        this._eventIds = [
+            this.eventService.register(AppEvent.RESIZE, () => {
+                this._resize();
+            })
+        ];
+
+        this._resize();
     }
 
     private _onClick(event: MouseEvent): void {
@@ -72,8 +84,7 @@ export class LocationsComponent extends BaseRouteComponent implements OnInit {
     private _onClose(): void {
         this._location = null;
     }
-    @HostListener('window:resize', ['$event'])
-    private _onResize(event): void {
+    private _resize(): void {
         let W = 860;
         let H = 750;
         let R = W / H;

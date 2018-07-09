@@ -92,11 +92,21 @@ service-maintenance {
 
                         &:nth-child(2) {
                             @include abs-position-blr($vgap_);
-                            height    : 80px;
                             text-align: center;
 
                             & > * {
                                 line-height: 80px;
+                            }
+                        }
+                    }
+                    @media only screen and (max-width: 1024px) {
+                        height: 550px;
+
+                        & > div {
+                            &:nth-child(2) {
+                                & > * {
+                                    line-height: 40px;
+                                }
                             }
                         }
                     }

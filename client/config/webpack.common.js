@@ -280,6 +280,7 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
+        { from: 'node_modules/clarity-ui/clarity-ui.min.css', to: "assets/css/clarity" },
         { from: 'src/assets', to: 'assets' },
         { from: 'src/data', to: 'data' },
         { from: 'src/meta' }

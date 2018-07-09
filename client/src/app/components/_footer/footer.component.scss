@@ -1,76 +1,58 @@
 app-footer {
-    background-color: $footer-background-color;
-    color           : $footer-color;
-    display         : inline-block;
-    font-size       : $footer-font-size;
-    height          : $app-footer-height;
-    width           : 100%;
+    color    : $footer-color;
+    display  : inline-block;
+    font-size: $footer-font-size;
+    height   : $app-footer-height;
+    width    : 100%;
 
     .footer-div {
         background-color: $footer-background-color;
+        display         : flex;
         height          : $footer-height;
         line-height     : $footer-height;
-        margin          : 0 auto;
-        max-width       : $footer-max-width;
 
-        .links-div {
-            display: $footer-links-display;
-            float  : left;
+        .col-center {
+            background-color: $footer-background-color;
+            padding         : 0;
 
-            ul {
-                li {
-                    float: left;
+            .links-div {
+                display: $footer-links-display;
+                float  : left;
 
-                    span {
-                        transition: color .2s;
+                ul {
+                    li {
+                        float: left;
 
-                        &:hover {
-                            color: $footer-menu-hover-color;
+                        span {
+                            transition: color .2s;
+
+                            &:hover {
+                                color: $footer-menu-hover-color;
+                            }
                         }
-                    }
 
-                    .link {
-                        color    : $footer-color;
-                        font-size: $footer-font-size;
-                    }
+                        .link {
+                            color    : $footer-color;
+                            font-size: $footer-font-size;
+                        }
 
-                    &:after {
-                        content: '|';
-                        padding: 0 10px;
-                    }
-
-                    &:last-of-type {
                         &:after {
-                            display: none;
+                            content: '|';
+                            padding: 0 10px;
+                        }
+
+                        &:last-of-type {
+                            &:after {
+                                display: none;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        .copyright-div {
-            float     : $footer-copyright-float;
-            text-align: center;
-        }
-    }
-
-    .footer-mobile-menu-div {
-        display: $footer-mobile-links-display;
-        width  : 100%;
-
-        ul {
-            width: 100%;
-
-            li {
-                background-color: $footer-mobile-menu-item-background-color;
-                border-top      : $footer-mobile-menu-item-border-top;
-                height          : $footer-mobile-menu-item-height;
-                line-height     : $footer-mobile-menu-item-height;
-                padding-left    : 10px;
-
-                &.active {
-                    color: $footer-mobile-menu-item-active-color;
-                }
+            .copyright-div {
+                float     : $footer-copyright-float;
+                text-align: center;
             }
         }
     }

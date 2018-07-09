@@ -1,5 +1,6 @@
 import {
     Component,
+    HostListener,
     OnInit,
     ViewChild
 } from '@angular/core';
@@ -154,6 +155,10 @@ export class AppComponent extends BaseNavRouteComponent implements OnInit {
 
     private _exportStrings(): void {
         this.stringService.export();
+    }
+    @HostListener('window:resize', ['$event'])
+    private _onResize(event: Event): void {
+        this.eventService.dispatch(AppEvent.RESIZE, event);
     }
     private _showResource(resource: MenuItem): void {
         let route = resource.routerLink;

@@ -7,8 +7,10 @@ contact {
             @include abs-position($section-header-top-menu-height, 0, 0, 0);
 
             .col-center {
-                position: relative;
-                width   : 100%;
+                padding-left : $hgap;
+                padding-right: $hgap;
+                position     : relative;
+                width        : 100%;
 
                 .section {
                     margin: 0;

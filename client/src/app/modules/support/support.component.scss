@@ -1,12 +1,11 @@
 support {
     .content-div {
         .col-center {
+            padding-left : $hgap;
+            padding-right: $hgap;
+
             .section {
                 margin-top: 0;
-
-                .help-text {
-                    margin: 0 $hgap $vgap;
-                }
             }
         }
 

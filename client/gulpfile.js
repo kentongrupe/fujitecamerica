@@ -15,6 +15,7 @@ var concat = require('gulp-concat');
 var del = require('del');
 var exec = require('child_process').exec;
 var rename = require('gulp-rename');
+var replace = require('gulp-replace');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
@@ -46,7 +47,6 @@ gulp.task('slick', function () {
 /*===========================================================================*/
 function _scss(style, mq) {
     gulp.src([
-        './node_modules/clarity-ui/clarity-ui.min.css',
         './src/styles/_core.scss',
         './src/styles/{0}.scss'.format(style),
         './src/styles/{0}_{1}.scss'.format(style, mq),
@@ -94,6 +94,47 @@ gulp.task('build', function () {
 
         console.log('DONE');
     });
+});
+
+gulp.task('post-proc', function () {
+    var d = (new Date()).getTime();
+    var _ = function (a) {
+        return replace(a, `${a}?v=${d}`);
+    }
+    var __ = function (a) {
+        return replace(a, function (b) {
+            return `${b}?v=${d}`;
+        });
+    }
+
+    gulp.src([
+        './dist/index.html',
+        './dist/index.php'
+    ], {
+            base: './src'
+        })
+        .pipe(_('default_pc.min.css'))
+        .pipe(gulp.dest('./dist'));
+
+    gulp.src([
+        './dist/assets/css/*.css',
+        './dist/assets/**/*.json',
+        './dist/data/**/*.json'
+    ], {
+            base: './src'
+        })
+        .pipe(_('.jpg'))
+        .pipe(_('.png'))
+        .pipe(gulp.dest('./dist'));
+
+    gulp.src([
+        './dist/*.js'
+    ], {
+            base: './src'
+        })
+        .pipe(_('{0}.html'))
+        .pipe(__(/"((assets)|(data))(\/(\{0\}|[a-z_]+))+\.json/g))
+        .pipe(gulp.dest('./dist'));
 });
 
 /*===========================================================================*/

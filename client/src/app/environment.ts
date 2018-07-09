@@ -41,7 +41,7 @@ if ((s !== undefined) && (s !== null) && (s.replace(' ', '').length > 0) && (s.s
 }
 
 $.getJSON(
-    '/assets/locales/{0}/_strings.json'.format(StringService.locale),
+    'assets/locales/{0}/_strings.json'.format(StringService.locale),
     (data) => {
         let m = new Map<string, string>();
         for (let n in data) {
