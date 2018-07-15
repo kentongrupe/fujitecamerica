@@ -54,13 +54,15 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnD
         super(className, route, router);
 
         this._eventIds = [
-            this.eventService.register(AppEvent.SCROLL_TO_TOP, () => {
-                this.domService.scrollToTop(this._container);
+            this.eventService.register(AppEvent.SCROLL_TO_TOP, (location) => {
+                this.domService.scrollToTop(this._container, location);
             })
         ];
     }
 
     public ngOnDestroy() {
+        super.ngOnDestroy();
+
         this._unregisterEvents(this.eventService, [
             AppEvent.SCROLL_TO_TOP
         ]);
@@ -71,12 +73,9 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnD
         if (this._container) {
             $(this._container.nativeElement).on('scroll', (e) => {
                 let scrollTop = e.target.scrollTop;
-                let dir = scrollTop - this._scrollTop;
 
                 this._scrollTop = scrollTop;
                 this._scrolled = (scrollTop > 0);
-
-                // this.eventService.dispatch(AppEvent.SCROLL, scrollTop, dir);
 
                 let i = this._products.length - 1;
                 for (; i >= 0; i--) {
@@ -94,12 +93,9 @@ export class BaseProductRouteComponent extends BaseRouteComponent implements OnD
         super._onNavigationEnd(event);
 
         this.product = this._getParam('product');
-
-        if (this._urls.length < 2) {
-            this.domService.scrollToTop(this._container);
-        }
     }
-    protected _onProduct(): void {
+
+    private _onProduct(): void {
         let p = this.isNullOrEmpty(this._product) ? 'top' : this._product;
         let r = this[p] as ElementRef;
         if (r !== undefined) {

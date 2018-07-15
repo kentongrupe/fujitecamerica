@@ -1,5 +1,7 @@
 import {
-    Component
+    Component,
+    ElementRef,
+    ViewChild
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -19,6 +21,9 @@ import {
     templateUrl: '/assets/locales/{0}/installation-{0}.html'.format(StringService.locale)
 })
 export class InstallationComponent extends BaseProductRouteComponent {
+
+    @ViewChild('expectations') public expectations: ElementRef;
+    @ViewChild('operations') public operations: ElementRef;
 
     constructor(
         protected domService: DOMService,

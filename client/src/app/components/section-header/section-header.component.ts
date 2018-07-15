@@ -24,7 +24,7 @@ import {
 import {
     EventService,
     RouterService,
-    StringService
+    StringService,
 } from 'app/services';
 
 declare const $;
@@ -78,6 +78,8 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
         this._hasMenuLabel = !this.isNullOrEmpty(this._menuLabel);
     }
     public ngOnDestroy() {
+        super.ngOnDestroy();
+
         this._unregisterEvents(this.eventService, [
             AppEvent.RESIZE,
             AppEvent.SECTION_SUB_INDEX
@@ -115,10 +117,6 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
 
             if (this.hasValue(this._sectionType)) {
                 this._init();
-
-                if (url.length < 2) {
-                    // this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
-                }
             }
         }
     }
@@ -230,6 +228,16 @@ export class SectionHeaderComponent extends BaseNavRouteComponent implements DoC
                 break;
             case SectionType.INSTALLATION:
                 this._menuLabel = this._getString('installation', 'Installation');
+                this._menu = [
+                    {
+                        label: this._getString('expectations', 'Expectations'),
+                        routerLink: AppRoute.INSTALLATION_EXPECTATIONS
+                    },
+                    {
+                        label: this._getString('operations', 'Operations'),
+                        routerLink: AppRoute.INSTALLATION_OPERATIONS
+                    }
+                ];
                 break;
             case SectionType.MAINTENANCE:
                 this._menuLabel = this._getString('service-maintenance', 'Maintenance');

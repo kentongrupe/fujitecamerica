@@ -13,6 +13,7 @@ installation {
             & > div {
                 & > div {
                     display   : flex;
+                    flex-wrap : wrap;
                     min-height: 520px;
 
                     .teal-box {
@@ -46,35 +47,35 @@ installation {
 
             & > div {
                 & > div {
-                    display   : flex;
                     min-height: 520px;
-                    padding   : $vgap * 2 $hgap;
+                    padding   : $vgap * 2 0 $vgap * 2 $hgap;
 
                     .grey-box {
-                        flex    : 1;
-                        position: relative;
+                        display       : inline-block;
+                        margin-bottom : $vgap;
+                        margin-right  : $hgap;
+                        position      : relative;
+                        vertical-align: top;
+                        width         : 20%;
+                        @media only screen and (max-width: 1024px) {
+                            width: 40%;
+                        }
 
-                        &:not(:last-of-type) {
-                            margin-right: $hgap;
+                        & > * {
+                            display: inline-block;
                         }
 
                         .chekmark {
-                            @include abs-position($vgap, $hgap, 55%, $hgap);
                             background         : $installation-checkmark-backround;
                             background-position: center;
                             background-repeat  : no-repeat;
-                            background-size    : cover;
-                            display            : inline-block;
+                            background-size    : contain;
+                            height             : 100px;
+                            width              : 100%;
                         }
 
                         .hr-140 {
-                            margin  : 0 auto;
-                            position: relative;
-                            top     : 50%;
-                        }
-
-                        p {
-                            @include abs-position(60%, $hgap, $vgap, $hgap);
+                            margin: 0 auto;
                         }
                     }
                 }
@@ -85,12 +86,10 @@ installation {
             text-align: center;
 
             .operations-row {
-                display: flex;
-                margin : 0 100px $vgap_;
+                margin-bottom: $hgap;
 
                 .grey-box {
-                    flex  : 1;
-                    height: 150px;
+                    padding: $vgap_ $hgap_;
 
                     p {
                         font-size : $installation-operations-font-size;
@@ -102,8 +101,9 @@ installation {
                     background         : $installation-arrow-background;
                     background-position: center;
                     background-size    : 55%;
+                    height             : 100px;
                     transform          : rotate(90deg);
-                    width              : 190px;
+                    width              : 100px;
                 }
             }
         }

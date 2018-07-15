@@ -8,10 +8,12 @@ dispatch {
         }
 
         .flexnx-image {
-            background-size: $dispatch-image-width $dispatch-image-height;
-            height         : $dispatch-image-height;
-            margin         : 0 auto;
-            width          : $dispatch-image-width;
+            background-position: center;
+            background-repeat  : no-repeat;
+            background-size    : $dispatch-image-width $dispatch-image-height;
+            height             : $dispatch-image-height;
+            margin             : 0 auto;
+            width              : 100%;
 
             &.flexnx-102 {
                 background-image: $dispatch-flexnx-102-background;
@@ -25,23 +27,30 @@ dispatch {
 
     .ezshuttle {
         .ezshuttle-image {
-            background-image: $dispatch-ezshuttle-background;
-            background-size : $dispatch-image-width $dispatch-image-height;
-            height          : $dispatch-image-height;
-            margin          : 0 auto;
-            width           : $dispatch-image-width;
+            background-image   : $dispatch-ezshuttle-background;
+            background-position: center;
+            background-repeat  : no-repeat;
+            background-size    : $dispatch-image-width $dispatch-image-height;
+            height             : $dispatch-image-height;
+            margin             : 0 auto;
+            width              : 100%;
         }
 
         .performances {
             .performances-image {
-                background-size: $dispatch-performances-image-width $dispatch-performances-image-height;
-                display        : inline-block;
-                height         : $dispatch-performances-image-height;
-                width          : $dispatch-performances-image-width;
+                background-position: center;
+                background-repeat  : no-repeat;
+                background-size    : $dispatch-performances-image-width $dispatch-performances-image-height;
+                display            : inline-block;
+                height             : $dispatch-performances-image-height;
+                margin             : 0 $hgap_;
+                width              : 90%;
+                @media only screen and (min-width: 1600px) {
+                    width: 45%;
+                }
 
                 &.performances-time {
                     background-image: $dispatch-performances-time-background;
-                    margin-right    : $hgap_;
                 }
 
                 &.performances-wait {

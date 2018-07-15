@@ -14,21 +14,8 @@ import {
     BaseService
 } from 'app/core';
 import {
-    AlertModal,
-    LoginModal
-} from 'app/modals';
-import {
-    AppEvent,
-    AppRoute,
-    User,
-    UserRole
+    AppRoute, AppEvent
 } from 'app/models';
-import {
-    AuthenticationService
-} from './auth.service';
-import {
-    EventService
-} from './event.service';
 import {
     StringService
 } from './string.service';
@@ -37,8 +24,6 @@ import {
 export class RouterService extends BaseService implements CanActivate, CanActivateChild {
 
     constructor(
-        private authService: AuthenticationService,
-        private eventService: EventService,
         private router: Router,
         private stringService: StringService
     ) {
@@ -57,8 +42,7 @@ export class RouterService extends BaseService implements CanActivate, CanActiva
         if (this.router.url === l) {
             return false;
         }
-        this.router.navigate(['{0}'.format(location)].concat(args));
-        // this.eventService.dispatch(AppEvent.SHOW_HEADER);
+        this.router.navigate([location].concat(args));
         return true;
     }
     public toUrl(url: string, forceHttps: boolean = false, newWindow: boolean = false): void {

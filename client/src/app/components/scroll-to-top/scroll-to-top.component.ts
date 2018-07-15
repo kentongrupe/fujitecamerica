@@ -11,8 +11,7 @@ import {
     AppEvent
 } from 'app/models/AppEvent';
 import {
-    EventService,
-    RouterService
+    EventService
 } from 'app/services';
 
 @Component({
@@ -27,18 +26,12 @@ export class ScrollToTopComponent extends BaseComponent {
     public scrollToTop: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(
-        private eventService: EventService,
-        private routerService: RouterService
+        private eventService: EventService
     ) {
         super('ScrollToTopComponent');
     }
 
     private _onClick(): void {
-        // if (!this.isNullOrEmpty(this.topRoute)) {
-        //     if (this.routerService.to(this.topRoute) === false) {
-        //         this.scrollToTop.emit(this.topRoute);
-        //     }
-        // }
-        this.eventService.dispatch(AppEvent.SCROLL_TO_TOP);
+        this.eventService.dispatch(AppEvent.SCROLL_TO_TOP, this.topRoute);
     }
 }

@@ -135,12 +135,11 @@ service-maintenance {
                         display       : flex;
                         flex          : 1;
                         flex-direction: column;
-                        height        : 335px;
+                        padding       : $vgap $hgap_;
 
                         & > div {
                             display       : flex;
                             flex-direction: column;
-                            margin        : auto;
 
                             & > div {
                                 display: flex;
@@ -158,8 +157,7 @@ service-maintenance {
                             }
 
                             & > p {
-                                margin: $hgap auto 0;
-                                width : 50%;
+                                margin: $hgap 0 0;
                             }
 
                         }
@@ -205,7 +203,6 @@ service-maintenance {
 
             .section-image {
                 & > div {
-                    height  : 475px;
                     position: relative;
 
                     & > div {

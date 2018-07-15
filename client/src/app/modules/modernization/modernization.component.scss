@@ -13,26 +13,19 @@ modernization {
 
             .benefits-div {
                 color         : $modernization-benefits-color;
-                display       : flex;
                 text-transform: uppercase;
 
-                .col {
-                    flex  : 1 1 auto;
-                    margin: 1px;
+                .row {
+                    margin: 2px 0;
 
-                    .row {
-                        background-color       : $modernization-benefits-background-color;
-                        display                : inline-grid;
-                        line-height            : 1.5;
-                        margin                 : 1px;
-                        padding                : $modernization-benefits-padding;
-                        text-align             : center;
-                        text-underline-position: under;
-                        width                  : 100%;
+                    div[class*="col-"] {
+                        padding-left : 1px;
+                        padding-right: 1px;
 
-                        span {
-                            text-decoration: underline;
-                            width          : 100%;
+                        .cell {
+                            background-color: $modernization-benefits-background-color;
+                            height          : 100%;
+                            padding         : $vgap_ $hgap_;
                         }
                     }
                 }
@@ -47,25 +40,14 @@ modernization {
                     padding: $vgap_ $hgap_;
                 }
 
-                & > div {
-                    display: flex;
-
-                    //
-                    @mixin _a() {
+                .row {
+                    div[class$='-5'] {
                         background-color: $white;
                         text-align      : left;
-                        width           : 48%;
-
-                        p {
-                            margin : 0;
-                            padding: 0;
-                        }
                     }
-                    @mixin _b() {
+
+                    div[class$='-7'] {
                         background-color: rgba(255,255,255,0.7);
-                        color           : $black;
-                        position        : relative;
-                        width           : 52%;
 
                         p {
                             font-size: 50px;
@@ -78,90 +60,83 @@ modernization {
                     }
 
                     &:first-of-type {
-                        & > div {
-                            &:first-of-type {
-                                @include _a();
-                            }
-
-                            &:last-of-type {
-                                @include _b();
-
-                                p {
-                                    right: 100px;
-                                }
-                            }
-                        }
-                    }
-
-                    &:last-of-type {
-                        & > div {
-                            &:first-of-type {
-                                @include _b();
-
-                                p {
-                                    left: 60px;
-                                }
-                            }
-
-                            &:last-of-type {
-                                @include _a();
+                        div[class$='-7'] {
+                            p {
+                                right     : $hgap_;
+                                text-align: right;
                             }
                         }
                     }
                 }
             }
 
-            .process-div {
-                background         : $modernization-process-background;
-                background-color   : $modernization-process-background-color;
-                background-position: center;
-                background-size    : $modernization-process-background-size;
-                border-left        : $modernization-process-border;
-                border-right       : $modernization-process-border;
-                height             : $modernization-process-height;
-                position           : relative;
+            .process {
+                @extend .padding-lr-0;
 
-                .process-box {
-                    background-color: $modernization-process-box-background-color;
-                    color           : $modernization-process-box-color;
-                    display         : inline-flex;
-                    font-weight     : $modernization-process-box-font-weight;
-                    height          : $modernization-process-box-height;
-                    padding         : $vgap $hgap;
-                    width           : $modernization-process-box-width;
+                & > .section {
+                    @extend .padding-lr-0;
+                }
 
-                    & > div {
-                        color      : $modernization-process-box-color;
-                        line-height: 1;
-                        text-align : left;
+                .process-div {
+                    background         : $modernization-process-background;
+                    background-color   : $modernization-process-background-color;
+                    background-position: center;
+                    background-size    : $modernization-process-background-size;
+                    border-left        : $modernization-process-border;
+                    border-right       : $modernization-process-border;
+                    height             : $modernization-process-height;
+                    position           : relative;
+
+                    .row {
+                        left    : $hgap_;
+                        position: absolute;
+                        right   : $hgap_;
 
                         &:first-of-type {
-                            border-right : $modernization-process-box-border;
-                            font-size    : $modernization-process-box0-font-weight;
-                            padding-right: $hgap;
+                            top: $hgap;
                         }
 
                         &:last-of-type {
-                            @include abs-position-tl(50%, $modernization-process-box1-left);
-                            font-size: $modernization-process-box1-font-weight;
-                            transform: translateY(-50%);
+                            bottom: $hgap;
                         }
-                    }
+                        @media only screen and (max-width: 1090px) {
+                            left : 9px;
+                            right: 9px;
+                        }
 
-                    &:nth-of-type(1) {
-                        @include abs-position-tl($modernization-process-box-vpos, $modernization-process-box-hpos);
-                    }
+                        .process-box {
+                            background-color: $modernization-process-box-background-color;
+                            color           : $modernization-process-box-color;
+                            display         : inline-flex;
+                            flex-wrap       : wrap;
+                            font-weight     : $modernization-process-box-font-weight;
+                            padding         : $vgap $hgap;
+                            position        : relative;
+                            width           : 35%;
 
-                    &:nth-of-type(2) {
-                        @include abs-position-tr($modernization-process-box-vpos, $modernization-process-box-hpos);
-                    }
+                            & > div {
+                                color      : $modernization-process-box-color;
+                                line-height: 1;
+                                text-align : left;
 
-                    &:nth-of-type(3) {
-                        @include abs-position-br($modernization-process-box-vpos, $modernization-process-box-hpos);
-                    }
+                                &:first-of-type {
+                                    border-right : $modernization-process-box-border;
+                                    font-size    : $modernization-process-box0-font-weight;
+                                    height       : 60px;
+                                    margin-right : $hgap_;
+                                    padding-right: $hgap_;
+                                    width        : 50px;
+                                }
 
-                    &:nth-of-type(4) {
-                        @include abs-position-bl($modernization-process-box-vpos, $modernization-process-box-hpos);
+                                &:last-of-type {
+                                    font-size: $modernization-process-box1-font-weight;
+                                }
+                            }
+                        }
+
+                        .spacer {
+                            width: 30%;
+                        }
                     }
                 }
             }
@@ -186,7 +161,7 @@ modernization {
                 }
 
                 .lets-modernize-america {
-                    @include abs-position-tl(220px, 220px);
+                    @include abs-position-tl(220px, 10%);
                     -webkit-background-clip: text;
                     -moz-background-clip   : text;
                     background-clip        : text;

@@ -5,6 +5,9 @@ import {
 import {
     BaseService
 } from 'app/core';
+import {
+    RouterService
+} from './router.service';
 
 declare const $;
 
@@ -12,23 +15,39 @@ declare const $;
 export class DOMService extends BaseService {
 
     private _isScrolling: boolean = false;
+    private _scrollTime: number = 1000;
 
-    constructor() {
+    constructor(
+        private routerService: RouterService
+    ) {
         super('DOMService');
     }
 
     public scrollIntoView(container: ElementRef, target: ElementRef): void {
         // target.nativeElement.scrollIntoView(true);
-        target.nativeElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'start'
-        });
-    }
-    public scrollToTop(container: ElementRef): void {
+        let t = $(target.nativeElement);
+        let c = t.parent();
+        let e = c.parent();
+        let scrollTop = container.nativeElement.scrollTop + t.position().top;
+
         $(container.nativeElement).animate({
-            scrollTop: '0'
-        }, 500);
+            scrollTop
+        }, this._scrollTime);
+
+        // target.nativeElement.scrollIntoView({
+        //     behavior: 'smooth',
+        //     block: 'start',
+        //     inline: 'start'
+        // });
+    }
+    public scrollToTop(container: ElementRef, route: string): void {
+        $(container.nativeElement).animate({
+            scrollTop: 0
+        }, this._scrollTime);
+
+        setTimeout(() => {
+            this.routerService.to(route);
+        }, this._scrollTime);
     }
 
     // private _scrollTo(container: ElementRef, target?: ElementRef): void {

@@ -20,6 +20,8 @@ elevators {
 
     .gearless {
         .section {
+            padding: 0;
+
             &.gearless-1 {
                 display: flex;
 
@@ -37,15 +39,19 @@ elevators {
             }
 
             &.gearless-2 {
-                border-left : $pmgl-border;
-                border-right: $pmgl-border;
-                display     : flex;
+                display: inline-block;
 
                 .pmgl-cell {
-                    border-bottom: $pmgl-border;
-                    display      : inline-block;
-                    flex         : 1;
-                    text-align   : center;
+                    border-bottom : $pmgl-border;
+                    border-left   : $pmgl-border;
+                    border-right  : $pmgl-border;
+                    display       : inline-block;
+                    text-align    : center;
+                    vertical-align: top;
+                    width         : 40%;
+                    @media only screen and (min-width: 1025px) {
+                        width: 20%;
+                    }
 
                     .pmgl-label {
                         background-color: $pmgl-label-background-color;
@@ -53,19 +59,19 @@ elevators {
                         font-size       : $pmgl-label-font-size;
                         height          : $pmgl-label-height;
                         line-height     : $pmgl-label-height;
-                        margin          : 0 1px;
                         text-align      : center;
                     }
 
                     .pmgl-image {
                         border : $pmgl-border;
-                        padding: $vgap $hgap;
+                        padding: $vgap_ $hgap_;
 
                         & > div {
-                            background-repeat: no-repeat;
-                            background-size  : contain;
-                            height           : $pmgl-image-height;
-                            width            : $pmgl-image-width;
+                            background-position: center;
+                            background-repeat  : no-repeat;
+                            background-size    : contain;
+                            height             : $pmgl-image-height;
+                            width              : $pmgl-image-width;
                         }
                     }
 
@@ -119,11 +125,13 @@ elevators {
             & > div {
                 & > div {
                     display   : flex;
+                    flex-wrap : wrap;
                     margin-top: $vgap_;
 
                     & > div {
                         @extend .flex-column;
-                        flex: 1;
+                        flex         : 1;
+                        margin-bottom: $vgap_;
 
                         &:not(:last-child) {
                             margin-right: $hgap_;
@@ -150,7 +158,8 @@ elevators {
     .geared {
         .section-image {
             & > div {
-                display: flex;
+                display  : flex;
+                flex-wrap: wrap;
 
                 & > div {
                     @extend .flex-column;

@@ -28,6 +28,7 @@ about {
         }
 
         .north-america {
+            @extend .padding-lr-0;
             background-color: $grey1;
             max-width       : initial;
 
@@ -69,6 +70,7 @@ about {
         }
 
         .operations {
+            @extend .padding-lr-0;
             max-width: initial;
 
             h1 {

@@ -147,6 +147,7 @@ section-header {
         &.menu-content-div {
             @include abs-position-tl(490px, $col-side-width);
             background: none;
+            right     : 0;
 
             .menu-title {
                 font-size     : $section-header-menu-font-size;
@@ -178,15 +179,24 @@ section-header {
                     }
                 }
             }
-            @mixin _section-header($mw1, $mw2:null, $mw3:null) {
-                 @media only screen and (max-width: $mw1){
+            @mixin _section-header($mw, $title:false) {
+                 @media only screen and (max-width: $mw){
                     * {
                         $h: $section-header-menu-line-height / 2;
-
-                        &:not(.menu-title) {
+                        @if $title == true {
                             height     : $h;
                             line-height: $h;
                         }
+                        @else {
+                            &:not(.menu-title) {
+                                height     : $h;
+                                line-height: $h;
+                            }
+                        }
+                    }
+
+                    .menu-title {
+                        margin: 0;
                     }
 
                     .menu-items-div {
@@ -200,38 +210,26 @@ section-header {
                         }
                     }
                 }
-                @if ($mw2 != null) {
-                     @media only screen and (max-width: $mw2){
-                        * {
-                            $h: $section-header-menu-line-height / 3;
+            }
 
-                            &:not(.menu-title) {
-                                height     : $h;
-                                line-height: $h;
-                            }
-                        }
+            &.about {
+                @include _section-header(1280px, true);
+            }
 
-                        .menu-items-div {
-                            padding-left : $hgap_;
-                            padding-right: $hgap_;
-
-                            .menu-items {
-                                .menu-item {
-                                    background-position-y: 2px;
-                                }
-                            }
-                        }
-                    }
-                }
-                @if ($mw3 != null) {
-                     @media only screen and (max-width: $mw3){
-                        right: 0;
-                    }
-                }
+            &.dispatch {
+                @include _section-header(1300px, true);
             }
 
             &.elevators {
-                @include _section-header(1538px, 1216px, 1111px);
+                @include _section-header(1330px);
+            }
+
+            &.maintenance {
+                @include _section-header(1100px);
+            }
+
+            &.modernization {
+                @include _section-header(1150px);
             }
         }
     }

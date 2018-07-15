@@ -29,6 +29,8 @@ export class AppRoute {
     public static HOME: string = '/home';
     public static INIT: string = '';
     public static INSTALLATION: string = '/installation';
+    public static INSTALLATION_EXPECTATIONS: string = '/installation/expectations';
+    public static INSTALLATION_OPERATIONS: string = '/installation/operations';
     public static LOCATIONS: string = '/locations';
     public static MAINTENANCE: string = '/maintenance';
     public static MAINTENANCE_MECHOANIC_ROUTES: string = '/maintenance/routes';

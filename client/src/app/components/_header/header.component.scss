@@ -58,7 +58,8 @@ app-header {
                                 margin     : $header-side-menu-link-margin;
 
                                 .link-label {
-                                    color: $header-menu-hover-color;
+                                    color         : $header-menu-hover-color;
+                                    text-transform: uppercase;
                                 }
                             }
                         }
@@ -79,8 +80,6 @@ app-header {
                             line-height: $header-height / 2;
 
                             .link-label {
-                                text-transform: uppercase;
-
                                 &:hover {
                                     color: $header-menu-hover-color;
                                 }

@@ -100,13 +100,7 @@
                     background         : $content;
                     background-position: center top;
                     background-repeat  : no-repeat;
-                    background-size    : 100% auto;
-                    @if ($min-width!=null) {
-                        background-size: auto 100%;
-                        @media only screen and (min-width: $min-width) {
-                            background-size: 100% auto;
-                        }
-                    }
+                    background-size    : cover;
                 }
             }
         }
@@ -139,8 +133,8 @@ $col-side-width: 250px;
 }
 
 .col-center {
-    max-width: $col-center-max-width;
-    width    : 100%;
+    // max-width: $col-center-max-width;
+    width: 100%;
 }
 
 .ellipsis {
@@ -164,6 +158,11 @@ $col-side-width: 250px;
 
 .margin-0-auto {
     margin: 0 auto;
+}
+
+.padding-lr-0 {
+    padding-left : 0;
+    padding-right: 0;
 }
 
 .text-overflow-ellipsis {
