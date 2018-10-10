@@ -115,3 +115,25 @@ body {
         }
     }
 }
+
+.login-link{
+    padding-left: 12px;
+    margin-left: 12px;
+    border-left: 1px solid #999;
+    margin-top: 14px;
+    height: 60px;
+}
+.login-link a{
+    display: block;
+    line-height: 1;
+    color: #3a3b3b;
+}
+.login-link a:hover{
+    color: #d01126;
+}
+.login-link a *{
+    vertical-align: bottom;
+}
+.login-link img{
+    margin-top: 5px;
+}

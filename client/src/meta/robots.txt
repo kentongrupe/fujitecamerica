@@ -1,3 +1,4 @@
-# robotstxt.org
+# webdev, change on live
 
-User-agent: *
+user-agent: * 
+disallow: / 

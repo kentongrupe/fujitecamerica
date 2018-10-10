@@ -44,6 +44,7 @@ export class AppRoute {
     public static PRIVACY_POLICY: string = '/privacy-policy';
     public static PORTFOLIO: string = '/portfolio';
     public static PORTFOLIO_ADDITIONAL: string = '/portfolio/additional';
+    public static RESOURCES: string = '/resources';
     public static PROPERTY_MANAGERS: string = '/property-managers';
     public static RECOMMENDATIONS: string = '/recommendations';
     public static SEARCH: string = '/search';
@@ -68,6 +69,9 @@ export class AppRoute {
         },
         {
             path: AppRoute.PORTFOLIO
+        },
+        {
+            path: AppRoute.RESOURCES
         },
         {
             path: AppRoute.SUPPORT

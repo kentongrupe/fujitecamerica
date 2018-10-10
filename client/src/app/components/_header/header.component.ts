@@ -58,7 +58,12 @@ export class AppHeaderComponent extends BaseNavRouteComponent implements OnInit 
             {
                 label: this._getString('portfolio', 'Portfolio'),
                 routerLink: AppRoute.PORTFOLIO
+            },
+            {
+                label: this._getString('resources', 'Resources'),
+                routerLink: AppRoute.RESOURCES
             }
+
         ];
         this._sideMenu = [
             {
